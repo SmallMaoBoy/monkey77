@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical">
+    <FrameLayout 
+        android:id="@+id/fl_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+        
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:background="@color/main_buttom" >
+
+        <LinearLayout
+            android:id="@+id/ll_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/iv_home"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/m_tab_home_selected" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:layout_below="@id/iv_home"
+                android:text="@string/home"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical" 
+            android:gravity="center"
+            >
+
+            <ImageView
+                android:id="@+id/iv_order"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/m_tab_category_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:text="@string/category"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/ll_me"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/iv_me"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/m_tab_my_normal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:text="@string/my"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

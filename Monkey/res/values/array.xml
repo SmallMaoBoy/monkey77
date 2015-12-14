@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fruit_categroy">
+        <item name="apple">苹果</item>
+        <item name="banana5">香蕉</item>
+        <item name="pair">梨</item>
+        <item name="gua">瓜类</item>
+        <item name="orange">柑、桔、橙</item>
+        <item name="mangguo">芒果</item>
+        <item name="huolongguo">火龙果</item>
+        <item name="berry">草莓、蓝莓</item>
+        <item name="boluo">菠萝、凤梨</item>
+        <item name="qiyiguo">奇异果、猕猴桃</item>
+        <item name="youzi">柚子</item>
+        <item ame="yezi">椰子</item>
+        <item ame="ningmeng">芒果</item>
+        <item ame="cherry">樱桃</item>
+        <item ame="longyan">龙眼</item>
+        <item ame="zao">枣</item>
+        <item ame="liulian">榴莲</item>
+        <item ame="qita">其他</item>
+    </string-array>
+    
+</resources>

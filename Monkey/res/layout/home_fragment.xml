@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_homefragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#55ECDCCF"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_homefragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55ECDCCF"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"            
+            android:background="@color/home_top" >
+
+            <TextView 
+                android:id="@+id/categroy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                style="@style/text_style1"
+                android:text="分类"/>
+            <ImageView
+                android:id="@+id/iv_shopping_cart"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:src="@drawable/icon_home_location" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gv_home_pics"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="10"
+            android:horizontalSpacing="5dp"
+            android:listSelector="@drawable/gridview_item"
+            android:numColumns="2"
+            android:verticalSpacing="5dp" >
+        </GridView>
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/car_btn"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/shopping_cart"
+        android:background="@drawable/car_btn_shape"/>
+
+</RelativeLayout>
