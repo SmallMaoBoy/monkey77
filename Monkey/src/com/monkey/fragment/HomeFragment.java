@@ -36,8 +36,9 @@ public class HomeFragment extends Fragment implements OnClickListener {
 
 	private View view;
 	private GridView gv;
-	private TextView  categroy;
+	private TextView categroy;
 	private ImageView iv_shopping_car;
+	private List<Item_gvmsg> Items;
 	// private int mywidth;
 	// private int myheight;
 	private int[] pics = new int[] { R.drawable.f1, R.drawable.f2,
@@ -67,7 +68,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		// mywidth = display.getWidth();
 		// myheight = display.getHeight();
 		gv = (GridView) view.findViewById(R.id.gv_home_pics);
-		gv.setAdapter(new MygvAdapter(pics, titles, prices));// 添加适配器
+		initData();
+		gv.setAdapter(new MygvAdapter());// 添加适配器
 		gv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -81,21 +83,15 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		return view;
 	}
 
+	public void initData() {
+		Items = new ArrayList<Item_gvmsg>();
+		for (int i = 0; i < pics.length; i++) {
+			Item_gvmsg item = new Item_gvmsg(pics[i], titles[i], prices[i]);
+			Items.add(item);
+		}
+	}
+
 	class MygvAdapter extends BaseAdapter {
-		private List<Item_gvmsg> Items;
-
-		public MygvAdapter() {
-			// TODO Auto-generated constructor stub
-		}
-
-		public MygvAdapter(int[] pics, String[] titles, String[] prices) {
-			// TODO Auto-generated method stub
-			Items = new ArrayList<Item_gvmsg>();
-			for (int i = 0; i < pics.length; i++) {
-				Item_gvmsg item = new Item_gvmsg(pics[i], titles[i], prices[i]);
-				Items.add(item);
-			}
-		}
 
 		@Override
 		public int getCount() {
@@ -116,7 +112,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		@Override
 		public long getItemId(int position) {
 			// TODO Auto-generated method stub
-			return position;
+			return 0;
 		}
 
 		@Override
@@ -162,8 +158,8 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		case R.id.categroy:
 			CategroyFragment categroyfragment = new CategroyFragment();
 			changeFragment(categroyfragment, "categroyfragment");
-			 Toast.makeText(getActivity(),
-			"默认Toast样式",Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity(), "默认Toast样式", Toast.LENGTH_SHORT)
+					.show();
 			break;
 		}
 
