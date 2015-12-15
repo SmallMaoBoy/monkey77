@@ -13,7 +13,7 @@ public class WelcomeActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.welcome_activity);
+		setContentView(R.layout.activity_welcome);
 	   Thread thread = new Thread(new WelcomeActivityThread(this));
 	   thread.start();    
 	}

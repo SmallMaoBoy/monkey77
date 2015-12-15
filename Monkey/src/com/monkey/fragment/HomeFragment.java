@@ -8,6 +8,7 @@ import com.example.monkey.R;
 import com.example.monkey.R.drawable;
 import com.example.monkey.R.id;
 import com.example.monkey.R.layout;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.monkey.activity.ActivityShowdetails;
 import com.monkey.pojo.Item_gvmsg;
 
@@ -39,6 +40,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	private TextView categroy;
 	private ImageView iv_shopping_car;
 	private List<Item_gvmsg> Items;
+	private SlidingMenu slidingMenu;
 	// private int mywidth;
 	// private int myheight;
 	private int[] pics = new int[] { R.drawable.f1, R.drawable.f2,
@@ -46,6 +48,11 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			R.drawable.f7, R.drawable.f8, R.drawable.f9, R.drawable.f10,
 			R.drawable.f11, R.drawable.f12, R.drawable.f13, R.drawable.f14,
 			R.drawable.f15, R.drawable.f16, R.drawable.f17, };
+	public HomeFragment(SlidingMenu slidingMenu) {
+		super();
+		this.slidingMenu = slidingMenu;
+	}
+
 	private String[] titles = new String[] { "»ÆÌÒ", "ºìèÖ×Ó", "Ó£ÌÒ", "ÆæÒì¹û", "Î÷¹Ï",
 			"Ã¢¹û", "ÇàÆ»¹û", "²ÝÝ®", "ÄûÃÊ", "É£é©", "É½Öñ", "ÆÏÌÑ", "Ïã½¶", "ÁñÁ«", "Î÷Ã·", "Ê¯Áñ",
 			"»ðÁú¹û" };
@@ -58,8 +65,9 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		view = inflater.inflate(R.layout.home_fragment, container, false);
+		view = inflater.inflate(R.layout.fragment_home, container, false);
 		categroy = (TextView) view.findViewById(R.id.categroy);
+		categroy.setOnClickListener(this);
 		iv_shopping_car = (ImageView) view.findViewById(R.id.iv_shopping_cart);
 		iv_shopping_car.setOnClickListener(this);
 		// WindowManager wm = getActivity().getWindowManager();//»ñÈ¡ÆµÄ»´óÐ¡
@@ -128,7 +136,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			TextView msg_price = (TextView) view
 					.findViewById(R.id.item_gvmsg_price);
 			Item_gvmsg item_gvmsg = Items.get(position);
-			msg_pic.setImageResource(item_gvmsg.getPic());
+			msg_pic.setBackgroundResource(item_gvmsg.getPic());
 			msg_title.setText(item_gvmsg.getTitle());
 			msg_price.setText(item_gvmsg.getPrice());
 			return view;
@@ -155,7 +163,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.categroy:
-			
+			slidingMenu.showMenu();
 			Toast.makeText(getActivity(), "Ä¬ÈÏToastÑùÊ½", Toast.LENGTH_SHORT)
 					.show();
 			break;
