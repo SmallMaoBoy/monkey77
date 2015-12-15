@@ -60,7 +60,6 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		view = inflater.inflate(R.layout.home_fragment, container, false);
 		categroy = (TextView) view.findViewById(R.id.categroy);
-		categroy.setOnClickListener(this);
 		iv_shopping_car = (ImageView) view.findViewById(R.id.iv_shopping_cart);
 		iv_shopping_car.setOnClickListener(this);
 		// WindowManager wm = getActivity().getWindowManager();//获取频幕大小
@@ -156,8 +155,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.categroy:
-			CategroyFragment categroyfragment = new CategroyFragment();
-			changeFragment(categroyfragment, "categroyfragment");
+			
 			Toast.makeText(getActivity(), "默认Toast样式", Toast.LENGTH_SHORT)
 					.show();
 			break;

@@ -22,8 +22,8 @@ public class CategroyFragment extends Fragment {
 	private View view;
 	private ListView lv_categroy;
 	private String[] names = new String[] { "Æ»¹û", "Ïã½¶", "Àæ", "¹ÏÀà", "¸Ì¡¢½Û¡¢³È",
-			"Ã¢¹û", "»ğÁú¹û", "²İİ®¡¢À¶İ®", "²¤ÂÜ¡¢·ïÀæ", "ÆæÒì¹û¡¢â¨ºïÌÒ", "èÖ×Ó", "Ò¬×Ó", "Ã¢¹û", "Ó£ÌÒ",
-			"ÁúÑÛ", "Ôæ", "ÁñÁ«", "ÆäËû" };
+			"Ã¢¹û", "»ğÁú¹û", "²İİ®¡¢À¶İ®", "²¤ÂÜ", "ÆæÒì¹û", "èÖ×Ó", "Ã¢¹û", "Ó£ÌÒ",
+			"Ôæ", "ÁñÁ«", "ÆäËû" };
 	private int[] pics = new int[] { R.drawable.icon_home_title,
 			R.drawable.icon_home_title, R.drawable.icon_home_title,
 			R.drawable.icon_home_title, R.drawable.icon_home_title,
@@ -32,8 +32,8 @@ public class CategroyFragment extends Fragment {
 			R.drawable.icon_home_title, R.drawable.icon_home_title,
 			R.drawable.icon_home_title, R.drawable.icon_home_title,
 			R.drawable.icon_home_title, R.drawable.icon_home_title,
-			R.drawable.icon_home_title, R.drawable.icon_home_title,
-			R.drawable.icon_home_title };
+			R.drawable.icon_home_title
+			};
 	private List<CategroyItem> categroy_items = new ArrayList<CategroyItem>();
 
 	@Override

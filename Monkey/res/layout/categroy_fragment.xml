@@ -3,7 +3,8 @@
     android:id="@+id/ll_categroyfragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="#8CF794" >
     <ListView 
         android:id="@+id/lv_categroy"
         android:layout_width="match_parent"
