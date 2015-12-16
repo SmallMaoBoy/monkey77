@@ -1,4 +1,4 @@
-/*==============================================================*/
+﻿/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
 /* Created on:     2015/12/15 下午 5:26:11                        */
 /*==============================================================*/
@@ -181,7 +181,6 @@ create table t_user
    id                   int not null,
    sex                  tinyint comment '性别',
    mobile               varchar(20) comment '手机号码',
-   account              varchar(25) comment '账号',
    password             varchar(64) comment '密码',
    primary key (id)
 );

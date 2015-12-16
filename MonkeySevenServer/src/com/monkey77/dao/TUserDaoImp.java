@@ -21,7 +21,7 @@ public class TUserDaoImp extends HibernateDaoSupport implements ITUserDao {
 	@Override
 	public boolean isRegistered(String number) {
 		// TODO Auto-generated method stub
-		return (this.getHibernateTemplate().find("from Tuser u where u.mobile =?",number))==null?false:true;
+		return (this.getHibernateTemplate().find("from TUser u where u.mobile =?",number)).isEmpty()?false:true;
 	}
 
 }

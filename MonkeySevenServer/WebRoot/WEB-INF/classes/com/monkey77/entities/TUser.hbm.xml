@@ -20,11 +20,6 @@
                 <comment>手机号码</comment>
             </column>
         </property>
-        <property name="account" type="java.lang.String">
-            <column name="account" length="25">
-                <comment>账号</comment>
-            </column>
-        </property>
         <property name="password" type="java.lang.String">
             <column name="password" length="64">
                 <comment>密码</comment>

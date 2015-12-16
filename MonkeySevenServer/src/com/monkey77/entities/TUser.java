@@ -14,7 +14,6 @@ public class TUser implements java.io.Serializable {
 	private Integer id;
 	private Short sex;
 	private String mobile;
-	private String account;
 	private String password;
 	private Set TOrders = new HashSet(0);
 	private Set TCarts = new HashSet(0);
@@ -37,7 +36,6 @@ public class TUser implements java.io.Serializable {
 		this.id = id;
 		this.sex = sex;
 		this.mobile = mobile;
-		this.account = account;
 		this.password = password;
 		this.TOrders = TOrders;
 		this.TCarts = TCarts;
@@ -68,14 +66,6 @@ public class TUser implements java.io.Serializable {
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
-
-	public String getAccount() {
-		return this.account;
-	}
-
-	public void setAccount(String account) {
-		this.account = account;
 	}
 
 	public String getPassword() {
@@ -113,7 +103,7 @@ public class TUser implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "TUser [id=" + id + ", sex=" + sex + ", mobile=" + mobile
-				+ ", account=" + account + ", password=" + password + "]";
+				+  ", password=" + password + "]";
 	}
 	
 	

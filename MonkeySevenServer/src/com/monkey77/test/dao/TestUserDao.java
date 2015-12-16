@@ -21,7 +21,6 @@ public class TestUserDao {
 	@Test
 	public void testSaveUser(){
 		TUser user=new TUser();
-		user.setAccount("111");
 		user.setMobile("13631315179");
 		user.setPassword("123456");
 		user.setSex((short)1);
