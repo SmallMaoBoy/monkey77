@@ -15,7 +15,7 @@ public class TestUserDao {
 	public void init(){
 		ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
 		userDao=(TUserDaoImp)ac.getBean("UserDao");
-		System.out.println("userdao is initing...");
+		//System.out.println("userdao is initing...");
 	}
 	
 	@Test
