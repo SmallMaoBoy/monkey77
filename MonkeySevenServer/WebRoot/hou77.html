@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>猴七七</title>
+<script language="javascript" src="bootstrap/js/jquery.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/myhou77.css" rel="stylesheet" type="text/css">
+
+<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default ">
+  <div class="container-fluid ">
+<div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse" id="navbar-1" >
+        <ul class="nav navbar-nav navbar-right">
+        <li><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+        <li id="myfruit"><a href="#">[我的果园]</a> 
+        
+         <ul id="menu" class="dropdown-menu">
+        <li><a href="order.html">我的订单</a></li>
+        <li><a href="coupon.html">优惠券</a></li>
+        <li><a href="document.html">个人信息</a></li>
+        <li><a href="shopping.html">我的购物车</a></li>
+        </ul>
+        
+       </li>
+        
+        <li id="phone_fruit"><a href="#"><img src="imgs/mobile_phone.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;手机果园</a>
+        <div id="menu_phone" class="dropdown-menu">
+        
+        <img src="imgs/t01c6afc001802f0b9a.png" style="height:150px; width:150px" />
+        </div>
+        </li>
+        <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
+        <li><a herf="#">
+         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
+	     <option value="gd">广东省</option>
+         <option value="hb">湖北省</option>
+         </select>
+         <select id="city" style="border:hidden;background-color:#F8f8f8" >
+	     <option value="gz">广州市</option>
+         <option value="sz">深圳市</option>
+         <option value="jy">揭阳市</option>
+         <option value="zj">湛江市</option>
+         <option value="jm">江门市</option>
+         <option value="yf">云浮市</option>
+         <option value="yj">阳江市</option>
+         </select></a>
+        </li>   
+      </ul>
+    </div>
+   </div>
+  </nav>
+<div id="header-ma">
+<img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="width:100px;height:100px;" />
+<img src="imgs/zi.jpg"  style="width:150px;height:50px;" />
+</div>
+<div >
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-left:80px;float:left;padding-top:40px;" >
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" style="width:500px">
+        </div>
+        <button type="submit" class="btn btn-default" style="background-color:#093;color:#FFF;width:90px;">搜索</button>
+      </form>
+    </div>
+   <div id="select-line" >
+    <ul class="se-line">
+        <li>热门搜索</li>
+        <li><a href="#">苹果</a></li>
+        <li><a href="#">香蕉</a></li>
+        <li><a href="#">梨</a></li>
+        <li><a href="#">西瓜</a></li>
+        <li><a href="#">樱桃</a></li>
+        <li><a href="#">哈密瓜</a></li>
+        <li><a href="#">火龙果</a></li>
+    </ul>
+    </div>
+    <div style="clear:both;height:100%;"></div>
+   </div>
+  <div class="line-ma container">
+	<div class="container-fluid">
+	<!--轮播图：分成三大部分-->
+	<div id="c1" class="carousel slide" data-ride="carousel">
+    	<!--轮播图的底下指示小图标-->
+		<ol class="carousel-indicators">
+            <!--data-target是指向父标签中的id-->
+            <li data-target="#c1" data-slide-to="0" class="active"></li>
+            <li data-target="#c1" data-slide-to="1"></li>
+            <li data-target="#c1" data-slide-to="2"></li>
+        </ol>
+        
+		<!--轮播图中的图片-->
+        <div class="carousel-inner" role="listbox">
+        	<div class="item active">
+            	<img src="imgs/1446544453_pic.png" class="img-responsive" style="width:1200px;">
+            </div>
+            <div class="item">
+            	<img src="imgs/1445830519_pic.jpg" class="img-responsive"style="width:1200px;">
+            </div>
+            <div class="item">
+            	<img src="imgs/1446692884_pic.jpg" class="img-responsive"style="width:1200px;">
+            </div>
+        </div>
+        
+        
+        <!--轮播图的左右控制器--> 
+        <a href="#c1" class="left carousel-control" role="button" data-slide="prev" >
+        	<span class="glyphicon glyphicon-chevron-left"></span>
+        </a> 
+        <a href="#c1" class="right carousel-control" role="button" data-slide="next">
+        	<span class="glyphicon glyphicon-chevron-right"></span>
+            </a> 
+    </div>
+</div> 
+</div>
+<div class="tehui container">
+<hr size="1" noshade style="border:1px solid #AA208B;">
+<h3 style="color:#AA208B; font-weight:900">今日特惠</h3>
+</div>
+
+<div class="container" style="margin:1px auto">
+ <div class="row" >
+  <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="thumbnail">
+      <img src="imgs/1445841989_pic.jpg" />
+    </div>
+  </div>
+   <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="thumbnail">
+      <img src="imgs/1446700692_pic.jpg" />
+    </div>
+  </div>
+   <div class="col-xs-12 col-sm-6 col-lg-4">
+    <div class="thumbnail">
+      <img src="imgs/1446619085_pic.jpg" />
+    </div>
+  </div>
+ 
+</div> 
+</div>
+
+
+  <div class="container" style="margin-top:5px" >
+    <div class="line2 " id="choose" >
+    <ul class="se-line">
+        <li class="ac"><a href="#">默认顺序</a></li>
+        <li><a href="#">价格从高到底</a></li>
+        <li><a href="#">价格从低到高</a></li>
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="ac"><a href="#">全部</a></li>
+            <li><a href="#">国产水果</a></li>
+            <li><a href="#">进口水果</a></li>
+          </ul>
+        </li>
+    </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+
+  
+  
+<div class="container" style="margin:10px auto">
+ <div class="row" >
+  <div class="col-xs-12 col-sm-6 col-lg-3">
+    <div class="thumbnail">
+      <img src="imgs/618829a034e67bc2c05baf00f50b5bc8.jpg" />
+      <div class="caption">
+        <h4>猕猴桃</h4>
+        <p>¥12.0/kg</p>
+        <p><a href="buy.html" class="btn btn-primary" role="button">立刻购买</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p>
+      </div>
+    </div>
+  </div>
+   <div class="col-xs-12 col-sm-6 col-lg-3">
+    <div class="thumbnail">
+      <img src="imgs/a5.jpg" />
+      <div class="caption">
+        <h4>水蜜桃</h4>
+        <p>¥12.0/kg</p>
+        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p>
+      </div>
+    </div>
+  </div>
+   <div class="col-xs-12 col-sm-6 col-lg-3">
+    <div class="thumbnail">
+      <img src="imgs/a7.jpg" />
+      <div class="caption">
+        <h4>猕猴桃</h4>
+        <p>¥12.0/kg</p>
+        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p>
+      </div>
+    </div>
+  </div>
+   <div class="col-xs-12 col-sm-6 col-lg-3">
+    <div class="thumbnail">
+      <img src="imgs/thumb.jpg"/>
+      <div class="caption">
+        <h4>樱桃</h4>
+        <p>¥48.0/kg&nbsp;&nbsp;&nbsp; <img src="imgs/2d8b57e5a2e85b24f04029d6c81649b7.jpg" style="width:60px;height:30px;"/></p>
+        
+        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a href="#" class="btn btn-default" role="button">加入购物车</a></p>
+      </div>
+    </div>
+  </div>
+</div> 
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;">
+  <div class="container">
+   <a href="shopping.html"> <img src="imgs/b974c804d889af769b3cc9fe2b54541f.png" style="width:75px;height:75px;" /></a>
+   <div style=" position:fixed; right:50px; bottom:10px; width:20px; height:100px; cursor:pointer"><a href="#"><img src="imgs/19_avatar_big.jpg" /></a></div>
+  </div>
+  
+</nav>
+
+
+<div class="container">
+<nav style="margin:0px auto;text-align:center;">
+  <ul class="pagination">
+ 	<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
+<div class="goods visible-lg" id="foot1">
+              <div class="container">
+                  <div class="line"><img src="imgs/foot_a1.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a2.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a3.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a4.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a5.jpg"></div>
+              </div>
+         </div>
+         
+<div class="foot visible-lg" id="foot2" style="padding-top:20px; padding-bottom:200px ">
+<div class="pageFooter">
+	<div class="middle" style="padding-left:40px">
+		<ul class="title1">
+            <li><img src="imgs/11.png"/></li>
+			<li style="padding-left:110px">4009-111-111</li>
+			<li style="padding-left:80px">周一至周日8:30-22:00</li>
+		</ul>
+	</div>
+	<div class="right" >
+		<ul class="title1">
+			<li class="title">购物指南</li>
+						<li><a rel="nofollow" href="#" target="_blank">积分制度</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">会员介绍</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">购物流程</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">常见问题</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">配送服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">开箱验货</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送运费</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送范围</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">支付方式</li>
+			  <li><a rel="nofollow" href="#" target="_blank">货到付款</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">在线支付</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">优选卡</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">发票制度</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title" >售后服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">退款说明</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货流程</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">隐私条款</a></li>
+					</ul>
+	</div>
+	<div >
+        <ul class="title1">
+          <li style="float:left; font-weight:700">手机客户端:</a></li>
+          <li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png"/></li>
+        </ul>
+      </div>
+</div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 150px;" >
+        账号：<input id="input_account" type="text" /><br/>
+        密码：<input id="input_paswd"    type="password" />
+        
+      </div>
+      <div style="margin-left:350px;color:#669933"><a href="#" >忘记密码></a></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">登陆</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 120px;" >
+        手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/>
+              <input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
+        手机验证码：<input id="re_number" class="enroll" type="text"  /><br/>
+        设置密码：<input id="password" class="enroll"   type="text" style="margin-left:18px"/><br/>
+        确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">注册</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+<script language="javascript">
+//jquery代码
+$('.carousel').carousel({
+  interval: 2000
+})
+   $("#myfruit").hover(function(){
+	  
+       $("#menu").toggle();
+	   });
+   $("#phone_fruit").hover(function(){
+	  
+	   $("#menu_phone").toggle();
+	   });
+    $("#place").hover(function(){
+	  
+	   $("#menu_place").toggle();
+	   });
+</script>
+<script language="javascript">
+	var city = document.getElementById("city");
+	
+	function changeCity(){
+		//清除city中的option对象
+		var options = city.getElementsByTagName("option");
+		for(var i=options.length-1;i>=0;i--){
+			city.removeChild(options[i]);
+		}
+		//得到	provice的值
+		var provice = document.getElementById("provice").value;
+		if(provice=='gd'){
+			/*var opt1 = document.createElement("option");
+			opt1.value = "gz";
+			opt1.innerHTML = "广州市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "sz";
+			opt2.innerHTML = "深圳市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);*/
+			
+			var opt1 = new Option("广州市","gz");
+			var opt2 = new Option("深圳市","sz");
+			var opt3 = new Option("揭阳市","jy");
+			var opt4 = new Option("湛江市","zj");
+			var opt5 = new Option("江门市","jm");
+			var opt6 = new Option("云浮市","yf");
+			var opt7 = new Option("阳江市","yj");
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
+			
+		}else if(provice=="hb"){
+			var opt1 = document.createElement("option");
+			opt1.value = "wh";
+			opt1.innerHTML = "武汉市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "xg";
+			opt2.innerHTML = "孝感市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			
+		}
+		
+		//向city中增加相应option对象
+		
+	}
+	
+	initProvince(getElementByName("user.province"), "");
+    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
+</script>
+
