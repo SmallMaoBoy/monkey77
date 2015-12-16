@@ -110,4 +110,11 @@ public class TUser implements java.io.Serializable {
 		this.TGoods = TGoods;
 	}
 
+	@Override
+	public String toString() {
+		return "TUser [id=" + id + ", sex=" + sex + ", mobile=" + mobile
+				+ ", account=" + account + ", password=" + password + "]";
+	}
+	
+	
 }
