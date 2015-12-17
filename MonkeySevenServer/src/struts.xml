@@ -10,7 +10,7 @@
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<include file="struts-default.xml" />
 	<package name="json" extends="json-default">
-		<action name="RegisterAction" class="RegisterAction" method="isExistMobile">
+		<action name="RegisterAction_*" class="RegisterAction" method="{1}">
 			<result type="json">
 				<param name="root">map</param>
 			</result>

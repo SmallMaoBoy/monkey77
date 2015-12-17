@@ -9,8 +9,15 @@ import com.opensymphony.xwork2.Action;
 
 public class RegisterAction {
 	private IUserService userService;
-	private Map<String, String> map;  
+	private Map<String, String> map;
+	private String mobile;
 	
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public Map<String, String> getMap() {
 		return map;
 	}
@@ -23,8 +30,10 @@ public class RegisterAction {
 	}
 
 	public String isExistMobile() throws IOException{
+		System.out.println(mobile);
 		map = new HashMap<String, String>();
-		map.put("statusCode", userService.isExistMobile("136"));
+		map.put("statusCode", userService.isExistMobile(mobile));
+		System.out.println(map);
 		return Action.SUCCESS;
 	}
 }
