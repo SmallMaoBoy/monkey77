@@ -1,16 +1,13 @@
-package com.monkey77.test.sms;
+package com.monkey77.utils;
 
 import java.util.HashMap;
 import java.util.Set;
 
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 
-public class SDKTestSendTemplateSMS {
+public class SMSSender {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
+	public static void sendSMS(String mobile,String indetifyingCode){
 		HashMap<String, Object> result = null;
 
 		//初始化SDK
@@ -28,7 +25,7 @@ public class SDKTestSendTemplateSMS {
 		//*ACOUNT SID和AUTH TOKEN在登陆官网后，在“应用-管理控制台”中查看开发者主账号获取*
 		//*参数顺序：第一个参数是ACOUNT SID，第二个参数是AUTH TOKEN。                   *
 		//*******************************************************************************
-		restAPI.setAccount("aaf98f8951aa81e70151ab476182021c", "e061891d957b4ded8ad0ce2edd5533f1");
+		restAPI.setAccount(PropertiesUtil.getValue("/SMS_indetifyingCode.properties", "ACOUNTSID"),PropertiesUtil.getValue("/SMS_indetifyingCode.properties", "AUTHTOKEN"));
 		
 		
 		//******************************注释*********************************************
@@ -36,7 +33,7 @@ public class SDKTestSendTemplateSMS {
 		//*测试开发可使用“测试Demo”的APP ID，正式上线需要使用自己创建的应用的App ID     *
 		//*应用ID的获取：登陆官网，在“应用-应用列表”，点击应用名称，看应用详情获取APP ID*
 		//*******************************************************************************
-		restAPI.setAppId("8a48b55151aa783b0151ab48bdd50222");
+		restAPI.setAppId(PropertiesUtil.getValue("/SMS_indetifyingCode.properties", "AppID"));
 		
 		
 		//******************************注释****************************************************************
@@ -53,7 +50,7 @@ public class SDKTestSendTemplateSMS {
 		//*result = restAPI.sendTemplateSMS("13800000000","1" ,new String[]{"6532","5"});																		  *
 		//*则13800000000手机号收到的短信内容是：【云通讯】您使用的是云通讯短信模板，您的验证码是6532，请于5分钟内正确输入     *
 		//*********************************************************************************************************************
-		result = restAPI.sendTemplateSMS("13631315798","1" ,new String[]{"888888","88"});
+		result = restAPI.sendTemplateSMS(mobile,"1" ,new String[]{indetifyingCode,PropertiesUtil.getValue("/SMS_indetifyingCode.properties", "periodOfValidity")});
 		
 		System.out.println("SDKTestGetSubAccounts result=" + result);
 		if("000000".equals(result.get("statusCode"))){
@@ -69,5 +66,5 @@ public class SDKTestSendTemplateSMS {
 			System.out.println("错误码=" + result.get("statusCode") +" 错误信息= "+result.get("statusMsg"));
 		}
 	}
-
+	
 }

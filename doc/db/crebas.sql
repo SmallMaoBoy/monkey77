@@ -1,6 +1,6 @@
-﻿/*==============================================================*/
+/*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/15 下午 5:26:11                        */
+/* Created on:     2015/12/16 下午 11:58:11                       */
 /*==============================================================*/
 
 
@@ -24,6 +24,8 @@ drop table if exists t_shop;
 
 drop table if exists t_shop_good;
 
+drop table if exists t_sms_indetifying_code;
+
 drop table if exists t_user;
 
 drop table if exists t_user_good;
@@ -39,6 +41,7 @@ create table t_admin
    account              varchar(25) not null comment '账号',
    password             varchar(64) not null comment '密码',
    role                 tinyint not null comment '1代表超级管理员、2代表采购员、3代表店员',
+   remarks              varchar(200) comment '备注',
    primary key (id)
 );
 
@@ -172,6 +175,19 @@ create table t_shop_good
 );
 
 alter table t_shop_good comment 't_shop_good';
+
+/*==============================================================*/
+/* Table: t_sms_indetifying_code                                */
+/*==============================================================*/
+create table t_sms_indetifying_code
+(
+   id                   int not null,
+   mobile               varchar(20) not null comment '手机号码',
+   indetifying_code     varchar(10) not null comment '验证码',
+   primary key (id)
+);
+
+alter table t_sms_indetifying_code comment 't_sms_indetifying_code';
 
 /*==============================================================*/
 /* Table: t_user                                                */

@@ -14,4 +14,11 @@
 	<bean id="UserDao" class="com.monkey77.dao.TUserDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	
+	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
+		<property name="userDao" ref="UserDao"></property>
+	</bean>
+	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
+		<property name="userService" ref="UserService" ></property>
+	</bean>
 </beans>
