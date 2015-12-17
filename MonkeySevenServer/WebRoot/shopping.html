@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>购物车</title>
+<script language="javascript" src="bootstrap/js/jquery.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/shopping.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default ">
+  <div class="container-fluid ">
+<div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse" id="navbar-1" >
+        <ul class="nav navbar-nav navbar-right">
+        <li><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+        <li id="myfruit"><a href="#">[我的果园]</a> 
+        
+        <ul id="menu" class="dropdown-menu">
+        <li><a href="order.html">我的订单</a></li>
+        <li><a href="coupon.html">优惠券</a></li>
+        <li><a href="document.html">个人信息</a></li>
+        <li><a href="shopping.html">我的购物车</a></li>
+        </ul>
+        
+       </li>
+        
+        <li id="phone_fruit"><a href="#"><img src="imgs/mobile_phone.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;手机果园</a>
+        <div id="menu_phone" class="dropdown-menu">
+        
+        <img src="imgs/t01c6afc001802f0b9a.png" style="height:150px; width:150px" />
+        </div>
+        </li>
+        <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
+        <li><a herf="#">
+         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
+	     <option value="gd">广东省</option>
+         <option value="hb">湖北省</option>
+         </select>
+         <select id="city" style="border:hidden;background-color:#F8f8f8" >
+	     <option value="gz">广州市</option>
+         <option value="sz">深圳市</option>
+         <option value="jy">揭阳市</option>
+         <option value="zj">湛江市</option>
+         <option value="jm">江门市</option>
+         <option value="yf">云浮市</option>
+         <option value="yj">阳江市</option>
+         </select></a>
+        </li>   
+      </ul>
+    </div>
+   </div>
+  </nav>
+  
+       <div class="sp_table container" style="width:80%">
+            <table class="table">
+            <tr>
+            <div class="goods " >
+              
+             </div>
+             </tr>
+             
+              <tr>
+              <div class="sp_1 " >
+              <h3 style="float:left; margin-left:20px">我的购物车</h3>
+              <img src="imgs/购物车进度条.png" style="float:right;margin-right:20px;" />
+             </div>
+              </tr>
+              
+              <tr class="sp_2">
+              <td style=" margin-left:20px">图片</td>
+              <td>商品</td>
+              <td>规格</td>
+              <td>原价</td>
+              <td>现价</td>
+              <td>数量</td>
+              <td>小计</td>
+              <td>操作</td>
+             
+              </tr>
+              
+              <tr>
+              <td > <img src="imgs/apple.jpg" class="sp_img"/></td>
+              <td>进口红苹果</td>
+              <td>1kg</td>
+              <td>￥69.00</td>
+              <td>￥59.00</td>
+              <td><div id="count" style="margin-left:0px;float:left; margin-right:30px ">  
+			        <span><img onclick="subtract()" src="imgs/bag_close.gif" style="height:24px"></span>
+				    <span><input id="buy_num" type="text" value="1" readonly="readonly"></span>
+				    <span><img onclick="add()"src="imgs/bag_open.gif"  style="height:24px"></span>
+                       </div></td>
+              <td>￥118.00</td>
+              <td><a href="#">删除</a></td>
+              </tr>
+            
+            </table>
+           <!-- <table class="table">
+                        
+                        <tr  >
+                       <div class="goods " >
+              
+                         </div>
+                        </tr>
+                        
+                       <tr  >
+                        <div class="sp_1 " >
+              <h3 style="float:left; margin-left:20px">我的购物车</h3>
+              <img src="imgs/购物车进度条.png" style="float:right;margin-right:20px;" />
+             </div>
+                        </tr>
+                        
+                        <tr  >
+                        <div class="sp_2 " >
+              
+                       </div>
+                        </tr>
+                        <tr
+                        
+                        </table>-->
+          </div>
+          
+          
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 150px;" >
+        账号：<input id="input_account" type="text" /><br/>
+        密码：<input id="input_paswd"    type="password" />
+        
+      </div>
+      <div style="margin-left:350px;color:#669933"><a href="#" >忘记密码></a></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">登陆</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 120px;" >
+        手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/>
+              <input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
+        手机验证码：<input id="re_number" class="enroll" type="text"  /><br/>
+        设置密码：<input id="password" class="enroll"   type="text" style="margin-left:18px"/><br/>
+        确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button type="button" class="btn btn-primary">注册</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+ <script type="text/javascript">
+					function add(){
+						var co= document.getElementById("buy_num");
+						n=Number(co.value)+1;
+						document.getElementById("buy_num").value=n;
+
+					}
+						function subtract(){
+						var co= document.getElementById("buy_num");
+						n=Number(co.value)-1;
+						if(n<=0){n=0;}
+						document.getElementById("buy_num").value=n;
+						}
+						$(document).ready(function(e) {
+                            $('.detail').click(function(){
+								$(this).parent().find('>button').removeClass("active");
+								$(this).addClass("active");
+							}
+								)
+                        });
+					</script>
+</html>
+<script language="javascript">
+//jquery代码
+$('.carousel').carousel({
+  interval: 2000
+})
+   $("#myfruit").hover(function(){
+	  
+       $("#menu").toggle();
+	   });
+   $("#phone_fruit").hover(function(){
+	  
+	   $("#menu_phone").toggle();
+	   });
+    $("#place").hover(function(){
+	  
+	   $("#menu_place").toggle();
+	   });
+</script>
+<script language="javascript">
+	var city = document.getElementById("city");
+	
+	function changeCity(){
+		//清除city中的option对象
+		var options = city.getElementsByTagName("option");
+		for(var i=options.length-1;i>=0;i--){
+			city.removeChild(options[i]);
+		}
+		//得到	provice的值
+		var provice = document.getElementById("provice").value;
+		if(provice=='gd'){
+			/*var opt1 = document.createElement("option");
+			opt1.value = "gz";
+			opt1.innerHTML = "广州市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "sz";
+			opt2.innerHTML = "深圳市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);*/
+			
+			var opt1 = new Option("广州市","gz");
+			var opt2 = new Option("深圳市","sz");
+			var opt3 = new Option("揭阳市","jy");
+			var opt4 = new Option("湛江市","zj");
+			var opt5 = new Option("江门市","jm");
+			var opt6 = new Option("云浮市","yf");
+			var opt7 = new Option("阳江市","yj");
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
+			
+		}else if(provice=="hb"){
+			var opt1 = document.createElement("option");
+			opt1.value = "wh";
+			opt1.innerHTML = "武汉市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "xg";
+			opt2.innerHTML = "孝感市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			
+		}
+		
+		//向city中增加相应option对象
+		
+	}
+	
+	initProvince(getElementByName("user.province"), "");
+    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
+</script>
+

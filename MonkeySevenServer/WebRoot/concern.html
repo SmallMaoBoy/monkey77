@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>我的余额</title>
+<script language="javascript" src="bootstrap/js/jquery.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/concern.css" rel="stylesheet" type="text/css">
+
+<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-default ">
+  <div class="container-fluid ">
+<div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse" id="navbar-1" >
+        <ul class="nav navbar-nav navbar-right">
+        <li><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+        <li id="myfruit"><a href="#">[我的果园]</a> 
+        
+         <ul id="menu" class="dropdown-menu">
+        <li><a href="order.html">我的订单</a></li>
+        <li><a href="coupon.html">优惠券</a></li>
+        <li><a href="document.html">个人信息</a></li>
+        <li><a href="shopping.html">我的购物车</a></li>
+        </ul>
+        
+       </li>
+        
+        <li id="phone_fruit"><a href="#"><img src="imgs/mobile_phone.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;手机果园</a>
+        <div id="menu_phone" class="dropdown-menu">
+        
+        <img src="imgs/t01c6afc001802f0b9a.png" style="height:150px; width:150px" />
+        </div>
+        </li>
+        <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
+        <li><a herf="#">
+         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
+	     <option value="gd">广东省</option>
+         <option value="hb">湖北省</option>
+         </select>
+         <select id="city" style="border:hidden;background-color:#F8f8f8" >
+	     <option value="gz">广州市</option>
+         <option value="sz">深圳市</option>
+         <option value="jy">揭阳市</option>
+         <option value="zj">湛江市</option>
+         <option value="jm">江门市</option>
+         <option value="yf">云浮市</option>
+         <option value="yj">阳江市</option>
+         </select></a>
+        </li>   
+      </ul>
+    </div>
+   </div>
+  </nav>
+
+
+<div class="container">
+<div class="user-box-left" style="margin-bottom:50px;float:left;">
+   <h4><a href="my.html">我的账户</a></h4>
+       <ul>
+            <li><a href="order.html" >我的订单</a></li>
+            <li><a href="integrate.html">我的积分</a></li>
+            <li class="cur"><a href="#">帐户余额</a></li>
+            <li><a href="coupon.html">我的优惠券</a></li>
+            <li><a href="#">关注的商品</a></li></ul>
+       <ul>
+            <li><a href="document.html">基本资料</a></li>
+            <li><a href="password.html">密码修改</a></li>
+
+          </ul>
+   </div>
+   <div class="integrate">
+   <p class="inte_text1">您当前的余额是：</p><p class="inte_text2">0</p><p class="inte_text3">元</p>
+   </div><!--integrate-->
+</div><!--container-->
+
+
+
+
+
+
+<div class="goods visible-lg" id="foot1">
+              <div class="container">
+                  <div class="line"><img src="imgs/foot_a1.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a2.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a3.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a4.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a5.jpg"></div>
+              </div>
+         </div>
+         
+<div class="foot visible-lg" id="foot2" style="padding-top:20px; padding-bottom:200px ">
+<div class="pageFooter">
+	<div class="middle" style="padding-left:40px">
+		<ul class="title1">
+            <li><img src="imgs/11.png"/></li>
+			<li style="padding-left:110px">4009-111-111</li>
+			<li style="padding-left:80px">周一至周日8:30-22:00</li>
+		</ul>
+	</div>
+	<div class="right" >
+		<ul class="title1">
+			<li class="title">购物指南</li>
+						<li><a rel="nofollow" href="#" target="_blank">积分制度</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">会员介绍</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">购物流程</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">常见问题</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">配送服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">开箱验货</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送运费</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送范围</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">支付方式</li>
+			  <li><a rel="nofollow" href="#" target="_blank">货到付款</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">在线支付</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">优选卡</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">发票制度</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title" >售后服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">退款说明</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货流程</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">隐私条款</a></li>
+					</ul>
+	</div>
+	<div >
+        <ul class="title1">
+          <li style="float:left; font-weight:700">手机客户端:</a></li>
+          <li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png"/></li>
+        </ul>
+      </div>
+</div>
+</div>
+</body>
+</html>
+<script language="javascript">
+$(document).ready(function(e) {
+   $("#myfruit").hover(function(){
+       $("#menu").toggle();
+	   });
+   $("#phone_fruit").hover(function(){
+	  
+	   $("#menu_phone").toggle();
+	   });
+    $("#place").hover(function(){
+	  
+	   $("#menu_place").toggle();
+	   });
+});
+
+	var city = document.getElementById("city");
+	
+	function changeCity(){
+		//清除city中的option对象
+		var options = city.getElementsByTagName("option");
+		for(var i=options.length-1;i>=0;i--){
+			city.removeChild(options[i]);
+		}
+		//得到	provice的值
+		var provice = document.getElementById("provice").value;
+		if(provice=='gd'){
+			/*var opt1 = document.createElement("option");
+			opt1.value = "gz";
+			opt1.innerHTML = "广州市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "sz";
+			opt2.innerHTML = "深圳市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);*/
+			
+			var opt1 = new Option("广州市","gz");
+			var opt2 = new Option("深圳市","sz");
+			var opt3 = new Option("揭阳市","jy");
+			var opt4 = new Option("湛江市","zj");
+			var opt5 = new Option("江门市","jm");
+			var opt6 = new Option("云浮市","yf");
+			var opt7 = new Option("阳江市","yj");
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
+			
+		}else if(provice=="hb"){
+			var opt1 = document.createElement("option");
+			opt1.value = "wh";
+			opt1.innerHTML = "武汉市";
+			
+			var opt2 = document.createElement("option");
+			opt2.value = "xg";
+			opt2.innerHTML = "孝感市";
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			
+		}
+		
+		//向city中增加相应option对象
+		
+	}
+	
+	initProvince(getElementByName("user.province"), "");
+    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
+</script>

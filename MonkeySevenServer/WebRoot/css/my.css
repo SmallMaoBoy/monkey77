@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+.user-container{ width:1100px; margin:0 auto; margin-left:100px;}
+.user-box{ float:left; width:100%; padding-top:15px;}
+.user-box-left{ width:133px; float:left; border:1px solid #dcdddd;}
+.user-box-left a{ color:#333333;}
+.user-box-left h4{ font-size:16px; font-weight:bold; padding-left:25px;border-bottom:1px solid #e6e6e6; line-height:43px;font-family: arial,"Hiragino Sans GB","Microsoft Yahei",sans-serif;}
+.user-box-left ul,.user-box-left li{ width:100%; line-height:25px; font-size:14px; color:#555; list-style:none}
+.user-box-left li a{ display:block; padding-left:25px;text-decoration:none;}
+.user-box-left ul li a:hover{background-color:#AAE28B;}
+.user-box-left ul{ border-bottom:1px solid #e6e6e6; padding:10px 0px;}
+.user-box-left .cur{background-color: #669933;}
+.user-box-left .cur a{color:#fff;}
+
+.goods {
+height: 82px;
+width: 100%;
+background: #669933;
+color: #666;
+}
+.line{ 
+float:left;
+padding-right:50px;
+padding:20px;
+}
+.title1{
+	float:left;
+	list-style:none;
+	padding:0 40px;
+	color:#000;
+	}
+.title{
+	font-weight:700
+	}
+	.title1>li>a{
+		color:#666;
+		/*去掉下划线*/
+		text-decoration:none;}
+.user_box_right{
+	 margin:10px 30px; 
+	 width:906px; 
+	 padding:15px 15px;
+	  border:1px solid #dcdddd; 
+	  float:left;
+	}
+.user_box_right_1{
+	width:300px; padding-left:0px;
+	float:left;
+	border-right:1px solid #dcdddd;
+	}
+.user_box_right_1>img{
+	height:88px;
+	width:88px;
+	float:left;
+	}
+	.u-name{
+		margin-bottom:2px; 
+		color:#FC0}
+.u-name>a{
+	font-size:20px; 
+	color:#F60;}
+.u-level>a{
+	font-size:12px; 
+	height:17px; 
+	line-height:17px;
+	color:#F60;}
+.u-level{
+	margin-bottom:4px
+	}
+.u-level i{
+	background:url(../../images/bigpic/first_022.jpg) no-repeat top center; 
+	width:17px;
+	 height:17px; 
+	 display:block; 
+	 float:left; 
+	 margin-right:6px;
+	 }
+.user_box_right_2{
+	width:191px; 
+	height:91px;
+	padding-left:50px;
+	float:left;
+	border-right:1px solid #dcdddd;
+	}
+	
+	.text_2{
+		font-size:14px;
+		 
+		}
+	.num_2{
+		font-size:34px;
+		color:#F60;;
+		}
+		.user_box_right_3{
+	width:191px; 
+	height:91px;
+	padding-left:50px;
+	float:left;
+
+	}

@@ -8,12 +8,10 @@
 		<property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
 	</bean>
 
-	<bean id="userDao" class="com.togogo.dao.UserDaoImpl">
+	<bean id="AdminDao" class="com.monkey77.dao.TAdminDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
-	<bean id="springUserAction" class="com.togogo.action.UserAction">
-		<property name="userDao" ref="userDao"></property>
+	<bean id="UserDao" class="com.monkey77.dao.TUserDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
 </beans>
