@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+    <!-- 登录按钮按下时样式 -->
+    <solid android:color="#55FFF710"/>
+    <corners android:radius="10px" />
+	<stroke 
+	    android:width="3dp"
+	    android:color="#E7E7E7"/>
+
+</shape>
