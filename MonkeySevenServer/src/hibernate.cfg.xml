@@ -31,7 +31,7 @@
 		<mapping resource="com/monkey77/entities/TOrder.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TCart.hbm.xml" />
 		<mapping
-			resource="com/monkey77/entities/TSmsIndetifyingCode.hbm.xml" />
+			resource="com/monkey77/entities/TSmsIdentifyingCode.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

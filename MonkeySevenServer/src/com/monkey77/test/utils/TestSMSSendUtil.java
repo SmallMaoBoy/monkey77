@@ -8,6 +8,12 @@ public class TestSMSSendUtil {
 
 	@Test
 	public void testSendMSM(){
-		System.out.println(SMSSender.send("13631315179", "5201314"));
+		System.out.println(SMSSender.send("13631315179",SMSSender.createIdentifyingCode()));
+	}
+	
+	@Test
+	public void testCreateIdentifyingCode(){
+		for(int i=0;i<100;i++)
+			System.out.print(SMSSender.createIdentifyingCode()+"      ");
 	}
 }

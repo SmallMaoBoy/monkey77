@@ -33,13 +33,11 @@ public class RegisterAction {
 		System.out.println(mobile);
 		map = new HashMap<String, String>();
 		map.put("statusCode", userService.isExistMobile(mobile));
-		System.out.println(map);
 		return Action.SUCCESS;
 	}
 	
-	public String sendIndentifyingCode() throws IOException{
-		System.out.println("sending....");
-		userService.sendIndentifyingCode(mobile);
+	public String sendIndentifyingCode() throws Exception{
+		userService.sendIdentifyingCode(mobile);
 		return Action.SUCCESS;
 	}
 	

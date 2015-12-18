@@ -21,4 +21,14 @@ public class TestUserService {
 	public void testIsExistMobile(){
 		System.out.println(userService.isExistMobile("136"));
 	}
+	
+	@Test
+	public void testSendSMS(){
+		try {
+			userService.sendIdentifyingCode("13631315179");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }

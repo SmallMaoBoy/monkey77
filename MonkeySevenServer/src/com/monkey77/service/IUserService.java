@@ -6,5 +6,5 @@ public interface IUserService {
 	public String isExistMobile(String mobile);
 	
 	//根据手机号码发送验证码
-	public void sendIndentifyingCode(String mobile);
+	public void sendIdentifyingCode(String mobile) throws Exception;
 }

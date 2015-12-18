@@ -25,9 +25,13 @@ $(document).ready(function() {
 		});
 	});
 
-	$("#re_number").click(function() {
-		$.post("RegisterAction_sendIndentifyingCode", {
-			mobile : $("#input_phone").val()
+	$("#test_number").click(function() {
+		$.ajax({
+			type : "post",
+			data : {
+				mobile : $("#input_phone").val()
+			},
+			url : "RegisterAction_sendIndentifyingCode",
 		});
 	})
 });
