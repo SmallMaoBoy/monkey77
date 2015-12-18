@@ -8,6 +8,6 @@ public class TestSMSSendUtil {
 
 	@Test
 	public void testSendMSM(){
-		SMSSender.sendSMS("", "5201314");
+		System.out.println(SMSSender.send("13631315179", "5201314"));
 	}
 }

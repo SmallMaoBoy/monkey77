@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
+<script language="javascript" src="js/register.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet"
 	type="text/css">
 	<link href="css/myhou77.css" rel="stylesheet" type="text/css">
@@ -439,7 +440,7 @@
 					手机号：<input id="input_phone" class="enroll" type="text"
 						style="margin-left:37px" /><div id="mobiletip"></div><br />
 					手机验证码：<input id="re_number" class="enroll" type="text" /> <input id="test_number" type="button"
-						style="font-size:16px" value="获取验证码" onclick="a1(50);" class="btn" /><br />
+						style="font-size:16px" value="获取验证码"  class="btn" /><br />
 					设置密码：<input id="password" class="enroll" type="text"
 						style="margin-left:18px" /><br /> 确认密码：<input id="confirm"
 						class="enroll" type="text" style="margin-left:18px" />
@@ -472,27 +473,7 @@
 
 		$("#menu_place").toggle();
 	});
-	$("#input_phone").change(function() {
-		$.ajax({
-			type : "post",
-			data : {
-				mobile : $("#input_phone").val()
-			},
-			url : "RegisterAction_isExistMobile",
-			dataType : "json",
-			success : function(data) {
-				if(jQuery.parseJSON(data.statusCode)=="0"){
-					$("#mobiletip").text("该号码已被注册");
-				}else{
-					$("#mobiletip").text("该号码可以使用");
-				}
-					  
-			},
-			error : function(XMLHttpRequest, textStatus, errorThrown) {
-				alert(errorThrown);
-			}
-		});
-	});
+	
 </script>
 <script language="javascript">
 	var city = document.getElementById("city");

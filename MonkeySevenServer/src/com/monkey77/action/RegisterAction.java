@@ -36,4 +36,11 @@ public class RegisterAction {
 		System.out.println(map);
 		return Action.SUCCESS;
 	}
+	
+	public String sendIndentifyingCode() throws IOException{
+		System.out.println("sending....");
+		userService.sendIndentifyingCode(mobile);
+		return Action.SUCCESS;
+	}
+	
 }
