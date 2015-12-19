@@ -2,13 +2,14 @@ package com.monkey77.service;
 
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 import net.sf.json.JSONObject;
 
 import com.monkey77.dao.ITSmsIdentifyingCodeDao;
 import com.monkey77.dao.ITUserDao;
 import com.monkey77.entities.TSmsIdentifyingCode;
+import com.monkey77.entities.TUser;
+import com.monkey77.utils.MD5;
 import com.monkey77.utils.SMSSender;
 
 public class UserServiceImp implements IUserService{
@@ -71,9 +72,11 @@ public class UserServiceImp implements IUserService{
 
 
 	/**
-	 * 返回Json数据{statusCode:?}
+	 * 返回状态码
 	 * 0:成功注册
-	 * 1：
+	 * 1：该号码已被注册
+	 * 2：该号码没有发送验证码
+	 * 3：验证码出错
 	 * @author mao
 	 * @date 创建时间：2015-12-19下午10:05:39
 	 * @see com.monkey77.service.IUserService#register(java.lang.String, java.lang.String, java.lang.String)
@@ -83,12 +86,24 @@ public class UserServiceImp implements IUserService{
 			String password) {
 		// TODO Auto-generated method stub
 		StringBuilder result=new StringBuilder();
-		if(!smsIdentifyingCodeDao.getIdentifyCode(mobile).equals(identifyingCode)){
-			
+		if(userDao.isRegistered(mobile)){
+			result.append("1");
+		}else{
+			String code=smsIdentifyingCodeDao.getIdentifyCode(mobile);
+			if(code==null){
+				result.append("2");
+			}else{
+				if(!(code.equals(identifyingCode))){
+					result.append("3");
+				}else{
+					result.append("0");
+					TUser user=new TUser();
+					user.setMobile(mobile);
+					user.setPassword(MD5.getMD5(password));
+					userDao.saveUser(user);
+				}
+			}
 		}
 		return result.toString();
 	}
-
-
-
 }

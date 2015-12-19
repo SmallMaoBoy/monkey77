@@ -64,13 +64,19 @@ public class RegisterAction {
 	}
 	
 	/**
-	 * 
+	 * 返回Json数据{statusCode:?}
+	 * 0:成功注册
+	 * 1：该号码已被注册
+	 * 2：该号码没有发送验证码
+	 * 3：验证码出错
 	 * @author mao
 	 * @time 创建时间：2015-12-19下午9:57:10
 	 *
 	 */
 	public String register(){
-		return null;
+		map = new HashMap<String, String>();
+		map.put("statusCode", userService.register(mobile, identifyingCode, password));
+		return Action.SUCCESS;
 	}
 	
 }

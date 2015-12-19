@@ -31,4 +31,19 @@ public class TestUserService {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * 返回Json数据{statusCode:?}
+	 * 0:成功注册
+	 * 1：该号码已被注册
+	 * 2：该号码没有发送验证码
+	 * 3：验证码出错
+	 * @author mao
+	 * @date 创建时间：2015-12-19下午10:05:39
+	 * @see com.monkey77.service.IUserService#register(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Test
+	public void testResiter(){
+		System.out.println(userService.register("13631315179", "8108", "123456"));
+	}
 }
