@@ -3,6 +3,7 @@
  */
 $(document).ready(function() {
 
+	// 验证手机号码是否被注册
 	$("#input_phone").change(function() {
 		$.ajax({
 			type : "post",
@@ -25,6 +26,7 @@ $(document).ready(function() {
 		});
 	});
 
+	// 发送验证码
 	$("#test_number").click(function() {
 		$.ajax({
 			type : "post",
@@ -33,5 +35,26 @@ $(document).ready(function() {
 			},
 			url : "RegisterAction_sendIndentifyingCode",
 		});
-	})
+	});
+	
+	// 验证密码是否一阵
+	$("#confirm").change(function(){
+		var pwd1=$("#confirm").val();
+		var pwd2=$("#password").val();
+		if(pwd1!=pwd2){
+			$("#pwdtip").text("密码不一致，请重新输入");
+		}else{
+			$("#pwdtip").text("");
+		}
+	});
+	$("#password").change(function(){
+		var pwd1=$("#confirm").val();
+		var pwd2=$("#password").val();
+		if(pwd1!=pwd2){
+			$("#pwdtip").text("密码不一致，请重新输入");
+		}else{
+			$("#pwdtip").text("");
+		}
+	});
+	
 });

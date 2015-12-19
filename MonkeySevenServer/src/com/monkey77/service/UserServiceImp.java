@@ -69,4 +69,26 @@ public class UserServiceImp implements IUserService{
 		
 	}
 
+
+	/**
+	 * 返回Json数据{statusCode:?}
+	 * 0:成功注册
+	 * 1：
+	 * @author mao
+	 * @date 创建时间：2015-12-19下午10:05:39
+	 * @see com.monkey77.service.IUserService#register(java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String register(String mobile, String identifyingCode,
+			String password) {
+		// TODO Auto-generated method stub
+		StringBuilder result=new StringBuilder();
+		if(!smsIdentifyingCodeDao.getIdentifyCode(mobile).equals(identifyingCode)){
+			
+		}
+		return result.toString();
+	}
+
+
+
 }
