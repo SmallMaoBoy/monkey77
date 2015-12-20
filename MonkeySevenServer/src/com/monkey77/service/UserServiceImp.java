@@ -106,4 +106,31 @@ public class UserServiceImp implements IUserService{
 		}
 		return result.toString();
 	}
+
+
+	/**
+	 * * 返回状态码
+	 * 0：账号密码一致
+	 * 1：该帐号不存在
+	 * 2：密码错误
+	 * @author mao
+	 * @date 创建时间：2015-12-20上午9:08:17
+	 * @see com.monkey77.service.IUserService#loginByPassword(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public String loginByPassword(String mobile, String password) {
+		// TODO Auto-generated method stub
+		TUser user=userDao.getUserByMobile(mobile);
+		if(user==null){
+			return "1";
+		}else{
+			if(user.getPassword().equals(MD5.getMD5(password))){
+				return "0";
+			}else{
+				return "2";
+			}
+		}
+	}
+	
+	
 }

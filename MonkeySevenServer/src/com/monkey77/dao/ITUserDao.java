@@ -12,4 +12,10 @@ public interface ITUserDao {
 	
 	//判断是否该手机号码已注册
 	public boolean isRegistered(String number);
+	
+	//根据手机号码获取密码
+	public String getPasswordByMobile(String mobile);
+	
+	//根据手机号码返回用户
+	public TUser getUserByMobile(String mobile);
 }

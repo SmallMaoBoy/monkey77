@@ -25,4 +25,7 @@
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
 	</bean>
+	<bean id="LoginAction" class="com.monkey77.action.LoginAction">
+		<property name="userService" ref="UserService" ></property>
+	</bean>
 </beans>

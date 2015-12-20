@@ -15,5 +15,10 @@
 				<param name="root">map</param>
 			</result>
 		</action>
+		<action name="LoginAction_*" class="LoginAction" method="{1}">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
 	</package>
 </struts>

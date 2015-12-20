@@ -46,4 +46,18 @@ public class TestUserService {
 	public void testResiter(){
 		System.out.println(userService.register("13631315179", "8108", "123456"));
 	}
+	
+	/**
+	 * * 返回状态码
+	 * 0：账号密码一致
+	 * 1：该帐号不存在
+	 * 2：密码错误
+	 * @author mao
+	 * @date 创建时间：2015-12-20上午9:08:17
+	 * @see com.monkey77.service.IUserService#loginByPassword(java.lang.String, java.lang.String)
+	 */
+	@Test
+	public void testLoginByPassword(){
+		System.out.println(userService.loginByPassword("1363", "1234567"));
+	}
 }

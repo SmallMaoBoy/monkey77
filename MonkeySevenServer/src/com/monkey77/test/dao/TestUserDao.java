@@ -34,7 +34,15 @@ public class TestUserDao {
 	
 	@Test
 	public void testIsRegistered(){
-		System.out.print(userDao.isRegistered("13631315179"));
+		System.out.print(userDao.isRegistered(""));
 	}
 	
+	@Test
+	public void testGetpwdByMobile(){
+		System.out.println(userDao.getPasswordByMobile(""));
+	}
+	@Test
+	public void testGetUserByMobile(){
+		System.out.println(userDao.getUserByMobile("1361"));
+	}
 }
