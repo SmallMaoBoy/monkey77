@@ -15,6 +15,7 @@ public class TUser implements java.io.Serializable {
 	private Short sex;
 	private String mobile;
 	private String password;
+	private String name;
 	private Set TOrders = new HashSet(0);
 	private Set TCarts = new HashSet(0);
 	private Set TGoods = new HashSet(0);
@@ -25,18 +26,13 @@ public class TUser implements java.io.Serializable {
 	public TUser() {
 	}
 
-	/** minimal constructor */
-	public TUser(Integer id) {
-		this.id = id;
-	}
-
 	/** full constructor */
-	public TUser(Integer id, Short sex, String mobile, String account,
-			String password, Set TOrders, Set TCarts, Set TGoods) {
-		this.id = id;
+	public TUser(Short sex, String mobile, String password, String name,
+			Set TOrders, Set TCarts, Set TGoods) {
 		this.sex = sex;
 		this.mobile = mobile;
 		this.password = password;
+		this.name = name;
 		this.TOrders = TOrders;
 		this.TCarts = TCarts;
 		this.TGoods = TGoods;
@@ -76,6 +72,14 @@ public class TUser implements java.io.Serializable {
 		this.password = password;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Set getTOrders() {
 		return this.TOrders;
 	}
@@ -100,11 +104,4 @@ public class TUser implements java.io.Serializable {
 		this.TGoods = TGoods;
 	}
 
-	@Override
-	public String toString() {
-		return "TUser [id=" + id + ", sex=" + sex + ", mobile=" + mobile
-				+  ", password=" + password + "]";
-	}
-	
-	
 }

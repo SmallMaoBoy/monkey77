@@ -5,11 +5,9 @@
  */
 package com.monkey77.action;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import com.monkey77.service.IUserService;
-import com.monkey77.service.UserServiceImp;
 import com.opensymphony.xwork2.Action;
 
 /**
@@ -22,7 +20,7 @@ public class LoginAction {
 	private String password;
 	private String mobile;
 	private String identifyingCode;
-	private Map<String, String> map;
+	private Map<String, Object> map;
 	
 	public IUserService getUserService() {
 		return userService;
@@ -30,7 +28,7 @@ public class LoginAction {
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
-	public Map<String, String> getMap() {
+	public Map<String, Object> getMap() {
 		return map;
 	}
 	public String getPassword() {
@@ -62,8 +60,7 @@ public class LoginAction {
 	 *
 	 */
 	public String loginByPassword(){
-		map = new HashMap<String, String>();
-		map.put("statusCode",userService.loginByPassword(mobile, password));
+		map=userService.loginByPassword(mobile, password);
 		return Action.SUCCESS;
 	}
 }

@@ -2,6 +2,8 @@ package com.monkey77.service;
 
 
 import java.sql.Timestamp;
+import java.util.HashMap;
+import java.util.Map;
 
 import net.sf.json.JSONObject;
 
@@ -118,18 +120,25 @@ public class UserServiceImp implements IUserService{
 	 * @see com.monkey77.service.IUserService#loginByPassword(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public String loginByPassword(String mobile, String password) {
+	public Map<String, Object> loginByPassword(String mobile, String password) {
 		// TODO Auto-generated method stub
+		Map<String,Object> json=new HashMap<String,Object>();
 		TUser user=userDao.getUserByMobile(mobile);
 		if(user==null){
-			return "1";
+			json.put("statusCode", "1");
 		}else{
 			if(user.getPassword().equals(MD5.getMD5(password))){
-				return "0";
+				json.put("statusCode", "0");
+				Map<String,String> data=new HashMap<String,String>();
+				data.put("name", user.getName());
+				data.put("sex", user.getSex()==0?"男":"女");
+				data.put("mobile", user.getMobile());
+				json.put("data", data);
 			}else{
-				return "2";
+				json.put("statusCode", "2");
 			}
 		}
+		return json;
 	}
 	
 	

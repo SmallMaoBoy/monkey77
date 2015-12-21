@@ -1,5 +1,7 @@
 package com.monkey77.service;
 
+import java.util.Map;
+
 public interface IUserService {
 
 	//判断手机号码是否存在
@@ -12,5 +14,5 @@ public interface IUserService {
 	public String register(String mobile,String identifyingCode,String password);
 	
 	//根据密码登录
-	public String loginByPassword(String mobile,String password);
+	public Map<String, Object> loginByPassword(String mobile,String password);
 }

@@ -22,14 +22,12 @@ public class TCategory implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TCategory(Integer id, String name) {
-		this.id = id;
+	public TCategory(String name) {
 		this.name = name;
 	}
 
 	/** full constructor */
-	public TCategory(Integer id, String name, Set TGoods) {
-		this.id = id;
+	public TCategory(String name, Set TGoods) {
 		this.name = name;
 		this.TGoods = TGoods;
 	}

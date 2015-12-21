@@ -25,6 +25,11 @@
                 <comment>1代表超级管理员、2代表采购员、3代表店员</comment>
             </column>
         </property>
+        <property name="remarks" type="java.lang.String">
+            <column name="remarks" length="200">
+                <comment>备注</comment>
+            </column>
+        </property>
         <set name="TShops" inverse="true" table="t_admin_shop" catalog="monkey77">
             <key>
                 <column name="admin_id" />

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/18 下午 4:03:16                        */
+/* Created on:     2015/12/20 下午 1:49:40                        */
 /*==============================================================*/
 
 
@@ -199,6 +199,7 @@ create table t_user
    sex                  tinyint comment '性别',
    mobile               varchar(20) comment '手机号码',
    password             varchar(64) comment '密码',
+   name                 varchar(20) comment '昵称',
    primary key (id)
 );
 

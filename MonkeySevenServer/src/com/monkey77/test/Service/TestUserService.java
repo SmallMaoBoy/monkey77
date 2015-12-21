@@ -58,6 +58,6 @@ public class TestUserService {
 	 */
 	@Test
 	public void testLoginByPassword(){
-		System.out.println(userService.loginByPassword("1363", "1234567"));
+		System.out.println(userService.loginByPassword("13631315179", "123456"));
 	}
 }

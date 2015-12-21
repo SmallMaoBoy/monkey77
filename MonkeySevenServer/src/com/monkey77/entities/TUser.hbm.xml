@@ -25,6 +25,11 @@
                 <comment>密码</comment>
             </column>
         </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" length="20">
+                <comment>昵称</comment>
+            </column>
+        </property>
         <set name="TOrders" table="t_user_order" catalog="monkey77">
             <key>
                 <column name="user_id" not-null="true" />
