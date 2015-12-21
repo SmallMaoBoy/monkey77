@@ -2,10 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>修改密码</title>
+<title>修改头像</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/password.css" rel="stylesheet" type="text/css">
+<link href="css/image.css" rel="stylesheet" type="text/css">
 
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
@@ -27,7 +27,7 @@
         <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
         <li id="myfruit"><a href="#">[我的果园]</a> 
         
-        <ul id="menu" class="dropdown-menu">
+         <ul id="menu" class="dropdown-menu">
         <li><a href="order.html">我的订单</a></li>
         <li><a href="coupon.html">优惠券</a></li>
         <li><a href="document.html">个人信息</a></li>
@@ -70,58 +70,18 @@
        <ul>
             <li><a href="order.html" >我的订单</a></li>
             <li><a href="integrate.html">我的积分</a></li>
-            <li><a href="balance.html">帐户余额</a></li>
+            <li class="cur"><a href="#">帐户余额</a></li>
             <li><a href="coupon.html">我的优惠券</a></li>
             <li><a href="concern.html">关注的商品</a></li></ul>
        <ul>
             <li><a href="document.html">基本资料</a></li>
-            <li class="cur"><a href="#">密码修改</a></li>
+            <li><a href="password.html">密码修改</a></li>
 
           </ul>
    </div>
-   <div class="password">
-  <tr>
-    <td width="25%" align="right">
-         登录名：
-    </td>
-    <td width="75%">
-        <input type="text" value="${sessionScope.admin.aname }" name="admin.aname" size="20" readonly  class="ad_name"/>
-    </td>
-</tr><br/><br/>
-<tr>
-    <td width="25%" align="right">
-        原密码：
-    </td>
-    <td width="75%">
-        <input type="password" id="apassword" size="22" style="margin-left:20px;"/>
-    </td>
-</tr><br/><br/>
-<tr>
-    <td width="25%" align="right">
-         新密码：
-    </td>
-    <td width="75%">
-        <input type="password" id="userPw1" size="22"  style="margin-left:20px;"/>
-    </td>
-</tr><br/><br/>
-<tr>
-    <td width="25%" align="right">
-        确认密码：
-    </td>
-    <td width="75%">
-           <input type="password" id="userPw2" size="22"/>
-    </td>
-</tr><br/><br/>
-<tr >
-    <td width="25%" align="right"> 
-    </td>
-       <td width="75%" >
-            <input type="button" value="确认修改" onclick="check()" class="btn btn-primary" style="margin-left:100px;"/>
-       </td><td width="75%" >
-            <input type="button" value="重置" onclick="re()" class="btn btn-primary" style="margin-left:30px;"/>
-       </td>
-       
-</tr></div>
+   <div class="integrate">
+   <p class="inte_text1">您当前的余额是：</p><p class="inte_text2">0</p><p class="inte_text3">元</p>
+   </div><!--integrate-->
 </div><!--container-->
 
 
@@ -281,32 +241,5 @@ function a1(t){
 				timeid=null;
 				})
 	}
-</script>
-<script language="javascript">
-            function check()
-            {
-                 var userPwReal="${sessionScope.admin.apassword}";
-                 if(document.formPw.apassword.value !=userPwReal)
-                 {
-                     alert("原密码不正确");
-                     return ;
-                 }
-                  
-                 if(document.formPw.userPw1.value =="")
-                 {
-                     alert("新密码不能空");
-                     return ;
-                 }
-                 if(document.formPw.userPw1.value != document.formPw.userPw2.value)
-                 {
-                     alert("两次输入的密码不一致");
-                     return ;
-                 }
-            }
-			function re(){
-				$("#apassword").val(null);
-				$("#userPw1").val(null);
-				$("#userPw2").val(null);
-				}
 </script>
 

@@ -221,3 +221,36 @@ padding:20px;
 .modal-header{
 	height:90px
 	}		
+ .now_price{
+	  color:#903;
+	  float:left;
+	  padding-left:10px;
+	  }
+.old_price{
+	color:#999;
+	text-decoration: line-through;
+	padding-left:10px;
+	}  
+.con{
+	margin-bottom:20px;
+	height:250px;
+	width:200px;
+	
+	
+	}
+	.text{
+		font-size:20px;
+		font-weight:900;
+		padding-left:180px;
+		color:#669933;
+		}
+#num{
+	border:none;
+	font-size:18px;
+	color:#fff;
+	font-weight:bold;
+	padding-left:21px;
+	padding-top:25px;
+	background:none;
+	width:43px;
+	}

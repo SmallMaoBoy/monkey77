@@ -60,8 +60,11 @@
          <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
 	     <option value="gd">广东省</option>
          <option value="hb">湖北省</option>
+         <option value="hn">湖南省</option>
+         <option value="hainan">海南省</option>
+         
          </select>
-         <select id="city" style="border:hidden;background-color:#F8f8f8" >
+         <select id="city" style="border:hidden;background-color:#F8f8f8; overflow-style:marquee-line" >
 	     <option value="gz">广州市</option>
          <option value="sz">深圳市</option>
          <option value="jy">揭阳市</option>
@@ -69,6 +72,9 @@
          <option value="jm">江门市</option>
          <option value="yf">云浮市</option>
          <option value="yj">阳江市</option>
+         <option value="fs">佛山市</option>
+         <option value="st">汕头市</option>
+
          </select></a>
         </li>   
       </ul>
@@ -148,7 +154,7 @@ $(window).load(function() {
                        </div>
                        
                        <div id="buy_button"><a href="#" class="btn btn-primary" role="button">立刻购买</a> 
-                       <a href="#" class="btn btn-default" role="button">加入购物车</a></div>
+                       <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></div>
                        
                        <div id="sum_price">
                        总价：<input id="sum_price1" type="text" value="23.00" readonly="readonly"/>
@@ -250,8 +256,39 @@ $(window).load(function() {
                    
                    
                    <div id="relactive_punch" class="col-lg-3 col-md-6 col-sm" style="height:50px;margin-left:0px; margin-top:-10px; float:left;">
-                   <h5>相关推荐</h5>
-                    <div class="thumbnail">
+                     <h5>相关推荐</h5>
+                    <div class="con">
+    <a href="#" class="thumbnail">
+      <img src="imgs/美国苹果.jpg">
+    </a>
+    <div style="width:170px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+   <a href="#">美国华盛顿甜脆红地厘蛇果</a></div>
+   <span class="now_price">¥48.0/kg</span>&nbsp;&nbsp;
+   <span class="old_price">¥58.0/kg</span>
+  </div>
+                         <div class="con">
+    <a href="#" class="thumbnail">
+      <img src="imgs/美国苹果.jpg">
+    </a>
+    <div style="width:170px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+   <a href="#">美国华盛顿甜脆红地厘蛇果</a></div>
+   <span class="now_price">¥48.0/kg</span>&nbsp;&nbsp;
+   <span class="old_price">¥58.0/kg</span>
+  </div>
+          
+                       <div class="con">
+    <a href="#" class="thumbnail">
+      <img src="imgs/美国苹果.jpg">
+    </a>
+    <div style="width:170px; white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+   <a href="#">美国华盛顿甜脆红地厘蛇果</a></div>
+   <span class="now_price">¥48.0/kg</span>&nbsp;&nbsp;
+   <span class="old_price">¥58.0/kg</span>
+  </div>
+               
+                   
+                  
+                   <!--</h1> <div class="thumbnail">
                      <a href="#" style="text-decoration:none;display:block;"> 
                      <img src="imgs/618829a034e67bc2c05baf00f50b5bc8.jpg" />
                   <div class="caption">
@@ -275,7 +312,7 @@ $(window).load(function() {
         <h4>猕猴桃</h4>
         <p>¥12.0/kg</p>
       </div></a>
-   </div> 
+   </div> -->
 
                    
                    </div><!--relactive_punch-->
@@ -328,7 +365,15 @@ $(window).load(function() {
     </div>
   </div>
 </div>
-
+     <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;">
+<div class="container" style="padding-bottom:10px;">
+ <a href="shopping.html">
+  <div   style=" height:55px; width:55px; background-image:url(imgs/购物.png);" > 
+  <input id="num" type="text" value="0" />
+  </div></a>
+  </div>
+  <div class="container"><a href="#"><img src="imgs/返回.png" style="width:55px;height:55px;"/></a></div>
+</nav>
 
                     </body>
                     <script type="text/javascript">
@@ -339,6 +384,7 @@ $(window).load(function() {
 						s=Number(su.value)*n;
 						document.getElementById("buy_num").value=n;
 						document.getElementById("sum_price1").value=s;
+						
 					}
 						function subtract(){
 						var co= document.getElementById("buy_num");
@@ -382,7 +428,8 @@ $(document).ready(function(e) {
 	   $("#menu_place").toggle();
 	   });
 });
-
+</script>
+<script language="javascript">
 	var city = document.getElementById("city");
 	
 	function changeCity(){
@@ -412,6 +459,29 @@ $(document).ready(function(e) {
 			var opt5 = new Option("江门市","jm");
 			var opt6 = new Option("云浮市","yf");
 			var opt7 = new Option("阳江市","yj");
+			var opt8 = new Option("佛山市","fs");
+			var opt9 = new Option("汕头市","st");
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
+			city.appendChild(opt8);
+			city.appendChild(opt9);
+			
+		}else if(provice=="hb"){
+			var opt1 = new Option("武汉市","wh");
+			var opt2 = new Option("孝感市","xg");
+			var opt3 = new Option("黄石市","hs");
+			var opt4 = new Option("沙市区","ss");
+			var opt5 = new Option("洪湖市","hh");
+			var opt6 = new Option("宜昌市","yc");
+			var opt7 = new Option("宜都市","yd");
+
+			
+			
 			city.appendChild(opt1);
 			city.appendChild(opt2);
 			city.appendChild(opt3);
@@ -420,19 +490,47 @@ $(document).ready(function(e) {
 			city.appendChild(opt6);
 			city.appendChild(opt7);
 			
-		}else if(provice=="hb"){
-			var opt1 = document.createElement("option");
-			opt1.value = "wh";
-			opt1.innerHTML = "武汉市";
+		}else if(provice=="hn"){
+			var opt1 = new Option("长沙市","cs");
+			var opt2 = new Option("株洲市","sz");
+			var opt3 = new Option("湘潭市","xt");
+			var opt4 = new Option("衡阳市","hy");
+			var opt5 = new Option("邵阳市","sy");
+			var opt6 = new Option("岳阳市","yy");
+			var opt7 = new Option("常德市","cd");
+
 			
-			var opt2 = document.createElement("option");
-			opt2.value = "xg";
-			opt2.innerHTML = "孝感市";
 			
 			city.appendChild(opt1);
 			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
 			
 		}
+		else if(provice=="hainan"){
+			var opt1 = new Option("海口市","hk");
+			var opt2 = new Option("文昌市","wc");
+			var opt3 = new Option("三亚市","sy");
+			var opt4 = new Option("五指山市","wzs");
+			var opt5 = new Option("琼海市","qh");
+			var opt6 = new Option("儋州市","zz");
+			var opt7 = new Option("万宁市","wn");
+
+			
+			
+			city.appendChild(opt1);
+			city.appendChild(opt2);
+			city.appendChild(opt3);
+			city.appendChild(opt4);
+			city.appendChild(opt5);
+			city.appendChild(opt6);
+			city.appendChild(opt7);
+			
+		}
+		
 		
 		//向city中增加相应option对象
 		
@@ -463,5 +561,17 @@ function a1(t){
 	}
 </script>
 
+<script language='javascript'> 
+function ad() 
+{
+   var i=document.getElementById("buy_num");
+   var n=document.getElementById("num");
+   var sum=Number(i.value)+Number(n.value);
+   document.getElementById("num").value=sum;
 
+
+	
+} 
+
+</script> 
 

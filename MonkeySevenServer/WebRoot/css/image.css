@@ -50,22 +50,3 @@ background-color:#efefef;
   }
   .order_page>ul>li>a{text-decoration:none;}
   .order_page{ width:100%; float:left; margin-top:6px; display:inline; }
-  .now_price{
-	  color:#903;
-	  float:left;
-	  padding-left:10px;
-	  }
-.old_price{
-	color:#999;
-	text-decoration: line-through;
-	padding-left:10px;
-	}  
-.con{
-	margin-bottom:20px;
-	}
-	.text{
-		font-size:20px;
-		font-weight:900;
-		padding-left:180px;
-		color:#669933;
-		}

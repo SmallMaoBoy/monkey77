@@ -154,3 +154,13 @@ padding:20px;
 .modal-header{
 	height:90px
 	}
+#num{
+	border:none;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	padding-left:37px;
+	padding-top:-3px;
+	background:none;
+	width:55px;
+	}
