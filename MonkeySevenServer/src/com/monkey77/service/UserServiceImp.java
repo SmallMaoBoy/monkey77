@@ -102,6 +102,7 @@ public class UserServiceImp implements IUserService{
 					TUser user=new TUser();
 					user.setMobile(mobile);
 					user.setPassword(MD5.getMD5(password));
+					user.setName("用户"+mobile);
 					userDao.saveUser(user);
 				}
 			}

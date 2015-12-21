@@ -1,5 +1,8 @@
 $(document).ready(function() {
-
+	
+	//判断本地cookie是否存在用户信息
+	changeUser();
+	
 	// 验证手机号码是否被注册
 	$("#input_phone").change(function() {
 		$.ajax({
@@ -23,6 +26,7 @@ $(document).ready(function() {
 		});
 	});
 
+	
 	// 发送验证码
 	$("#test_number").click(function() {
 		$.ajax({
@@ -34,6 +38,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	
 	// 验证密码是否一阵
 	$("#confirm").change(function(){
 		var pwd1=$("#confirm").val();
@@ -44,6 +49,7 @@ $(document).ready(function() {
 			$("#pwdtip").text("");
 		}
 	});
+	// 验证密码是否一阵
 	$("#password").change(function(){
 		var pwd1=$("#confirm").val();
 		var pwd2=$("#password").val();
@@ -54,6 +60,8 @@ $(document).ready(function() {
 		}
 	});
 	
+	
+	// 注册新用户
 	$("#registerbtn").click(function(){
 			$.ajax({
 			type : "post",
@@ -85,7 +93,7 @@ $(document).ready(function() {
 	});
 	
 	
-	
+	//用户登录
 	$("#loginbypwdbtn").click(function(){
 		$.ajax({
 			type : "post",
@@ -99,9 +107,11 @@ $(document).ready(function() {
 				var code=jQuery.parseJSON(respdata.statusCode);
 				if (code == "0") {
 					var user=respdata.data;
-					alert("登陆成功");
-					$.cookie('username', user.name);
+					$.cookie('username', user.name, { expires: 7 });
+					$.cookie('mobile', user.mobile, { expires: 7 });
+					$.cookie('sex', user.sex, { expires: 7 });
 					$("#myModal").modal('hide');
+					changeUser();
 				}else if(code == "1"){
 					alert("帐号不存在");
 				}else if(code=="2"){
@@ -113,3 +123,23 @@ $(document).ready(function() {
 		});	
 	});
 });
+
+function unsign(){
+	$.cookie('username',null);
+	changeUser();
+	
+}
+	
+function changeUser(){
+	var username=$.cookie('username');
+	if(username==null||username=="null"){
+		$("#header_li1").html("<a data-toggle='modal' data-target='#myModal'>[登录] </a>");
+		$("#header_li2").html("<a data-toggle='modal' data-target='#myModa2'>[注册] </a>");
+		
+	}else{
+		$("#header_li1").html("<a href='document.html'>"+username+"</a>");
+		$("#header_li2").html("<a href='#' onclick='unsign()'>"+"注销"+"</a>");
+	}
+	
+
+}

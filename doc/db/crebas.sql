@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/20 下午 1:49:40                        */
+/* Created on:     2015/12/22 上午 12:30:23                       */
 /*==============================================================*/
 
 
@@ -11,6 +11,8 @@ drop table if exists t_admin_shop;
 drop table if exists t_cart;
 
 drop table if exists t_category;
+
+drop table if exists t_cookie_validate;
 
 drop table if exists t_good;
 
@@ -81,6 +83,20 @@ create table t_category
 );
 
 alter table t_category comment 't_category';
+
+/*==============================================================*/
+/* Table: t_cookie_validate                                     */
+/*==============================================================*/
+create table t_cookie_validate
+(
+   id                   int not null,
+   session_id           varchar(50) not null comment 'session产生的id',
+   user_id              int not null comment '用户id',
+   create_time          datetime not null comment 'cookie产生时间',
+   primary key (id)
+);
+
+alter table t_cookie_validate comment 't_cookie_validate';
 
 /*==============================================================*/
 /* Table: t_good                                                */
@@ -238,6 +254,9 @@ alter table t_cart add constraint FK_Reference_14 foreign key (good_id)
       references t_good (id) on delete restrict on update restrict;
 
 alter table t_cart add constraint FK_Reference_15 foreign key (user_id)
+      references t_user (id) on delete restrict on update restrict;
+
+alter table t_cookie_validate add constraint FK_Reference_16 foreign key (user_id)
       references t_user (id) on delete restrict on update restrict;
 
 alter table t_good add constraint FK_Reference_1 foreign key (category_id)
