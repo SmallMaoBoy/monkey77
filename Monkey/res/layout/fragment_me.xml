@@ -14,7 +14,7 @@
         android:background="@drawable/bg_info_face_photo" >
 
         <ImageView
-            android:id="@+id/iv_touxiang"
+            android:id="@+id/iv_user_pic"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerVertical="true"
@@ -29,24 +29,23 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/iv_touxiang"
-            android:text="@string/youke" />
+            android:layout_toRightOf="@+id/iv_user_pic" />
 
         <TextView
+            android:id="@+id/tv_phone"
             style="@style/text_style2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="30dp"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@+id/iv_touxiang"
-            android:text="@string/clickToLogin" />
+            android:layout_toRightOf="@+id/iv_user_pic" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"           
+            android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
             android:src="@drawable/right_indicator_white" />
     </RelativeLayout>
@@ -84,10 +83,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="#FFF" 
-        android:layout_marginTop="1dp">
+        android:background="#FFF"
+        android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -114,10 +113,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp" 
-        android:background="#FFF">
+        android:background="#FFF"
+        android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -144,10 +143,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="#FFF" 
-        android:layout_marginTop="1dp">
+        android:background="#FFF"
+        android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -174,10 +173,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal"
-        android:background="#FFF" 
-        android:layout_marginTop="1dp">
+        android:background="#FFF"
+        android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="wrap_content"
@@ -202,12 +201,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_me_set"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="1dp"
         android:layout_weight="1"
-        android:orientation="horizontal" 
         android:background="#FFF"
-        android:layout_marginTop="1dp">
+        android:orientation="horizontal" >
 
         <ImageView
             android:layout_width="wrap_content"

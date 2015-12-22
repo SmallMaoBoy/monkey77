@@ -49,23 +49,6 @@
             android:layout_height="match_parent"
             android:background="@drawable/login_edittext_selector"
             android:hint="@string/inputYourPhoneNum" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/check_interest_normal" />
-
-        <TextView
-            style="@style/text_style4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="30dp"
-            android:text="@string/getCheckNum" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -74,6 +57,7 @@
         android:layout_weight="1" >
 
         <EditText
+            android:id="@+id/et_inputPsd"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/login_edittext_selector"
@@ -82,13 +66,13 @@
 
     <Button
         android:id="@+id/btn_login"
+        style="@style/text_style1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
         android:layout_weight="1"
         android:background="@drawable/login_button_selector"
-        android:text="@string/nowLogin"
-		style="@style/text_style1"/>
+        android:text="@string/nowLogin" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -99,16 +83,16 @@
             android:id="@+id/tv_login_notMemeber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notMember" 
-            />
+            android:text="@string/notMember" />
 
         <TextView
+            android:id="@+id/tv_login_register"
+            style="@style/text_style5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/tv_login_notMemeber"
             android:layout_alignBottom="@id/tv_login_notMemeber"
-            android:text="@string/register"
-            style="@style/text_style5" />
+            android:layout_toRightOf="@id/tv_login_notMemeber"
+            android:text="@string/register" />
     </RelativeLayout>
 
     <LinearLayout

@@ -12,7 +12,7 @@
         android:background="#6CC965" >
 
         <ImageView
-            android:id="@+id/iv_login_back"
+            android:id="@+id/iv_register_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+        android:layout_marginTop="5dp"
         android:background="@drawable/login_edittext_selector"
         android:hint="@string/inputYourPhoneNum" />
 
@@ -58,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/login_edittext_selector"
-            android:hint="@string/getCheckNum" />
+            android:hint="@string/inputCheckNum" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -66,7 +67,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/check_interest_normal" />
+            android:src="@drawable/check_interest_normal" 
+            android:background="@drawable/register_getchecknum_selector"/>
 
         <TextView
             style="@style/text_style4"
@@ -75,20 +77,25 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="30dp"
-            android:text="@string/inputCheckNum" />
+            android:text="@string/getCheckNum" />
     </RelativeLayout>
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_sureRegister"
         style="@style/text_style1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"
         android:layout_weight="1"
         android:background="@drawable/login_button_selector"
-        android:text="@string/nowLogin" />
+        android:text="@string/sureRegister" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </LinearLayout>
+     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" >

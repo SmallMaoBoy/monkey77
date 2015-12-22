@@ -2,14 +2,11 @@ package com.monkey.fragment;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
 
 import com.example.monkey.R;
-import com.example.monkey.R.drawable;
-import com.example.monkey.R.id;
-import com.example.monkey.R.layout;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.monkey.activity.ActivityShowdetails;
+import com.monkey.activity.ShoppingCarActivity;
+import com.monkey.activity.ShowdetailsActivity;
 import com.monkey.pojo.Item_gvmsg;
 
 import android.content.Intent;
@@ -17,17 +14,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -41,6 +36,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	private ImageView iv_shopping_car;
 	private List<Item_gvmsg> Items;
 	private SlidingMenu slidingMenu;
+	private ImageButton btn_car;
 	// private int mywidth;
 	// private int myheight;
 	private int[] pics = new int[] { R.drawable.f1, R.drawable.f2,
@@ -48,6 +44,7 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			R.drawable.f7, R.drawable.f8, R.drawable.f9, R.drawable.f10,
 			R.drawable.f11, R.drawable.f12, R.drawable.f13, R.drawable.f14,
 			R.drawable.f15, R.drawable.f16, R.drawable.f17, };
+
 	public HomeFragment(SlidingMenu slidingMenu) {
 		super();
 		this.slidingMenu = slidingMenu;
@@ -83,10 +80,13 @@ public class HomeFragment extends Fragment implements OnClickListener {
 					int position, long id) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(getActivity(),
-						ActivityShowdetails.class);
+						ShowdetailsActivity.class);
 				startActivity(intent);
 			}
 		});
+		// 设置购物车按钮点击事件
+		btn_car = (ImageButton) view.findViewById(R.id.btn_car);
+		btn_car.setOnClickListener(this);
 		return view;
 	}
 
@@ -143,13 +143,6 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		}
 	}
 
-	/*
-	 * @Override public void onClick(View v) { // TODO Auto-generated method
-	 * stub switch (v.getId()) {
-	 * 
-	 * case R.id.iv_shopping_cart: Toast.makeText(getActivity(),
-	 * "hahaahahhahah",Toast.LENGTH_SHORT).show(); break; } }
-	 */
 	private void changeFragment(Fragment fragment, String tagfragment) {
 		// TODO Auto-generated method stub
 		FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -161,11 +154,18 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		Intent intent = null;
 		switch (v.getId()) {
 		case R.id.categroy:
 			slidingMenu.showMenu();
 			Toast.makeText(getActivity(), "默认Toast样式", Toast.LENGTH_SHORT)
 					.show();
+			break;
+		case R.id.btn_car:
+			intent = new Intent(this.getActivity(),ShoppingCarActivity.class);
+			startActivity(intent);
+			Toast.makeText(getActivity(), "hahhahahaha", Toast.LENGTH_SHORT)
+			.show();
 			break;
 		}
 
