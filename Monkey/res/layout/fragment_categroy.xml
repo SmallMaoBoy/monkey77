@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#8CF794" >
+    android:background="#88535252" >
     <ListView 
         android:id="@+id/lv_categroy"
+        android:divider="@null" 
         android:layout_width="match_parent"
         android:layout_height="match_parent"></ListView>
 

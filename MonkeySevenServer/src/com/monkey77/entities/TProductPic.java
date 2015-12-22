@@ -19,8 +19,7 @@ public class TProductPic implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TProductPic(Integer id, TGood TGood, String picUrl) {
-		this.id = id;
+	public TProductPic(TGood TGood, String picUrl) {
 		this.TGood = TGood;
 		this.picUrl = picUrl;
 	}

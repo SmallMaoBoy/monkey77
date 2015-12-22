@@ -8,4 +8,26 @@
 	<string name="category">订单</string>
 	<string name="car">购物车</string>
 	<string name="my">我</string>
+	<string name="secondName">呢称</string>
+	<string name="myName">姓名</string>
+	<string name="sex">性别</string>
+	<string name="phone">手机</string>
+	<string name="youke">游客</string>
+	<string name="clickToLogin">点击登录</string>
+	<string name="cupon">优惠券</string>
+	<string name="mymsg">我的消息</string>
+	<string name="aboutUs">关于我们</string>
+	<string name="normalQuest">常见问题</string>
+	<string name="suggest">意见反馈</string>
+	<string name="set">设置</string>
+	<string name="login">登录</string>
+	<string name="inputYourPhoneNum">请输入您的手机号</string>
+	<string name="inputPsd">请输入您的密码</string>
+	<string name="nowLogin">立即登录</string>
+	<string name="notMember">不是会员，请</string>
+	<string name="register">注册</string>
+	<string name="checkAgainPsd">请确认密码</string>
+	<string name="getCheckNum">获取验证码</string>
+	<string name="inputCheckNum">输入验证码</string>
+	
 </resources>

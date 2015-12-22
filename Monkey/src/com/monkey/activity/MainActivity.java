@@ -28,7 +28,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 	private ImageView iv_order;
 	private ImageView iv_me;
     private SlidingMenu slidingMenu;
-	private HomeFragment homefragment = new HomeFragment();// 首页
+	private HomeFragment homefragment ;// 首页
 	private OrderFragment orderfragment = new OrderFragment();// 订单
 	private MeFragment mefragment = new MeFragment();// 我
 	private CategroyFragment categroyfragment = new CategroyFragment();// 侧滑菜单-分类
@@ -41,7 +41,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 		ViewUtils.inject(this);
 		// 获得侧滑菜单对象
 		slidingMenu= getSlidingMenu();
-		
+		homefragment = new HomeFragment(slidingMenu);
 		getSupportFragmentManager().beginTransaction()
 		.replace(R.id.fl_sildingmenu, categroyfragment).commit();
 		// 设置侧滑菜单的宽度
@@ -55,7 +55,6 @@ public class MainActivity extends SlidingFragmentActivity implements
 		// 设置侧滑出现的地方
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		// 初始化左边菜单的数据
-		 
 		
 	
 		

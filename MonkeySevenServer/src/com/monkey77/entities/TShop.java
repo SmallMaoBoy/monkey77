@@ -27,17 +27,15 @@ public class TShop implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TShop(Integer id, String name, String description, String location) {
-		this.id = id;
+	public TShop(String name, String description, String location) {
 		this.name = name;
 		this.description = description;
 		this.location = location;
 	}
 
 	/** full constructor */
-	public TShop(Integer id, String name, String description, String location,
+	public TShop(String name, String description, String location,
 			Short isDefault, Set TGoods, Set TAdmins, Set TOrders) {
-		this.id = id;
 		this.name = name;
 		this.description = description;
 		this.location = location;

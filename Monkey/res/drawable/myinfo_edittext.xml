@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+     <!-- 填充的颜色：这里设置背景透明 -->
+    <solid android:color="@android:color/transparent"/>
+     <!-- 边框的颜色 ：不能和窗口背景色一样-->
+    <stroke
+        android:width="3dp"
+        android:color="#ffffff" />
+
+</shape>

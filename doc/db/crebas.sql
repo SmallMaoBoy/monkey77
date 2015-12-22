@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/15 下午 5:26:11                        */
+/* Created on:     2015/12/22 上午 12:30:23                       */
 /*==============================================================*/
 
 
@@ -11,6 +11,8 @@ drop table if exists t_admin_shop;
 drop table if exists t_cart;
 
 drop table if exists t_category;
+
+drop table if exists t_cookie_validate;
 
 drop table if exists t_good;
 
@@ -23,6 +25,8 @@ drop table if exists t_product_pic;
 drop table if exists t_shop;
 
 drop table if exists t_shop_good;
+
+drop table if exists t_sms_identifying_code;
 
 drop table if exists t_user;
 
@@ -39,6 +43,7 @@ create table t_admin
    account              varchar(25) not null comment '账号',
    password             varchar(64) not null comment '密码',
    role                 tinyint not null comment '1代表超级管理员、2代表采购员、3代表店员',
+   remarks              varchar(200) comment '备注',
    primary key (id)
 );
 
@@ -78,6 +83,20 @@ create table t_category
 );
 
 alter table t_category comment 't_category';
+
+/*==============================================================*/
+/* Table: t_cookie_validate                                     */
+/*==============================================================*/
+create table t_cookie_validate
+(
+   id                   int not null,
+   session_id           varchar(50) not null comment 'session产生的id',
+   user_id              int not null comment '用户id',
+   create_time          datetime not null comment 'cookie产生时间',
+   primary key (id)
+);
+
+alter table t_cookie_validate comment 't_cookie_validate';
 
 /*==============================================================*/
 /* Table: t_good                                                */
@@ -174,6 +193,20 @@ create table t_shop_good
 alter table t_shop_good comment 't_shop_good';
 
 /*==============================================================*/
+/* Table: t_sms_identifying_code                                */
+/*==============================================================*/
+create table t_sms_identifying_code
+(
+   id                   int not null,
+   mobile               varchar(20) not null comment '手机号码',
+   identifying_code     varchar(10) not null comment '验证码',
+   create_time          datetime not null comment '生成时间',
+   primary key (id)
+);
+
+alter table t_sms_identifying_code comment 't_sms_identifying_code';
+
+/*==============================================================*/
 /* Table: t_user                                                */
 /*==============================================================*/
 create table t_user
@@ -181,8 +214,8 @@ create table t_user
    id                   int not null,
    sex                  tinyint comment '性别',
    mobile               varchar(20) comment '手机号码',
-   account              varchar(25) comment '账号',
    password             varchar(64) comment '密码',
+   name                 varchar(20) comment '昵称',
    primary key (id)
 );
 
@@ -221,6 +254,9 @@ alter table t_cart add constraint FK_Reference_14 foreign key (good_id)
       references t_good (id) on delete restrict on update restrict;
 
 alter table t_cart add constraint FK_Reference_15 foreign key (user_id)
+      references t_user (id) on delete restrict on update restrict;
+
+alter table t_cookie_validate add constraint FK_Reference_16 foreign key (user_id)
       references t_user (id) on delete restrict on update restrict;
 
 alter table t_good add constraint FK_Reference_1 foreign key (category_id)
