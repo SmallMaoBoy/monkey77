@@ -17,7 +17,7 @@
             android:name="com.monkey.activity.MainActivity"
             android:label="@string/app_name" >
         </activity>
-        <activity 
+        <activity
             android:name="com.monkey.activity.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -30,8 +30,8 @@
             android:name="com.monkey.activity.GuideActivity"
             android:label="@string/app_name" >
         </activity>
-         <activity
-            android:name="com.monkey.activity.ActivityShowdetails"
+        <activity
+            android:name="com.monkey.activity.ShowdetailsActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -40,6 +40,18 @@
         </activity>
         <activity
             android:name="com.monkey.activity.MyInfoActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.monkey.activity.RegisterActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.monkey.activity.ShoppingCarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.monkey.activity.MeSetActivity"
             android:label="@string/app_name" >
         </activity>
     </application>

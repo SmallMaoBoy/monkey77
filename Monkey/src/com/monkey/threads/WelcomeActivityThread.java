@@ -12,13 +12,13 @@ public class WelcomeActivityThread implements Runnable {
 	private Context context;
 	private String isFirstUse;
 	private boolean isShowGuide;
-	private Handler handler = new Handler(){
+	private Handler handler = new Handler(){//ui线程做的事
 		public void handleMessage(android.os.Message msg){
 			Intent intent = null;
 			if(isShowGuide==true){
 				intent = new Intent(context,GuideActivity.class);
 			}else{
-				intent = new Intent(context,MainActivity.class);
+				intent = new Intent(context,MainActivity.class);				
 			}
 			context.startActivity(intent);
 		}

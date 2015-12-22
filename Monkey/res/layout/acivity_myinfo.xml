@@ -12,6 +12,7 @@
         android:background="#6CC965" >
 
         <ImageView
+            android:id="@+id/iv_myinfo_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -26,6 +27,7 @@
             android:text="我的资料" />
 
         <TextView
+            android:id="@+id/tv_saveMyInfo"
             style="@style/text_style2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
