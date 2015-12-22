@@ -76,15 +76,17 @@ $(document).ready(function() {
 			success : function(data) {
 				var statusCode=jQuery.parseJSON(data.statusCode);
 				if (statusCode == "0") {
-					alert("注册成功");
+					alert("注册成功,马上去登陆");
+					$("#myModal2").modal('hide');
+					$("#myModal").modal('show');
 				}else if(statusCode=="1"){
-					$("#registertip").text("该号码已被注册");
+					alert("该手机号码已被注册");
 				}else if(statusCode=="2"){
-					$("#registertip").text("该号码没有发送验证码");
+					alert("该号码没有发送验证码");
 				}else if(statusCode=="3"){
-					$("#registertip").text("验证码出错");
+					alert("验证码出错");
 				}else{
-					$("#registertip").text("服务器响应出错，请联系管理人员");
+					alert("服务器响应出错，请联系管理人员");
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {

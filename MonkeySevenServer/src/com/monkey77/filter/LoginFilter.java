@@ -88,8 +88,6 @@ System.out.println("拦截后---》"+request.getServletPath());
 				else if (cookie.getName().equals("cookievalidate"))
 					cookievalidate = cookie.getValue();
 			}
-System.out.println(mobile);
-System.out.println(cookievalidate);
 			if (!(mobile.equals("")||mobile.equals("null"))) {
 				ApplicationContext ac = new ClassPathXmlApplicationContext(
 						"applicationContext.xml");

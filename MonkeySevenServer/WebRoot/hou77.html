@@ -6,16 +6,16 @@
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <script language="javascript" src="js/userService.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/myhou77.css" rel="stylesheet" type="text/css">
 
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet"
-	type="text/css">
-	<link href="css/myhou77.css" rel="stylesheet" type="text/css">
 
-		<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
 </head>
 
 <body>
-
 <nav class="navbar navbar-default ">
   <div class="container-fluid ">
 <div class="navbar-header ">
@@ -28,10 +28,8 @@
     </div>
       <div class="collapse navbar-collapse" id="navbar-1" >
         <ul class="nav navbar-nav navbar-right">
-        <li id="header_li1"><a data-toggle="modal" data-target="#myModal">[登录] </a>
-				</li>
-				<li id="header_li2"><a data-toggle="modal" data-target="#myModa2">[注册] </a>
-				</li>
+        <li id="header_li1"><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li id="header_li2"><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
         <li id="myfruit"><a href="#">[我的果园]</a> 
         
          <ul id="menu" class="dropdown-menu">
@@ -277,158 +275,90 @@
 			<li style="padding-left:110px">4009-111-111</li>
 			<li style="padding-left:80px">周一至周日8:30-22:00</li>
 		</ul>
-		</nav>
 	</div>
-
-	<div class="goods visible-lg" id="foot1">
-		<div class="container">
-			<div class="line">
-				<img src="imgs/foot_a1.jpg">
-			</div>
-			<div class="line">
-				<img src="imgs/foot_a2.jpg">
-			</div>
-			<div class="line">
-				<img src="imgs/foot_a3.jpg">
-			</div>
-			<div class="line">
-				<img src="imgs/foot_a4.jpg">
-			</div>
-			<div class="line">
-				<img src="imgs/foot_a5.jpg">
-			</div>
-		</div>
+	<div class="right" >
+		<ul class="title1">
+			<li class="title">购物指南</li>
+						<li><a rel="nofollow" href="#" target="_blank">积分制度</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">会员介绍</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">购物流程</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">常见问题</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">配送服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">开箱验货</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送运费</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送范围</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">支付方式</li>
+			  <li><a rel="nofollow" href="#" target="_blank">货到付款</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">在线支付</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">优选卡</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">发票制度</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title" >售后服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">退款说明</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货流程</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">隐私条款</a></li>
+					</ul>
 	</div>
+	<div >
+        <ul class="title1">
+          <li style="float:left; font-weight:700">手机客户端:</a></li>
+          <li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png"/></li>
+        </ul>
+      </div>
+</div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 150px;" >
+        账号：<input id="input_account" type="text" /><br/>
+        密码：<input id="input_paswd"    type="password" />
+        
+      </div>
+      <div style="margin-left:350px;color:#669933"><a href="#" >忘记密码></a></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button id="loginbypwdbtn" type="button" class="btn btn-primary">登陆</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-	<div class="foot visible-lg" id="foot2"
-		style="padding-top:20px; padding-bottom:200px ">
-		<div class="pageFooter">
-			<div class="middle" style="padding-left:40px">
-				<ul class="title1">
-					<li><img src="imgs/11.png" />
-					</li>
-					<li style="padding-left:110px">4009-111-111</li>
-					<li style="padding-left:80px">周一至周日8:30-22:00</li>
-				</ul>
-			</div>
-			<div class="right">
-				<ul class="title1">
-					<li class="title">购物指南</li>
-					<li><a rel="nofollow" href="#" target="_blank">积分制度</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">会员介绍</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">购物流程</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">常见问题</a>
-					</li>
-				</ul>
-				<ul class="title1">
-					<li class="title">配送服务</li>
-					<li><a rel="nofollow" href="#" target="_blank">配送政策</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">开箱验货</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">配送运费</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">配送范围</a>
-					</li>
-				</ul>
-				<ul class="title1">
-					<li class="title">支付方式</li>
-					<li><a rel="nofollow" href="#" target="_blank">货到付款</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">在线支付</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">优选卡</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">发票制度</a>
-					</li>
-				</ul>
-				<ul class="title1">
-					<li class="title">售后服务</li>
-					<li><a rel="nofollow" href="#" target="_blank">退款说明</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">退换货流程</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">退换货政策</a>
-					</li>
-					<li><a rel="nofollow" href="#" target="_blank">隐私条款</a>
-					</li>
-				</ul>
-			</div>
-			<div>
-				<ul class="title1">
-					<li style="float:left; font-weight:700">手机客户端:</a>
-					</li>
-					<li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png" />
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content"
-				style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png"
-						style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
-					<h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
-				</div>
-				<div class="modal-body" style=" margin:10px 0 10px 150px;">
-					账号：<input id="input_account" type="text" /><br /> 密码：<input
-						id="input_paswd" type="password" />
-
-				</div>
-				<div style="margin-left:350px;color:#669933">
-					<a href="#">忘记密码></a>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-					<button id="loginbypwdbtn" type="button" class="btn btn-primary">登陆</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal fade" id="myModa2" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabe2">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content"
-				style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png"
-						style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
-					<h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
-				</div>
-				<div class="modal-body" style=" margin:10px 0 10px 120px;">
-					手机号：<input id="input_phone" class="enroll" type="text"
-						style="margin-left:37px" /><div id="mobiletip"></div><br />
-					手机验证码：<input id="re_number" class="enroll" type="text" /> <input id="test_number" type="button"
-						style="font-size:16px" value="获取验证码"  class="btn" /><br />
-					设置密码：<input id="password" class="enroll" type="text"
-						style="margin-left:18px" /><br /> 确认密码：<input id="confirm"
-						class="enroll" type="text" style="margin-left:18px" /><div id="pwdtip"></div>
-
-				</div>
-				<div class="modal-footer">
-                	<div id="registertip"></div>
-					<button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-					<button type="button" id="registerbtn" class="btn btn-primary">注册</button>
-				</div>
-			</div>
-		</div>
-	</div>
+<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabe2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
+      <div class="modal-header" >
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         <img src="imgs/42185fa62dfbca64cf668239fe3a55d6.png" style="height:60px; width:60px;float:left; margin:0px 10px 10px 120px" />
+        <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
+      </div>
+      <div class="modal-body" style=" margin:10px 0 10px 120px;" >
+        手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/><div id="mobiletip"></div>
+              <br/>
+        手机验证码：<input id="re_number" class="enroll" type="text"  /><input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
+        设置密码：<input id="password" class="enroll"   type="text" style="margin-left:18px"/><br/>
+        确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/><div id="pwdtip"></div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
+        <button id="registerbtn" type="button" class="btn btn-primary">注册</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
@@ -449,20 +379,19 @@ $('.carousel').carousel({
 	  
 	   $("#menu_place").toggle();
 	   });
-
 </script>
 <script language="javascript">
 	var city = document.getElementById("city");
-
-	function changeCity() {
+	
+	function changeCity(){
 		//清除city中的option对象
 		var options = city.getElementsByTagName("option");
-		for ( var i = options.length - 1; i >= 0; i--) {
+		for(var i=options.length-1;i>=0;i--){
 			city.removeChild(options[i]);
 		}
 		//得到	provice的值
 		var provice = document.getElementById("provice").value;
-		if (provice == 'gd') {
+		if(provice=='gd'){
 			/*var opt1 = document.createElement("option");
 			opt1.value = "gz";
 			opt1.innerHTML = "广州市";
@@ -473,6 +402,7 @@ $('.carousel').carousel({
 			
 			city.appendChild(opt1);
 			city.appendChild(opt2);*/
+			
 			var opt1 = new Option("广州市","gz");
 			var opt2 = new Option("深圳市","sz");
 			var opt3 = new Option("揭阳市","jy");
@@ -553,14 +483,12 @@ $('.carousel').carousel({
 		}
 		
 		
-
 		//向city中增加相应option对象
-
+		
 	}
-
+	
 	initProvince(getElementByName("user.province"), "");
-	initCity(getElementByName("user.city"), "",
-			getElementByName("user.province").value, "1");
+    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
 </script>
 <script>
 function a1(t){
