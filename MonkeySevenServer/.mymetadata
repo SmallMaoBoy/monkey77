@@ -3,7 +3,7 @@
   type="WEB"
   name="MonkeySevenServer"
   id="myeclipse.1433491981431"
-  context-root="/sshweb1"
+  context-root="/MonkeySevenServer"
   j2ee-spec="5.0"
   archive="MonkeySevenServer.war">
   <attributes>

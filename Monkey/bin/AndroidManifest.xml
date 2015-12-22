@@ -34,6 +34,14 @@
             android:name="com.monkey.activity.ActivityShowdetails"
             android:label="@string/app_name" >
         </activity>
+        <activity
+            android:name="com.monkey.activity.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.monkey.activity.MyInfoActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>

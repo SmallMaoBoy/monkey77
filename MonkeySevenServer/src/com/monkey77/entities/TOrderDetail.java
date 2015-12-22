@@ -20,9 +20,7 @@ public class TOrderDetail implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TOrderDetail(Integer id, TOrder TOrder, TGood TGood,
-			Integer goodNumber) {
-		this.id = id;
+	public TOrderDetail(TOrder TOrder, TGood TGood, Integer goodNumber) {
 		this.TOrder = TOrder;
 		this.TGood = TGood;
 		this.goodNumber = goodNumber;

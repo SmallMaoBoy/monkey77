@@ -30,17 +30,15 @@ public class TOrder implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TOrder(Integer id, String status, Float totalPrice) {
-		this.id = id;
+	public TOrder(String status, Float totalPrice) {
 		this.status = status;
 		this.totalPrice = totalPrice;
 	}
 
 	/** full constructor */
-	public TOrder(Integer id, TShop TShop, String status, Float totalPrice,
+	public TOrder(TShop TShop, String status, Float totalPrice,
 			String reamarks, Timestamp generatedTime, Timestamp payTime,
 			Timestamp takeTime, Set TUsers, Set TOrderDetails) {
-		this.id = id;
 		this.TShop = TShop;
 		this.status = status;
 		this.totalPrice = totalPrice;

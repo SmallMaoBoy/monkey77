@@ -40,7 +40,7 @@ public class CategroyFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		view = inflater.inflate(R.layout.categroy_fragment, container, false);
+		view = inflater.inflate(R.layout.fragment_categroy, container, false);
 		lv_categroy = (ListView) view.findViewById(R.id.lv_categroy);
 		initData();
 		lv_categroy.setAdapter(new CateAdapter());

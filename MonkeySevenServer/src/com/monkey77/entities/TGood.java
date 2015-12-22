@@ -36,10 +36,9 @@ public class TGood implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public TGood(Integer id, TCategory TCategory, String name, Float price,
-			Short number, String status, String specification,
-			String originPlace, String title, Integer saleVolume) {
-		this.id = id;
+	public TGood(TCategory TCategory, String name, Float price, Short number,
+			String status, String specification, String originPlace,
+			String title, Integer saleVolume) {
 		this.TCategory = TCategory;
 		this.name = name;
 		this.price = price;
@@ -52,12 +51,11 @@ public class TGood implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TGood(Integer id, TCategory TCategory, String name, Float price,
-			Short number, String status, String specification,
-			String originPlace, String title, Integer saleVolume,
-			String edibleMethod, String storage, Set TShops, Set TUsers,
-			Set TProductPics, Set TOrderDetails, Set TCarts) {
-		this.id = id;
+	public TGood(TCategory TCategory, String name, Float price, Short number,
+			String status, String specification, String originPlace,
+			String title, Integer saleVolume, String edibleMethod,
+			String storage, Set TShops, Set TUsers, Set TProductPics,
+			Set TOrderDetails, Set TCarts) {
 		this.TCategory = TCategory;
 		this.name = name;
 		this.price = price;
