@@ -5,6 +5,7 @@ $(document).ready(function() {
 	
 	// 验证手机号码是否被注册
 	$("#input_phone").change(function() {
+		
 		$.ajax({
 			type : "post",
 			data : {
@@ -95,13 +96,14 @@ $(document).ready(function() {
 	
 	//用户登录
 	$("#loginbypwdbtn").click(function(){
+		var loginurl="LoginAction_loginByPasswordWithCookie";
 		$.ajax({
 			type : "post",
 			data : {
 				mobile : $("#input_account").val(),
 				password:$("#input_paswd").val()
 			},
-			url : "LoginAction_loginByPassword",
+			url :loginurl ,
 			dataType : "json",
 			success : function(respdata) {
 				var code=jQuery.parseJSON(respdata.statusCode);
@@ -125,18 +127,19 @@ $(document).ready(function() {
 });
 
 function unsign(){
-	$.cookie('username',null);
+	$.cookie('mobile',null);
 	changeUser();
 	
 }
 	
 function changeUser(){
-	var username=$.cookie('username');
-	if(username==null||username=="null"){
+	var mobile=$.cookie('mobile');
+	if(mobile==null||mobile=="null"||mobile==""){
 		$("#header_li1").html("<a data-toggle='modal' data-target='#myModal'>[登录] </a>");
 		$("#header_li2").html("<a data-toggle='modal' data-target='#myModa2'>[注册] </a>");
 		
 	}else{
+		var username=$.cookie('username');
 		$("#header_li1").html("<a href='document.html'>"+username+"</a>");
 		$("#header_li2").html("<a href='#' onclick='unsign()'>"+"注销"+"</a>");
 	}

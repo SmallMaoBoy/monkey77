@@ -2,6 +2,8 @@ package com.monkey77.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 public interface IUserService {
 
 	//判断手机号码是否存在
@@ -15,4 +17,9 @@ public interface IUserService {
 	
 	//根据密码登录
 	public Map<String, Object> loginByPassword(String mobile,String password);
+	
+	//根据密码登录,同时保存cookie
+	public Map<String, Object> loginByPasswordWithCookie(String mobile,String password,HttpServletResponse
+
+ response,String sessionid);
 }

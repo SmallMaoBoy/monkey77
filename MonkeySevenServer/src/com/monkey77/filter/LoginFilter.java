@@ -6,6 +6,8 @@
 package com.monkey77.filter;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.sql.Timestamp;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -16,14 +18,24 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.monkey77.dao.ITCookieValidateDao;
+import com.monkey77.dao.TCookieValidateDaoImp;
+import com.monkey77.dao.TUserDaoImp;
+import com.monkey77.entities.TCookieValidate;
+import com.monkey77.entities.TUser;
 
 /**
  * @author mao
  * @time 创建时间 2015-12-21下午11:25:17
  * 
  */
-public class LoginFilter implements Filter{
+public class LoginFilter implements Filter {
+
+	private String[] excludedPageArray = { "/hou77.html" };
 
 	/**
 	 * @author mao
@@ -33,33 +45,93 @@ public class LoginFilter implements Filter{
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	/**
 	 * @author mao
 	 * @date 创建时间：2015-12-21下午11:26:04
-	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest, javax.servlet.ServletResponse, javax.servlet.FilterChain)
+	 * @see javax.servlet.Filter#doFilter(javax.servlet.ServletRequest,
+	 *      javax.servlet.ServletResponse, javax.servlet.FilterChain)
 	 */
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse res,
-			FilterChain arg2) throws IOException, ServletException {
+			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		req.setCharacterEncoding("utf-8");
-		   HttpServletRequest request = (HttpServletRequest) req;
-		   HttpServletResponse response = (HttpServletResponse) res;
-		   HttpSession session=request.getSession();
-		   Cookie[] cookies = request.getCookies(); 
-		   String sessionid = session.getId(); // 取得当前的session id
-		   Cookie ckSessionid = new Cookie("sessionid", sessionid);
-               for (int i = 0; i < cookies.length; i++) { 
-                   Cookie cookie = cookies[i];
-                   System.out.println(cookie.getName()+"---"+cookie.getValue());
-               }
-               Cookie cookie=new Cookie("mobile","");
-               response.addCookie(cookie);
-               response.addCookie(ckSessionid);
-		   arg2.doFilter(req, res);
+		HttpServletRequest request = (HttpServletRequest) req;
+		HttpServletResponse response = (HttpServletResponse) res;
+System.out.println("拦截前---》"+request.getServletPath());
+		boolean isExcludedPage = false;
+		if(request.getServletPath().contains("Action")){
+			isExcludedPage=true;
+		}else{
+			for (String page : excludedPageArray) {// 判断是否在过滤url之外
+				if (((HttpServletRequest) request).getServletPath().equals(page)) {
+					isExcludedPage = true;
+					break;
+				}
+			}
+		}
+		if (!isExcludedPage) {// 在过滤url之外
+			chain.doFilter(request, response);
+			return;
+		}
+System.out.println("拦截后---》"+request.getServletPath());
+		Cookie[] cookies = request.getCookies();
+		String mobile = "";
+		String cookievalidate = "";
+		if(cookies!=null){
+			for (int i = 0; i < cookies.length; i++) {
+				Cookie cookie = cookies[i];
+				if (cookie.getName().equals("mobile"))
+					mobile = cookie.getValue();
+				else if (cookie.getName().equals("cookievalidate"))
+					cookievalidate = cookie.getValue();
+			}
+System.out.println(mobile);
+System.out.println(cookievalidate);
+			if (!(mobile.equals("")||mobile.equals("null"))) {
+				ApplicationContext ac = new ClassPathXmlApplicationContext(
+						"applicationContext.xml");
+				ITCookieValidateDao cookieValidateDao = (TCookieValidateDaoImp) ac
+						.getBean("CookieValidateDao");
+				TUser user=((TUserDaoImp) ac.getBean("UserDao")).getUserByMobile(mobile);
+				TCookieValidate cookieValidate2 = cookieValidateDao
+						.getCookieValidate(user);
+				Timestamp createtime=cookieValidate2.getCreateTime();
+				Timestamp endtime=new Timestamp(System.currentTimeMillis()-1000*60*60*24*7);
+				if (cookievalidate.equals(cookieValidate2.getSessionId())&&endtime.before(createtime)) {
+		System.out.println("cookie有效");
+					Cookie cookie1 = new Cookie("username",URLEncoder.encode(user.getName(), "UTF-8"));
+					Cookie cookie2 ;
+					if(user.getSex()==0){
+						cookie2 = new Cookie("sex", URLEncoder.encode("男", "UTF-8"));
+					}else{
+						cookie2 = new Cookie("sex", URLEncoder.encode("女", "UTF-8"));
+					}
+					response.addCookie(cookie1);
+					response.addCookie(cookie2);
+					chain.doFilter(request, response);
+					return;
+				} else {
+					Cookie cookie1 = new Cookie("mobile", "");
+					Cookie cookie2 = new Cookie("cookievalidate", "");
+					response.addCookie(cookie1);
+					response.addCookie(cookie2);
+				}
+			} else {
+				Cookie cookie1 = new Cookie("mobile", "");
+				Cookie cookie2 = new Cookie("cookievalidate", "");
+				response.addCookie(cookie1);
+				response.addCookie(cookie2);
+			}
+		}else{
+			Cookie cookie1 = new Cookie("mobile", "");
+			Cookie cookie2 = new Cookie("cookievalidate", "");
+			response.addCookie(cookie1);
+			response.addCookie(cookie2);
+		}
+		chain.doFilter(request, response);
 	}
 
 	/**
@@ -70,7 +142,7 @@ public class LoginFilter implements Filter{
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

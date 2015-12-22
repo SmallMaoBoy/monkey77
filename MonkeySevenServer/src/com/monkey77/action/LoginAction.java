@@ -7,15 +7,19 @@ package com.monkey77.action;
 
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.monkey77.service.IUserService;
-import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author mao
  * @time 创建时间 2015-12-20上午9:02:42
  * 
  */
-public class LoginAction {
+public class LoginAction extends ActionSupport{
 	private IUserService userService;
 	private String password;
 	private String mobile;
@@ -61,6 +65,12 @@ public class LoginAction {
 	 */
 	public String loginByPassword(){
 		map=userService.loginByPassword(mobile, password);
-		return Action.SUCCESS;
+		return SUCCESS;
+	}
+	
+	public String loginByPasswordWithCookie(){
+		String sessionid=ServletActionContext.getRequest().getSession().getId();
+		map=userService.loginByPasswordWithCookie(mobile, password, ServletActionContext.getResponse(),sessionid);
+		return SUCCESS;
 	}
 }
