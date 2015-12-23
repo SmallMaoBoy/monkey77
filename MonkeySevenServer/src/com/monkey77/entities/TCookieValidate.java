@@ -62,4 +62,10 @@ public class TCookieValidate implements java.io.Serializable {
 		this.createTime = createTime;
 	}
 
+	@Override
+	public String toString() {
+		return "TCookieValidate [id=" + id + ", sessionId=" + sessionId + ", createTime=" + createTime
+				+ "]";
+	}
+
 }

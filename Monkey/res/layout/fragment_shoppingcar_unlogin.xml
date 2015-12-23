@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <ImageView 
+        android:id="@+id/iv_shoppingcar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/icon_no_shopping"/>
+    <TextView 
+        android:id="@+id/tv_shoppingcar_unlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_shoppingcar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        style="@style/text_style7"
+        android:text="@string/shoppingcar_unlogin"/>
+    <TextView 
+        android:id="@+id/tv_gotologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_shoppingcar_unlogin"
+        android:layout_centerHorizontal="true"
+        style="@style/text_style6"
+        android:text="@string/login"/>
+    
+
+</RelativeLayout>

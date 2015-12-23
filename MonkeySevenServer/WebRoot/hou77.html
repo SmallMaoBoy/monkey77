@@ -4,9 +4,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
+
+<script language="javascript" src="js/userService.js"></script>
+<script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/myhou77.css" rel="stylesheet" type="text/css">
-
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 
@@ -25,8 +27,8 @@
     </div>
       <div class="collapse navbar-collapse" id="navbar-1" >
         <ul class="nav navbar-nav navbar-right">
-        <li><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
-        <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+        <li id="header_li1"><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li id="header_li2"><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
         <li id="myfruit"><a href="#">[我的果园]</a> 
         
          <ul id="menu" class="dropdown-menu">
@@ -327,7 +329,8 @@
       <div style="margin-left:350px;color:#669933"><a href="#" >忘记密码></a></div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-        <button type="button" class="btn btn-primary">登陆</button>
+
+        <button id="loginbypwdbtn" type="button" class="btn btn-primary">登陆</button>
       </div>
     </div>
   </div>
@@ -342,16 +345,19 @@
         <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
       </div>
       <div class="modal-body" style=" margin:10px 0 10px 120px;" >
-        手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/>
-              <input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
-        手机验证码：<input id="re_number" class="enroll" type="text"  /><br/>
+
+        手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/><div id="mobiletip"></div>
+              <br/>
+        手机验证码：<input id="re_number" class="enroll" type="text"  /><input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
         设置密码：<input id="password" class="enroll"   type="text" style="margin-left:18px"/><br/>
-        确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/>
+        确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/><div id="pwdtip"></div>
+
         
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">退出</button>
-        <button type="button" class="btn btn-primary">注册</button>
+
+        <button id="registerbtn" type="button" class="btn btn-primary">注册</button>
       </div>
     </div>
   </div>

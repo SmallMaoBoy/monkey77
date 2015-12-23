@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/car_btn"
+        android:id="@+id/btn_car"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"

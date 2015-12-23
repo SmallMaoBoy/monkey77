@@ -5,6 +5,7 @@ $(document).ready(function() {
 	
 	// 验证手机号码是否被注册
 	$("#input_phone").change(function() {
+		
 		$.ajax({
 			type : "post",
 			data : {
@@ -75,15 +76,17 @@ $(document).ready(function() {
 			success : function(data) {
 				var statusCode=jQuery.parseJSON(data.statusCode);
 				if (statusCode == "0") {
-					alert("注册成功");
+					alert("注册成功,马上去登陆");
+					$("#myModal2").modal('hide');
+					$("#myModal").modal('show');
 				}else if(statusCode=="1"){
-					$("#registertip").text("该号码已被注册");
+					alert("该手机号码已被注册");
 				}else if(statusCode=="2"){
-					$("#registertip").text("该号码没有发送验证码");
+					alert("该号码没有发送验证码");
 				}else if(statusCode=="3"){
-					$("#registertip").text("验证码出错");
+					alert("验证码出错");
 				}else{
-					$("#registertip").text("服务器响应出错，请联系管理人员");
+					alert("服务器响应出错，请联系管理人员");
 				}
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
@@ -95,13 +98,14 @@ $(document).ready(function() {
 	
 	//用户登录
 	$("#loginbypwdbtn").click(function(){
+		var loginurl="LoginAction_loginByPasswordWithCookie";
 		$.ajax({
 			type : "post",
 			data : {
 				mobile : $("#input_account").val(),
 				password:$("#input_paswd").val()
 			},
-			url : "LoginAction_loginByPassword",
+			url :loginurl ,
 			dataType : "json",
 			success : function(respdata) {
 				var code=jQuery.parseJSON(respdata.statusCode);
@@ -125,18 +129,19 @@ $(document).ready(function() {
 });
 
 function unsign(){
-	$.cookie('username',null);
+	$.cookie('mobile',null);
 	changeUser();
 	
 }
 	
 function changeUser(){
-	var username=$.cookie('username');
-	if(username==null||username=="null"){
+	var mobile=$.cookie('mobile');
+	if(mobile==null||mobile=="null"||mobile==""){
 		$("#header_li1").html("<a data-toggle='modal' data-target='#myModal'>[登录] </a>");
 		$("#header_li2").html("<a data-toggle='modal' data-target='#myModa2'>[注册] </a>");
 		
 	}else{
+		var username=$.cookie('username');
 		$("#header_li1").html("<a href='document.html'>"+username+"</a>");
 		$("#header_li2").html("<a href='#' onclick='unsign()'>"+"注销"+"</a>");
 	}

@@ -17,10 +17,14 @@
 	<bean id="SmsIdentifyingCodeDao" class="com.monkey77.dao.TSmsIdentifyingCodeDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="CookieValidateDao" class="com.monkey77.dao.TCookieValidateDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
+		<property name="cookieValidateDao" ref="CookieValidateDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>

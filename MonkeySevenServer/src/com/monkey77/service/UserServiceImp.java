@@ -5,10 +5,15 @@ import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import net.sf.json.JSONObject;
 
+import com.monkey77.dao.ITCookieValidateDao;
 import com.monkey77.dao.ITSmsIdentifyingCodeDao;
 import com.monkey77.dao.ITUserDao;
+import com.monkey77.entities.TCookieValidate;
 import com.monkey77.entities.TSmsIdentifyingCode;
 import com.monkey77.entities.TUser;
 import com.monkey77.utils.MD5;
@@ -18,9 +23,20 @@ public class UserServiceImp implements IUserService{
 
 	private ITUserDao userDao;
 	private ITSmsIdentifyingCodeDao smsIdentifyingCodeDao;
+	private ITCookieValidateDao cookieValidateDao;
 	
 	
 	
+	public ITCookieValidateDao getCookieValidateDao() {
+		return cookieValidateDao;
+	}
+
+
+	public void setCookieValidateDao(ITCookieValidateDao cookieValidateDao) {
+		this.cookieValidateDao = cookieValidateDao;
+	}
+
+
 	public ITSmsIdentifyingCodeDao getSmsIdentifyingCodeDao() {
 		return smsIdentifyingCodeDao;
 	}
@@ -138,6 +154,31 @@ public class UserServiceImp implements IUserService{
 			}else{
 				json.put("statusCode", "2");
 			}
+		}
+		return json;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-22上午11:45:01
+	 * @see com.monkey77.service.IUserService#loginByPasswordWithCookie(java.lang.String, java.lang.String, javax.servlet.http.Cookie[])
+	 */
+	@Override
+	public Map<String, Object> loginByPasswordWithCookie(String mobile,
+			String password, HttpServletResponse resopnse,String sessionid) {
+		// TODO Auto-generated method stub
+		Map<String,Object> json=loginByPassword(mobile,password);
+		if(json.get("statusCode").equals("0")){
+			TCookieValidate cookieValidate=new TCookieValidate();
+			Timestamp time=new Timestamp(System.currentTimeMillis());
+			cookieValidate.setCreateTime(time);
+			cookieValidate.setSessionId(sessionid);
+			cookieValidate.setTUser(userDao.getUserByMobile(mobile));
+			cookieValidateDao.saveCookieValidate(cookieValidate);
+			Cookie cookie=new Cookie("cookievalidate",sessionid);
+			cookie.setMaxAge(60*60*24*7);
+			resopnse.addCookie(cookie);
 		}
 		return json;
 	}
