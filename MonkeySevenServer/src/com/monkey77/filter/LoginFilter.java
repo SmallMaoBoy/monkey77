@@ -60,7 +60,6 @@ public class LoginFilter implements Filter {
 		// TODO Auto-generated method stub
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
-System.out.println("拦截前---》"+request.getServletPath());
 		boolean isExcludedPage = false;
 		if(request.getServletPath().contains("Action")){
 			isExcludedPage=true;
@@ -76,7 +75,6 @@ System.out.println("拦截前---》"+request.getServletPath());
 			chain.doFilter(request, response);
 			return;
 		}
-System.out.println("拦截后---》"+request.getServletPath());
 		Cookie[] cookies = request.getCookies();
 		String mobile = "";
 		String cookievalidate = "";
@@ -99,7 +97,7 @@ System.out.println("拦截后---》"+request.getServletPath());
 				Timestamp createtime=cookieValidate2.getCreateTime();
 				Timestamp endtime=new Timestamp(System.currentTimeMillis()-1000*60*60*24*7);
 				if (cookievalidate.equals(cookieValidate2.getSessionId())&&endtime.before(createtime)) {
-		System.out.println("cookie有效");
+System.out.println("cookie有效");
 					Cookie cookie1 = new Cookie("username",URLEncoder.encode(user.getName(), "UTF-8"));
 					Cookie cookie2 ;
 					if(user.getSex()==0){

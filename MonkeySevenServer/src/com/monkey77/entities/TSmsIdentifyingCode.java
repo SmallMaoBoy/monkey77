@@ -2,65 +2,77 @@ package com.monkey77.entities;
 
 import java.sql.Timestamp;
 
+
 /**
  * TSmsIdentifyingCode entity. @author MyEclipse Persistence Tools
  */
 
-public class TSmsIdentifyingCode implements java.io.Serializable {
+public class TSmsIdentifyingCode  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer id;
-	private String mobile;
-	private String identifyingCode;
-	private Timestamp createTime;
+    // Fields    
 
-	// Constructors
+     private Integer id;
+     private String mobile;
+     private String identifyingCode;
+     private Timestamp createTime;
 
-	/** default constructor */
-	public TSmsIdentifyingCode() {
-	}
 
-	/** full constructor */
-	public TSmsIdentifyingCode(String mobile, String identifyingCode,
-			Timestamp createTime) {
-		this.mobile = mobile;
-		this.identifyingCode = identifyingCode;
-		this.createTime = createTime;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public TSmsIdentifyingCode() {
+    }
 
-	public Integer getId() {
-		return this.id;
-	}
+    
+    /** full constructor */
+    public TSmsIdentifyingCode(String mobile, String identifyingCode, Timestamp createTime) {
+        this.mobile = mobile;
+        this.identifyingCode = identifyingCode;
+        this.createTime = createTime;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+   
+    // Property accessors
 
-	public String getMobile() {
-		return this.mobile;
-	}
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
-	}
+    public String getMobile() {
+        return this.mobile;
+    }
+    
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
 
-	public String getIdentifyingCode() {
-		return this.identifyingCode;
-	}
+    public String getIdentifyingCode() {
+        return this.identifyingCode;
+    }
+    
+    public void setIdentifyingCode(String identifyingCode) {
+        this.identifyingCode = identifyingCode;
+    }
 
-	public void setIdentifyingCode(String identifyingCode) {
-		this.identifyingCode = identifyingCode;
-	}
+    public Timestamp getCreateTime() {
+        return this.createTime;
+    }
+    
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+   
 
-	public Timestamp getCreateTime() {
-		return this.createTime;
-	}
 
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
+
+
+
+
+
 
 }

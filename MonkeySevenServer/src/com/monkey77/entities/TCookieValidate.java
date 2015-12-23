@@ -2,70 +2,77 @@ package com.monkey77.entities;
 
 import java.sql.Timestamp;
 
+
 /**
  * TCookieValidate entity. @author MyEclipse Persistence Tools
  */
 
-public class TCookieValidate implements java.io.Serializable {
+public class TCookieValidate  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer id;
-	private TUser TUser;
-	private String sessionId;
-	private Timestamp createTime;
+    // Fields    
 
-	// Constructors
+     private Integer id;
+     private TUser TUser;
+     private String sessionId;
+     private Timestamp createTime;
 
-	/** default constructor */
-	public TCookieValidate() {
-	}
 
-	/** full constructor */
-	public TCookieValidate(TUser TUser, String sessionId, Timestamp createTime) {
-		this.TUser = TUser;
-		this.sessionId = sessionId;
-		this.createTime = createTime;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public TCookieValidate() {
+    }
 
-	public Integer getId() {
-		return this.id;
-	}
+    
+    /** full constructor */
+    public TCookieValidate(TUser TUser, String sessionId, Timestamp createTime) {
+        this.TUser = TUser;
+        this.sessionId = sessionId;
+        this.createTime = createTime;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+   
+    // Property accessors
 
-	public TUser getTUser() {
-		return this.TUser;
-	}
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setTUser(TUser TUser) {
-		this.TUser = TUser;
-	}
+    public TUser getTUser() {
+        return this.TUser;
+    }
+    
+    public void setTUser(TUser TUser) {
+        this.TUser = TUser;
+    }
 
-	public String getSessionId() {
-		return this.sessionId;
-	}
+    public String getSessionId() {
+        return this.sessionId;
+    }
+    
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
-	}
+    public Timestamp getCreateTime() {
+        return this.createTime;
+    }
+    
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
+    }
+   
 
-	public Timestamp getCreateTime() {
-		return this.createTime;
-	}
 
-	public void setCreateTime(Timestamp createTime) {
-		this.createTime = createTime;
-	}
 
-	@Override
-	public String toString() {
-		return "TCookieValidate [id=" + id + ", sessionId=" + sessionId + ", createTime=" + createTime
-				+ "]";
-	}
+
+
+
+
 
 }

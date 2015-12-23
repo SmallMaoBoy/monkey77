@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/22 上午 12:30:23                       */
+/* Created on:     2015/12/23 上午 11:11:49                       */
 /*==============================================================*/
 
 
@@ -110,6 +110,7 @@ create table t_good
    status               varchar(5) not null comment '商品状态',
    specification        varchar(25) not null comment '商品规格介绍',
    origin_place         varchar(25) not null comment '商品产地',
+   pic_url              varchar(500) comment '首页图片',
    title                varchar(100) not null comment '展示标题',
    category_id          int not null comment '商品种类',
    sale_volume          int not null comment '销量',

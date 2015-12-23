@@ -1,53 +1,67 @@
 package com.monkey77.entities;
 
+
+
 /**
  * TProductPic entity. @author MyEclipse Persistence Tools
  */
 
-public class TProductPic implements java.io.Serializable {
+public class TProductPic  implements java.io.Serializable {
 
-	// Fields
 
-	private Integer id;
-	private TGood TGood;
-	private String picUrl;
+    // Fields    
 
-	// Constructors
+     private Integer id;
+     private TGood TGood;
+     private String picUrl;
 
-	/** default constructor */
-	public TProductPic() {
-	}
 
-	/** full constructor */
-	public TProductPic(TGood TGood, String picUrl) {
-		this.TGood = TGood;
-		this.picUrl = picUrl;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public TProductPic() {
+    }
 
-	public Integer getId() {
-		return this.id;
-	}
+    
+    /** full constructor */
+    public TProductPic(TGood TGood, String picUrl) {
+        this.TGood = TGood;
+        this.picUrl = picUrl;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+   
+    // Property accessors
 
-	public TGood getTGood() {
-		return this.TGood;
-	}
+    public Integer getId() {
+        return this.id;
+    }
+    
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setTGood(TGood TGood) {
-		this.TGood = TGood;
-	}
+    public TGood getTGood() {
+        return this.TGood;
+    }
+    
+    public void setTGood(TGood TGood) {
+        this.TGood = TGood;
+    }
 
-	public String getPicUrl() {
-		return this.picUrl;
-	}
+    public String getPicUrl() {
+        return this.picUrl;
+    }
+    
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+   
 
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
-	}
+
+
+
+
+
+
 
 }

@@ -14,6 +14,9 @@
 	<bean id="UserDao" class="com.monkey77.dao.TUserDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="GoodDao" class="com.monkey77.dao.TGoodDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="SmsIdentifyingCodeDao" class="com.monkey77.dao.TSmsIdentifyingCodeDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -25,6 +28,9 @@
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
 		<property name="cookieValidateDao" ref="CookieValidateDao"></property>
+	</bean>
+	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
+		<property name="goodDao" ref="GoodDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
