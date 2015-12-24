@@ -38,4 +38,7 @@
 	<bean id="LoginAction" class="com.monkey77.action.LoginAction">
 		<property name="userService" ref="UserService" ></property>
 	</bean>
+	<bean id="GoodAction" class="com.monkey77.action.GoodAction">
+		<property name="goodService" ref="GoodService" ></property>
+	</bean>
 </beans>

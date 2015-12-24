@@ -15,5 +15,5 @@ import java.util.Map;
 public interface IGoodService {
 	
 	//用户默认获得商品列表
-	public Map<String,Object> getDefalutList(int page);
+	public Map<String,Object> getDefalutList(int page,int orderType);
 }

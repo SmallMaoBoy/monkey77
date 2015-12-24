@@ -3,6 +3,10 @@ package com.monkey77.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
+import com.google.gson.annotations.Expose;
+
 
 /**
  * TGood entity. @author MyEclipse Persistence Tools
@@ -13,16 +17,22 @@ public class TGood  implements java.io.Serializable {
 
     // Fields    
 
+	 @Expose
      private Integer id;
      private TCategory TCategory;
+     @Expose
      private String name;
+     @Expose
      private Float price;
      private Short number;
      private String status;
      private String specification;
      private String originPlace;
+     @Expose
      private String title;
+     @Expose
      private String picUrl;
+     @Expose
      private Integer saleVolume;
      private String edibleMethod;
      private String storage;
@@ -178,7 +188,7 @@ public class TGood  implements java.io.Serializable {
     public void setStorage(String storage) {
         this.storage = storage;
     }
-
+    @JSON(serialize=false)
     public Set getTShops() {
         return this.TShops;
     }
@@ -186,7 +196,7 @@ public class TGood  implements java.io.Serializable {
     public void setTShops(Set TShops) {
         this.TShops = TShops;
     }
-
+    @JSON(serialize=false)
     public Set getTUsers() {
         return this.TUsers;
     }
@@ -194,27 +204,27 @@ public class TGood  implements java.io.Serializable {
     public void setTUsers(Set TUsers) {
         this.TUsers = TUsers;
     }
-
+    @JSON(serialize=false)
     public Set getTProductPics() {
         return this.TProductPics;
     }
-    
+  
     public void setTProductPics(Set TProductPics) {
         this.TProductPics = TProductPics;
     }
-
+    @JSON(serialize=false)
     public Set getTOrderDetails() {
         return this.TOrderDetails;
     }
-    
+  
     public void setTOrderDetails(Set TOrderDetails) {
         this.TOrderDetails = TOrderDetails;
     }
-
+    @JSON(serialize=false)
     public Set getTCarts() {
         return this.TCarts;
     }
-    
+  
     public void setTCarts(Set TCarts) {
         this.TCarts = TCarts;
     }

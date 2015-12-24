@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.TGoodDaoImp;
+import com.monkey77.entities.TCategory;
 import com.monkey77.entities.TGood;
 
 public class TestGoodDao {
@@ -25,7 +26,7 @@ public class TestGoodDao {
 		good.setEdibleMethod("大火爆炒");
 		good.setNumber((short) 1000);
 		good.setOriginPlace("富士山");
-		good.setPrice((float) 3.5);
+		good.setPrice((float) 100);
 		good.setSaleVolume(101);
 		good.setSpecification("1个");
 		good.setTitle("巨水润、巨遮瑕苹果");
@@ -35,12 +36,23 @@ public class TestGoodDao {
 	}
 	
 	@Test
-	public void testGetGoodsBySaleVolume(){
-		System.out.println(goodDao.getGoodsBySaleVolume());
+	public void testGetGoodsBySaleVolumeAsc(){
+		System.out.println(goodDao.getGoodsBySaleVolumeAsc(0,4));
+	}
+	
+	@Test
+	public void testGetGoodsByPriceAsc(){
+		System.out.println(goodDao.getGoodsByPriceAsc(0, 5));
 	}
 	
 	@Test
 	public void testGetGoodCount(){
 		System.out.println(goodDao.getTotalCount());
 	}
+	
+	@Test
+	public void testGetGoodsByPriceWithSortDesc(){
+		System.out.println(goodDao.getGoodsByPriceWithSortDesc(0, 5, "苹果"));
+	}
+	
 }
