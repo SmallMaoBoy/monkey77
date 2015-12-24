@@ -14,10 +14,6 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Light.NoTitleBar" >
         <activity
-            android:name="com.monkey.activity.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
-        <activity
             android:name="com.monkey.activity.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -25,6 +21,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.monkey.activity.MainActivity"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.monkey.activity.GuideActivity"

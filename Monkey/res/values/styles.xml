@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -39,5 +39,12 @@
         <item name="android:textColor">#535252</item>
         <item name="android:textSize">18sp</item>
     </style>
-
+    <style name="text_style8">
+        <item name="android:textSize">22sp</item>
+    </style>
+	 <!-- 绿色 16sp-->
+    <style name="text_style9">
+        <item name="android:textColor">#83D17D</item>
+        <item name="android:textSize">16sp</item>
+    </style>
 </resources>

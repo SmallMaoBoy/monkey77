@@ -65,9 +65,10 @@ public class MeFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
+		Intent intent = null;
 		switch (v.getId()) {
 		case R.id.rl_tologin_tomyinfo:
-			Intent intent = null;
+			
 			if (tv_login.getText().equals("游客")) {
 				intent = new Intent(this.getActivity(), LoginActivity.class);// 如果是游客，跳到登录界面
 				startActivity(intent);
