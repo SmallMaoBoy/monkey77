@@ -22,6 +22,7 @@ public class ShoppingcarLoginNullFragment extends Fragment implements OnClickLis
 		view = inflater.inflate(R.layout.fragment_shoppingcar_login_null,container, false);
 		//"去逛逛"点击事件
 		iv_gotohomeshop = (ImageView) view.findViewById(R.id.iv_gotohomeshop);
+		iv_gotohomeshop.setOnClickListener(this);
 		return view;
 	}
 	@Override

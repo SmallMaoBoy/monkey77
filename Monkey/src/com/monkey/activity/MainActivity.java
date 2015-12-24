@@ -3,7 +3,6 @@ package com.monkey.activity;
 import com.example.monkey.R;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-import com.lidroid.xutils.ViewUtils;
 import com.monkey.fragment.CategroyFragment;
 import com.monkey.fragment.HomeFragment;
 import com.monkey.fragment.MeFragment;
@@ -13,22 +12,25 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends SlidingFragmentActivity implements
 		OnClickListener {
 	// private FrameLayout fl_main;
+	//private long exitTime = 0;
 	private LinearLayout ll_home;
 	private LinearLayout ll_order;
 	private LinearLayout ll_me;
 	private ImageView iv_home;
 	private ImageView iv_order;
 	private ImageView iv_me;
-    private SlidingMenu slidingMenu;
-	private HomeFragment homefragment ;// 首页
+	private SlidingMenu slidingMenu;
+	private HomeFragment homefragment;// 首页
 	private OrderFragment orderfragment = new OrderFragment();// 订单
 	private MeFragment mefragment = new MeFragment();// 我
 	private CategroyFragment categroyfragment = new CategroyFragment();// 侧滑菜单-分类
@@ -38,12 +40,12 @@ public class MainActivity extends SlidingFragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setBehindContentView(R.layout.framelayout_sildingmenu);
 		setContentView(R.layout.main);
-		ViewUtils.inject(this);
+		// ViewUtils.inject(this);
 		// 获得侧滑菜单对象
-		slidingMenu= getSlidingMenu();
+		slidingMenu = getSlidingMenu();
 		homefragment = new HomeFragment(slidingMenu);
 		getSupportFragmentManager().beginTransaction()
-		.replace(R.id.fl_sildingmenu, categroyfragment).commit();
+				.replace(R.id.fl_sildingmenu, categroyfragment).commit();
 		// 设置侧滑菜单的宽度
 		slidingMenu.setBehindWidthRes(R.dimen.slidingmenu_offset);
 		// 设置侧滑菜单的分隔线
@@ -55,9 +57,7 @@ public class MainActivity extends SlidingFragmentActivity implements
 		// 设置侧滑出现的地方
 		slidingMenu.setMode(SlidingMenu.LEFT);
 		// 初始化左边菜单的数据
-		
-	
-		
+
 		ll_home = (LinearLayout) findViewById(R.id.ll_home);
 		ll_home.setOnClickListener(this);
 		iv_home = (ImageView) findViewById(R.id.iv_home);
@@ -90,7 +90,8 @@ public class MainActivity extends SlidingFragmentActivity implements
 		case R.id.ll_home: {
 			changeFragment(homefragment, "homeFragment");
 			iv_home.setImageResource(R.drawable.m_tab_home_selected);
-			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+			getSlidingMenu()
+					.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
 			break;
 		}
 		case R.id.ll_order: {
@@ -108,5 +109,22 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 		}
 	}
-
+/*
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {//双击退出程序
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(getApplicationContext(), "再按一次退出程序",
+						Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+				System.exit(0);
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+*/
 }

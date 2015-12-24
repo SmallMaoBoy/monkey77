@@ -40,4 +40,5 @@
 	<string name="shareToFriends">分享给好友</string>
 	<string name="versionUpdate">版本更新</string>
 	<string name="unsignLogin">注销登录</string>
+	<string name="fruitDetail">商品详情</string>
 </resources>
