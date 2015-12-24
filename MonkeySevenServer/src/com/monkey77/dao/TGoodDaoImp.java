@@ -8,7 +8,7 @@ package com.monkey77.dao;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -168,6 +168,114 @@ public class TGoodDaoImp extends HibernateDaoSupport implements ITGoodDao {
 		criteria.createAlias("TCategory", "t");
 		criteria.add(Restrictions.eq("t.name",sort));
 		return ht.findByCriteria(criteria,firstIndex,num);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午9:11:54
+	 * @see com.monkey77.dao.ITGoodDao#getCountWithSort(java.lang.String)
+	 */
+	@Override
+	public int getCountWithSort(String sort) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		criteria.add(Restrictions.eq("t.name",sort));
+		return ht.findByCriteria(criteria).size();
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:00:08
+	 * @see com.monkey77.dao.ITGoodDao#getCountWithKeyWords(java.lang.String)
+	 */
+	@Override
+	public int getCountWithKeyWords(String keyWords) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		LogicalExpression r1=Restrictions.or(Restrictions.like("name", "%"+keyWords+"%"), Restrictions.like("originPlace", "%"+keyWords+"%"));
+		LogicalExpression r2=Restrictions.or(Restrictions.like("t.name", "%"+keyWords+"%"), Restrictions.like("title", "%"+keyWords+"%"));
+		criteria.add(Restrictions.or(r1, r2));
+		return ht.findByCriteria(criteria).size();
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:48:01
+	 * @see com.monkey77.dao.ITGoodDao#getGoodsByPriceWithKeyWordsDesc(int, int, java.lang.String)
+	 */
+	@Override
+	public List<TGood> getGoodsByPriceWithKeyWordsDesc(int firstIndex, int num,
+			String keyWords) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		LogicalExpression r1=Restrictions.or(Restrictions.like("name", "%"+keyWords+"%"), Restrictions.like("originPlace", "%"+keyWords+"%"));
+		LogicalExpression r2=Restrictions.or(Restrictions.like("t.name", "%"+keyWords+"%"), Restrictions.like("title", "%"+keyWords+"%"));
+		criteria.add(Restrictions.or(r1, r2));
+		criteria.addOrder(Order.desc("price"));
+		return ht.findByCriteria(criteria);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:48:01
+	 * @see com.monkey77.dao.ITGoodDao#getGoodsByPriceWithKeyWordsAsc(int, int, java.lang.String)
+	 */
+	@Override
+	public List<TGood> getGoodsByPriceWithKeyWordsAsc(int firstIndex, int num,
+			String keyWords) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		LogicalExpression r1=Restrictions.or(Restrictions.like("name", "%"+keyWords+"%"), Restrictions.like("originPlace", "%"+keyWords+"%"));
+		LogicalExpression r2=Restrictions.or(Restrictions.like("t.name", "%"+keyWords+"%"), Restrictions.like("title", "%"+keyWords+"%"));
+		criteria.add(Restrictions.or(r1, r2));
+		criteria.addOrder(Order.asc("price"));
+		return ht.findByCriteria(criteria);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:48:01
+	 * @see com.monkey77.dao.ITGoodDao#getGoodsBySaleVolumeWithKeyWordsAsc(int, int, java.lang.String)
+	 */
+	@Override
+	public List<TGood> getGoodsBySaleVolumeWithKeyWordsAsc(int firstIndex,
+			int num, String keyWords) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		LogicalExpression r1=Restrictions.or(Restrictions.like("name", "%"+keyWords+"%"), Restrictions.like("originPlace", "%"+keyWords+"%"));
+		LogicalExpression r2=Restrictions.or(Restrictions.like("t.name", "%"+keyWords+"%"), Restrictions.like("title", "%"+keyWords+"%"));
+		criteria.add(Restrictions.or(r1, r2));
+		criteria.addOrder(Order.asc("saleVolume"));
+		return ht.findByCriteria(criteria);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:48:01
+	 * @see com.monkey77.dao.ITGoodDao#getGoodsBySaleVolumeWithKeyWordsDesc(int, int, java.lang.String)
+	 */
+	@Override
+	public List<TGood> getGoodsBySaleVolumeWithKeyWordsDesc(int firstIndex,
+			int num, String keyWords) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TGood.class);
+		criteria.createAlias("TCategory", "t");
+		LogicalExpression r1=Restrictions.or(Restrictions.like("name", "%"+keyWords+"%"), Restrictions.like("originPlace", "%"+keyWords+"%"));
+		LogicalExpression r2=Restrictions.or(Restrictions.like("t.name", "%"+keyWords+"%"), Restrictions.like("title", "%"+keyWords+"%"));
+		criteria.add(Restrictions.or(r1, r2));
+		criteria.addOrder(Order.desc("saleVolume"));
+		return ht.findByCriteria(criteria);
 	}
 
 }

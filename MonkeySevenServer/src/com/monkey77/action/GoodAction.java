@@ -22,10 +22,18 @@ public class GoodAction {
 	private Map<String, Object> map;
 	private int page;
 	private int orderType;
-	private int getGoodsWay;
 	private String sort;
 	private IGoodService goodService;
+	private String keyWords;
 	
+
+	public String getKeyWords() {
+		return keyWords;
+	}
+
+	public void setKeyWords(String keyWords) {
+		this.keyWords = keyWords;
+	}
 
 	public String getSort() {
 		return sort;
@@ -33,14 +41,6 @@ public class GoodAction {
 
 	public void setSort(String sort) {
 		this.sort = sort;
-	}
-
-	public int getGetGoodsWay() {
-		return getGoodsWay;
-	}
-
-	public void setGetGoodsWay(int getGoodsWay) {
-		this.getGoodsWay = getGoodsWay;
 	}
 
 	public int getOrderType() {
@@ -77,7 +77,12 @@ public class GoodAction {
 	}
 	
 	public String getSortGoods(){
-		
+		map=goodService.getSortList(page, orderType, sort);
+		return Action.SUCCESS;
+	}
+	
+	public String getKeyWordsGoods(){
+		map=goodService.getKeyWordsList(page, orderType, keyWords);
 		return Action.SUCCESS;
 	}
 	

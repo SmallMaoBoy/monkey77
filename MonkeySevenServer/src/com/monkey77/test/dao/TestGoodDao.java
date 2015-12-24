@@ -55,4 +55,14 @@ public class TestGoodDao {
 		System.out.println(goodDao.getGoodsByPriceWithSortDesc(0, 5, "苹果"));
 	}
 	
+	@Test
+	public void testGetCountWithSort(){
+		System.out.println(goodDao.getCountWithSort("苹果"));
+	}
+	
+	@Test
+	public void testGetCountWithKeyWords(){
+		System.out.println(goodDao.getCountWithKeyWords("草莓"));
+	}
+	
 }

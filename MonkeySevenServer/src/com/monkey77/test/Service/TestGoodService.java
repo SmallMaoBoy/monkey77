@@ -23,4 +23,23 @@ public class TestGoodService {
 	public void testGetDafalutGoods(){
 		System.out.println(goodService.getDefalutList(1,2));
 	}
+	/**
+	 * * 0代表按照销量从大到小获取商品
+	 * 1代表按照销量从小到大获取商品
+	 * 2代表按照价格从大到小获取商品
+	 * 3代表按照价格从小到大获取商品
+	 * @author mao
+	 * @time 创建时间：2015-12-24下午9:29:41
+	 * @return 
+	 *
+	 */
+	@Test
+	public void testGetSortListGoods(){
+		System.out.println(goodService.getSortList(1, 3, "苹果"));
+	}
+	
+	@Test
+	public void testGetKeyWordsListGoods(){
+		System.out.println(goodService.getKeyWordsList(1, 3, "富"));
+	}
 }

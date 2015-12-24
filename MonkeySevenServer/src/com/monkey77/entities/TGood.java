@@ -92,7 +92,7 @@ public class TGood  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
+    @JSON(serialize=false)
     public TCategory getTCategory() {
         return this.TCategory;
     }

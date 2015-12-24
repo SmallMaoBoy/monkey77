@@ -34,6 +34,7 @@ $(document).ready(function() {
 		});
 	}
 	
+	//根据分类获取商品
 	function getSortGoods(pageIndex,sort){
 		$.ajax({
 			type : "post",
@@ -49,4 +50,12 @@ $(document).ready(function() {
 			}
 		});
 	}
+	
+	/**根据搜索获取商品列表
+	 * 搜索范围包括商品名字，商品标题，商品种类，商品产地
+	 */
+	function getGoodsByKeyWord(){
+		
+	}
+	
 })

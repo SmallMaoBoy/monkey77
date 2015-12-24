@@ -34,19 +34,41 @@ public interface ITGoodDao {
 	// 获取按照价格从低到高指定区间的商品
 	public List<TGood> getGoodsByPriceDesc(int firstIndex, int num);
 
-	// 获取按照某分类的商品，按照销量从大到小
+	// 获取按照某分类的商品，按照价格从大到小
 	public List<TGood> getGoodsByPriceWithSortDesc(int firstIndex, int num,
 			String sort);
 
-	// 获取按照某分类的商品，按照销量从小到大
+	// 获取按照某分类的商品，按照价格从小到大
 	public List<TGood> getGoodsByPriceWithSortAsc(int firstIndex, int num,
 			String sort);
 
-	// 获取按照某分类的商品，按照价格从小到大
+	// 获取按照某分类的商品，按照销量从小到大
 	public List<TGood> getGoodsBySaleVolumeWithSortAsc(int firstIndex, int num,
 			String sort);
 
-	// 获取按照某分类的商品，按照价格从大到小
+	// 获取按照某分类的商品，按照销量从大到小
 	public List<TGood> getGoodsBySaleVolumeWithSortDesc(int firstIndex,
 			int num, String sort);
+
+	// 获取指定种类商品的数量
+	public int getCountWithSort(String sort);
+
+	// 获取关键字相关商品的数量
+	public int getCountWithKeyWords(String keyWords);
+
+	// 获取按照关键字的商品，按照价格从大到小
+	public List<TGood> getGoodsByPriceWithKeyWordsDesc(int firstIndex, int num,
+			String keyWords);
+
+	// 获取按照关键字的商品，按照价格从小到大
+	public List<TGood> getGoodsByPriceWithKeyWordsAsc(int firstIndex, int num,
+			String keyWords);
+
+	// 获取按照关键字的商品，按照销量从小到大
+	public List<TGood> getGoodsBySaleVolumeWithKeyWordsAsc(int firstIndex,
+			int num, String keyWords);
+
+	// 获取按照关键字的商品，按照销量从大到小
+	public List<TGood> getGoodsBySaleVolumeWithKeyWordsDesc(int firstIndex,
+			int num, String keyWords);
 }

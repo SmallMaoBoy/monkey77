@@ -66,4 +66,72 @@ public class GoodServiceImp implements IGoodService {
 		return map;
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午9:10:11
+	 * @see com.monkey77.service.IGoodService#getSortList(int, int, java.lang.String)
+	 *  * orderType
+	 * 0代表按照销量从大到小获取商品
+	 * 1代表按照销量从小到大获取商品
+	 * 2代表按照价格从大到小获取商品
+	 * 3代表按照价格从小到大获取商品
+	 */
+	@Override
+	public Map<String, Object> getSortList(int page, int orderType, String sort) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		int count = goodDao.getCountWithSort(sort);
+		map.put("count", count);
+		int firstIndex = (page - 1) * numPerPage;
+		List<TGood> list = null;
+		switch (orderType) {
+		case 0:
+			list = goodDao.getGoodsBySaleVolumeWithSortDesc(firstIndex, numPerPage, sort);
+			break;
+		case 1:
+			list = goodDao.getGoodsBySaleVolumeWithSortAsc(firstIndex, numPerPage, sort);
+			break;
+		case 2:
+			list = goodDao.getGoodsByPriceWithSortDesc(firstIndex, numPerPage, sort);
+			break;
+		case 3:
+			list = goodDao.getGoodsByPriceWithSortAsc(firstIndex, numPerPage, sort);
+			break;
+		}
+		map.put("goods", list);
+		return map;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-24下午10:52:07
+	 * @see com.monkey77.service.IGoodService#getKeyWordsList(int, int, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> getKeyWordsList(int page, int orderType,
+			String keyWords) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		int count = goodDao.getCountWithKeyWords(keyWords);
+		map.put("count", count);
+		int firstIndex = (page - 1) * numPerPage;
+		List<TGood> list = null;
+		switch (orderType) {
+		case 0:
+			list = goodDao.getGoodsBySaleVolumeWithKeyWordsDesc(firstIndex, numPerPage, keyWords);
+			break;
+		case 1:
+			list = goodDao.getGoodsBySaleVolumeWithKeyWordsAsc(firstIndex, numPerPage, keyWords);
+			break;
+		case 2:
+			list = goodDao.getGoodsByPriceWithKeyWordsDesc(firstIndex, numPerPage, keyWords);
+			break;
+		case 3:
+			list = goodDao.getGoodsByPriceWithKeyWordsAsc(firstIndex, numPerPage, keyWords);
+			break;
+		}
+		map.put("goods", list);
+		return map;
+	}
+
 }
