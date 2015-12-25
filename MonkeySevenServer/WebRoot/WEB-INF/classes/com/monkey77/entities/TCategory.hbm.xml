@@ -17,7 +17,7 @@
         </property>
         <set name="TGoods" inverse="true">
             <key>
-                <column name="category_id">
+                <column name="category_id" not-null="true">
                     <comment>商品种类</comment>
                 </column>
             </key>

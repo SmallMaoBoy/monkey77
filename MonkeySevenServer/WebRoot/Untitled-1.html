@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>隐藏在左侧的弹性弹出菜单 - Liehuo.Net</title>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script language="javascript">
+$(function(){
+$("#clickopen").click(function(){
+var offset=$("#clickopen").offset().top;
+$("#page").css("top",offset+"px");
+$("#clickopen").hide();
+$("#page").animate({
+width: "400px",
+height: "400px",
+left: ($("body").width()/2-200)+"px",
+top: (offset-100)+"px",
+opacity: 'toggle'
+}, 300 );
+return false;
+})
+$("#closepage").click(function(){
+var offset=$("#page").offset().top;
+$("#page").animate({
+width: "0px",
+height: "0px",
+left: "0px",
+top: (offset+100)+"px",
+opacity: 'toggle'
+}, 300 );
+$("#clickopen").show();
+return false;
+})
+})
+//烈火網 liehuo.net 欢迎复制,拒绝恶意采集 ｌｉｅｈｕｏ．ｎｅｔ
+</script>
+<style>
+body{text-align:center;font-size:12px;color:#333;font-family:"宋体";background:#fff;margin:0 auto;padding:0;}
+body > div{text-align:center;margin-right:auto;margin-left:auto;}
+div,form,ul,ol,li,span,p,dt,dd,dl{border:0;margin:0;padding:0;}
+img,a img{border:0;margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:12px;font-weight:400;margin:0;padding:0;}
+ul,ol,li{list-style:none;}
+td{word-break:break-all;}
+a{color:#003cc8;text-decoration:none;}
+a:hover{text-decoration:underline;color:blue;}
+.f_tahoma{font-family:Tahoma;}
+em,i{font-style:normal;}
+.ask{overflow:hidden;position:fixed;left:0px;top:200px;z-index:2}
+.leftButton{background:red;width:20px;height:80px;text-align:center;line-height:20px;display:block;color:#fff;margin-left:100px; }
+.content{background:#999;width:800px;height:2000px;margin:0 auto}
+* html,* html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
+.ask{_position:absolute;_bottom:auto;_left:0;_top: expression(documentElement.scrollTop + 200 + "px");}
+.page{width:0px; position:absolute;height:0px;left:0;top:0px;z-index:1;overflow:hidden;display:none}
+.page div{border:1px solid #000;overflow:hidden;width:398px}
+.page h1{height:40px;text-align:center;font-size:20px;color:#fff;background:red;line-height:40px}
+.page h1 a{float:right;color:#000;margin-top:-15px}
+.page p{padding:10px;line-height:22px;font-size:14px;text-align:left;background:#fff;height:400px;width:378px}
+</style>
+</head>
+<body>
+<div class="ask">
+<a  class="leftButton" href="#" id="clickopen">点击弹出</a>
+</div>
+<div class="content"></div>
+<div class="page" id="page">
+<div>
+<h1><a href="#" id="closepage">x</a>欢迎光临 http://www.veryhuo.com</h1>
+<p>烈火网以提供计算机知识、网站运营、软件应用、设计教程、编程开发与IT资讯等为主要宗旨，同时有源码下载、站长工具、在线手册、免费资源等内容，是国内快捷易懂、内容丰富的网上学习平台……</p>
+</div>
+</div>
+</body>
+</html><br /><center>如不能显示效果，请按Ctrl+F5刷新本页，更多网页代码：<a href='http://www.veryhuo.com/' target='_blank'>http://www.veryhuo.com/</a></center>

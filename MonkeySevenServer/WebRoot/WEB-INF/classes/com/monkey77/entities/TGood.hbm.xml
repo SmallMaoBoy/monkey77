@@ -11,7 +11,7 @@
             <generator class="increment" />
         </id>
         <many-to-one name="TCategory" class="com.monkey77.entities.TCategory" fetch="select">
-            <column name="category_id">
+            <column name="category_id" not-null="true">
                 <comment>商品种类</comment>
             </column>
         </many-to-one>
@@ -48,11 +48,6 @@
         <property name="title" type="java.lang.String">
             <column name="title" length="100" not-null="true">
                 <comment>展示标题</comment>
-            </column>
-        </property>
-        <property name="picUrl" type="java.lang.String">
-            <column name="pic_url" length="500">
-                <comment>首页图片</comment>
             </column>
         </property>
         <property name="saleVolume" type="java.lang.Integer">
