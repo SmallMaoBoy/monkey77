@@ -61,6 +61,11 @@ public class TCategory  implements java.io.Serializable {
     public void setTGoods(Set TGoods) {
         this.TGoods = TGoods;
     }
+
+	@Override
+	public String toString() {
+		return "TCategory [id=" + id + ", name=" + name +"]";
+	}
    
 
 

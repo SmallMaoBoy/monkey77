@@ -5,6 +5,8 @@
  */
 package com.monkey77.dao;
 
+import java.util.List;
+
 import com.monkey77.entities.TCategory;
 
 /**
@@ -16,4 +18,7 @@ public interface ITCategoryDao {
 
 	//根据名字获取商品种类
 	public TCategory getCategoryByName(String name);
+	
+	//获取商品种类列表
+	public List<TCategory> getCategoryList();
 }

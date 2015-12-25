@@ -30,4 +30,16 @@ public class TCategoryDaoImp extends HibernateDaoSupport implements ITCategoryDa
 		return list.isEmpty()?null:list.get(0);
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2015-12-25下午3:58:00
+	 * @see com.monkey77.dao.ITCategoryDao#getCategoryList()
+	 */
+	@Override
+	public List<TCategory> getCategoryList() {
+		// TODO Auto-generated method stub
+		List<TCategory> list=this.getHibernateTemplate().find("from TCategory");
+		return list.isEmpty()?null:list;
+	}
+
 }
