@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
-<script language="javascript" src="js/goodService.js"></script>
+
 <script language="javascript" src="js/userService.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -18,6 +18,9 @@
 <nav class="navbar navbar-default ">
   <div class="container-fluid ">
 <div class="navbar-header ">
+<a href="hou77.html">
+  <img  src="imgs/logo.png" />
+  </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -29,7 +32,7 @@
         <ul class="nav navbar-nav navbar-right">
         <li id="header_li1"><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
         <li id="header_li2"><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
-        <li id="myfruit"><a href="#">[我的果园]</a> 
+        <li id="myfruit"><a href="my.html">[我的果园]</a> 
         
          <ul id="menu" class="dropdown-menu">
         <li><a href="order.html">我的订单</a></li>
@@ -143,18 +146,35 @@
 <div class="container" style="margin:1px auto">
  <div class="row" >
   <div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="thumbnail">
-      <img src="imgs/1445841989_pic.jpg" />
+    <div class="thumbnail box1">
+     <a href="#"> <img src="imgs/1445841989_pic.jpg" /></a>
+     <div class="dask">
+	<p><input class="own_define" type="button"  value="商品详情"/>
+       <input class="own_define" type="button" onclick="ad()" value="加入购物车"/>
+    </p>
+		</div>
     </div>
+    
   </div>
    <div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="thumbnail">
-      <img src="imgs/1446700692_pic.jpg" />
+    <div class="thumbnail box1">
+      <a href="#"> <img src="imgs/1446700692_pic.jpg" /></a>
+      <div class="dask">
+	<p><input class="own_define" type="button"  value="商品详情"/>
+       <input class="own_define" type="button" onclick="ad()" value="加入购物车"/>
+    </p>
+		</div>
     </div>
   </div>
+  
    <div class="col-xs-12 col-sm-6 col-lg-4">
-    <div class="thumbnail">
-      <img src="imgs/1446619085_pic.jpg" />
+    <div class="thumbnail box1">
+     <a href="#">  <img src="imgs/1446619085_pic.jpg" /></a>
+     <div class="dask">
+	<p><input class="own_define" type="button"  value="商品详情"/>
+       <input class="own_define" type="button" onclick="ad()" value="加入购物车"/>
+    </p>
+		</div>
     </div>
   </div>
  
@@ -168,9 +188,10 @@
         <li class="ac"><a href="#">默认顺序</a></li>
         <li><a href="#">价格从高到底</a></li>
         <li><a href="#">价格从低到高</a></li>
-         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>
-          <ul class="dropdown-menu">
+         <li id="fruit_type" class="dropdown">
+         <!-- <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>-->
+         <a >水果类型</a>
+          <ul id="menu1" class="dropdown-menu">
             <li class="ac"><a href="#">全部</a></li>
             <li><a href="#">国产水果</a></li>
             <li><a href="#">进口水果</a></li>
@@ -185,12 +206,18 @@
 <div class="container" style="margin:10px auto">
  <div class="row" >
   <div class="col-xs-12 col-sm-6 col-lg-3">
-    <div class="thumbnail">
+    <div class="thumbnail box2">
       <img src="imgs/618829a034e67bc2c05baf00f50b5bc8.jpg" />
+       <div class="white">
+	<p class="word_about">猕猴桃富含维C，VA等多种维生素和抗氧化物质，能抑制角质细胞抑制力，我们的猕猴桃都是采 摘于南方最大的果园，那里土地肥沃，所以鲜果特别鲜美
+    </p>
+		
+      </div>
+     
       <div class="caption">
         <h4>猕猴桃</h4>
         <p>¥12.0/kg</p>
-        <p><a href="buy.html" class="btn btn-primary" role="button">立刻购买</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
+        <p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
       </div>
     </div>
   </div>
@@ -200,7 +227,7 @@
       <div class="caption">
         <h4>水蜜桃</h4>
         <p>¥12.0/kg</p>
-        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a  class="btn btn-default" role="button"           onclick="ad()">加入购物车</a></p>
+        <p><a href="#" class="btn btn-primary" role="button">商品详情</a> <a  class="btn btn-default" role="button"           onclick="ad()">加入购物车</a></p>
       </div>
     </div>
   </div>
@@ -210,7 +237,7 @@
       <div class="caption">
         <h4>猕猴桃</h4>
         <p>¥12.0/kg</p>
-        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a  class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
+        <p><a href="#" class="btn btn-primary" role="button">商品详情</a> <a  class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
       </div>
     </div>
   </div>
@@ -221,20 +248,20 @@
         <h4>樱桃</h4>
         <p>¥48.0/kg&nbsp;&nbsp;&nbsp; <img src="imgs/2d8b57e5a2e85b24f04029d6c81649b7.jpg" style="width:60px;height:30px;"/></p>
         
-        <p><a href="#" class="btn btn-primary" role="button">立刻购买</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
+        <p><a href="#" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
       </div>
     </div>
   </div>
 </div> 
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;">
+     <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;">
 <div class="container" style="padding-bottom:10px;">
  <a href="shopping.html">
-  <div   style=" height:55px; width:55px; background-image:url(imgs/购物袋.jpg);" > 
+  <div   style=" height:55px; width:55px; background-image:url(imgs/shop_bag.jpg);" > 
   <input id="num" type="text" value="0" />
   </div></a>
   </div>
-  <div class="container"><a href="#"><img src="imgs/返回.png" style="width:55px;height:55px;"/></a></div>
+  <div class="container"><a href="#"><img src="imgs/back.png" style="width:55px;height:55px;"/></a></div>
 </nav>
 
 
@@ -345,9 +372,8 @@
         <h2 class="modal-title" id="myModalLabel">欢迎登陆“猴七七”</h2>
       </div>
       <div class="modal-body" style=" margin:10px 0 10px 120px;" >
-
         手机号：<input id="input_phone" class="enroll" type="text" style="margin-left:37px"/><div id="mobiletip"></div>
-              <br/>
+             
         手机验证码：<input id="re_number" class="enroll" type="text"  /><input id="test_number"  type="button" style="font-size:16px" value="获取验证码" onclick="a1(50);"class="btn"/><br/>
         设置密码：<input id="password" class="enroll"   type="text" style="margin-left:18px"/><br/>
         确认密码：<input id="confirm"  class="enroll"  type="text" style="margin-left:18px"/><div id="pwdtip"></div>
@@ -374,13 +400,13 @@ $('.carousel').carousel({
 	  
        $("#menu").toggle();
 	   });
+   $("#fruit_type").hover(function(){
+	  
+       $("#menu1").toggle();
+	   });
    $("#phone_fruit").hover(function(){
 	  
 	   $("#menu_phone").toggle();
-	   });
-    $("#place").hover(function(){
-	  
-	   $("#menu_place").toggle();
 	   });
 </script>
 <script language="javascript">
@@ -519,10 +545,31 @@ function ad()
 {
    var i=document.getElementById("num")
    var sum=Number(i.value)+1;
-   document.getElementById("num").value=sum;
-
-
-	
+   document.getElementById("num").value=sum;	
 } 
 
 </script> 
+<script>
+$(function () {
+	$(".box1").hover(
+		function () {
+			$(this).find(".dask").stop().delay(50).animate({"top":0,opacity:0.8},300)
+		 },
+		function () {
+			$(this).find(".dask").stop().animate({"top":-200,opacity:0},300)
+		}
+
+	)
+})
+$(function () {
+	$(".box2").hover(
+		function () {
+			$(this).find(".white").stop().delay(50).animate({"top":0,opacity:0.8},300)
+		 },
+		function () {
+			$(this).find(".white").stop().animate({"top":-200,opacity:0},300)
+		}
+
+	)
+})
+</script>

@@ -13,6 +13,9 @@
 <nav class="navbar navbar-default ">
   <div class="container-fluid ">
 <div class="navbar-header ">
+<a href="hou77.html">
+  <img  src="imgs/logo.png" />
+  </a>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -73,7 +76,7 @@
               <tr>
               <div class="sp_1 " >
               <h3 style="float:left; margin-left:20px">我的购物车</h3>
-              <img src="imgs/购物车进度条.png" style="float:right;margin-right:20px;" />
+              <img src="imgs/shopping_step.png" style="float:right;margin-right:20px;" />
              </div>
               </tr>
               
@@ -94,40 +97,26 @@
               <td>进口红苹果</td>
               <td>1kg</td>
               <td>￥69.00</td>
-              <td>￥59.00</td>
+              <td>￥<input id="sum_price2" type="text" value="59" readonly="readonly"/></td>
               <td><div id="count" style="margin-left:0px;float:left; margin-right:30px ">  
 			        <span><img onclick="subtract()" src="imgs/bag_close.gif" style="height:24px"></span>
 				    <span><input id="buy_num" type="text" value="1" readonly="readonly"></span>
 				    <span><img onclick="add()"src="imgs/bag_open.gif"  style="height:24px"></span>
                        </div></td>
-              <td>￥118.00</td>
+              <td>￥<input id="sum_price1" type="text" value="59" readonly="readonly"/></td>
               <td><a href="#">删除</a></td>
               </tr>
             
             </table>
-           <!-- <table class="table">
-                        
-                        <tr  >
-                       <div class="goods " >
-              
-                         </div>
-                        </tr>
-                        
-                       <tr  >
-                        <div class="sp_1 " >
-              <h3 style="float:left; margin-left:20px">我的购物车</h3>
-              <img src="imgs/购物车进度条.png" style="float:right;margin-right:20px;" />
-             </div>
-                        </tr>
-                        
-                        <tr  >
-                        <div class="sp_2 " >
-              
-                       </div>
-                        </tr>
-                        <tr
-                        
-                        </table>-->
+          <div class="in_all">
+               <div id="all_display">
+                <span class="style1">已选择<em class="style2">
+                <input id="buy_num_1" type="text" value="1" readonly="readonly">件</em>
+                商品&nbsp; | &nbsp;订单金额</span>
+                <span class="style2">￥<input id="sum_price1_1" type="text" value="59" readonly="readonly"/></span>
+                <a id="btngopay" class="go-pay">去结算</a>
+            </div><!-- all_display -->
+          </div><!-- in_all -->
           </div>
           
           
@@ -185,13 +174,27 @@
 						var co= document.getElementById("buy_num");
 						n=Number(co.value)+1;
 						document.getElementById("buy_num").value=n;
+						document.getElementById("buy_num_1").value=n;
+						var su=document.getElementById("sum_price2");
+						s=Number(su.value)*n;
+						document.getElementById("sum_price1").value=s;
+						document.getElementById("sum_price1_1").value=s;
+						
+						
 
 					}
 						function subtract(){
 						var co= document.getElementById("buy_num");
 						n=Number(co.value)-1;
 						if(n<=0){n=0;}
+						var su=document.getElementById("sum_price2");
+						s=Number(su.value)*n;
 						document.getElementById("buy_num").value=n;
+						document.getElementById("buy_num_1").value=n;
+						document.getElementById("sum_price1").value=s;
+						document.getElementById("sum_price1_1").value=s;
+						
+		
 						}
 						$(document).ready(function(e) {
                             $('.detail').click(function(){

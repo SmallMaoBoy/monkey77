@@ -164,3 +164,45 @@ padding:20px;
 	background:none;
 	width:55px;
 	}
+
+.thumbnail{
+	overflow:hidden;
+	}
+.dask{
+	width:350px;
+	height:140px;
+	background:#000;
+	opacity:0.8;
+	position:absolute;
+	top:-1300px;
+	
+	}
+.dask>p{
+	color:#fff;
+    text-decoration:none;
+}
+
+.white{
+	width:252px;
+	height:170px;
+	background:#F0D0EF;
+	opacity:0.8;
+	position:absolute;
+	top:-13000px;
+	
+	}
+.white>p{
+text-decoration:none
+}
+
+.own_define{
+		margin:50px 0px 40px 20px;
+		background:none;
+		border:#FCF 1px solid;
+		color:#FCF;
+		width:140px;
+		height:40px;
+		}
+.word_about{
+		color:#000;
+		}

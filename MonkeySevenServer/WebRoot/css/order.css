@@ -90,11 +90,11 @@ border:#dddddd solid 1px;
 	  
 .shop-list{border:#dddddd solid 1px;}
 .shop-list>td{border:#dddddd solid 1px;}
-.shop-info{height:138px;}
+.shop-info{height:110px;}
 .shop-info>ul>li{ list-style:none;}
 .shop_img{
-	height:110px;
-	width:110px;
+	height:90px;
+	width:138px;
 	}
 .shop-img{
 	float:left;

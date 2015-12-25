@@ -102,8 +102,9 @@ padding:20px;
 	}
 	.table>tr>td{
 		border-left:1px solid #ddd;
-		
 		}
+	.table>tr{vertical-align:middle;}
+	.table{border:1px solid #ddd;}
 #input_account{
 	margin-bottom:10px;
 	}
@@ -124,3 +125,62 @@ padding:20px;
 	vertical-align:middle;
 	text-align:center;
 	}
+#sum_price1,#sum_price2{
+border:none;
+	}
+.in_all{
+	margin-top: 24px;
+    padding-left: 14px;
+	height:50px;
+	border:#64a131 solid 1px;
+	background-color: #f5ffed;
+	line-height: 50px;
+	}
+#all_display{
+	float: right;
+	font-family: "Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    color: #999999;
+	
+	}
+.style1{
+	 float: left;
+	font-size: 16px;
+	}
+.style2{
+	 
+	color:#669933;
+	font-size: 20px;
+	margin-left:10px;
+	margin-right:10px;
+	}
+.go-pay{
+  float: right;
+  text-decoration: none;
+  margin-left: 15px;
+  width: 150px;
+  height: 48px;
+  background-color: #64a131;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Hiragino Sans GB W6","Microsoft YaHei",sans-serif;
+  color: #ffffff;
+  background-color: #64a131;
+  cursor: pointer;
+	
+	}
+	.go-pay:hover{
+		text-decoration:none;
+		color:#CCC;
+		}
+	#buy_num_1{
+		background:none;
+		border:none;
+		height:50px;
+		width:40px;
+		}
+	#sum_price1_1{
+		background:none;
+		border:none;
+		height:50px;
+		width:60px;
+		}

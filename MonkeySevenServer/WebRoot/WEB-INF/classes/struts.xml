@@ -20,10 +20,5 @@
 				<param name="root">map</param>
 			</result>
 		</action>
-		<action name="GoodAction_*" class="GoodAction" method="{1}">
-			<result type="json">
-				<param name="root">map</param>
-			</result>
-		</action>
 	</package>
 </struts>
