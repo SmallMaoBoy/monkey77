@@ -23,6 +23,12 @@
 	<bean id="CookieValidateDao" class="com.monkey77.dao.TCookieValidateDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="CategoryDao" class="com.monkey77.dao.TCategoryDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="KeyWordsDao" class="com.monkey77.dao.TKeywordsDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
@@ -31,6 +37,7 @@
 	</bean>
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
+		<property name="keywordsDao" ref="KeyWordsDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>

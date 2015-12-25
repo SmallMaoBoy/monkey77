@@ -12,6 +12,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.monkey77.dao.ITGoodDao;
+import com.monkey77.dao.ITKeywordsDao;
 import com.monkey77.entities.TGood;
 
 /**
@@ -28,6 +29,17 @@ public class GoodServiceImp implements IGoodService {
 	 */
 	private final int numPerPage = 9;
 	private ITGoodDao goodDao;
+	private ITKeywordsDao keywordsDao;
+	
+	
+
+	public ITKeywordsDao getKeywordsDao() {
+		return keywordsDao;
+	}
+
+	public void setKeywordsDao(ITKeywordsDao keywordsDao) {
+		this.keywordsDao = keywordsDao;
+	}
 
 	public ITGoodDao getGoodDao() {
 		return goodDao;
@@ -111,6 +123,7 @@ public class GoodServiceImp implements IGoodService {
 	public Map<String, Object> getKeyWordsList(int page, int orderType,
 			String keyWords) {
 		// TODO Auto-generated method stub
+		keywordsDao.updateKeyWords(keyWords);
 		Map<String, Object> map = new LinkedHashMap<String, Object>();
 		int count = goodDao.getCountWithKeyWords(keyWords);
 		map.put("count", count);

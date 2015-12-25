@@ -40,6 +40,6 @@ public class TestGoodService {
 	
 	@Test
 	public void testGetKeyWordsListGoods(){
-		System.out.println(goodService.getKeyWordsList(1, 3, "富"));
+		System.out.println(goodService.getKeyWordsList(1, 3, "苹果"));
 	}
 }

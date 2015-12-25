@@ -5,33 +5,37 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.monkey77.dao.ITCategoryDao;
 import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.TGoodDaoImp;
-import com.monkey77.entities.TCategory;
 import com.monkey77.entities.TGood;
 
 public class TestGoodDao {
 	private ITGoodDao goodDao;
+	private ITCategoryDao categoryDao;
 	@Before
 	public void init(){
 		ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
 		goodDao=(TGoodDaoImp)ac.getBean("GoodDao");
+		categoryDao=(ITCategoryDao) ac.getBean("CategoryDao");
 		//System.out.println("userdao is initing...");
 	}
 	
 	@Test
 	public void testSaveGood(){
 		TGood good=new TGood();
-		good.setName("苹果");
-		good.setEdibleMethod("大火爆炒");
-		good.setNumber((short) 1000);
-		good.setOriginPlace("富士山");
-		good.setPrice((float) 100);
-		good.setSaleVolume(101);
-		good.setSpecification("1个");
-		good.setTitle("巨水润、巨遮瑕苹果");
-		good.setStorage("冷藏");
+		good.setName("樱桃");
+		good.setEdibleMethod("低温烹饪");
+		good.setNumber((short)55);
+		good.setOriginPlace("中国");
+		good.setPrice((float) 15);
+		good.setTCategory(categoryDao.getCategoryByName("樱桃"));
+		good.setSaleVolume(22);
+		good.setSpecification("5斤");
+		good.setTitle("好吃的樱桃桃");
+		good.setStorage("避光存储");
 		good.setStatus("热销");
+		good.setPicUrl("/imgs/thumb.jpg");
 		goodDao.saveGood(good);
 	}
 	
@@ -62,7 +66,7 @@ public class TestGoodDao {
 	
 	@Test
 	public void testGetCountWithKeyWords(){
-		System.out.println(goodDao.getCountWithKeyWords("草莓"));
+		System.out.println(goodDao.getCountWithKeyWords("旧"));
 	}
 	
 }

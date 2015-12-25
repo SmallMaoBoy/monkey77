@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/23 上午 11:11:49                       */
+/* Created on:     2015/12/25 上午 11:21:48                       */
 /*==============================================================*/
 
 
@@ -15,6 +15,8 @@ drop table if exists t_category;
 drop table if exists t_cookie_validate;
 
 drop table if exists t_good;
+
+drop table if exists t_keywords;
 
 drop table if exists t_order;
 
@@ -120,6 +122,19 @@ create table t_good
 );
 
 alter table t_good comment 't_good';
+
+/*==============================================================*/
+/* Table: t_keywords                                            */
+/*==============================================================*/
+create table t_keywords
+(
+   id                   int not null,
+   name                 varchar(50) not null comment '搜索关键字',
+   count                int not null comment '搜索次数',
+   primary key (id)
+);
+
+alter table t_keywords comment 't_keywords';
 
 /*==============================================================*/
 /* Table: t_order                                               */
