@@ -21,7 +21,7 @@ $(document).ready(function() {
 	//默认情况下获取商品列表
 	function getDefalutGoods(pageIndex){
 		$.ajax({
-			type : "post",
+			type : 'post',
 			data : {
 				page :pageIndex,
 				orderType:orderType
@@ -29,7 +29,56 @@ $(document).ready(function() {
 			url : "GoodAction_getDefalutGoods",
 			dataType : "json",
 			success : function(data) {
-				//console.log(data.goods[1].name);
+				/*var fr_name=data.goods[3].name;
+				var fr_price=data.goods[3].price;
+				var specification=data.goods[3].specification;
+				$("#fruit_name").text(fr_name);
+				$("#fruit_price").text(fr_price);
+				$("#specification").text(specification);*/
+				var goods=data.goods;
+				$("#content-goods").empty();
+				for(var i=0;i<goods.length;i++){
+					var count=data.goods[i].number;
+					if(count>0){
+					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
+    '<div class="thumbnail box2">'+
+      '<img src="/MonkeySevenServer'+
+      goods[i].picUrl
+      +'" />'+
+       '<div class="white">'+
+	'<p class="word_about">'+goods[i].title+'</p>'+
+		
+      '</div>'+
+     
+      '<div class="caption">'+
+        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+      '</div>'+
+    '</div>'+
+  '</div>');}
+					else{
+	  $("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
+			    '<div class="thumbnail box2">'+
+			      '<img src="/MonkeySevenServer'+
+			      goods[i].picUrl
+			      +'" />'+
+			       '<div class="white">'+
+				'<p class="word_about">'+goods[i].title+'</p>'+
+					
+			      '</div>'+
+			     
+			      '<div class="caption">'+
+			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+			        '<p><a href="#" class="btn btn-danger" disabled="disabled" role="button">库存不足</a> <a class="btn btn-default" role="button" disabled="disabled">加入购物车</a></p>'+
+			      '</div>'+
+			    '</div>'+
+			  '</div>'
+  
+					);}
+					
+				}
 			}
 		});
 	}
@@ -37,7 +86,7 @@ $(document).ready(function() {
 	//根据分类获取商品
 	function getSortGoods(pageIndex,sort){
 		$.ajax({
-			type : "post",
+			type : 'post',
 			data : {
 				page :pageIndex,
 				orderType:orderType,

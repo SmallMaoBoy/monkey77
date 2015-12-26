@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
-
+<script language="javascript" src="js/goodService.js"></script>
 <script language="javascript" src="js/userService.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -204,10 +204,10 @@
   
   
 <div class="container" style="margin:10px auto">
- <div class="row" >
+ <div class="row" id="content-goods">
   <div class="col-xs-12 col-sm-6 col-lg-3">
     <div class="thumbnail box2">
-      <img src="imgs/618829a034e67bc2c05baf00f50b5bc8.jpg" />
+      <img src="imgs/mihoutao.jpg" />
        <div class="white">
 	<p class="word_about">猕猴桃富含维C，VA等多种维生素和抗氧化物质，能抑制角质细胞抑制力，我们的猕猴桃都是采 摘于南方最大的果园，那里土地肥沃，所以鲜果特别鲜美
     </p>
@@ -215,8 +215,8 @@
       </div>
      
       <div class="caption">
-        <h4>猕猴桃</h4>
-        <p>¥12.0/kg</p>
+        <h4 id="fruit_name">猕猴桃</h4>
+        <p>¥<span id="fruit_price">12.0</span >/<span id="specification">kg</span></p>
         <p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
       </div>
     </div>
@@ -227,7 +227,7 @@
       <div class="caption">
         <h4>水蜜桃</h4>
         <p>¥12.0/kg</p>
-        <p><a href="#" class="btn btn-primary" role="button">商品详情</a> <a  class="btn btn-default" role="button"           onclick="ad()">加入购物车</a></p>
+        <p><a href="#" class="btn btn-primary" role="button">商品详情</a> <a  class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>
       </div>
     </div>
   </div>
@@ -562,7 +562,13 @@ $(function () {
 	)
 })
 $(function () {
-	$(".box2").hover(
+	$('#content-goods').on('mouseenter','.box2',function () {
+			$(this).find(".white").stop().delay(50).animate({"top":0,opacity:0.8},300);
+		 });
+	$('#content-goods').on('mouseleave','.box2',function () {
+			$(this).find(".white").stop().animate({"top":-200,opacity:0},300);
+		 });
+	/*$(".box2").hover(
 		function () {
 			$(this).find(".white").stop().delay(50).animate({"top":0,opacity:0.8},300)
 		 },
@@ -570,6 +576,6 @@ $(function () {
 			$(this).find(".white").stop().animate({"top":-200,opacity:0},300)
 		}
 
-	)
+	)*/
 })
 </script>
