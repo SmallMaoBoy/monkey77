@@ -27,7 +27,7 @@ public class GoodServiceImp implements IGoodService {
 	 * @date 创建时间：2015-12-23下午4:58:52
 	 * @see com.monkey77.service.IGoodService#getDefalutList(int)
 	 */
-	private final int numPerPage = 9;
+	private final int numPerPage = 12;
 	private ITGoodDao goodDao;
 	private ITKeywordsDao keywordsDao;
 	

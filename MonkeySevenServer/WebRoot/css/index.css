@@ -21,6 +21,7 @@ em,i{font-style:normal;}
 
 .content{
 	background-image:url(../imgs/240425-130RPP11375.jpg);
+	background-size: cover;
     width:100%;
     height:600px;
     margin:0 auto
