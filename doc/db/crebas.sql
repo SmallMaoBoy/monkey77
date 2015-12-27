@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/25 上午 11:21:48                       */
+/* Created on:     2015/12/27 下午 11:24:55                       */
 /*==============================================================*/
 
 
@@ -23,6 +23,8 @@ drop table if exists t_order;
 drop table if exists t_order_detail;
 
 drop table if exists t_product_pic;
+
+drop table if exists t_root;
 
 drop table if exists t_shop;
 
@@ -180,6 +182,19 @@ create table t_product_pic
 );
 
 alter table t_product_pic comment 't_product_pic';
+
+/*==============================================================*/
+/* Table: t_root                                                */
+/*==============================================================*/
+create table t_root
+(
+   id                   int not null,
+   account              varchar(50) comment '超级管理员账号',
+   password             varchar(64) comment '密码',
+   primary key (id)
+);
+
+alter table t_root comment 't_root';
 
 /*==============================================================*/
 /* Table: t_shop                                                */

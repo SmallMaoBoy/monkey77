@@ -17,7 +17,7 @@ public class TestConnDatabase {
 		admin.setPassword("123456");
 		admin.setRole((short)1);
 		ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
-		ITAdminDao adminDao=(TAdminDaoImp)ac.getBean("ITAdminDao");
+		ITAdminDao adminDao=(TAdminDaoImp)ac.getBean("AdminDao");
 		adminDao.saveAdmin(admin);
 	}
 	

@@ -1,5 +1,7 @@
 package com.monkey77.dao;
 
+import java.util.List;
+
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.monkey77.entities.TAdmin;
@@ -20,7 +22,8 @@ public class TAdminDaoImp extends HibernateDaoSupport implements ITAdminDao {
 	@Override
 	public String getPasswordByAccount(String account) {
 		// TODO Auto-generated method stub
-		return null;
+		List<TAdmin> list=this.getHibernateTemplate().find("from TAdmin t where t.account=?",account);
+		return list.isEmpty()?null:list.get(0).getPassword();
 	}
 
 	/**
@@ -31,7 +34,7 @@ public class TAdminDaoImp extends HibernateDaoSupport implements ITAdminDao {
 	@Override
 	public boolean isRegistered(String account) {
 		// TODO Auto-generated method stub
-		return false;
+		return this.getHibernateTemplate().find("from TAdmin t where t.account=?",account).isEmpty()?false:true;
 	}
 
 }

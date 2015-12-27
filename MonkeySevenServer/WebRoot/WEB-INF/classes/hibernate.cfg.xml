@@ -35,6 +35,7 @@
 		<mapping
 			resource="com/monkey77/entities/TCookieValidate.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TKeywords.hbm.xml" />
+		<mapping resource="com/monkey77/entities/TRoot.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

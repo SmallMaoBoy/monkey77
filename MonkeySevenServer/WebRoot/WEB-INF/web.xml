@@ -6,7 +6,7 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <display-name></display-name>	
   <welcome-file-list>
-    <welcome-file>hou77.html</welcome-file>
+    <welcome-file>index.html</welcome-file>
   </welcome-file-list>
   <context-param>   
    <param-name>log4jConfigLocation</param-name>   
