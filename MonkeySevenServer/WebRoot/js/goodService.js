@@ -40,16 +40,11 @@ $(document).ready(function() {
 				for(var i=0;i<goods.length;i++){
 					var count=data.goods[i].number;
 					if(count>0){
-					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
-    '<div class="thumbnail box2">'+
+					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3 box2">'+
+    '<div class="thumbnail">'+
       '<img src="/MonkeySevenServer'+
       goods[i].picUrl
       +'" />'+
-       '<div class="white">'+
-	'<p class="word_about">'+goods[i].title+'</p>'+
-		
-      '</div>'+
-     
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
@@ -63,11 +58,6 @@ $(document).ready(function() {
 			      '<img src="/MonkeySevenServer'+
 			      goods[i].picUrl
 			      +'" />'+
-			       '<div class="white">'+
-				'<p class="word_about">'+goods[i].title+'</p>'+
-					
-			      '</div>'+
-			     
 			      '<div class="caption">'+
 			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
 			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
@@ -106,5 +96,10 @@ $(document).ready(function() {
 	function getGoodsByKeyWord(){
 		
 	}
-	
+	$('.page-change').click(function(){
+		var page=$(this).attr('page');
+		getDefalutGoods(page);
+		$('#page-switch-root').find('>li').removeClass('active');
+		$(this).parent().addClass('active');
+	})
 })
