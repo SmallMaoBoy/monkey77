@@ -4794,8 +4794,8 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   z-index: 3;
-  color: #669933c;
-  background-color: #eee;
+  color: #fff;
+  background-color:#669933;
   border-color: #ddd;
 }
 .pagination > .active > a,
