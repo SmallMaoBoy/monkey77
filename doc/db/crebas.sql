@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/27 下午 11:24:55                       */
+/* Created on:     2015/12/28 下午 3:20:10                        */
 /*==============================================================*/
 
 
@@ -29,6 +29,8 @@ drop table if exists t_root;
 drop table if exists t_shop;
 
 drop table if exists t_shop_good;
+
+drop table if exists t_show_pic;
 
 drop table if exists t_sms_identifying_code;
 
@@ -222,6 +224,20 @@ create table t_shop_good
 );
 
 alter table t_shop_good comment 't_shop_good';
+
+/*==============================================================*/
+/* Table: t_show_pic                                            */
+/*==============================================================*/
+create table t_show_pic
+(
+   id                   int not null,
+   pic_url              varchar(500) not null comment '图片位置',
+   type                 tinyint not null comment '展示位置',
+   description          char(10) comment '图片描述',
+   primary key (id)
+);
+
+alter table t_show_pic comment 't_show_pic';
 
 /*==============================================================*/
 /* Table: t_sms_identifying_code                                */
