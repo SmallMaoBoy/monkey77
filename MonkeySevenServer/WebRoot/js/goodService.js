@@ -69,6 +69,10 @@ $(document).ready(function() {
 					);}
 					
 				}
+				if(data.count!=0){
+					createPageNum(data.count/12+1,pageIndex);
+				}
+				
 			}
 		});
 	}
@@ -96,10 +100,28 @@ $(document).ready(function() {
 	function getGoodsByKeyWord(){
 		
 	}
-	$('.page-change').click(function(){
-		var page=$(this).attr('page');
-		getDefalutGoods(page);
-		$('#page-switch-root').find('>li').removeClass('active');
-		$(this).parent().addClass('active');
-	})
+	
+	/**
+	 * 创建商品列表页数
+	 * pageNum：总页数
+	 * currentIndex:当前页数
+	 */
+	function createPageNum(pageNum,currentIndex){
+		$("#page-switch-root").empty();
+			for(var i=1;i<=pageNum;i++){
+				if(i==currentIndex){
+					$("#page-switch-root").append('<li class="active"><a href="javascript:;" class="i1 page-change" page="'+i+'">'+i+'</a></li>');
+				}else{
+					$("#page-switch-root").append('<li><a href="javascript:;" class="i1 page-change" page="'+i+'">'+i+'</a></li>');
+				}
+			}
+			$('.page-change').click(function(){
+				var page=$(this).attr('page');
+				getDefalutGoods(page);
+				$('#page-switch-root').find('>li').removeClass('active');
+				$(this).parent().addClass('active');
+			})
+	}
+	
 })
+
