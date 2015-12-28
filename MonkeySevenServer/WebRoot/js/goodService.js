@@ -42,7 +42,7 @@ $(document).ready(function() {
 					if(count>0){
 					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3 box2">'+
     '<div class="thumbnail">'+
-      '<img src="/MonkeySevenServer'+
+      '<img src="'+
       goods[i].picUrl
       +'" />'+
       '<div class="caption">'+
@@ -55,7 +55,7 @@ $(document).ready(function() {
 					else{
 	  $("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
 			    '<div class="thumbnail box2">'+
-			      '<img src="/MonkeySevenServer'+
+			      '<img src="'+
 			      goods[i].picUrl
 			      +'" />'+
 			      '<div class="caption">'+

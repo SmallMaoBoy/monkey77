@@ -52,6 +52,8 @@
 		<property name="categoryDao" ref="CategoryDao"></property>
 		<property name="showPicDao" ref="ShowPicDao"></property>
 	</bean>
+	<bean id="SMSService" class="com.monkey77.service.SMSServiceImp">
+	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
 	</bean>
