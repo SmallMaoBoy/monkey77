@@ -34,6 +34,6 @@ public class TestRootService {
 	
 	@Test
 	public void testCreateRoot(){
-		rootService.createNewRoot("121", "123456");
+		rootService.createNewRoot("admin", "123456");
 	}
 }

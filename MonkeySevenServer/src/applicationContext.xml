@@ -53,4 +53,7 @@
 	<bean id="GoodAction" class="com.monkey77.action.GoodAction">
 		<property name="goodService" ref="GoodService" ></property>
 	</bean>
+	<bean id="HoutaiLoginAction" class="com.monkey77.action.HoutaiLoginAction">
+		<property name="RootService" ref="RootService" ></property>
+	</bean>
 </beans>
