@@ -7,6 +7,7 @@ package com.monkey77.action;
 
 import java.util.Map;
 
+import com.monkey77.service.IContextService;
 import com.monkey77.service.IGoodService;
 import com.monkey77.service.IUserService;
 import com.opensymphony.xwork2.Action;
@@ -24,8 +25,17 @@ public class GoodAction {
 	private int orderType;
 	private String sort;
 	private IGoodService goodService;
+	private IContextService contextService;
 	private String keyWords;
 	
+	
+	public IContextService getContextService() {
+		return contextService;
+	}
+
+	public void setContextService(IContextService contextService) {
+		this.contextService = contextService;
+	}
 
 	public String getKeyWords() {
 		return keyWords;
@@ -73,6 +83,7 @@ public class GoodAction {
 
 	public String getDefalutGoods(){
 		map=goodService.getDefalutList(page,orderType);
+		System.out.println("android.........");
 		return Action.SUCCESS;
 	}
 	
@@ -83,6 +94,11 @@ public class GoodAction {
 	
 	public String getKeyWordsGoods(){
 		map=goodService.getKeyWordsList(page, orderType, keyWords);
+		return Action.SUCCESS;
+	}
+	
+	public String getMainInfo(){
+		map=contextService.getMainInfo();
 		return Action.SUCCESS;
 	}
 	

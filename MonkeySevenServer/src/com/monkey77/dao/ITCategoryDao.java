@@ -21,4 +21,5 @@ public interface ITCategoryDao {
 	
 	//获取商品种类列表
 	public List<TCategory> getCategoryList();
+	
 }
