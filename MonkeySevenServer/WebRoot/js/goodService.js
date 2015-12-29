@@ -14,8 +14,11 @@ $(document).ready(function() {
 	 * 2代表按照价格从大到小获取商品
 	 * 3代表按照价格从小到大获取商品
 	 */
-	var orderType=3;
-	
+	var orderType=0;
+    $('#sort0').click(function(){orderType=0;getDefalutGoods(1)});
+    $('#sort1').click(function(){orderType=1;getDefalutGoods(1)});
+    $('#sort2').click(function(){orderType=2;getDefalutGoods(1)});
+    $('#sort3').click(function(){orderType=3;getDefalutGoods(1)});
 	getDefalutGoods(1);
 	
 	//默认情况下获取商品列表
@@ -46,7 +49,7 @@ $(document).ready(function() {
       goods[i].picUrl
       +'" />'+
       '<div class="caption">'+
-        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
         '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
       '</div>'+
@@ -59,7 +62,7 @@ $(document).ready(function() {
 			      goods[i].picUrl
 			      +'" />'+
 			      '<div class="caption">'+
-			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
 			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
 			        '<p><a href="#" class="btn btn-danger" disabled="disabled" role="button">库存不足</a> <a class="btn btn-default" role="button" disabled="disabled">加入购物车</a></p>'+
 			      '</div>'+
