@@ -106,10 +106,13 @@ body,html{
 		}
 	.line2>ul>li>a:hover{
 		color:#000;
+		background-color:#FCB4EC;
 		}
-	.ac{
-			background-color:#FCB4EC;
-			}
+	.line2>ul>li>a:focus{background-color:#FCB4EC;}
+	.active{background-color:#FCB4EC;color:#000;}
+	.active{background-color:#FCB4EC;color:#000;}
+	#menu1>li>a:hover{background-color:#FCB4EC;color:#fff;}
+	#menu1>li>a:focus{background-color:#FCB4EC;color:#fff;}
 .goods {
 height: 82px;
 width: 100%;
@@ -184,3 +187,4 @@ padding:20px;
  .fire{background:#000;opacity:0.8;filter:alpha(opacity=50);position:absolute;top:23px;width:340px;height:150px;z-index:2;display:none; text-align:center; }
 .pagination>li>a:active{background-color:#669933
 }
+

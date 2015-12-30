@@ -223,16 +223,17 @@
   <div class="container" style="margin-top:5px" >
     <div class="line2 " id="choose" >
     <ul class="se-line">
-        <li class="ac"><a href="#">默认顺序</a></li>
-        <li><a href="#">价格从高到底</a></li>
-        <li><a href="#">价格从低到高</a></li>
+        <li id="sort0" class="active sort"><a href="javascript:;">销量从大到小</a></li>
+        <li id="sort1" class="sort"><a href="javascript:;">销量从小到大</a></li>
+        <li id="sort2" class="sort"><a href="javascript:;">价格从高到底</a></li>
+        <li id="sort3" class="sort"><a href="javascript:;">价格从低到高</a></li>
          <li id="fruit_type" class="dropdown">
          <!-- <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>-->
          <a >水果类型</a>
-          <ul id="menu1" class="dropdown-menu">
-            <li class="ac"><a href="#">全部</a></li>
-            <li><a href="#">国产水果</a></li>
-            <li><a href="#">进口水果</a></li>
+          <ul id="menu1" class="dropdown-menu" style="margin:0px;">
+            <li class="active fru_place"><a href="javascript:;">全部</a></li>
+            <li class="fru_place"><a href="javascript:;">国产水果</a></li>
+            <li class="fru_place"><a href="javascript:;">进口水果</a></li>
           </ul>
         </li>
     </ul>
@@ -540,9 +541,14 @@ $(function(){
 	});	
 });
 
-/* $(document).ready(function(){
-  $("a[class='i1']").click(function(){
-    $("li[class='active']").removeClass("active");
+ $(document).ready(function(){
+  $("li.sort").click(function(){
+    $("li.active").removeClass("active");
   });
-}); */
+});
+ $(document).ready(function() {
+   $("li.fru_place").click(function(){
+	   $("#menu1>li.active").removeClass("active");
+	   }); 
+});
 </script>
