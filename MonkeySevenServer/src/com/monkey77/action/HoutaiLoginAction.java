@@ -2,10 +2,11 @@ package com.monkey77.action;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.monkey77.service.IRootService;
-import com.monkey77.service.IUserService;
-import com.monkey77.service.RootServiceImp;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class HoutaiLoginAction extends ActionSupport {
@@ -56,13 +57,8 @@ public class HoutaiLoginAction extends ActionSupport {
 
 
 	public String execute(){
-		
-		map=RootService.checkRootLogin(username, password);
-		ActionContext actionContext = ActionContext.getContext();
-
-	       Map session = actionContext.getSession();
-
-	       session.put("admin", "admin");
+		HttpSession session=ServletActionContext.getRequest().getSession();
+		map=RootService.checkRootLogin(username, password,session);
 		return SUCCESS;
 	}
 }

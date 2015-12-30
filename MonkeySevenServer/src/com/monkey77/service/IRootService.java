@@ -7,6 +7,8 @@ package com.monkey77.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * @author mao
  * @time 创建时间 2015-12-27上午12:59:10
@@ -15,7 +17,7 @@ import java.util.Map;
 public interface IRootService {
 
 	//判断超级管理员密码
-		public Map<String,Object> checkRootLogin(String account,String password);
+		public Map<String,Object> checkRootLogin(String account,String password,HttpSession session);
 		
 		//创建新的管理员
 		public void createNewRoot(String account,String password);

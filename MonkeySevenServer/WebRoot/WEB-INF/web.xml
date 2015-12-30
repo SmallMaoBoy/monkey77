@@ -36,6 +36,12 @@
            com.monkey77.filter.LoginFilter
         </filter-class>
     </filter>
+     <filter>
+        <filter-name>RootFilter</filter-name>
+        <filter-class>
+           com.monkey77.filter.RootFilter
+        </filter-class>
+    </filter>
 <filter>
 	<filter-name>struts2</filter-name>
 	<filter-class>
@@ -44,6 +50,11 @@
 </filter>
 <filter-mapping>
         <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+<filter-mapping>
+        <filter-name>RootFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 <filter-mapping>
