@@ -29,7 +29,7 @@ public class TestRootService {
 	
 	@Test
 	public void testCheckLogin(){
-		System.out.println(rootService.checkRootLogin("111", "1234562"));
+		System.out.println(rootService.checkRootLogin("111", "1234562", null));
 	}
 	
 	@Test

@@ -69,4 +69,9 @@ public class TestGoodDao {
 		System.out.println(goodDao.getCountWithKeyWords("旧"));
 	}
 	
+	@Test
+	public void testGetGoodByid(){
+		System.out.println(goodDao.getGoodById(1));
+	}
+	
 }

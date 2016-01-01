@@ -22,4 +22,7 @@ public interface ITCategoryDao {
 	//获取商品种类列表
 	public List<TCategory> getCategoryList();
 	
+	//根据商品id获取商品种类
+	public TCategory getCategoryByGoodId(int id);
+	
 }

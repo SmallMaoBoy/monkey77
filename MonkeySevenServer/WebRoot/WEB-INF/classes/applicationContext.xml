@@ -35,6 +35,9 @@
 	<bean id="ShowPicDao" class="com.monkey77.dao.TShowPicImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="ProductPicDao" class="com.monkey77.dao.TProductPicDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
@@ -43,6 +46,8 @@
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
 		<property name="keywordsDao" ref="KeyWordsDao"></property>
+		<property name="productPicDao" ref="ProductPicDao" ></property>
+		<property name="categoryDao" ref="CategoryDao" ></property>
 	</bean>
 	<bean id="RootService" class="com.monkey77.service.RootServiceImp">
 		<property name="rootDao" ref="RootDao"></property>

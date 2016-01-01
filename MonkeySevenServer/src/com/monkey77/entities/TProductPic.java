@@ -1,5 +1,7 @@
 package com.monkey77.entities;
 
+import org.apache.struts2.json.annotations.JSON;
+
 
 
 /**
@@ -14,11 +16,21 @@ public class TProductPic  implements java.io.Serializable {
      private Integer id;
      private TGood TGood;
      private String picUrl;
-
+     private Short type;
 
     // Constructors
 
-    /** default constructor */
+    public Short getType() {
+		return type;
+	}
+
+
+	public void setType(Short type) {
+		this.type = type;
+	}
+
+
+	/** default constructor */
     public TProductPic() {
     }
 
@@ -39,7 +51,7 @@ public class TProductPic  implements java.io.Serializable {
     public void setId(Integer id) {
         this.id = id;
     }
-
+    @JSON(serialize=false)
     public TGood getTGood() {
         return this.TGood;
     }
@@ -55,6 +67,13 @@ public class TProductPic  implements java.io.Serializable {
     public void setPicUrl(String picUrl) {
         this.picUrl = picUrl;
     }
+
+
+	@Override
+	public String toString() {
+		return "TProductPic [id=" + id + ", picUrl=" + picUrl + ", type="
+				+ type + "]";
+	}
    
 
 

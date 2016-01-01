@@ -11,8 +11,10 @@ import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.monkey77.dao.ITCategoryDao;
 import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.ITKeywordsDao;
+import com.monkey77.dao.ITProductPicDao;
 import com.monkey77.entities.TGood;
 
 /**
@@ -30,8 +32,25 @@ public class GoodServiceImp implements IGoodService {
 	private final int numPerPage = 12;
 	private ITGoodDao goodDao;
 	private ITKeywordsDao keywordsDao;
+	private ITProductPicDao productPicDao;
+	private ITCategoryDao categoryDao;
+
 	
-	
+	public ITCategoryDao getCategoryDao() {
+		return categoryDao;
+	}
+
+	public void setCategoryDao(ITCategoryDao categoryDao) {
+		this.categoryDao = categoryDao;
+	}
+
+	public ITProductPicDao getProductPicDao() {
+		return productPicDao;
+	}
+
+	public void setProductPicDao(ITProductPicDao productPicDao) {
+		this.productPicDao = productPicDao;
+	}
 
 	public ITKeywordsDao getKeywordsDao() {
 		return keywordsDao;
@@ -144,6 +163,21 @@ public class GoodServiceImp implements IGoodService {
 			break;
 		}
 		map.put("goods", list);
+		return map;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-1下午3:12:56
+	 * @see com.monkey77.service.IGoodService#getGoodDetailById(int)
+	 */
+	@Override
+	public Map<String, Object> getGoodDetailById(int id) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		map.put("good", goodDao.getGoodById(id));
+		map.put("productPic",productPicDao.getProductPicByGoodId(id));
+		map.put("category", categoryDao.getCategoryByGoodId(id).getName());
 		return map;
 	}
 
