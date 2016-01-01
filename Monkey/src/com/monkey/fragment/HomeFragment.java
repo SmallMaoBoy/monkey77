@@ -1,19 +1,21 @@
 package com.monkey.fragment;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.monkey.R;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.monkey.activity.ShoppingCarActivity;
-import com.monkey.activity.ShowdetailsActivity;
-import com.monkey.pojo.Item_gvmsg;
-
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,9 +26,19 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.monkey.R;
+import com.google.gson.Gson;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.monkey.activity.ShoppingCarActivity;
+import com.monkey.activity.ShowdetailsActivity;
+import com.monkey.json.Good;
+import com.monkey.json.GoodMsg;
+import com.monkey.pojo.Item_gvmsg;
+import com.monkey.service.HomeService;
+import com.monkey.utils.PropertiesUtil;
 
 public class HomeFragment extends Fragment implements OnClickListener {
 
@@ -37,25 +49,43 @@ public class HomeFragment extends Fragment implements OnClickListener {
 	private List<Item_gvmsg> Items;
 	private SlidingMenu slidingMenu;
 	private ImageButton btn_car;
-	// private int mywidth;
-	// private int myheight;
-	private int[] pics = new int[] { R.drawable.f1, R.drawable.f2,
-			R.drawable.f3, R.drawable.f4, R.drawable.f5, R.drawable.f6,
-			R.drawable.f7, R.drawable.f8, R.drawable.f9, R.drawable.f10,
-			R.drawable.f11, R.drawable.f12, R.drawable.f13, R.drawable.f14,
-			R.drawable.f15, R.drawable.f16, R.drawable.f17, };
+	private MygvAdapter gvAdapter;
+	private Bitmap bitmap;
 
 	public HomeFragment(SlidingMenu slidingMenu) {
 		super();
 		this.slidingMenu = slidingMenu;
 	}
 
-	private String[] titles = new String[] { "黄桃", "红柚子", "樱桃", "奇异果", "西瓜",
-			"芒果", "青苹果", "草莓", "柠檬", "桑椹", "山竹", "葡萄", "香蕉", "榴莲", "西梅", "石榴",
-			"火龙果" };
-	private String[] prices = new String[] { "10.3", "11", "5", "23", "5.9",
-			"7.6", "35.2", "9.9", "20.5", "6", "5", "23", "5.9", "7.6", "35.2",
-			"9.9", "20.5", "6" };
+	private Handler handler = new Handler() {// ui线程做的事
+		public void handleMessage(android.os.Message msg) {
+			int type = (int) msg.getData().get("type");
+			switch (type) {
+			case 1:
+				Gson gson = new Gson();
+				GoodMsg goodmsg = gson.fromJson(msg.getData().get("result")
+						.toString(), GoodMsg.class);
+				List<Good> goods = goodmsg.getGoods();
+				for (int i = 0; i < goods.size(); i++) {
+					Item_gvmsg item = new Item_gvmsg(bitmap, goods.get(i)
+							.getName(), String.valueOf(goods.get(i).getPrice()));
+					Items.add(item);
+					new GetPicThread(i, PropertiesUtil.getValue("BaseUrl")
+							+ goods.get(i).getPicUrl()).start();
+					Log.d("maomao", goods.get(i).getName());
+
+				}
+
+				gvAdapter.notifyDataSetChanged();
+				break;
+			case 2:
+				gvAdapter.notifyDataSetChanged();
+				break;
+			}
+
+		}
+
+	};
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,13 +97,11 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		categroy.setOnClickListener(this);
 		iv_shopping_car = (ImageView) view.findViewById(R.id.iv_shopping_cart);
 		iv_shopping_car.setOnClickListener(this);
-		// WindowManager wm = getActivity().getWindowManager();//获取频幕大小
-		// Display display = wm.getDefaultDisplay();
-		// mywidth = display.getWidth();
-		// myheight = display.getHeight();
+
 		gv = (GridView) view.findViewById(R.id.gv_home_pics);
 		initData();
-		gv.setAdapter(new MygvAdapter());// 添加适配器
+		gvAdapter = new MygvAdapter();
+		gv.setAdapter(gvAdapter);// 添加适配器
 		gv.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
@@ -87,17 +115,17 @@ public class HomeFragment extends Fragment implements OnClickListener {
 		// 设置购物车按钮点击事件
 		btn_car = (ImageButton) view.findViewById(R.id.btn_car);
 		btn_car.setOnClickListener(this);
+		// 從網絡獲取數據，放到gridview
 		return view;
 	}
 
 	public void initData() {
 		Items = new ArrayList<Item_gvmsg>();
-		for (int i = 0; i < pics.length; i++) {
-			Item_gvmsg item = new Item_gvmsg(pics[i], titles[i], prices[i]);
-			Items.add(item);
-		}
+		HomeService homeService = new HomeService(handler);
+		homeService.getGoods();
 	}
 
+	// gridview适配器
 	class MygvAdapter extends BaseAdapter {
 
 		@Override
@@ -127,8 +155,6 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			// TODO Auto-generated method stub
 			View view = View.inflate(HomeFragment.this.getActivity(),
 					R.layout.item_gvmsg, null);
-			LinearLayout ll_gvmsg = (LinearLayout) view
-					.findViewById(R.id.ll_gvmsg);
 			ImageView msg_pic = (ImageView) view
 					.findViewById(R.id.item_gvmsg_pic);
 			TextView msg_title = (TextView) view
@@ -136,21 +162,14 @@ public class HomeFragment extends Fragment implements OnClickListener {
 			TextView msg_price = (TextView) view
 					.findViewById(R.id.item_gvmsg_price);
 			Item_gvmsg item_gvmsg = Items.get(position);
-			msg_pic.setBackgroundResource(item_gvmsg.getPic());
+			msg_pic.setBackground(item_gvmsg.getDrawable());
 			msg_title.setText(item_gvmsg.getTitle());
 			msg_price.setText(item_gvmsg.getPrice());
 			return view;
 		}
 	}
 
-	private void changeFragment(Fragment fragment, String tagfragment) {
-		// TODO Auto-generated method stub
-		FragmentManager fm = getActivity().getSupportFragmentManager();
-		FragmentTransaction ft = fm.beginTransaction();
-		ft.replace(R.id.fl_main, fragment, tagfragment);
-		ft.commit();
-	}
-
+	// 点击事件
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
@@ -162,12 +181,59 @@ public class HomeFragment extends Fragment implements OnClickListener {
 					.show();
 			break;
 		case R.id.btn_car:
-			intent = new Intent(this.getActivity(),ShoppingCarActivity.class);
+			intent = new Intent(this.getActivity(), ShoppingCarActivity.class);
 			startActivity(intent);
 			Toast.makeText(getActivity(), "hahhahahaha", Toast.LENGTH_SHORT)
-			.show();
+					.show();
 			break;
 		}
 
+	}
+
+	// 根据URL获取图片线程
+	class GetPicThread extends Thread {
+
+		public GetPicThread(int num, String picUrl) {
+			super();
+			this.num = num;
+			this.picUrl = picUrl;
+		}
+
+		private int num;
+		private String picUrl;
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			super.run();
+
+			Drawable d = loadImageFromNetwork(picUrl);
+			Items.get(num).setDrawable(d);
+			Message message = new Message();
+			Bundle b = new Bundle();
+			b.putInt("type", 2);
+			message.setData(b);
+			handler.sendMessage(message);
+		}
+
+		public Drawable loadImageFromNetwork(String imageUrl) {
+			// TODO Auto-generated method stub
+			Drawable drawable = null;
+			try {
+				// 可以在这里通过文件名来判断，是否本地有此图片
+				drawable = Drawable.createFromStream(
+						new URL(imageUrl).openStream(), "image.jpg");
+			} catch (IOException e) {
+				Log.d("test", e.getMessage());
+			}
+			if (drawable == null) {
+				Log.d("test", "null drawable");
+			} else {
+				Log.d("test", "not null drawable");
+			}
+
+			return drawable;
+
+		}
 	}
 }

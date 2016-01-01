@@ -8,12 +8,17 @@ import com.monkey.fragment.HomeFragment;
 import com.monkey.fragment.MeFragment;
 import com.monkey.fragment.OrderFragment;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,7 +27,7 @@ import android.widget.Toast;
 public class MainActivity extends SlidingFragmentActivity implements
 		OnClickListener {
 	// private FrameLayout fl_main;
-	//private long exitTime = 0;
+	private long exitTime = 0;
 	private LinearLayout ll_home;
 	private LinearLayout ll_order;
 	private LinearLayout ll_me;
@@ -109,22 +114,21 @@ public class MainActivity extends SlidingFragmentActivity implements
 
 		}
 	}
-/*
+
+	
+
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {//双击退出程序
-		if (keyCode == KeyEvent.KEYCODE_BACK
-				&& event.getAction() == KeyEvent.ACTION_DOWN) {
-			if ((System.currentTimeMillis() - exitTime) > 2000) {
-				Toast.makeText(getApplicationContext(), "再按一次退出程序",
-						Toast.LENGTH_SHORT).show();
-				exitTime = System.currentTimeMillis();
-			} else {
-				finish();
-				System.exit(0);
-			}
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){   
+	        if((System.currentTimeMillis()-exitTime) > 2000){  
+	            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();                                
+	            exitTime = System.currentTimeMillis();   
+	        } else {
+	            this.finish();
+	        }
+	        return true;   
+	    }
+	    return super.onKeyDown(keyCode, event);
 	}
-*/
+
 }

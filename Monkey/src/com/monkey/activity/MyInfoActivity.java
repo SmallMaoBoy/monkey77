@@ -1,9 +1,6 @@
 package com.monkey.activity;
 
-import com.example.monkey.R;
-import com.monkey.fragment.MeFragment;
-import com.monkey.utils.XmlUtils;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MyInfoActivity extends BaseActivity implements OnClickListener{
+import com.example.monkey.R;
+import com.monkey.utils.XmlUtils;
+
+public class MyInfoActivity extends Activity implements OnClickListener{
 	private EditText et_input_secondName;
     private TextView tv_saveMyInfo;
     private EditText et_input_phone;

@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/fruitDetail" />
+        
 
         <ImageView
             android:id="@+id/iv_showDetali_shoppingCar"
@@ -32,18 +33,37 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
             android:src="@drawable/shopping_cart" />
 
+        <ImageView 
+            android:id="@+id/iv_sign"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="28dp"
+            android:layout_alignTop="@id/iv_showDetali_shoppingCar"
+            android:src="@drawable/icon_sign"/>
+        <TextView 
+            android:id="@+id/tv_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="34dp"
+            android:layout_alignTop="@id/iv_showDetali_shoppingCar"
+            android:text="0"
+            style="@style/text_style2"/>
         <ImageView
             android:id="@+id/iv_showDetali_share"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
             android:layout_toLeftOf="@id/iv_showDetali_shoppingCar"
             android:src="@drawable/btn_share" />
     </RelativeLayout>
 
-    <ScrollView
+    <com.monkey.my.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
@@ -51,7 +71,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <RelativeLayout
@@ -68,6 +88,9 @@
                     android:id="@+id/ll_fruitDetail_points"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
                     android:orientation="horizontal" >
                 </LinearLayout>
             </RelativeLayout>
@@ -89,8 +112,10 @@
 
             <TextView
                 style="@style/text_style9"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
                 android:text="商品描述" />
 
             <LinearLayout
@@ -101,61 +126,103 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/f1" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/f2" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/f3" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/f4" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="3dp"
                 android:background="@drawable/f5" />
         </LinearLayout>
-    </ScrollView>
+    </com.monkey.my.MyScrollView>
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/ll_showdetail_bottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:background="#E8F2FE"
         android:orientation="horizontal" >
 
-        <EditText
-            android:id="@+id/et_showDetali_num"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="3"
-            android:drawablePadding="5dp"
-            android:maxEms="3"
-            android:numeric="integer"
-            android:singleLine="true"
-            android:textColor="#33339A" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp" >
+
+            <ImageView
+                android:id="@+id/iv_minus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/am_minus" />
+
+            <EditText
+                android:id="@+id/et_am"
+                android:layout_width="60dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_toRightOf="@id/iv_minus"
+                android:background="@drawable/ae_edittext"
+                android:gravity="center"
+                android:inputType="number"
+                android:singleLine="true"
+                android:text="1"
+                android:textColor="#33339A" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/et_am"
+                android:src="@drawable/am_add" />
+        </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_addToCar"
             style="@style/text_style1"
-            android:layout_width="0dp"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_weight="2"
+            android:layout_alignParentRight="true"
             android:background="#FF6835"
             android:gravity="center"
             android:text="加入购物车" />
-    </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

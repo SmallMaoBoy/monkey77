@@ -1,10 +1,6 @@
 package com.monkey.activity;
 
-import com.example.monkey.R;
-import com.monkey.fragment.MeFragment;
-import com.monkey.utils.XmlUtils;
-
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +10,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class LoginActivity extends BaseActivity implements OnClickListener{
+import com.example.monkey.R;
+import com.monkey.utils.XmlUtils;
+
+public class LoginActivity extends Activity implements OnClickListener{
 	private ImageView iv_login_back;
 	private Button btn_login;
 	private TextView tv_login_register;
