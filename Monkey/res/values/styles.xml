@@ -47,4 +47,9 @@
         <item name="android:textColor">#83D17D</item>
         <item name="android:textSize">16sp</item>
     </style>
+    <!-- 白色 10sp-->
+    <style name="text_style10">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">10sp</item>
+    </style>
 </resources>

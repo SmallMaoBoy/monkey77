@@ -34,7 +34,7 @@ public class GuideActivity extends BaseActivity implements OnClickListener {
 		setContentView(R.layout.activity_guide);
 		// “体验”按钮进入主界面
 		iv_btn_Tiyan = (ImageView) findViewById(R.id.iv_btn_Tiyan);
-		iv_btn_Tiyan.setOnClickListener(this);
+		iv_btn_Tiyan.setVisibility(View.GONE);
 		//初始换imgs列表
 		initDatas();
 		vp_imgs = (ViewPager) findViewById(R.id.vp_guide_pics);
@@ -45,10 +45,11 @@ public class GuideActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onPageSelected(int position) {
 				// TODO Auto-generated method stub
-				if (position == 3) {
-					iv_btn_Tiyan.setOnClickListener(GuideActivity.this);
+				if (position==0 || position==1 || position==2) {
+					iv_btn_Tiyan.setVisibility(View.GONE);					
 				} else {
-					iv_btn_Tiyan.setVisibility(View.INVISIBLE);
+					iv_btn_Tiyan.setVisibility(View.VISIBLE);
+					iv_btn_Tiyan.setOnClickListener(GuideActivity.this);
 				}
 			}
 
@@ -121,7 +122,7 @@ public class GuideActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		Intent intent = new Intent(GuideActivity.this, MainActivity.class);
-		startActivity(intent);
+		Intent intent = new Intent(this, MainActivity.class);
+		this.startActivity(intent);
 	}
 }
