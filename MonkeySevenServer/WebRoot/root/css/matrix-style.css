@@ -1585,3 +1585,5 @@ div.dataTables_wrapper .ui-widget-header {
 }
 #sidebar .content{ display:none;}
 }
+ .pagination>li>a:active{background-color:#669933}
+ 
