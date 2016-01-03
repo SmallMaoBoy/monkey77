@@ -31,7 +31,13 @@ public class TUser  implements java.io.Serializable {
     }
 
     
-    /** full constructor */
+    public TUser(Integer id) {
+		super();
+		this.id = id;
+	}
+
+
+	/** full constructor */
     public TUser(Short sex, String mobile, String password, String name, Set TOrders, Set TCookieValidates, Set TCarts, Set TGoods) {
         this.sex = sex;
         this.mobile = mobile;

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2016/1/1 下午 3:07:38                          */
+/* Created on:     2016/1/2 下午 2:55:52                          */
 /*==============================================================*/
 
 
@@ -71,9 +71,11 @@ alter table t_admin_shop comment 't_admin_shop';
 /*==============================================================*/
 create table t_cart
 (
-   user_id              int comment '用户id',
-   good_id              int comment '商品id',
-   good_number          int comment '商品数量'
+   id                   int not null,
+   user_id              int not null comment '用户id',
+   good_id              int not null comment '商品id',
+   good_number          int not null comment '商品数量',
+   primary key (id)
 );
 
 alter table t_cart comment 't_cart';

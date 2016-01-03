@@ -6,26 +6,24 @@
 -->
 <hibernate-mapping>
     <class name="com.monkey77.entities.TCart" table="t_cart" catalog="monkey77">
-        <composite-id name="id" class="com.monkey77.entities.TCartId">
-            <key-property name="userId" type="java.lang.Integer">
-                <column name="user_id" />
-            </key-property>
-            <key-property name="goodId" type="java.lang.Integer">
-                <column name="good_id" />
-            </key-property>
-            <key-property name="goodNumber" type="java.lang.Integer">
-                <column name="good_number" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="TUser" class="com.monkey77.entities.TUser" update="false" insert="false" fetch="select">
-            <column name="user_id">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="TUser" class="com.monkey77.entities.TUser" fetch="select" >
+            <column name="user_id" not-null="false">
                 <comment>用户id</comment>
             </column>
         </many-to-one>
-        <many-to-one name="TGood" class="com.monkey77.entities.TGood" update="false" insert="false" fetch="select">
-            <column name="good_id">
+        <many-to-one name="TGood" class="com.monkey77.entities.TGood" fetch="select" >
+            <column name="good_id" not-null="false" >
                 <comment>商品id</comment>
             </column>
         </many-to-one>
+        <property name="goodNumber" type="java.lang.Integer">
+            <column name="good_number">
+                <comment>商品数量</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

@@ -43,6 +43,11 @@ public class TGood  implements java.io.Serializable {
     public TGood() {
     }
 
+	public TGood(Integer id) {
+		super();
+		this.id = id;
+	}
+
 	/** minimal constructor */
     public TGood(String name, Float price, Short number, String status, String specification, String originPlace, String title, Integer saleVolume) {
         this.name = name;

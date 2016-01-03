@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2016-01-01 17:22:39
+Date: 2016-01-03 23:45:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -56,13 +56,15 @@ CREATE TABLE `t_admin_shop` (
 -- ----------------------------
 DROP TABLE IF EXISTS `t_cart`;
 CREATE TABLE `t_cart` (
-  `user_id` int(11) DEFAULT NULL COMMENT '用户id',
-  `good_id` int(11) DEFAULT NULL COMMENT '商品id',
+  `user_id` int(11) NOT NULL DEFAULT '0' COMMENT '用户id',
+  `good_id` int(11) NOT NULL DEFAULT '0' COMMENT '商品id',
   `good_number` int(11) DEFAULT NULL COMMENT '商品数量',
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `FK_Reference_14` (`good_id`),
   KEY `FK_Reference_15` (`user_id`),
-  CONSTRAINT `FK_Reference_14` FOREIGN KEY (`good_id`) REFERENCES `t_good` (`id`),
-  CONSTRAINT `FK_Reference_15` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`)
+  CONSTRAINT `FK_Reference_14` FOREIGN KEY (`good_id`) REFERENCES `t_good` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `FK_Reference_15` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='t_cart';
 
 -- ----------------------------
