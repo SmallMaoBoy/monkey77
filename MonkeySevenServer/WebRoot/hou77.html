@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="save" content="history">
 <title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <script language="javascript" src="js/goodService.js"></script>
@@ -81,23 +82,24 @@
 </div>
 <div >
  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-left:80px;float:left;padding-top:40px;" >
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" style="width:500px">
+      <form class="navbar-form navbar-left" role="search" target="hideIframe">
+        <div class="form-group" >
+          <input type="text" class="form-control" placeholder="Search" style="width:500px" id="search-fruit">
         </div>
-        <button type="submit" class="btn btn-default" style="background-color:#093;color:#FFF;width:90px;">搜索</button>
+        <button id="search-btn" type="submit" class="btn btn-default" style="background-color:#093;color:#FFF;width:90px;">搜索</button>
       </form>
+      <iframe id="hideIframe" name="hideIframe" style="display:none;"></iframe>
     </div>
-   <div id="select-line" >
+   <div id="select-line">
     <ul class="se-line">
         <li>热门搜索</li>
-        <li><a href="#">苹果</a></li>
-        <li><a href="#">香蕉</a></li>
-        <li><a href="#">梨</a></li>
-        <li><a href="#">西瓜</a></li>
-        <li><a href="#">樱桃</a></li>
-        <li><a href="#">哈密瓜</a></li>
-        <li><a href="#">火龙果</a></li>
+        <li id="fruit_style0"><a href="javascript:;">苹果</a></li>
+        <li id="fruit_style1"><a href="javascript:;">香蕉</a></li>
+        <li id="fruit_style2"><a href="javascript:;">梨</a></li>
+        <li id="fruit_style3"><a href="javascript:;">西瓜</a></li>
+        <li id="fruit_style4"><a href="javascript:;">樱桃</a></li>
+        <li id="fruit_style5"><a href="javascript:;">哈密瓜</a></li>
+        <li id="fruit_style6"><a href="javascript:;">火龙果</a></li>
     </ul>
     </div>
     <div style="clear:both;height:100%;"></div>
@@ -231,9 +233,9 @@
          <!-- <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>-->
          <a >水果类型</a>
           <ul id="menu1" class="dropdown-menu" style="margin:0px;">
-            <li class="active fru_place"><a href="javascript:;">全部</a></li>
-            <li class="fru_place"><a href="javascript:;">国产水果</a></li>
-            <li class="fru_place"><a href="javascript:;">进口水果</a></li>
+            <li id="place1" class="fru_place active"><a href="javascript:;">全部</a></li>
+            <li id="place2" class="fru_place"><a href="javascript:;">国产水果</a></li>
+            <li id="place3" class="fru_place"><a href="javascript:;">进口水果</a></li>
           </ul>
         </li>
     </ul>
@@ -543,12 +545,14 @@ $(function(){
 
  $(document).ready(function(){
   $("li.sort").click(function(){
-    $("li.active").removeClass("active");
+    $(".se-line>li.active").removeClass("active");
+	$(this).addClass('active');
   });
 });
  $(document).ready(function() {
    $("li.fru_place").click(function(){
 	   $("#menu1>li.active").removeClass("active");
+	   $(this).addClass('active');
 	   }); 
 });
 </script>
