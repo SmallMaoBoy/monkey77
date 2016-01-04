@@ -100,8 +100,20 @@ $(document).ready(function() {
 	/**根据搜索获取商品列表
 	 * 搜索范围包括商品名字，商品标题，商品种类，商品产地
 	 */
-	function getGoodsByKeyWord(){
-		
+	function getGoodsByKeyWord(pageIndex,keyWords){
+		$.ajax({
+			type : 'post',
+			data : {
+				page :pageIndex,
+				orderType:orderType,
+				keyWords:keyWords
+			},
+			url : "GoodAction_getKeyWordsGoods",
+			dataType : "json",
+			success : function(data) {
+				//console.log(data.goods[1].name);
+			}
+		});
 	}
 	
 	/**
