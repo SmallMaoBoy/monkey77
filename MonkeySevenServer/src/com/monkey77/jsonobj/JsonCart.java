@@ -13,7 +13,6 @@ package com.monkey77.jsonobj;
 public class JsonCart {
 	private String name;
 	private int num;
-	
 	public JsonCart() {
 		super();
 	}
