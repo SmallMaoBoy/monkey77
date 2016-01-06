@@ -54,7 +54,12 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 		List<TCart> list=ht.findByCriteria(goodCriteria);
 		List<JsonCart> result=new ArrayList<JsonCart>();
 		for(int i=0;i<list.size();i++){
-			result.add(new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber()));
+			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
+			cart.setPicUrl(list.get(i).getTGood().getPicUrl());
+			cart.setPrice(list.get(i).getTGood().getPrice());
+			cart.setSpecification(list.get(i).getTGood().getSpecification());
+			cart.setTotalPrice( list.get(i).getGoodNumber()*list.get(i).getTGood().getPrice());
+			result.add(cart);
 		}
 		return result;
 	}
