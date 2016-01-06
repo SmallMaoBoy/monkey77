@@ -64,15 +64,13 @@ public class LoginFilter implements Filter {
 		System.out.println("servletPath------>"+request.getServletPath());
 		HttpServletResponse response = (HttpServletResponse) res;
 		boolean isExcludedPage = false;
-		if(request.getServletPath().contains("Action")){
-			isExcludedPage=true;
-		}else{
-			for (String page : excludedPageArray) {// 判断是否在过滤url之外
-				if (((HttpServletRequest) request).getServletPath().equals(page)) {
-					isExcludedPage = true;
-					break;
-				}
+
+		for (String page : excludedPageArray) {// 判断是否在过滤url之外
+			if (((HttpServletRequest) request).getServletPath().equals(page)) {
+				isExcludedPage = true;
+				break;
 			}
+
 		}
 		System.out.println("isExcludedPage------>"+isExcludedPage);
 		if (!isExcludedPage) {// 在过滤url之外
@@ -82,7 +80,7 @@ public class LoginFilter implements Filter {
 		Cookie[] cookies = request.getCookies();
 		String mobile = "";
 		String cookievalidate = "";
-		if(cookies!=null){
+		if (cookies != null) {
 			for (int i = 0; i < cookies.length; i++) {
 				Cookie cookie = cookies[i];
 				if (cookie.getName().equals("mobile"))
@@ -90,27 +88,36 @@ public class LoginFilter implements Filter {
 				else if (cookie.getName().equals("cookievalidate"))
 					cookievalidate = cookie.getValue();
 			}
-			if (!(mobile.equals("")||mobile.equals("null"))) {
+			if (!(mobile.equals("") || mobile.equals("null"))) {
 				ApplicationContext ac = new ClassPathXmlApplicationContext(
 						"applicationContext.xml");
 				ITCookieValidateDao cookieValidateDao = (TCookieValidateDaoImp) ac
 						.getBean("CookieValidateDao");
-				TUser user=((TUserDaoImp) ac.getBean("UserDao")).getUserByMobile(mobile);
+				TUser user = ((TUserDaoImp) ac.getBean("UserDao"))
+						.getUserByMobile(mobile);
 				TCookieValidate cookieValidate2 = cookieValidateDao
 						.getCookieValidate(user);
-				Timestamp createtime=cookieValidate2.getCreateTime();
-				Timestamp endtime=new Timestamp(System.currentTimeMillis()-1000*60*60*24*7);
-				if (cookievalidate.equals(cookieValidate2.getSessionId())&&endtime.before(createtime)) {
-System.out.println("cookie有效");
-					Cookie cookie1 = new Cookie("username",URLEncoder.encode(user.getName(), "UTF-8"));
-					Cookie cookie2 ;
-					if(user.getSex()==0){
-						cookie2 = new Cookie("sex", URLEncoder.encode("男", "UTF-8"));
-					}else{
-						cookie2 = new Cookie("sex", URLEncoder.encode("女", "UTF-8"));
+				Timestamp createtime = cookieValidate2.getCreateTime();
+				Timestamp endtime = new Timestamp(System.currentTimeMillis()
+						- 1000 * 60 * 60 * 24 * 7);
+				if (cookievalidate.equals(cookieValidate2.getSessionId())
+						&& endtime.before(createtime)) {
+					System.out.println("cookie有效");
+					Cookie cookie1 = new Cookie("username", URLEncoder.encode(
+							user.getName(), "UTF-8"));
+					Cookie cookie2;
+					if (user.getSex() == 0) {
+						cookie2 = new Cookie("sex", URLEncoder.encode("男",
+								"UTF-8"));
+					} else {
+						cookie2 = new Cookie("sex", URLEncoder.encode("女",
+								"UTF-8"));
 					}
+					Cookie cookie3 = new Cookie("userid", URLEncoder.encode(
+							String.valueOf(user.getId()), "UTF-8"));
 					response.addCookie(cookie1);
 					response.addCookie(cookie2);
+					response.addCookie(cookie3);
 					chain.doFilter(request, response);
 					return;
 				} else {
@@ -125,7 +132,7 @@ System.out.println("cookie有效");
 				response.addCookie(cookie1);
 				response.addCookie(cookie2);
 			}
-		}else{
+		} else {
 			Cookie cookie1 = new Cookie("mobile", "");
 			Cookie cookie2 = new Cookie("cookievalidate", "");
 			response.addCookie(cookie1);

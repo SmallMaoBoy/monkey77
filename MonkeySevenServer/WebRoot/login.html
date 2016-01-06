@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>猴七七后台登陆</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css"/>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body{
+				padding: 0px;
+				margin: 0px;
+				background: url(imgs/login_bgx.gif) repeat;
+				text-align: center;
+				}
+			 #class1{
+			 	margin-top: 20%;
+			 }
+			
+		</style>
+			
+	</head>
+
+	<body>
+	<div class="container">
+	<form class="form-horizontal" action="LoginAction">
+		
+		<div class="form-group" id="class1">
+			
+			
+			<label for="inputUsername3" class="col-sm-2 control-label  col-lg-offset-2">Username</label>
+			<div class="col-sm-10 col-lg-4 ">
+				<input type="text" class="form-control" id="inputUsername3" placeholder="Username" name="username">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label col-lg-offset-2">Password</label>
+			<div class="col-sm-10 col-lg-4">
+				<input type="password" class="form-control" id="inputPassword3" placeholder="Password" name="password">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="row">
+				
+			<div class="col-sm-offset-2 col-sm-10 col-lg-3 col-lg-push-3">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox"> Remember me
+					</label>
+				</div>
+			</div>
+			<div class="col-lg-1 col-sm-10 col-sm-offset-2">
+				<input type="button"value="login" class="btn btn-default" id="loginbtn">
+			</div>
+		</div>
+  </div>
+			
+</form>
+</body>
+<script type="text/javascript">
+
+//用户登录
+	$("#loginbtn").click(function(){
+		var loginurl="HoutaiLoginAction";
+		$.ajax({
+			type : "post",
+			data : {
+				username : $("#inputUsername3").val(),
+				password:$("#inputPassword3").val()
+			},
+			url :loginurl ,
+			dataType : "json",
+			success : function(respdata) {
+				var code=jQuery.parseJSON(respdata.statusCode);
+				if (code == "0") {
+					window.location.href='root/index.html'; 
+				}else if(code == "1"){
+					alert("帐号不存在");
+				}else if(code=="2"){
+					alert("密码出错");
+				}else{
+					alert("服务器响应出错，请联系管理员");
+				}
+			}
+		});	
+	});
+</script>
+</html>

@@ -7,6 +7,8 @@ $(document).ready(function() {
 	 * 2代表根据分类查看商品 
 	 */
 	var getGoodsWay=0;
+	var keyWords=null;
+	$('#search-btn').click(function(){getGoodsWay=1;getGoodsByKeyWord(1,$("#search-fruit").val())});
 	/**
 	 * orderType
 	 * 0代表按照销量从大到小获取商品
@@ -14,8 +16,11 @@ $(document).ready(function() {
 	 * 2代表按照价格从大到小获取商品
 	 * 3代表按照价格从小到大获取商品
 	 */
-	var orderType=3;
-	
+	var orderType=0;
+    $('#sort0').click(function(){orderType=0;getDefalutGoods(1)});
+    $('#sort1').click(function(){orderType=1;getDefalutGoods(1)});
+    $('#sort2').click(function(){orderType=2;getDefalutGoods(1)});
+    $('#sort3').click(function(){orderType=3;getDefalutGoods(1)});
 	getDefalutGoods(1);
 	
 	//默认情况下获取商品列表
@@ -46,7 +51,7 @@ $(document).ready(function() {
       goods[i].picUrl
       +'" />'+
       '<div class="caption">'+
-        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
         '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
       '</div>'+
@@ -59,7 +64,7 @@ $(document).ready(function() {
 			      goods[i].picUrl
 			      +'" />'+
 			      '<div class="caption">'+
-			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+
+			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
 			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
 			        '<p><a href="#" class="btn btn-danger" disabled="disabled" role="button">库存不足</a> <a class="btn btn-default" role="button" disabled="disabled">加入购物车</a></p>'+
 			      '</div>'+
@@ -90,6 +95,44 @@ $(document).ready(function() {
 			dataType : "json",
 			success : function(data) {
 				//console.log(data.goods[1].name);
+				var goods=data.goods;
+				$("#content-goods").empty();
+				for(var i=0;i<goods.length;i++){
+					var count=data.goods[i].number;
+					if(count>0){
+					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3 box2">'+
+    '<div class="thumbnail">'+
+      '<img src="'+
+      goods[i].picUrl
+      +'" />'+
+      '<div class="caption">'+
+        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
+        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+      '</div>'+
+    '</div>'+
+  '</div>');}
+					else{
+	  $("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
+			    '<div class="thumbnail box2">'+
+			      '<img src="'+
+			      goods[i].picUrl
+			      +'" />'+
+			      '<div class="caption">'+
+			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
+			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+			        '<p><a href="#" class="btn btn-danger" disabled="disabled" role="button">库存不足</a> <a class="btn btn-default" role="button" disabled="disabled">加入购物车</a></p>'+
+			      '</div>'+
+			    '</div>'+
+			  '</div>'
+  
+					);}
+					
+				}
+				if(data.count!=0){
+					createPageNum(data.count/12+1,pageIndex);
+				}
+ 
 			}
 		});
 	}
@@ -97,8 +140,59 @@ $(document).ready(function() {
 	/**根据搜索获取商品列表
 	 * 搜索范围包括商品名字，商品标题，商品种类，商品产地
 	 */
-	function getGoodsByKeyWord(){
-		
+	function getGoodsByKeyWord(pageIndex,keyWords){
+		$.ajax({
+			type : 'post',
+			data : {
+				page :pageIndex,
+				orderType:orderType,
+				keyWords:keyWords
+			},
+			url : "GoodAction_getKeyWordsGoods",
+			dataType : "json",
+			success : function(data) {
+				//console.log(data.goods[1].name);
+				var goods=data.goods;
+				$("#content-goods").empty();
+				if(goods.length==0){$("#content-goods").append('<div class="can_not">未找到相关商品!</div>')}
+				else{
+				for(var i=0;i<goods.length;i++){
+					var count=data.goods[i].number;
+					if(count>0){
+					$("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3 box2">'+
+    '<div class="thumbnail">'+
+      '<img src="'+
+      goods[i].picUrl
+      +'" />'+
+      '<div class="caption">'+
+        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
+        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+      '</div>'+
+    '</div>'+
+  '</div>');}
+					else{
+	  $("#content-goods").append('<div class="col-xs-12 col-sm-6 col-lg-3">'+
+			    '<div class="thumbnail box2">'+
+			      '<img src="'+
+			      goods[i].picUrl
+			      +'" />'+
+			      '<div class="caption">'+
+			        '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
+			        '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
+			        '<p><a href="#" class="btn btn-danger" disabled="disabled" role="button">库存不足</a> <a class="btn btn-default" role="button" disabled="disabled">加入购物车</a></p>'+
+			      '</div>'+
+			    '</div>'+
+			  '</div>'
+  
+					);}
+					
+				}}//else的关闭符号
+				if(data.count!=0){
+					createPageNum(data.count/12+1,pageIndex);
+				}
+			}
+		});
 	}
 	
 	/**

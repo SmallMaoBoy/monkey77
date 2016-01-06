@@ -25,5 +25,16 @@
 				<param name="root">map</param>
 			</result>
 		</action>
+		<action name="HoutaiLoginAction" class="HoutaiLoginAction" >
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
+		<action name="CartAction_*" class="CartAction" method="{1}">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
 	</package>
+	
 </struts>

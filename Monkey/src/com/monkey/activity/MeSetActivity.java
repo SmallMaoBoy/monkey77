@@ -1,15 +1,16 @@
 package com.monkey.activity;
 
-import com.example.monkey.R;
-import com.monkey.utils.XmlUtils;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class MeSetActivity extends BaseActivity implements OnClickListener{
+import com.example.monkey.R;
+import com.monkey.utils.XmlUtils;
+
+public class MeSetActivity extends Activity implements OnClickListener{
 	private Button btn_unsignLogin;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

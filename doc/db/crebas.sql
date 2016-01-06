@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2015/12/28 下午 3:20:10                        */
+/* Created on:     2016/1/2 下午 2:55:52                          */
 /*==============================================================*/
 
 
@@ -71,9 +71,11 @@ alter table t_admin_shop comment 't_admin_shop';
 /*==============================================================*/
 create table t_cart
 (
-   user_id              int comment '用户id',
-   good_id              int comment '商品id',
-   good_number          int comment '商品数量'
+   id                   int not null,
+   user_id              int not null comment '用户id',
+   good_id              int not null comment '商品id',
+   good_number          int not null comment '商品数量',
+   primary key (id)
 );
 
 alter table t_cart comment 't_cart';
@@ -180,6 +182,7 @@ create table t_product_pic
    id                   int not null,
    product_id           int not null comment '商品id',
    pic_url              varchar(500) not null comment '商品详情图片位置',
+   type                 tinyint not null comment '图片类型：0代表轮廓图，1代表商品介绍图',
    primary key (id)
 );
 
@@ -233,7 +236,8 @@ create table t_show_pic
    id                   int not null,
    pic_url              varchar(500) not null comment '图片位置',
    type                 tinyint not null comment '展示位置',
-   description          char(10) comment '图片描述',
+   description          varchar(200) comment '图片描述',
+   good_id              int comment '商品Id',
    primary key (id)
 );
 
@@ -325,6 +329,9 @@ alter table t_shop_good add constraint FK_Reference_3 foreign key (shop_id)
       references t_shop (id) on delete restrict on update restrict;
 
 alter table t_shop_good add constraint FK_Reference_4 foreign key (good_id)
+      references t_good (id) on delete restrict on update restrict;
+
+alter table t_show_pic add constraint FK_Reference_17 foreign key (good_id)
       references t_good (id) on delete restrict on update restrict;
 
 alter table t_user_good add constraint FK_Reference_12 foreign key (good_id)

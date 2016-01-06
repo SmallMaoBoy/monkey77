@@ -27,8 +27,16 @@ public class GoodAction {
 	private IGoodService goodService;
 	private IContextService contextService;
 	private String keyWords;
+	private int id;
 	
-	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public IContextService getContextService() {
 		return contextService;
 	}
@@ -83,7 +91,6 @@ public class GoodAction {
 
 	public String getDefalutGoods(){
 		map=goodService.getDefalutList(page,orderType);
-		System.out.println("android.........");
 		return Action.SUCCESS;
 	}
 	
@@ -102,4 +109,8 @@ public class GoodAction {
 		return Action.SUCCESS;
 	}
 	
+	public String getGoodById(){
+		map=goodService.getGoodDetailById(id);
+		return Action.SUCCESS;
+	}
 }

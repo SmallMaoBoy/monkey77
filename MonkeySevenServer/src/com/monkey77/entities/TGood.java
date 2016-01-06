@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.apache.struts2.json.annotations.JSON;
 
-import com.google.gson.annotations.Expose;
 
 
 /**
@@ -17,22 +16,17 @@ public class TGood  implements java.io.Serializable {
 
     // Fields    
 
-	 @Expose
      private Integer id;
      private TCategory TCategory;
-     @Expose
+     private TShowPic TShowPic;
      private String name;
-     @Expose
      private Float price;
      private Short number;
      private String status;
      private String specification;
      private String originPlace;
-     @Expose
      private String title;
-     @Expose
      private String picUrl;
-     @Expose
      private Integer saleVolume;
      private String edibleMethod;
      private String storage;
@@ -48,6 +42,11 @@ public class TGood  implements java.io.Serializable {
     /** default constructor */
     public TGood() {
     }
+
+	public TGood(Integer id) {
+		super();
+		this.id = id;
+	}
 
 	/** minimal constructor */
     public TGood(String name, Float price, Short number, String status, String specification, String originPlace, String title, Integer saleVolume) {
@@ -96,8 +95,16 @@ public class TGood  implements java.io.Serializable {
     public TCategory getTCategory() {
         return this.TCategory;
     }
-    
-    public void setTCategory(TCategory TCategory) {
+    @JSON(serialize=false)
+    public TShowPic getTShowPic() {
+		return TShowPic;
+	}
+
+	public void setTShowPic(TShowPic tShowPic) {
+		TShowPic = tShowPic;
+	}
+
+	public void setTCategory(TCategory TCategory) {
         this.TCategory = TCategory;
     }
 
@@ -204,6 +211,7 @@ public class TGood  implements java.io.Serializable {
     public void setTUsers(Set TUsers) {
         this.TUsers = TUsers;
     }
+    
     @JSON(serialize=false)
     public Set getTProductPics() {
         return this.TProductPics;
@@ -231,9 +239,16 @@ public class TGood  implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "TGood [id=" + id + ", name=" + name + ", price=" + price
-				+ ", number=" + number + ", saleVolume=" + saleVolume + "]";
+		return "TGood [id=" + id +", name="
+				+ name + ", price=" + price + ", number=" + number
+				+ ", status=" + status + ", specification=" + specification
+				+ ", originPlace=" + originPlace + ", title=" + title
+				+ ", picUrl=" + picUrl + ", saleVolume=" + saleVolume
+				+ ", edibleMethod=" + edibleMethod + ", storage=" + storage
+				+"]";
 	}
+
+
    
 
 

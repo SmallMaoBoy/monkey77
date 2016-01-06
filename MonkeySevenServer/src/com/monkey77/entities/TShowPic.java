@@ -9,6 +9,7 @@ public class TShowPic implements java.io.Serializable {
 	// Fields
 
 	private Integer id;
+	private TGood TGood;
 	private String picUrl;
 	private Short type;
 	private String description;
@@ -26,7 +27,8 @@ public class TShowPic implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public TShowPic(String picUrl, Short type, String description) {
+	public TShowPic(TGood TGood, String picUrl, Short type, String description) {
+		this.TGood = TGood;
 		this.picUrl = picUrl;
 		this.type = type;
 		this.description = description;
@@ -40,6 +42,14 @@ public class TShowPic implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public TGood getTGood() {
+		return this.TGood;
+	}
+
+	public void setTGood(TGood TGood) {
+		this.TGood = TGood;
 	}
 
 	public String getPicUrl() {
@@ -64,12 +74,6 @@ public class TShowPic implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "TShowPic [id=" + id + ", picUrl=" + picUrl + ", type=" + type
-				+ ", description=" + description + "]";
 	}
 
 }

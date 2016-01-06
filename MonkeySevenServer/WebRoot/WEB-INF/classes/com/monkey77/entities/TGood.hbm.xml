@@ -10,7 +10,7 @@
             <column name="id" />
             <generator class="increment" />
         </id>
-        <many-to-one name="TCategory" class="com.monkey77.entities.TCategory" fetch="select">
+        <many-to-one name="TCategory" class="com.monkey77.entities.TCategory" fetch="select" >
             <column name="category_id">
                 <comment>商品种类</comment>
             </column>
@@ -86,7 +86,7 @@
                 <column name="user_id" />
             </many-to-many>
         </set>
-        <set name="TProductPics" inverse="true">
+        <set name="TProductPics" inverse="true" >
             <key>
                 <column name="product_id" not-null="true">
                     <comment>商品id</comment>

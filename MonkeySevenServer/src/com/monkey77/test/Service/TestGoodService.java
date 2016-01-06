@@ -42,4 +42,9 @@ public class TestGoodService {
 	public void testGetKeyWordsListGoods(){
 		System.out.println(goodService.getKeyWordsList(1, 3, "苹果"));
 	}
+	
+	@Test
+	public void testgetGoodDetailById(){
+		System.out.println(goodService.getGoodDetailById(1));
+	}
 }

@@ -71,4 +71,7 @@ public interface ITGoodDao {
 	// 获取按照关键字的商品，按照销量从大到小
 	public List<TGood> getGoodsBySaleVolumeWithKeyWordsDesc(int firstIndex,
 			int num, String keyWords);
+	
+	//根据商品id获取商品
+	public TGood getGoodById(int id);
 }

@@ -33,4 +33,9 @@ public class TestCategoryDao {
 	public void testGetCategoryList(){
 		System.out.println(categoryDao.getCategoryList());
 	}
+	
+	@Test
+	public void testGetCategoryByGoodId(){
+		System.out.println(categoryDao.getCategoryByGoodId(1));
+	}
 }

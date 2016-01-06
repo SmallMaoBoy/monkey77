@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
@@ -35,6 +35,12 @@
 	<bean id="ShowPicDao" class="com.monkey77.dao.TShowPicImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="ProductPicDao" class="com.monkey77.dao.TProductPicDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="CartDao" class="com.monkey77.dao.TCartDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
@@ -43,6 +49,8 @@
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
 		<property name="keywordsDao" ref="KeyWordsDao"></property>
+		<property name="productPicDao" ref="ProductPicDao" ></property>
+		<property name="categoryDao" ref="CategoryDao" ></property>
 	</bean>
 	<bean id="RootService" class="com.monkey77.service.RootServiceImp">
 		<property name="rootDao" ref="RootDao"></property>
@@ -52,7 +60,10 @@
 		<property name="categoryDao" ref="CategoryDao"></property>
 		<property name="showPicDao" ref="ShowPicDao"></property>
 	</bean>
-	<bean id="SMSService" class="com.monkey77.service.SMSServiceImp">
+
+	<bean id="CartService" class="com.monkey77.service.CartServiceImp">
+		<property name="cartDao" ref="CartDao"></property>
+
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
@@ -63,5 +74,11 @@
 	<bean id="GoodAction" class="com.monkey77.action.GoodAction">
 		<property name="goodService" ref="GoodService" ></property>
 		<property name="contextService" ref="ContextService" ></property>
+	</bean>
+	<bean id="HoutaiLoginAction" class="com.monkey77.action.HoutaiLoginAction">
+		<property name="RootService" ref="RootService" ></property>
+	</bean>
+	<bean id="CartAction" class="com.monkey77.action.CartAction">
+		<property name="cartService" ref="CartService" ></property>
 	</bean>
 </beans>

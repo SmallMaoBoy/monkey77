@@ -278,4 +278,15 @@ public class TGoodDaoImp extends HibernateDaoSupport implements ITGoodDao {
 		return ht.findByCriteria(criteria);
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-1下午3:14:44
+	 * @see com.monkey77.dao.ITGoodDao#getGoodById(int)
+	 */
+	@Override
+	public TGood getGoodById(int id) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(TGood.class, id);
+	}
+
 }

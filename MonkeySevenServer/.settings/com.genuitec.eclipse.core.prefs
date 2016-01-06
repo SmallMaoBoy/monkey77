@@ -1,9 +1,10 @@
-#Mon Dec 28 16:19:24 CST 2015
-clsCnt=80
+#Wed Jan 06 14:43:34 CST 2016
+clsCnt=88
 eclipse.preferences.version=1
-locCnt=6450
-pkgCnt=15
-sTime=2015\u5E7412\u670828\u65E5 \u661F\u671F\u4E00 \u4E0B\u534804\u65F619\u520624\u79D2 CST
+locCnt=6999
+pkgCnt=16
+sTime=2016\u5E741\u67083\u65E5 \u661F\u671F\u65E5 \u4E0B\u534811\u65F602\u520600\u79D2 CST
 srcCnt=1
-validator.Checked=/
+validator.Checked=WebRoot/root/js
+validator.Revalidate=true
 validator.Unchecked=

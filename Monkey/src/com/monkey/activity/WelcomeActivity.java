@@ -10,12 +10,13 @@ import android.os.Handler;
 
 public class WelcomeActivity extends BaseActivity {
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_welcome);
 	   Thread thread = new Thread(new WelcomeActivityThread(this));
-	   thread.start();    
+	   thread.start();   
+		
 	}
 
 }

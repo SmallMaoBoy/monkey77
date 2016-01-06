@@ -20,5 +20,8 @@
                 <comment>商品详情图片位置</comment>
             </column>
         </property>
+        <property name="type" type="java.lang.Short">
+            <column name="type" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

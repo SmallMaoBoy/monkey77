@@ -8,6 +8,8 @@ package com.monkey77.service;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import com.monkey77.dao.ITRootDao;
 import com.monkey77.entities.TRoot;
 import com.monkey77.utils.MD5;
@@ -39,7 +41,7 @@ public class RootServiceImp implements IRootService{
 	 * @see com.monkey77.service.IRootService#checkRootLogin(java.lang.String, java.lang.String)
 	 */
 	@Override
-	public Map<String, Object> checkRootLogin(String account, String password) {
+	public Map<String, Object> checkRootLogin(String account, String password,HttpSession session) {
 		// TODO Auto-generated method stub
 		Map<String,Object> json=new HashMap<String,Object>();
 		String pwd=rootDao.getPasswordByAccount(account);
@@ -48,6 +50,7 @@ public class RootServiceImp implements IRootService{
 		}else{
 			if(pwd.equals(MD5.getMD5(password))){
 				json.put("statusCode", "0");
+				session.setAttribute("root", "root");
 			}else{
 				json.put("statusCode", "2");
 			}

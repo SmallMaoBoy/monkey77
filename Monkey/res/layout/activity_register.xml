@@ -28,6 +28,7 @@
     </RelativeLayout>
 
     <EditText
+        android:id="@+id/et_phoneNum"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -36,6 +37,7 @@
         android:hint="@string/inputYourPhoneNum" />
 
     <EditText
+        android:id="@+id/et_firstPsd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -43,6 +45,7 @@
         android:hint="@string/inputPsd" />
 
     <EditText
+        android:id="@+id/et_secondPsd"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -55,13 +58,14 @@
         android:layout_weight="1" >
 
         <EditText
-            android:id="@+id/et_input_loginPhone"
+            android:id="@+id/et_inputCheckNum"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/login_edittext_selector"
             android:hint="@string/inputCheckNum" />
 
         <ImageView
+            android:id="@+id/iv_getcheckNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -71,6 +75,7 @@
             android:background="@drawable/register_getchecknum_selector"/>
 
         <TextView
+            android:id="@+id/tv_getcheckNum"
             style="@style/text_style4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -22,4 +22,7 @@ public interface IGoodService {
 	
 	//根据关键字获取商品列表
 	public Map<String,Object> getKeyWordsList(int page,int orderType,String keyWords);
+	
+	//根据商品id获取商品详情
+	public Map<String,Object> getGoodDetailById(int id);
 }
