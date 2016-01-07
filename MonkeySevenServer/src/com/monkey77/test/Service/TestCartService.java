@@ -34,4 +34,8 @@ public class TestCartService {
 		System.out.println(cartSevrvice.getCartByUserId(2));
 	}
 	
+	@Test
+	public void testadd(){
+		cartSevrvice.addOldCart(2, 7, 2);
+	}
 }

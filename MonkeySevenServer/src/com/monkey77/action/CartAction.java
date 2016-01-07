@@ -57,13 +57,18 @@ public class CartAction {
 		return Action.SUCCESS;
 	}
 	
-	public String addCart(){
-		cartService.addCart(userId, goodId, num);
+	public String addOldCart(){
+		map=cartService.addOldCart(userId, goodId, num);
+		return Action.SUCCESS;
+	}
+	
+	public String addNewCart(){
+		cartService.addNewCart(userId, goodId, num);
 		return Action.SUCCESS;
 	}
 	
 	public String delCart(){
-		cartService.delCart(userId, goodId, num);
+		map=cartService.delCart(userId, goodId, num);
 		return Action.SUCCESS;
 	}
 	
