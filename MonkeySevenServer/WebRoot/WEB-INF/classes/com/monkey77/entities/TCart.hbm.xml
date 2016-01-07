@@ -13,7 +13,6 @@
         </id>
         <many-to-one name="TUser" class="com.monkey77.entities.TUser" fetch="select" >
             <column name="user_id" not-null="false">
-
                 <comment>用户id</comment>
             </column>
         </many-to-one>
