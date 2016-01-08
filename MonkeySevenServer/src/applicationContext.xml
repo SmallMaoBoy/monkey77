@@ -79,4 +79,7 @@
 	<bean id="CartAction" class="com.monkey77.action.CartAction">
 		<property name="cartService" ref="CartService" ></property>
 	</bean>
+	<bean id="UserAction" class="com.monkey77.action.UserAction">
+		<property name="userService" ref="UserService" ></property>
+	</bean>
 </beans>

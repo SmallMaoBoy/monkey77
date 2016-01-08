@@ -41,7 +41,7 @@ $(document).ready(function() {
 				$("#content-goods").append('<tr>'+
 												'<td style="text-align: center;">'+goods[i].name+'</td>'+
 												'<td style="text-align: center;">'+goods[i].price+'</td>'+
-												'<td style="text-align: center;" >'+'<a href="buy.html" >商品详情</a>'+'</td>'+
+												'<td style="text-align: center;" >'+'<a href="goodsmessage.html?id='+goods[i].id+'" >商品详情</a>'+'</td>'+
 												'</tr>' );
 					
 				

@@ -45,4 +45,14 @@ public class TestUserDao {
 	public void testGetUserByMobile(){
 		System.out.println(userDao.getUserByMobile("1361"));
 	}
+	
+	@Test
+	public void testGetUserList(){
+		System.out.println(userDao.getUserList(0, 10));
+	}
+	@Test
+	public void testcount(){
+		System.out.println(userDao.count());
+	}
 }
+
