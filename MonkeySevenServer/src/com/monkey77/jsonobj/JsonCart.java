@@ -13,7 +13,42 @@ package com.monkey77.jsonobj;
 public class JsonCart {
 	private String name;
 	private int num;
+	private Float price;
+	private String specification;
+	private String picUrl;
+	private Float totalPrice;
+	private Integer goodId;
 	
+	public Integer getGoodId() {
+		return goodId;
+	}
+	public void setGoodId(Integer goodId) {
+		this.goodId = goodId;
+	}
+	public Float getPrice() {
+		return price;
+	}
+	public void setPrice(Float price) {
+		this.price = price;
+	}
+	public String getSpecification() {
+		return specification;
+	}
+	public void setSpecification(String specification) {
+		this.specification = specification;
+	}
+	public String getPicUrl() {
+		return picUrl;
+	}
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
+	}
+	public Float getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(Float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	public JsonCart() {
 		super();
 	}
@@ -36,7 +71,9 @@ public class JsonCart {
 	}
 	@Override
 	public String toString() {
-		return "JsonCart [name=" + name + ", num=" + num + "]";
+		return "JsonCart [name=" + name + ", num=" + num + ", price=" + price
+				+ ", specification=" + specification + ", picUrl=" + picUrl
+				+ ", totalPrice=" + totalPrice + "]";
 	}
 	
 }

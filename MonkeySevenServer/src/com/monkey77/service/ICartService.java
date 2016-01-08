@@ -17,11 +17,14 @@ public interface ICartService {
 	//根据用户Id获取购物车信息
 	public Map<String,Object> getCartByUserId(int userId);
 	
-	//增加商品
-	public void addCart(int userId,int goodId,int num);
+	//增加旧商品数目商品
+	public Map<String,Object> addOldCart(int userId,int goodId,int num);
+	
+	//增加新商品数目
+	public void addNewCart(int userId,int goodId,int num);
 	
 	//减少商品
-	public void delCart(int userId,int goodId,int num);
+	public Map<String,Object> delCart(int userId,int goodId,int num);
 	
 	//清空购物车
 	public void clearCart(int userId);

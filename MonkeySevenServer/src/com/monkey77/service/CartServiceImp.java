@@ -46,24 +46,32 @@ public class CartServiceImp implements ICartService {
 
 	/**
 	 * @author mao
+	 * @return 
 	 * @date 创建时间：2016-1-3下午11:12:38
 	 * @see com.monkey77.service.ICartService#addCart(int, int, int)
 	 */
 	@Override
-	public void addCart(int userId, int goodId, int num) {
+	public Map<String, Object> addOldCart(int userId, int goodId, int num) {
 		// TODO Auto-generated method stub
-		cartDao.insertCart(userId, goodId, num);
+		Map<String, Object> result=new HashMap<String, Object>();
+		List<JsonCart> c=cartDao.insertCartWithResult(userId, goodId, num);
+		result.put("cart", c);
+		return result;
 	}
 
 	/**
 	 * @author mao
+	 * @return 
 	 * @date 创建时间：2016-1-3下午11:12:38
 	 * @see com.monkey77.service.ICartService#delCart(int, int, int)
 	 */
 	@Override
-	public void delCart(int userId, int goodId, int num) {
+	public Map<String, Object> delCart(int userId, int goodId, int num) {
 		// TODO Auto-generated method stub
-		cartDao.delCart(userId, goodId, num);
+		Map<String, Object> result=new HashMap<String, Object>();
+		List<JsonCart> c=cartDao.delCartWithResult(userId, goodId, num);
+		result.put("cart", c);
+		return result;
 	}
 
 	/**
@@ -75,6 +83,17 @@ public class CartServiceImp implements ICartService {
 	public void clearCart(int userId) {
 		// TODO Auto-generated method stub
 		cartDao.clearCart(userId);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-7下午2:07:17
+	 * @see com.monkey77.service.ICartService#addNewCart(int, int, int)
+	 */
+	@Override
+	public void addNewCart(int userId, int goodId, int num) {
+		// TODO Auto-generated method stub
+		cartDao.insertCart(userId, goodId, num);
 	}
 
 }
