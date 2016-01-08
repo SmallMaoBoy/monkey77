@@ -41,7 +41,7 @@ public class TestCartDao {
 	
 	@Test
 	public void testAddCart(){
-		cartDao.insertCart(2,5, 100);
+		cartDao.insertCart(2,1, 100);
 	}
 	
 	@Test
@@ -54,4 +54,9 @@ public class TestCartDao {
 		cartDao.clearCart(1);
 	}
 	
+	
+	@Test
+	public void testAddCartResult(){
+		System.out.println(cartDao.delCartWithResult(2, 1, 1));
+	}
 }

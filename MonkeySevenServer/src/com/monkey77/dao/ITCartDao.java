@@ -34,4 +34,13 @@ public interface ITCartDao {
 	
 	//清空用户购物车
 	public void clearCart(int userId);
+	
+	//添加物品并返回结果
+	public List<JsonCart> insertCartWithResult(int userId,int goodId,int num);
+		
+	//删除物品并返回结果
+	public List<JsonCart> delCartWithResult(int userId,int goodId,int num);
+	
+	//删除某一项物品
+	public List<JsonCart> delCartWithResult(int userId,int goodId);
 }

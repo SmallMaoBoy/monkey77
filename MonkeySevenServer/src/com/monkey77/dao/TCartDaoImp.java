@@ -54,7 +54,13 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 		List<TCart> list=ht.findByCriteria(goodCriteria);
 		List<JsonCart> result=new ArrayList<JsonCart>();
 		for(int i=0;i<list.size();i++){
-			result.add(new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber()));
+			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
+			cart.setPicUrl(list.get(i).getTGood().getPicUrl());
+			cart.setPrice(list.get(i).getTGood().getPrice());
+			cart.setSpecification(list.get(i).getTGood().getSpecification());
+			cart.setGoodId(list.get(i).getTGood().getId());
+			cart.setTotalPrice((float)(Math.round(list.get(i).getGoodNumber()*list.get(i).getTGood().getPrice()*100))/100);
+			result.add(cart);
 		}
 		return result;
 	}
@@ -120,6 +126,86 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 		cartCriteria.add(Restrictions.eq("u.id",userId));
 		List<TCart> list=(List<TCart>)ht.findByCriteria(cartCriteria);
 		ht.deleteAll(list);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-7上午10:52:44
+	 * @see com.monkey77.dao.ITCartDao#insertCartWithResult(int, int, int)
+	 */
+	@Override
+	public List<JsonCart> insertCartWithResult(int userId, int goodId, int num) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
+		cartCriteria.createAlias("TUser", "t");
+		cartCriteria.add(Restrictions.eq("t.id",userId));
+		DetachedCriteria  goodCriteria=cartCriteria.createCriteria("TGood");
+		List<TCart> list=ht.findByCriteria(goodCriteria);
+		for(TCart t:list){
+			if(t.getTGood().getId().equals(goodId)){
+				t.setGoodNumber(t.getGoodNumber()+num);
+				ht.saveOrUpdate(t);
+			}
+			
+		}
+		List<JsonCart> result=new ArrayList<JsonCart>();
+		for(int i=0;i<list.size();i++){
+			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
+			cart.setPicUrl(list.get(i).getTGood().getPicUrl());
+			cart.setPrice(list.get(i).getTGood().getPrice());
+			cart.setSpecification(list.get(i).getTGood().getSpecification());
+			cart.setGoodId(list.get(i).getTGood().getId());
+			cart.setTotalPrice((float)(Math.round(list.get(i).getGoodNumber()*list.get(i).getTGood().getPrice()*100))/100);
+			result.add(cart);
+		}
+		return result;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-7上午10:52:44
+	 * @see com.monkey77.dao.ITCartDao#delCartWithResult(int, int, int)
+	 */
+	@Override
+	public List<JsonCart> delCartWithResult(int userId, int goodId, int num) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
+		cartCriteria.createAlias("TUser", "t");
+		cartCriteria.add(Restrictions.eq("t.id",userId));
+		DetachedCriteria  goodCriteria=cartCriteria.createCriteria("TGood");
+		List<TCart> list=ht.findByCriteria(goodCriteria);
+		for(TCart t:list){
+			if(t.getTGood().getId().equals(goodId)){
+				t.setGoodNumber(t.getGoodNumber()-num);
+				ht.saveOrUpdate(t);
+			}
+			
+		}
+		
+		List<JsonCart> result=new ArrayList<JsonCart>();
+		for(int i=0;i<list.size();i++){
+			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
+			cart.setPicUrl(list.get(i).getTGood().getPicUrl());
+			cart.setPrice(list.get(i).getTGood().getPrice());
+			cart.setSpecification(list.get(i).getTGood().getSpecification());
+			cart.setGoodId(list.get(i).getTGood().getId()); 
+			cart.setTotalPrice((float)(Math.round(list.get(i).getGoodNumber()*list.get(i).getTGood().getPrice()*100))/100);
+			result.add(cart);
+		}
+		return result;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-7下午10:35:37
+	 * @see com.monkey77.dao.ITCartDao#delCartWithResult(int, int)
+	 */
+	@Override
+	public List<JsonCart> delCartWithResult(int userId, int goodId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
