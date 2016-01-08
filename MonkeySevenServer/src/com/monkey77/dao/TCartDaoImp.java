@@ -197,4 +197,15 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 		return result;
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-7下午10:35:37
+	 * @see com.monkey77.dao.ITCartDao#delCartWithResult(int, int)
+	 */
+	@Override
+	public List<JsonCart> delCartWithResult(int userId, int goodId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

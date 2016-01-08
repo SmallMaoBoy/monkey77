@@ -70,14 +70,6 @@
                 <comment>存储方式</comment>
             </column>
         </property>
-        <set name="TShops" inverse="true" table="t_shop_good" catalog="monkey77">
-            <key>
-                <column name="good_id" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.monkey77.entities.TShop">
-                <column name="shop_id" not-null="true" />
-            </many-to-many>
-        </set>
         <set name="TUsers" inverse="true" table="t_user_good" catalog="monkey77">
             <key>
                 <column name="good_id" />

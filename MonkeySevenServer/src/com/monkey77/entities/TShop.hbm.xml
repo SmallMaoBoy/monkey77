@@ -20,24 +20,16 @@
                 <comment>提取点介绍</comment>
             </column>
         </property>
-        <property name="location" type="java.lang.String">
-            <column name="location" length="100" not-null="true">
-                <comment>提取点位置</comment>
+        <property name="lat" type="java.lang.Float">
+            <column name="lat" precision="9" scale="6" not-null="true">
+                <comment>纬度</comment>
             </column>
         </property>
-        <property name="isDefault" type="java.lang.Short">
-            <column name="is_default">
-                <comment>是否为默认提取点</comment>
+        <property name="lng" type="java.lang.Float">
+            <column name="lng" precision="9" scale="6" not-null="true">
+                <comment>经度</comment>
             </column>
         </property>
-        <set name="TGoods" table="t_shop_good" catalog="monkey77">
-            <key>
-                <column name="shop_id" not-null="true" />
-            </key>
-            <many-to-many entity-name="com.monkey77.entities.TGood">
-                <column name="good_id" not-null="true" />
-            </many-to-many>
-        </set>
         <set name="TAdmins" table="t_admin_shop" catalog="monkey77">
             <key>
                 <column name="shop_id" />
