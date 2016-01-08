@@ -100,6 +100,7 @@ public class GoodAction {
 	}
 	
 	public String getKeyWordsGoods(){
+		System.out.println(keyWords);
 		map=goodService.getKeyWordsList(page, orderType, keyWords);
 		return Action.SUCCESS;
 	}
