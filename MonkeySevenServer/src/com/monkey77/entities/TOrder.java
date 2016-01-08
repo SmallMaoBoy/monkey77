@@ -4,142 +4,134 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
-
 /**
  * TOrder entity. @author MyEclipse Persistence Tools
  */
 
-public class TOrder  implements java.io.Serializable {
+public class TOrder implements java.io.Serializable {
 
+	// Fields
 
-    // Fields    
+	private Integer id;
+	private TShop TShop;
+	private String status;
+	private Float totalPrice;
+	private Timestamp generatedTime;
+	private Timestamp payTime;
+	private Timestamp takeTime;
+	private String remarks;
+	private Set TUsers = new HashSet(0);
+	private Set TOrderDetails = new HashSet(0);
 
-     private Integer id;
-     private TShop TShop;
-     private String status;
-     private Float totalPrice;
-     private String reamarks;
-     private Timestamp generatedTime;
-     private Timestamp payTime;
-     private Timestamp takeTime;
-     private Set TUsers = new HashSet(0);
-     private Set TOrderDetails = new HashSet(0);
+	// Constructors
 
-
-    // Constructors
-
-    /** default constructor */
-    public TOrder() {
-    }
+	/** default constructor */
+	public TOrder() {
+	}
 
 	/** minimal constructor */
-    public TOrder(String status, Float totalPrice) {
-        this.status = status;
-        this.totalPrice = totalPrice;
-    }
-    
-    /** full constructor */
-    public TOrder(TShop TShop, String status, Float totalPrice, String reamarks, Timestamp generatedTime, Timestamp payTime, Timestamp takeTime, Set TUsers, Set TOrderDetails) {
-        this.TShop = TShop;
-        this.status = status;
-        this.totalPrice = totalPrice;
-        this.reamarks = reamarks;
-        this.generatedTime = generatedTime;
-        this.payTime = payTime;
-        this.takeTime = takeTime;
-        this.TUsers = TUsers;
-        this.TOrderDetails = TOrderDetails;
-    }
+	public TOrder(String status, Float totalPrice) {
+		this.status = status;
+		this.totalPrice = totalPrice;
+	}
 
-   
-    // Property accessors
+	/** full constructor */
+	public TOrder(TShop TShop, String status, Float totalPrice,
+			Timestamp generatedTime, Timestamp payTime, Timestamp takeTime,
+			String remarks, Set TUserOrders, Set TOrderDetails) {
+		this.TShop = TShop;
+		this.status = status;
+		this.totalPrice = totalPrice;
+		this.generatedTime = generatedTime;
+		this.payTime = payTime;
+		this.takeTime = takeTime;
+		this.remarks = remarks;
+		this.TUsers = TUserOrders;
+		this.TOrderDetails = TOrderDetails;
+	}
 
-    public Integer getId() {
-        return this.id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	// Property accessors
 
-    public TShop getTShop() {
-        return this.TShop;
-    }
-    
-    public void setTShop(TShop TShop) {
-        this.TShop = TShop;
-    }
+	public Integer getId() {
+		return this.id;
+	}
 
-    public String getStatus() {
-        return this.status;
-    }
-    
-    public void setStatus(String status) {
-        this.status = status;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Float getTotalPrice() {
-        return this.totalPrice;
-    }
-    
-    public void setTotalPrice(Float totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+	public TShop getTShop() {
+		return this.TShop;
+	}
 
-    public String getReamarks() {
-        return this.reamarks;
-    }
-    
-    public void setReamarks(String reamarks) {
-        this.reamarks = reamarks;
-    }
+	public void setTShop(TShop TShop) {
+		this.TShop = TShop;
+	}
 
-    public Timestamp getGeneratedTime() {
-        return this.generatedTime;
-    }
-    
-    public void setGeneratedTime(Timestamp generatedTime) {
-        this.generatedTime = generatedTime;
-    }
+	public String getStatus() {
+		return this.status;
+	}
 
-    public Timestamp getPayTime() {
-        return this.payTime;
-    }
-    
-    public void setPayTime(Timestamp payTime) {
-        this.payTime = payTime;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public Timestamp getTakeTime() {
-        return this.takeTime;
-    }
-    
-    public void setTakeTime(Timestamp takeTime) {
-        this.takeTime = takeTime;
-    }
+	public Float getTotalPrice() {
+		return this.totalPrice;
+	}
 
-    public Set getTUsers() {
-        return this.TUsers;
-    }
-    
-    public void setTUsers(Set TUsers) {
-        this.TUsers = TUsers;
-    }
+	public void setTotalPrice(Float totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 
-    public Set getTOrderDetails() {
-        return this.TOrderDetails;
-    }
-    
-    public void setTOrderDetails(Set TOrderDetails) {
-        this.TOrderDetails = TOrderDetails;
-    }
-   
+	public Timestamp getGeneratedTime() {
+		return this.generatedTime;
+	}
 
+	public void setGeneratedTime(Timestamp generatedTime) {
+		this.generatedTime = generatedTime;
+	}
 
+	public Timestamp getPayTime() {
+		return this.payTime;
+	}
 
+	public void setPayTime(Timestamp payTime) {
+		this.payTime = payTime;
+	}
 
+	public Timestamp getTakeTime() {
+		return this.takeTime;
+	}
 
+	public void setTakeTime(Timestamp takeTime) {
+		this.takeTime = takeTime;
+	}
 
+	public String getRemarks() {
+		return this.remarks;
+	}
 
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
+	
+
+	public Set getTUsers() {
+		return TUsers;
+	}
+
+	public void setTUsers(Set tUsers) {
+		TUsers = tUsers;
+	}
+
+	public Set getTOrderDetails() {
+		return this.TOrderDetails;
+	}
+
+	public void setTOrderDetails(Set TOrderDetails) {
+		this.TOrderDetails = TOrderDetails;
+	}
 
 }
