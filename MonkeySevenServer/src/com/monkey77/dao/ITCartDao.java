@@ -26,6 +26,9 @@ public interface ITCartDao {
 	//获取id用户的购物车
 	public List<JsonCart> getCartByUserId(int id);
 	
+	//获取手机用户的购物车
+	public List<JsonCart> getCartByMobile(String mobile);
+	
 	//添加物品
 	public void insertCart(int userId,int goodId,int num);
 	

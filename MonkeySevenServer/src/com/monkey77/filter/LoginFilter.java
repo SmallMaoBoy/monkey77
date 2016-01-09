@@ -59,9 +59,6 @@ public class LoginFilter implements Filter {
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		HttpServletRequest request = (HttpServletRequest) req;
-		System.out.println("ContextPath------>"+request.getContextPath());
-		System.out.println("requestURI------->"+request.getRequestURI());
-		System.out.println("servletPath------>"+request.getServletPath());
 		HttpServletResponse response = (HttpServletResponse) res;
 		boolean isExcludedPage = false;
 
