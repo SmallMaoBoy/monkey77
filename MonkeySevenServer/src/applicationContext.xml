@@ -44,6 +44,9 @@
 	<bean id="ShopDao" class="com.monkey77.dao.TShopDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="OrderDao" class="com.monkey77.dao.TOrderDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>

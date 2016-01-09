@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- 登录程序的配置 -->
+	<package name="denglu" namespace="/kung" extends="json-default">
+
+		<!-- 自定义权限拦截器 -->
+		<interceptors>
+			<interceptor name="authority"
+				class="com.alex.interceptor.AuthorityInterceptor" />
+			<!-- 定义一个包含权限检查的拦截器栈 -->
+			<interceptor-stack name="myDefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="myDefault"></default-interceptor-ref>
+		<global-results>
+			<!-- 当返回login视图时，转入登录界面 -->
+			<result name="login" type="redirect">/alexweb/alex/website/sign-in.html</result>
+		</global-results>
+        
+		<action name="denglu" class="com.alex.action.LoginAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="Success">/WEB-INF/alex/website/businessindex.jsp</result>
+			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
+             
+
+		</action>
+		
+		<action name="dengluBuyer" class="com.alex.action.LoginBAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="Success">/WEB-INF/alex/website/index1.html</result>
+			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
+             
+
+		</action>
+
+		<action name="showorderdata" class="com.alex.action.ShoworderAction">
+			<result name="success">/WEB-INF/alex/website/ordershow.jsp</result>
+
+		</action>
+
+		<action name="showcustomerdata" class="com.alex.action.ShowCustomerAction">
+			<result name="success">/WEB-INF/alex/website/showdataCustomer.jsp
+			</result>
+		</action>
+
+		<action name="changeoporderstatus" class="com.alex.action.ChangeOrderStAction">
+			<result type="json" name="success12">
+				<param name="root">result</param>
+			</result>
+
+		</action>
+		
+		<action name="backbi">
+		       <result>/WEB-INF/alex/website/businessindex.jsp</result>
+		</action>
+
+
+	</package>
+
+
+
+
+</struts>    

@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50621
+Source Server         : alex
+Source Server Version : 50704
 Source Host           : localhost:3306
 Source Database       : monkey77
 
 Target Server Type    : MYSQL
-Target Server Version : 50621
+Target Server Version : 50704
 File Encoding         : 65001
 
-Date: 2016-01-08 13:20:50
+Date: 2016-01-09 13:45:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -52,6 +52,41 @@ CREATE TABLE `t_admin_shop` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `t_business`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_business`;
+CREATE TABLE `t_business` (
+  `account` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_business
+-- ----------------------------
+INSERT INTO `t_business` VALUES ('alex', '123', '0');
+
+-- ----------------------------
+-- Table structure for `t_buyer`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_buyer`;
+CREATE TABLE `t_buyer` (
+  `id` int(5) NOT NULL,
+  `account` varchar(20) DEFAULT NULL,
+  `password` varchar(20) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `sex` varchar(20) DEFAULT NULL,
+  `worklocation` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_buyer
+-- ----------------------------
+INSERT INTO `t_buyer` VALUES ('0', 'alexbuyer', '123456', 'Alexsander', 'male', 'China');
+
+-- ----------------------------
 -- Table structure for `t_cart`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_cart`;
@@ -70,10 +105,6 @@ CREATE TABLE `t_cart` (
 -- ----------------------------
 -- Records of t_cart
 -- ----------------------------
-INSERT INTO `t_cart` VALUES ('2', '5', '106', '1');
-INSERT INTO `t_cart` VALUES ('2', '1', '99', '2');
-INSERT INTO `t_cart` VALUES ('2', '5', '2', '3');
-INSERT INTO `t_cart` VALUES ('2', '7', '8', '4');
 
 -- ----------------------------
 -- Table structure for `t_category`
@@ -131,7 +162,6 @@ INSERT INTO `t_cookie_validate` VALUES ('17', '4C986B16D8EA55B2CFE7FC10CF141485'
 INSERT INTO `t_cookie_validate` VALUES ('18', '3959AEE783A7736223FBF7B322B2E128', '4', '2015-12-25 15:01:48');
 INSERT INTO `t_cookie_validate` VALUES ('19', '3959AEE783A7736223FBF7B322B2E128', '4', '2015-12-25 15:26:37');
 INSERT INTO `t_cookie_validate` VALUES ('20', '3959AEE783A7736223FBF7B322B2E128', '6', '2015-12-25 15:30:54');
-INSERT INTO `t_cookie_validate` VALUES ('21', '1A9751AF5939516759704F2EBF8FB7D2', '4', '2016-01-05 13:32:24');
 
 -- ----------------------------
 -- Table structure for `t_good`
@@ -164,7 +194,7 @@ INSERT INTO `t_good` VALUES ('1', '苹果', '19.80', '0', '热销', '1kg', '日�
 INSERT INTO `t_good` VALUES ('2', '哈密瓜', '13.80', '1000', '热销', '1个', '中国新疆', '哈密瓜活动搞特价，超甜，超抵买', 'imgs/hamigua.jpg', '4', '101', '直接食用', '冷藏');
 INSERT INTO `t_good` VALUES ('3', '西瓜', '12.80', '0', '热销', '1个', '中国', '天然水润防晒霜，西瓜的含水量在水果中是首屈一指的，所以特别适合夏季补充人体水分的损失；打造美腿的秘密武器，吃西瓜后排尿量会增加，能使盐分排出体外，减轻浮肿，特别是腿部浮肿；清新化妆水，新鲜的西瓜汁和鲜', 'imgs/watermelon.jpg', '4', '101', '大火爆炒', '避光存储');
 INSERT INTO `t_good` VALUES ('4', '水蜜桃', '42.90', '0', '热销', '1kg', '中国', '水蜜桃', 'imgs/a5.jpg', '4', '5', '低温烹饪', '避光存储');
-INSERT INTO `t_good` VALUES ('5', '香蕉', '5.99', '800', '热销', '1kg', '中国', '香蕉', 'imgs/banana.jpg', '4', '5', '低温烹饪', '避光存储');
+INSERT INTO `t_good` VALUES ('5', '香蕉', '5.90', '800', '热销', '1kg', '中国', '香蕉', 'imgs/banana.jpg', '4', '5', '低温烹饪', '避光存储');
 INSERT INTO `t_good` VALUES ('6', '橘子', '14.80', '15', '热销', '1kg', '中国', '橘子', 'imgs/orange.jpg', '4', '50', '低温烹饪', '避光存储');
 INSERT INTO `t_good` VALUES ('7', '樱桃', '21.20', '15', '热销', '10个', '中国', '好吃的樱桃桃', 'imgs/thumb.jpg', '5', '50', '低温烹饪', '避光存储');
 INSERT INTO `t_good` VALUES ('8', '李子', '18.80', '15', '热销', '10个', '中国', '好吃的樱桃桃', 'imgs/lizi.jpg', '5', '50', '低温烹饪', '避光存储');
@@ -198,12 +228,9 @@ INSERT INTO `t_keywords` VALUES ('8', '桃', '93');
 INSERT INTO `t_keywords` VALUES ('9', '新西兰', '58');
 INSERT INTO `t_keywords` VALUES ('10', '四川', '86');
 INSERT INTO `t_keywords` VALUES ('11', '香蕉', '7');
-INSERT INTO `t_keywords` VALUES ('12', '西瓜', '49');
+INSERT INTO `t_keywords` VALUES ('12', '西瓜', '48');
 INSERT INTO `t_keywords` VALUES ('13', '火龙果', '88');
 INSERT INTO `t_keywords` VALUES ('14', '??', '1');
-INSERT INTO `t_keywords` VALUES ('15', '果', '3');
-INSERT INTO `t_keywords` VALUES ('16', 'f', '1');
-INSERT INTO `t_keywords` VALUES ('17', '中国', '4');
 
 -- ----------------------------
 -- Table structure for `t_order`
@@ -211,13 +238,13 @@ INSERT INTO `t_keywords` VALUES ('17', '中国', '4');
 DROP TABLE IF EXISTS `t_order`;
 CREATE TABLE `t_order` (
   `id` int(11) NOT NULL,
-  `status` varchar(5) NOT NULL COMMENT '订单状态',
+  `status` varchar(1024) NOT NULL COMMENT '订单状态',
   `total_price` float(7,2) NOT NULL COMMENT '订单价格',
-  `reamarks` varchar(200) DEFAULT NULL COMMENT '订单备注',
   `generated_time` datetime DEFAULT NULL COMMENT '生成订单时间',
   `pay_time` datetime DEFAULT NULL COMMENT '付款时间',
   `take_time` datetime DEFAULT NULL COMMENT '提取时间',
   `shop_id` int(11) DEFAULT NULL COMMENT '提取点id',
+  `remarks` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_Reference_9` (`shop_id`),
   CONSTRAINT `FK_Reference_9` FOREIGN KEY (`shop_id`) REFERENCES `t_shop` (`id`)
@@ -226,6 +253,8 @@ CREATE TABLE `t_order` (
 -- ----------------------------
 -- Records of t_order
 -- ----------------------------
+INSERT INTO `t_order` VALUES ('0', '已领取', '100.00', '2016-01-05 01:22:22', '2016-01-01 01:22:32', '2016-01-01 01:22:37', null, '找人代拿');
+INSERT INTO `t_order` VALUES ('1', '已送至提取点中', '200.00', null, null, null, null, '随便写');
 
 -- ----------------------------
 -- Table structure for `t_order_detail`
@@ -297,15 +326,31 @@ CREATE TABLE `t_shop` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL COMMENT '提取点名字',
   `description` varchar(200) NOT NULL COMMENT '提取点介绍',
-  `lat` float(9,6) NOT NULL COMMENT '纬度',
-  `lng` float(9,6) NOT NULL COMMENT '经度',
+  `location` varchar(100) NOT NULL COMMENT '提取点位置',
+  `is_default` tinyint(4) DEFAULT NULL COMMENT '是否为默认提取点',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='t_shop';
 
 -- ----------------------------
 -- Records of t_shop
 -- ----------------------------
-INSERT INTO `t_shop` VALUES ('1', '店', '可怜啥会咋', '112.256798', '254.514008');
+
+-- ----------------------------
+-- Table structure for `t_shop_good`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_shop_good`;
+CREATE TABLE `t_shop_good` (
+  `shop_id` int(11) NOT NULL,
+  `good_id` int(11) NOT NULL,
+  PRIMARY KEY (`shop_id`,`good_id`),
+  KEY `FK_Reference_4` (`good_id`),
+  CONSTRAINT `FK_Reference_3` FOREIGN KEY (`shop_id`) REFERENCES `t_shop` (`id`),
+  CONSTRAINT `FK_Reference_4` FOREIGN KEY (`good_id`) REFERENCES `t_good` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='t_shop_good';
+
+-- ----------------------------
+-- Records of t_shop_good
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `t_show_pic`
