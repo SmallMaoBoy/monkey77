@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>购物车</title>
+<title>确认订单</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/shopping.css" rel="stylesheet" type="text/css">
+<link href="css/add_order.css" rel="stylesheet" type="text/css">
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script language="javascript" src="js/cartService.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 </head>
 
@@ -67,32 +66,65 @@
    </div>
   </nav>
   
-       <div class="sp_table container" style="width:80%">
-            <table class="table">
-            <tr>
-            <div class="goods " > 
-             </div>
-             </tr>
-             
-              <tr>
-              <div class="sp_1 " >
-              <h3 style="float:left; margin-left:20px">我的购物车</h3>
-              <img src="imgs/shopping_step.png" style="float:right;margin-right:20px;" />
-             </div>
-              </tr>
-              <table class="table" id="content-shopping">
-              
-              
-              </table>
-            
-            </table>
-          <div id="in_all"></div>
-          </div>
-          
-          
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="order_head">
+  <img src="imgs/hou77.png" class="order_head_img1"/>
+  <img src="imgs/add_order.png" class="order_head_img2"/>
+  </div><!--order_head-->
+  
+  <div class="container order_bd">
+  <h3><img src="imgs/little_car.png" />填写并核对订单信息</h3>
+  <h4>收货地址</h4>
+  <div class="address">
+  <input type="radio" name="address" value="0" />广州大学城广东药学院提取点<br/>
+  <input type="radio" name="address" value="1" />广州市天河区珠江新城提取点<br/>
+  <input type="radio" name="address" value="2" />广州市海珠区昌岗地铁站提取点<br/>
+  <input type="radio" name="address" value="3" />广州市火车站提取点
+  </div><!--address-->
+  <h4>支付方式</h4>
+  <div class="order_item">
+  <ul>
+  <li class="cur item_style">在线支付</li>
+  <li class="item_style">线下支付</li>
+  <li class="item_style">余额支付</li>
+  </ul>
+  </div><!--order_item-->
+  <h4 style="margin-top:20px;">订单商品</h4>
+  <a class="update_car">修改购物车</a>
+  <div class="order_shop">
+  <ul>
+  <li>
+  <div class="order_shop_img"> <img src="imgs/apple1.jpg" class="shop_img"/></div>
+  <div class="order_shop_detail"><div class="detail_name">苹果</div><div class="detail_price">￥38.00 / 2斤 <span>x 2</span></div></div>
+  </li>
+  <li>
+  <div class="order_shop_img"> <img src="imgs/apple1.jpg" class="shop_img"/></div>
+  <div class="order_shop_detail"><div class="detail_name">苹果</div><div class="detail_price">￥38.00 / 2斤 <span>x 2</span></div></div>
+  </li>
+  </ul>
+  </div><!--order_shop-->
+  <h4>使用积分/优惠券</h4>
+  <div class="use_cart">
+  <p>最多可抵扣￥0.00元，已抵扣10.00元</p>
+  <p>抵扣码及优惠券: 暂无 <a herf="#">选择</a></p>
+  </div><!--use_cart-->
+  <h4></h4>
+  <div class="order_sum">
+  <p>商品总金额：<span>￥115.00</span></p>
+  <p>运费：<span>￥0.00</span></p>
+  <p>商品减免：<span>￥0.00</span></p>
+  <p>积分抵扣：<span>￥0.00</span></p>
+  <p>优惠券抵扣：<span>￥0.00</span></p>
+  </div><!--order_sum-->
+  <div class="order_sum_line">
+  <div class="line_word">
+  <span class="detail_name">应付金额</span><span class="line_word_price">￥115.00</span><a class="go-pay">去结算</a>
+  </div><!--line_word-->
+  </div><!--order_sum_line-->
+  </div><!--container-->
+  
+  
+  
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content" style="background-image:url(imgs/nologo_pic_991736_06e8d7.jpg)">
       <div class="modal-header" >
@@ -138,42 +170,64 @@
   </div>
 </div>
 
-</body>
- <script type="text/javascript">
-					function add(){
-						var co= document.getElementById("buy_num");
-						n=Number(co.value)+1;
-						document.getElementById("buy_num").value=n;
-						document.getElementById("buy_num_1").value=n;
-						var su=document.getElementById("sum_price2");
-						s=Number(su.value)*n;
-						document.getElementById("sum_price1").value=s;
-						document.getElementById("sum_price1_1").value=s;
-						
-						
 
-					}
-						function subtract(){
-						var co= document.getElementById("buy_num");
-						n=Number(co.value)-1;
-						if(n<=0){n=0;}
-						var su=document.getElementById("sum_price2");
-						s=Number(su.value)*n;
-						document.getElementById("buy_num").value=n;
-						document.getElementById("buy_num_1").value=n;
-						document.getElementById("sum_price1").value=s;
-						document.getElementById("sum_price1_1").value=s;
-						
-		
-						}
-						$(document).ready(function(e) {
-                            $('.detail').click(function(){
-								$(this).parent().find('>button').removeClass("active");
-								$(this).addClass("active");
-							}
-								)
-                        });
-					</script>
+<div class="goods visible-lg" id="foot1">
+              <div class="container">
+                  <div class="line"><img src="imgs/foot_a1.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a2.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a3.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a4.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a5.jpg"></div>
+              </div>
+         </div>
+<div class="foot visible-lg" id="foot2" style="padding-top:20px; padding-bottom:200px ">
+<div class="pageFooter">
+	<div class="middle" style="padding-left:40px">
+		<ul class="title1">
+            <li><img src="imgs/11.png"/></li>
+			<li style="padding-left:110px">4009-111-111</li>
+			<li style="padding-left:80px">周一至周日8:30-22:00</li>
+		</ul>
+	</div>
+	<div class="right" >
+		<ul class="title1">
+			<li class="title">购物指南</li>
+						<li><a rel="nofollow" href="#" target="_blank">积分制度</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">会员介绍</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">购物流程</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">常见问题</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">配送服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">开箱验货</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送运费</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送范围</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">支付方式</li>
+			  <li><a rel="nofollow" href="#" target="_blank">货到付款</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">在线支付</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">优选卡</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">发票制度</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title" >售后服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">退款说明</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货流程</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">隐私条款</a></li>
+					</ul>
+	</div>
+	<div >
+        <ul class="title1">
+          <li style="float:left; font-weight:700">手机客户端:</a></li>
+          <li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png"/></li>
+        </ul>
+      </div>
+</div>
+</div>
+</body>
 </html>
 <script language="javascript">
 //jquery代码

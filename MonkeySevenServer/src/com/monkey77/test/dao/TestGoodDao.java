@@ -35,7 +35,7 @@ public class TestGoodDao {
 		good.setTitle("好吃的樱桃桃");
 		good.setStorage("避光存储");
 		good.setStatus("热销");
-		good.setPicUrl("/imgs/thumb.jpg");
+		good.setPicUrl("imgs/thumb.jpg");
 		goodDao.saveGood(good);
 	}
 	

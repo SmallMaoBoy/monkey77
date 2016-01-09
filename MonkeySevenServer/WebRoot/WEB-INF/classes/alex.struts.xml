@@ -15,6 +15,7 @@
 				<interceptor-ref name="authority" />
 			</interceptor-stack>
 		</interceptors>
+<<<<<<< HEAD
 		<default-interceptor-ref name="myDefault"></default-interceptor-ref>
 		<global-results>
 			<!-- 当返回login视图时，转入登录界面 -->
@@ -34,6 +35,17 @@
 			<result name="Success">/WEB-INF/alex/website/index1.html</result>
 			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
              
+=======
+		<global-results>
+			<!-- 当返回login视图时，转入登录界面 -->
+			<result name="login">/MonkeySevenServer/alexweb/alex/website/sign-in.html</result>
+		</global-results>
+
+		<action name="denglu" class="com.alex.action.LoginAction">
+			<result name="Success">/WEB-INF/alex/website/businessindex.jsp</result>
+			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
+
+>>>>>>> ee68f6e0cff9def4faa0dcdbe9723360ca229ca0
 
 		</action>
 

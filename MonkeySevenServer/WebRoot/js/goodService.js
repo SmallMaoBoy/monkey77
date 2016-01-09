@@ -53,7 +53,7 @@ $(document).ready(function() {
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
-        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
       '</div>'+
     '</div>'+
   '</div>');}
@@ -108,7 +108,7 @@ $(document).ready(function() {
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
-        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
       '</div>'+
     '</div>'+
   '</div>');}
@@ -140,6 +140,7 @@ $(document).ready(function() {
 	/**根据搜索获取商品列表
 	 * 搜索范围包括商品名字，商品标题，商品种类，商品产地
 	 */
+	
 	function getGoodsByKeyWord(pageIndex,keyWords){
 		$.ajax({
 			type : 'post',
@@ -152,6 +153,7 @@ $(document).ready(function() {
 			dataType : "json",
 			success : function(data) {
 				//console.log(data.goods[1].name);
+				alert(goodid);
 				var goods=data.goods;
 				$("#content-goods").empty();
 				if(goods.length==0){$("#content-goods").append('<div class="can_not">未找到相关商品!</div>')}
@@ -167,7 +169,7 @@ $(document).ready(function() {
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
-        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default" role="button" onclick="ad()">加入购物车</a></p>'+
+        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
       '</div>'+
     '</div>'+
   '</div>');}
@@ -194,7 +196,25 @@ $(document).ready(function() {
 			}
 		});
 	}
-	
+	//加入购物车
+	var userid=$.cookie("userid");
+	$("#content-goods").on("click",".add_to_car",function(){
+		var goodid=$(this).attr('goodid');
+		addNewCart(userid,goodid,1);
+	});
+
+	function addNewCart(userid,goodid,num){
+		$.ajax({
+			type:'post',
+			data:{"userId":userid,
+				  "goodId":goodid,
+				  "num":num
+				},
+			url:"CartAction_addNewCart",
+			dataType:"Json",
+			success:function(data){}
+			});
+	}
 	/**
 	 * 创建商品列表页数
 	 * pageNum：总页数

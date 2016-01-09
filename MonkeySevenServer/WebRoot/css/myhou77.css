@@ -181,8 +181,8 @@ padding:20px;
 .word_about{
 		color:#000;
 		}
-.case>li{float:left;display:inline;margin-right:2px;margin-left:2px;width:380px;height:160px; background:url(images/bg_case_f.png) center bottom no-repeat;position:relative;}
-.case_w{display:block;width:380px;height:160px;padding-top:20px;background:url(images/bg_case.png) no-repeat;position:absolute;bottom:14px;left:0px;}
+.case>li{float:left;display:inline;margin-right:2px;margin-left:2px;width:371px;height:160px; background:url(images/bg_case_f.png) center bottom no-repeat;position:relative;}
+.case_w{display:block;width:371px;height:160px;padding-top:20px;background:url(images/bg_case.png) no-repeat;position:absolute;bottom:14px;left:0px;}
  .fire{background:#000;opacity:0.8;filter:alpha(opacity=50);position:absolute;top:23px;width:340px;height:150px;z-index:2;display:none; text-align:center; }
 .pagination>li>a:active{background-color:#669933
 }
