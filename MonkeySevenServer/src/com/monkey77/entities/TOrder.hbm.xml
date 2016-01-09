@@ -25,11 +25,6 @@
                 <comment>订单价格</comment>
             </column>
         </property>
-        <property name="reamarks" type="java.lang.String">
-            <column name="reamarks" length="200">
-                <comment>订单备注</comment>
-            </column>
-        </property>
         <property name="generatedTime" type="java.sql.Timestamp">
             <column name="generated_time" length="19">
                 <comment>生成订单时间</comment>
@@ -44,6 +39,9 @@
             <column name="take_time" length="19">
                 <comment>提取时间</comment>
             </column>
+        </property>
+        <property name="remarks" type="java.lang.String">
+            <column name="remarks" />
         </property>
         <set name="TUsers" inverse="true" table="t_user_order" catalog="monkey77">
             <key>

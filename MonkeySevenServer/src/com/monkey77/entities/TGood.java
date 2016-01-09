@@ -30,7 +30,6 @@ public class TGood  implements java.io.Serializable {
      private Integer saleVolume;
      private String edibleMethod;
      private String storage;
-     private Set TShops = new HashSet(0);
      private Set TUsers = new HashSet(0);
      private Set TProductPics = new HashSet(0);
      private Set TOrderDetails = new HashSet(0);
@@ -74,7 +73,6 @@ public class TGood  implements java.io.Serializable {
         this.saleVolume = saleVolume;
         this.edibleMethod = edibleMethod;
         this.storage = storage;
-        this.TShops = TShops;
         this.TUsers = TUsers;
         this.TProductPics = TProductPics;
         this.TOrderDetails = TOrderDetails;
@@ -194,14 +192,6 @@ public class TGood  implements java.io.Serializable {
     
     public void setStorage(String storage) {
         this.storage = storage;
-    }
-    @JSON(serialize=false)
-    public Set getTShops() {
-        return this.TShops;
-    }
-    
-    public void setTShops(Set TShops) {
-        this.TShops = TShops;
     }
     @JSON(serialize=false)
     public Set getTUsers() {

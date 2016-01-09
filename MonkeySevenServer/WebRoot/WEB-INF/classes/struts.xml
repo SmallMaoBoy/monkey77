@@ -9,6 +9,7 @@
 
 	<constant name="struts.objectFactory" value="spring"></constant>
 	<include file="struts-default.xml" />
+	<include file="alex.struts.xml"/>
 	<package name="json" extends="json-default">
 		<action name="RegisterAction_*" class="RegisterAction" method="{1}">
 			<result type="json">

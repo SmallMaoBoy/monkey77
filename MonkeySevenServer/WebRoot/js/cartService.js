@@ -95,6 +95,7 @@ $(document).ready(function() {
 				var sum_number=0;
 				var sum_price=0
 				for(i=0;i<cart.length;i++){
+					if(cart[i].num>0){
 					$("#content-shopping").append(
 							'<tr><td > <img src="'+cart[i].picUrl+'" class="sp_img"/></td>'+
 				              '<td>'+cart[i].name+'</td>'+
@@ -111,7 +112,26 @@ $(document).ready(function() {
 				                       '</div></td>'+
 				              '<td>￥'+cart[i].totalPrice+'</td>'+
 				              '<td><a href="#">删除</a></td></tr>'
-							);
+							);}
+					else{
+						$("#content-shopping").append(
+								'<tr><td > <img src="'+cart[i].picUrl+'" class="sp_img"/></td>'+
+					              '<td>'+cart[i].name+'</td>'+
+					              '<td>'+cart[i].specification+'</td>'+
+					              '<td>￥'+cart[i].price+'</td>'+
+					              '<td><div class="count">'+  
+								        '<span><img src="imgs/bag_close.gif" class="a-d-btn" goodid="'+
+								        cart[i].goodId
+							              +'"></span>'+
+									    '<div class="num-btn">'+cart[i].num+'</div>'+
+									    '<span><img src="imgs/bag_open.gif" class="a-d-btn add_img" goodid="'+
+								        cart[i].goodId
+							              +'"></span>'+
+					                       '</div></td>'+
+					              '<td>￥'+cart[i].totalPrice+'</td>'+
+					              '<td><a href="#">删除</a></td></tr>'
+								);
+					}
 					sum_number=cart[i].num+sum_number;
 					sum_price=cart[i].num*cart[i].price+sum_price;
 				}
