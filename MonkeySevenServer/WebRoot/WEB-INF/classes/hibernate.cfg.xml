@@ -41,6 +41,7 @@
 		<!-- alex mapping -->
 
 		<mapping resource="com/alex/entity/TBusiness.hbm.xml" />
+		<mapping resource="com/alex/entity/TBuyer.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
