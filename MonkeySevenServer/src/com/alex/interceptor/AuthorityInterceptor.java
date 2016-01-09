@@ -13,9 +13,9 @@ public class AuthorityInterceptor extends AbstractInterceptor {
 		ActionContext ctx=invocation.getInvocationContext();
 		Map session =ctx.getSession();
 		//取出session里面的user属性
-		String user=(String)session.get("user");
+		Object user=session.get("user");
 		//如果没有登录，或者登录所用的用户名不对，都返回重新登录
-		if(user!=null&&user.equals("lizi"))
+		if(user!=null)
 		{
 			return invocation.invoke();
 		}

@@ -15,15 +15,25 @@
 				<interceptor-ref name="authority" />
 			</interceptor-stack>
 		</interceptors>
+		<default-interceptor-ref name="myDefault"></default-interceptor-ref>
 		<global-results>
 			<!-- 当返回login视图时，转入登录界面 -->
-			<result name="login">/MonkeySevenServer/alexweb/alex/website/sign-in.html</result>
+			<result name="login" type="redirect">/alexweb/alex/website/sign-in.html</result>
 		</global-results>
-
+        
 		<action name="denglu" class="com.alex.action.LoginAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
 			<result name="Success">/WEB-INF/alex/website/businessindex.jsp</result>
 			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
+             
 
+		</action>
+		
+		<action name="dengluBuyer" class="com.alex.action.LoginBAction">
+		    <interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="Success">/WEB-INF/alex/website/index1.html</result>
+			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
+             
 
 		</action>
 

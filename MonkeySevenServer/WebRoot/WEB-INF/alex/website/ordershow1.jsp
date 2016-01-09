@@ -66,29 +66,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body class=""> 
   <!--<![endif]-->
   
-  <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">更改订单状态</h4>
-      </div>
-      <div class="modal-body">
-        <select id="shuju">  
-  <option value ="未领取">未领取</option>  
-  <option value ="已送至提取点中">已送至提取点中</option>  
-  <option value="已领取">已领取</option>  
-    
-         </select> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary tijiao">保存修改</button>
-      </div>
-    </div>
-  </div>
-</div>
     
      <div class="navbar">
         <div class="navbar-inner">
@@ -176,9 +153,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <td>${ord.totalPrice}</td>
    <td>${ord.payTime}</td>
    <td>${ord.takeTime}</td>
-   <td ><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
-  更改订单状态
-</button></td>
+   <td >
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">修改订单状态</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">未领取</a></li>
+    <li><a href="#">已领取</a></li>
+    <li><a href="#">已送至到提取点中</a></li>
+    <li role="separator" class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
+
+
+</td>
 </tr>
 </c:forEach>
   </table>
