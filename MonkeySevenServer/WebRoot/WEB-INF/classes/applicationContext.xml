@@ -49,6 +49,9 @@
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
 		<property name="cookieValidateDao" ref="CookieValidateDao"></property>
 	</bean>
+	<bean id="ShopService" class="com.monkey77.service.ShopServiceImp">
+		<property name="shopDao" ref="ShopDao"></property>
+	</bean>
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
 		<property name="keywordsDao" ref="KeyWordsDao"></property>
@@ -84,5 +87,8 @@
 	</bean>
 	<bean id="UserAction" class="com.monkey77.action.UserAction">
 		<property name="userService" ref="UserService" ></property>
+	</bean>
+	<bean id="ShopAction" class="com.monkey77.action.ShopAction">
+		<property name="shopService" ref="ShopService" ></property>
 	</bean>
 </beans>
