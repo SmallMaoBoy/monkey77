@@ -104,7 +104,8 @@ padding:20px;
 		border-left:1px solid #ddd;
 		}
 	.table>tr{vertical-align:middle;}
-	.table{border:1px solid #ddd;}
+	.table{border:1px solid #ddd; margin-bottom:5px;}
+	.table_1{margin-top:20px;}
 #input_account{
 	margin-bottom:10px;
 	}
@@ -128,7 +129,7 @@ padding:20px;
 #sum_price1,#sum_price2{
 border:none;
 	}
-.in_all{
+#in_all{
 	margin-top: 24px;
     padding-left: 14px;
 	height:50px;
@@ -136,7 +137,7 @@ border:none;
 	background-color: #f5ffed;
 	line-height: 50px;
 	}
-#all_display{
+.all_display{
 	float: right;
 	font-family: "Hiragino Sans GB","Microsoft YaHei",sans-serif;
     color: #999999;
@@ -183,4 +184,20 @@ border:none;
 		border:none;
 		height:50px;
 		width:60px;
+		}
+	.count{
+		margin-left:0px;
+		float:left; 
+		margin-right:30px;
+		}
+	.a-d-btn{
+		height:24px; 
+		float:left;
+		}
+	.num-btn{
+		border:#CCC solid 1px;
+		 width:26px;
+		  height:24px;
+		  float:left; 
+		  text-align:center;
 		}

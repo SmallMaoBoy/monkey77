@@ -5,9 +5,15 @@
  */
 package com.monkey77.dao;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.monkey77.entities.TGood;
 import com.monkey77.entities.TShop;
+import com.monkey77.entities.TUser;
 
 /**
  * @author mao
@@ -25,6 +31,35 @@ public class TShopDaoImp extends HibernateDaoSupport implements ITShopDao {
 	public void createShop(TShop shop) {
 		// TODO Auto-generated method stub
 			this.getHibernateTemplate().save(shop);
+	}
+
+	@Override
+	public List<TShop> getShopList(int indexPage, int num) {
+		// TODO Auto-generated method stub
+		  HibernateTemplate ht=this.getHibernateTemplate();
+		  DetachedCriteria criteria=DetachedCriteria.forClass(TShop.class);
+		  return ht.findByCriteria(criteria,indexPage,num);
+	}
+
+	@Override
+	public int getShopCount() {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().find("from TShop").size();
+	}
+
+	@Override
+	public Object getShopById(int id) {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().get(TShop.class, id);
+	}
+
+	@Override
+	public void deleteShopById(int id) {
+		// TODO Auto-generated method stub
+		TShop s= (TShop) this.getHibernateTemplate().find("from TShop t where t.id=?",id).get(0);
+		this.getHibernateTemplate().delete(s);
+		
+		
 	}
 
 }

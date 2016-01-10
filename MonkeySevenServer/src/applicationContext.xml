@@ -44,10 +44,16 @@
 	<bean id="ShopDao" class="com.monkey77.dao.TShopDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="OrderDao" class="com.monkey77.dao.TOrderDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="UserService" class="com.monkey77.service.UserServiceImp">
 		<property name="userDao" ref="UserDao"></property>
 		<property name="smsIdentifyingCodeDao" ref="SmsIdentifyingCodeDao"></property>
 		<property name="cookieValidateDao" ref="CookieValidateDao"></property>
+	</bean>
+	<bean id="ShopService" class="com.monkey77.service.ShopServiceImp">
+		<property name="shopDao" ref="ShopDao"></property>
 	</bean>
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
@@ -81,5 +87,11 @@
 	</bean>
 	<bean id="CartAction" class="com.monkey77.action.CartAction">
 		<property name="cartService" ref="CartService" ></property>
+	</bean>
+	<bean id="UserAction" class="com.monkey77.action.UserAction">
+		<property name="userService" ref="UserService" ></property>
+	</bean>
+	<bean id="ShopAction" class="com.monkey77.action.ShopAction">
+		<property name="shopService" ref="ShopService" ></property>
 	</bean>
 </beans>

@@ -20,6 +20,16 @@
                 <comment>订单状态</comment>
             </column>
         </property>
+        <property name="payWay" type="java.lang.String">
+            <column name="pay_way" >
+                <comment>支付方式</comment>
+            </column>
+        </property>
+        <property name="orderNo" type="java.lang.String">
+            <column name="order_no" >
+                <comment>支付方式</comment>
+            </column>
+        </property>
         <property name="totalPrice" type="java.lang.Float">
             <column name="total_price" precision="7" not-null="true">
                 <comment>订单价格</comment>

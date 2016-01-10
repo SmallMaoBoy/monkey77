@@ -2,8 +2,11 @@ package com.monkey77.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.monkey77.entities.TGood;
 import com.monkey77.entities.TUser;
 
 public class TUserDaoImp extends HibernateDaoSupport implements ITUserDao {
@@ -49,5 +52,22 @@ public class TUserDaoImp extends HibernateDaoSupport implements ITUserDao {
 		List<TUser> list=this.getHibernateTemplate().find("from TUser t where t.mobile=?", mobile);
 		return list.isEmpty()?null:list.get(0);
 	}
+
+	@Override
+	public List<TUser> getUserList(int indexPage, int num) {
+		// TODO Auto-generated method stub
+		  HibernateTemplate ht=this.getHibernateTemplate();
+		  DetachedCriteria criteria=DetachedCriteria.forClass(TUser.class);
+		  return ht.findByCriteria(criteria,indexPage,num);
+		
+	}
+
+	@Override
+	public int count() {
+		// TODO Auto-generated method stub
+		return this.getHibernateTemplate().find("from TUser").size();
+		
+	}
+	
 
 }

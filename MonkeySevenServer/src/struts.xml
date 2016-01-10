@@ -36,6 +36,16 @@
 				<param name="root">map</param>
 			</result>
 		</action>
+		<action name="UserAction_*" class="UserAction" method="{1}">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
+		<action name="ShopAction_*" class="ShopAction" method="{1}">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
 	</package>
 	
 </struts>

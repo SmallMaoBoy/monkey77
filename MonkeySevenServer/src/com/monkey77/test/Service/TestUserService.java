@@ -65,4 +65,8 @@ public class TestUserService {
 	public void testLoginByPasswordWithCookie(){
 		System.out.println(userService.loginByPassword("13631315179", "123456"));
 	}
+	@Test
+	public void testgetUserList(){
+		System.out.println(userService.getUserList(1));
+	}
 }
