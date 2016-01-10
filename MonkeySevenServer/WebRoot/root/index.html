@@ -22,51 +22,30 @@
 <!--close-Header-part--> 
 
 
-<!--top-Header-menu-->
-<div id="user-nav" class="navbar navbar-inverse">
-  <ul class="nav">
-    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">管理员</span><b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-        <li class="divider"></li>
-        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
-        <li class="divider"></li>
-        <li><a href="login.html"><i class="icon-key"></i>注销</a></li>
-      </ul>
-    </li>
-    <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">信息</span><b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> 新信息</a></li>
-        <li class="divider"></li>
-        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i>收件箱</a></li>
-        <li class="divider"></li>
-        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> 发件箱</a></li>
-        <li class="divider"></li>
-        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> 垃圾箱</a></li>
-      </ul>
-    </li>
-    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a></li>
-    <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
-  </ul>
-</div>
-<!--close-top-Header-menu-->
+
 <!--sidebar-menu-->
 <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
   <ul>
     <li class="active"><a href="index.html"><i class="icon icon-home"></i> <span>首页</span></a> </li>
-    <li> <a href="charts.html"><i class="icon icon-signal"></i> <span>销售额 &amp; 销售量</span></a> </li>
-    <li> <a href="widgets.html"><i class="icon icon-inbox"></i> <span>商品信息</span></a> </li>
-    <li><a href="tables.html"><i class="icon icon-th"></i> <span>用户信息</span></a></li>
+    <li> <a href="sell.html"><i class="icon icon-signal"></i> <span>销售额 &amp; 销售量</span></a> </li>
+    <li> <a href="goods.html"><i class="icon icon-inbox"></i> <span>商品信息</span></a> </li>
+    <li><a href="usermessages.html"><i class="icon icon-th"></i> <span>用户信息</span></a></li>
     
     <li class="submenu"> <a href="#"><i class="icon icon-th-list"></i> <span>管理员工</span> </a>
       <ul>
-        <li><a href="form-common.html">查看员工</a></li>
-        <li><a href="form-validation.html">增加员工</a></li>
-        <li><a href="form-wizard.html">减少员工</a></li>
+        <li><a href="check-staff.html">查看员工</a></li>
+        <li><a href="add-staff.html">增加员工</a></li>
+        <li><a href="reduce-staff.html">减少员工</a></li>
       </ul>
     </li>
-    <li><a href="buttons.html"><i class="icon icon-tint"></i> <span>用户留言</span></a></li>
-    <li><a href="interface.html"><i class="icon icon-pencil"></i> <span>推送信息</span></a></li>
+    <li><a href="userword.html"><i class="icon icon-tint"></i> <span>用户留言</span></a></li>
+    <li class="submenu"> <a href="#"><i class="icon icon-pencil"></i> <span>管理提取点</span></a>
+      <ul>
+        <li><a href="check-shop.html">查看提取点</a></li>
+        <li><a href="add-shop.html">增加提取点</a></li>
+       
+      </ul>
+    </li>
    </ul>
 </div>
 <!--sidebar-menu-->
@@ -84,13 +63,12 @@
     <div class="quick-actions_homepage">
       <ul class="quick-actions">
         <li class="bg_lb"> <a href="index.html"> <i class="icon-dashboard"></i>首页 </a> </li>
-        <li class="bg_lg"> <a href="charts.html"> <i class="icon-signal"></i> 销售额 &amp; 销售量</a> </li>
-        <li class="bg_ly"> <a href="widgets.html"> <i class="icon-inbox"></i> 商品信息 </a> </li>
-        <li class="bg_lo"> <a href="tables.html"> <i class="icon-th"></i> 用户信息</a> </li>
-        
-        <li class="bg_ls"> <a href="form-common.html"> <i class="icon-th-list"></i>管理员工</a> </li>
-        <li class="bg_ls"> <a href="buttons.html"> <i class="icon-tint"></i> 用户留言</a> </li>
-        <li class="bg_lb"> <a href="interface.html"> <i class="icon-pencil"></i>推送信息</a> </li>
+        <li class="bg_lg"> <a href="sell.html"> <i class="icon-signal"></i> 销售额 &amp; 销售量</a> </li>
+        <li class="bg_ly"> <a href="goods.html"> <i class="icon-inbox"></i> 商品信息 </a> </li>
+        <li class="bg_lo"> <a href="usermessages.html"> <i class="icon-th"></i> 用户信息</a> </li>
+        <li class="bg_ls"> <a href="check-staff.html"> <i class="icon-th-list"></i>管理员工</a> </li>
+        <li class="bg_ls"> <a href="userword.html"> <i class="icon-tint"></i> 用户留言</a> </li>
+        <li class="bg_lb"> <a href="check-shop.html"> <i class="icon-pencil"></i>管理提取点</a> </li>
       </ul>
     </div>
 <!--End-Action boxes-->    
@@ -385,7 +363,7 @@
 <script src="js/fullcalendar.min.js"></script> 
 <script src="js/matrix.js"></script> 
 <script src="js/matrix.dashboard.js"></script> 
-<script src="js/jquery.gritter.min.js"></script> 
+ 
 <script src="js/matrix.interface.js"></script> 
 <script src="js/matrix.chat.js"></script> 
 <script src="js/jquery.validate.js"></script> 

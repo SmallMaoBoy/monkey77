@@ -3,6 +3,8 @@ package com.monkey77.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * TShop entity. @author MyEclipse Persistence Tools
  */
@@ -89,7 +91,7 @@ public class TShop implements java.io.Serializable {
 	public void setLng(Float lng) {
 		this.lng = lng;
 	}
-
+	@JSON(serialize=false)
 	public Set getTAdmins() {
 		return this.TAdmins;
 	}
@@ -97,7 +99,7 @@ public class TShop implements java.io.Serializable {
 	public void setTAdmins(Set TAdmins) {
 		this.TAdmins = TAdmins;
 	}
-
+	@JSON(serialize=false)
 	public Set getTOrders() {
 		return this.TOrders;
 	}

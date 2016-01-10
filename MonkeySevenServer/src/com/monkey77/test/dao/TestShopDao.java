@@ -26,5 +26,24 @@ public class TestShopDao {
 		TShop t=new TShop("北京旗舰店", "天安门正佳广场5层-888层", 112.2568f, 254.514f);
 		shopDao.createShop(t);
 	}
+
+	@Test
+	public void testGetShopList(){
+		System.out.println(shopDao.getShopList(0, 10));
+	}
+	@Test
+	public void testGetShopCount(){
+		System.out.println(shopDao.getShopCount());
+	}
+	@Test
+	public void testGetShopById(){
+		System.out.println(shopDao.getShopById(1));
 	
+	}
+	@Test
+	public void testdeleteShopById(){
+		shopDao.deleteShopById(3);
+		
+		
+	}
 }

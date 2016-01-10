@@ -40,6 +40,7 @@
 
 		<mapping resource="com/alex/entity/TBusiness.hbm.xml" />
 		<mapping resource="com/alex/entity/TBuyer.hbm.xml" />
+		<mapping resource="com/alex/entity/TBuyorder.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>

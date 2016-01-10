@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">Settings</a></li>
                     <li id="fat-menu" class="dropdown">
                         <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
+                            <i class="icon-user"></i> ${sessionScope.user.account}
                             <i class="icon-caret-down"></i>
                         </a>
 
@@ -176,7 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <td>${ord.totalPrice}</td>
    <td>${ord.payTime}</td>
    <td>${ord.takeTime}</td>
-   <td ><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
+   <td><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
   更改订单状态
 </button></td>
 </tr>
