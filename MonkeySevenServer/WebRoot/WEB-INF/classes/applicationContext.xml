@@ -69,6 +69,11 @@
 	<bean id="CartService" class="com.monkey77.service.CartServiceImp">
 		<property name="cartDao" ref="CartDao"></property>
 	</bean>
+	<bean id="OrderService" class="com.monkey77.service.OrderServiceImp">
+		<property name="userDao" ref="UserDao"></property>
+		<property name="orderDao" ref="OrderDao"></property>
+		<property name="cartDao" ref="CartDao"></property>
+	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
 	</bean>

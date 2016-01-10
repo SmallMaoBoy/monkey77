@@ -11,7 +11,7 @@
             <generator class="increment" />
         </id>
         <many-to-one name="TOrder" class="com.monkey77.entities.TOrder" fetch="select">
-            <column name="order_id" not-null="true">
+            <column name="order_id" >
                 <comment>订单id</comment>
             </column>
         </many-to-one>

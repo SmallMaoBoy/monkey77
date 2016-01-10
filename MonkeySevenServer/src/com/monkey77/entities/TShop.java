@@ -24,6 +24,10 @@ public class TShop implements java.io.Serializable {
 	/** default constructor */
 	public TShop() {
 	}
+	
+	public TShop(int id) {
+		this.id=id;
+	}
 
 	/** minimal constructor */
 	public TShop(String name, String description, Float lat, Float lng) {
