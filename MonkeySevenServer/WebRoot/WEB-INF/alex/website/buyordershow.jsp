@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>猴七七提取点店员管理系统</title>
+    <title>猴七七采购员管理系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -66,7 +66,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body class=""> 
   <!--<![endif]-->
   
-  <!-- Modal -->
+  <!-- 修改订单状态的Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -75,20 +75,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h4 class="modal-title" id="myModalLabel">更改订单状态</h4>
       </div>
       <div class="modal-body">
-        <select id="shuju">  
-  <option value ="未领取">未领取</option>  
-  <option value ="已送至提取点中">已送至提取点中</option>  
-  <option value="已领取">已领取</option>  
+        <select id="shuju1">  
+  <option value ="待完善">待完善</option>  
+  <option value ="待付款">待付款</option>  
+  <option value="待发送">待购买</option>
+  <option value ="待发送">待发送</option>  
+  <option value ="待提取">待提取</option>  
+  <option value="已提取">已提取</option>
+  <option value="逾期作废">逾期作废</option>    
     
          </select> 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary tijiao">保存修改</button>
+        <button type="button" class="btn btn-primary tijiao1">保存修改</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- 修改商品种类的Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">订单所需商品种类为：</h4>
+      </div>
+      <div class="modal-body">
+       <input type="text" id="shuju2" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary tijiao2">保存修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     
      <div class="navbar">
         <div class="navbar-inner">
@@ -122,9 +148,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>管理总览</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">查看订单信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看商品信息</a></li>
-            <li ><a href="user.html">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">查看订单信息</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">查看商品信息</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
             
             
         </ul>
@@ -162,23 +188,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table class="table">
    <tr>
    <td>订单ID</td>
+   <td>商品类型</td>
+   <td>买入价格</td>
+   <td>当天价格</td>
    <td>订单状态</td>
-   <td>订单备注</td>
-   <td>订单价格</td>
-   <td>付款时间</td>
-   <td>提取时间</td>
+   <td>商品数量</td>
 </tr>
-<c:forEach items="${sessionScope.Order}" var="ord">
+<c:forEach items="${sessionScope.Tbuyoder}" var="ord">
 <tr>
    <td>${ord.id}</td>
-   <td>${ord.status}</td>
-   <td>${ord.remarks}</td>
-   <td>${ord.totalPrice}</td>
-   <td>${ord.payTime}</td>
-   <td>${ord.takeTime}</td>
-   <td><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
-  更改订单状态
-</button></td>
+   <td><a href="javascript:;" class="cggood" ordergoodID="${ord.id}">${ord.good}</a>
+  
+   
+   </td>
+   <td>${ord.buyinprice}</td>
+   <td>${ord.dayprice}</td>
+   <td>
+          <a href="javascript:;" class="cgbuyorder" buyorderID="${ord.id}">${ord.status}</a>
+   
+   </td>
+   <td>${ord.number}</td>
 </tr>
 </c:forEach>
   </table>
