@@ -7,6 +7,8 @@
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/shopping.css" rel="stylesheet" type="text/css">
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/cartService.js"></script>
+<script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 </head>
 
 <body>
@@ -68,8 +70,7 @@
        <div class="sp_table container" style="width:80%">
             <table class="table">
             <tr>
-            <div class="goods " >
-              
+            <div class="goods " > 
              </div>
              </tr>
              
@@ -79,44 +80,13 @@
               <img src="imgs/shopping_step.png" style="float:right;margin-right:20px;" />
              </div>
               </tr>
+              <table class="table" id="content-shopping">
               
-              <tr class="sp_2">
-              <td style=" margin-left:20px">图片</td>
-              <td>商品</td>
-              <td>规格</td>
-              <td>原价</td>
-              <td>现价</td>
-              <td>数量</td>
-              <td>小计</td>
-              <td>操作</td>
-             
-              </tr>
               
-              <tr>
-              <td > <img src="imgs/apple.jpg" class="sp_img"/></td>
-              <td>进口红苹果</td>
-              <td>1kg</td>
-              <td>￥69.00</td>
-              <td>￥<input id="sum_price2" type="text" value="59" readonly="readonly"/></td>
-              <td><div id="count" style="margin-left:0px;float:left; margin-right:30px ">  
-			        <span><img onclick="subtract()" src="imgs/bag_close.gif" style="height:24px"></span>
-				    <span><input id="buy_num" type="text" value="1" readonly="readonly"></span>
-				    <span><img onclick="add()"src="imgs/bag_open.gif"  style="height:24px"></span>
-                       </div></td>
-              <td>￥<input id="sum_price1" type="text" value="59" readonly="readonly"/></td>
-              <td><a href="#">删除</a></td>
-              </tr>
+              </table>
             
             </table>
-          <div class="in_all">
-               <div id="all_display">
-                <span class="style1">已选择<em class="style2">
-                <input id="buy_num_1" type="text" value="1" readonly="readonly">件</em>
-                商品&nbsp; | &nbsp;订单金额</span>
-                <span class="style2">￥<input id="sum_price1_1" type="text" value="59" readonly="readonly"/></span>
-                <a id="btngopay" class="go-pay">去结算</a>
-            </div><!-- all_display -->
-          </div><!-- in_all -->
+          <div id="in_all"></div>
           </div>
           
           

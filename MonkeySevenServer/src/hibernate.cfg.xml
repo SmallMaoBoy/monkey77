@@ -8,12 +8,10 @@
 
 	<session-factory>
 		<property name="connection.username">root</property>
-		<property name="connection.url">
-			jdbc:mysql://localhost:3306/monkey77
-		</property>
-		<property name="dialect">
-			org.hibernate.dialect.MySQLInnoDBDialect
-		</property>
+
+		<property name="connection.url">jdbc:mysql://localhost:3306/monkey77?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+
 		<property name="myeclipse.connection.profile">mysql</property>
 		<property name="connection.password">123456</property>
 		<property name="connection.driver_class">
@@ -37,6 +35,11 @@
 		<mapping resource="com/monkey77/entities/TKeywords.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TRoot.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TShowPic.hbm.xml" />
+
+		<!-- alex mapping -->
+
+		<mapping resource="com/alex/entity/TBusiness.hbm.xml" />
+		<mapping resource="com/alex/entity/TBuyer.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
