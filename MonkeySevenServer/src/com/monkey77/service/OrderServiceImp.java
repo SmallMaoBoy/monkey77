@@ -28,7 +28,18 @@ public class OrderServiceImp implements IOrderService{
 	private ITUserDao userDao;
 	private ITOrderDao orderDao;
 	private ITCartDao cartDao;
+	private IDaySaleService daySaleService;
 	
+	public IDaySaleService getDaySaleService() {
+		return daySaleService;
+	}
+
+
+	public void setDaySaleService(IDaySaleService daySaleService) {
+		this.daySaleService = daySaleService;
+	}
+
+
 	public ITUserDao getUserDao() {
 		return userDao;
 	}
@@ -98,9 +109,11 @@ public class OrderServiceImp implements IOrderService{
 			order.setPayWay(payway);
 			order.setRemarks(remark);
 			if(payway.equals("在线支付")){
-				order.setStatus("待付款");
-			}else{
 				order.setStatus("待购买");
+			}else{
+				order.setStatus("待付款");
+				//更新日销量表
+				daySaleService.addDaySale(order.getId());
 			}
 			order.setSubmissionTime(new Timestamp(System.currentTimeMillis()));
 			orderDao.updateOrder(order);

@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.monkey77.service.ICartService;
 import com.monkey77.service.IContextService;
-import com.monkey77.service.IOrderService;
+import com.monkey77.service.IDaySaleService;
 import com.monkey77.service.IRootService;
 
 /**
@@ -20,23 +20,19 @@ import com.monkey77.service.IRootService;
  * @time 创建时间 2015-12-27下午11:47:26
  * 
  */
-public class TestOrderService {
+public class TestDayServiceService {
 
-	private IOrderService orderService;
+	private IDaySaleService daySaleService;
 	
 	@Before
 	public void init(){
 		ApplicationContext ac=new ClassPathXmlApplicationContext("applicationContext.xml");
-		orderService=(IOrderService) ac.getBean("OrderService");
+		daySaleService=(IDaySaleService) ac.getBean("DaySaleService");
 	}
 	
 	@Test
-	public void testCreateOrder(){
-		orderService.createOrder(2);
+	public void test(){
+		daySaleService.addDaySale(12);
 	}
 	
-	@Test
-	public void testSubmissionOrder(){
-		System.out.println(orderService.submissionOrder(1, "加饭", "在线支付", "MK201601110146050001"));
-	}
 }

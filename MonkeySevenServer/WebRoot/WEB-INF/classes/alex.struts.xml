@@ -15,8 +15,7 @@
 				<interceptor-ref name="authority" />
 			</interceptor-stack>
 		</interceptors>
-<<<<<<< HEAD
-		<default-interceptor-ref name="myDefault"></default-interceptor-ref>
+		<!--  <default-interceptor-ref name="myDefault"></default-interceptor-ref>  暂时去除-->
 		<global-results>
 			<!-- 当返回login视图时，转入登录界面 -->
 			<result name="login" type="redirect">/alexweb/alex/website/sign-in.html</result>
@@ -35,17 +34,6 @@
 			<result name="Success">/WEB-INF/alex/website/index1.html</result>
 			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
              
-=======
-		<global-results>
-			<!-- 当返回login视图时，转入登录界面 -->
-			<result name="login">/MonkeySevenServer/alexweb/alex/website/sign-in.html</result>
-		</global-results>
-
-		<action name="denglu" class="com.alex.action.LoginAction">
-			<result name="Success">/WEB-INF/alex/website/businessindex.jsp</result>
-			<result name="fail">/WEB-INF/alex/pages/Loginf.jsp</result>
-
->>>>>>> ee68f6e0cff9def4faa0dcdbe9723360ca229ca0
 
 		</action>
 
@@ -68,6 +56,27 @@
 		
 		<action name="backbi">
 		       <result>/WEB-INF/alex/website/businessindex.jsp</result>
+		</action>
+		<action name="backbuyer">
+		       <result>/WEB-INF/alex/website/businessindex.jsp</result><!-- 待修改为index1 -->
+		</action>
+		
+		<action name="showbuyorderdata" class="com.alex.action.ShowbuyorderAciton">
+		    <result name="success">/WEB-INF/alex/website/buyordershow.jsp</result>
+		
+		</action>
+		
+		<action name="changebuyorderstatus" class="com.alex.action.ChangeBuyOrderStAciton">
+			<result type="json" name="success12">
+				<param name="root">result</param>
+			</result>
+
+		</action>
+		
+		<action name="changeordergood" class="com.alex.action.ChangeOrderGoodAction">
+		    <result type="json" name="success12">
+				<param name="root">result</param>
+		    </result>
 		</action>
 
 

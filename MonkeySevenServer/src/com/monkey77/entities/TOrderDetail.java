@@ -69,8 +69,7 @@ public class TOrderDetail  implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "TOrderDetail [id=" + id + ", TOrder=" + TOrder + ", TGood="
-				+ TGood + ", goodNumber=" + goodNumber + "]";
+		return "TOrderDetail [id=" + id +  ", goodNumber=" + goodNumber + "]";
 	}
    
 
