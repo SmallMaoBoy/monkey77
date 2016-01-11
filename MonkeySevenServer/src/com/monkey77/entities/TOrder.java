@@ -17,6 +17,7 @@ public class TOrder implements java.io.Serializable {
 	private String status;
 	private Float totalPrice;
 	private Timestamp generatedTime;
+	private Timestamp submissionTime;
 	private Timestamp payTime;
 	private Timestamp takeTime;
 	private String remarks;
@@ -72,6 +73,14 @@ public class TOrder implements java.io.Serializable {
 
 	public String getPayWay() {
 		return payWay;
+	}
+
+	public Timestamp getSubmissionTime() {
+		return submissionTime;
+	}
+
+	public void setSubmissionTime(Timestamp submissionTime) {
+		this.submissionTime = submissionTime;
 	}
 
 	public void setPayWay(String payWay) {

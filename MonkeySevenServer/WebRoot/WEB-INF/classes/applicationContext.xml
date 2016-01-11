@@ -20,6 +20,12 @@
 	<bean id="GoodDao" class="com.monkey77.dao.TGoodDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="OrderDetailDao" class="com.monkey77.dao.TOrderDetailDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="DaySaleDao" class="com.monkey77.dao.TDaySaleDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="SmsIdentifyingCodeDao" class="com.monkey77.dao.TSmsIdentifyingCodeDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -77,6 +83,15 @@
 	</bean>
 	<bean id="CartService" class="com.monkey77.service.CartServiceImp">
 		<property name="cartDao" ref="CartDao"></property>
+	</bean>
+	<bean id="OrderService" class="com.monkey77.service.OrderServiceImp">
+		<property name="userDao" ref="UserDao"></property>
+		<property name="orderDao" ref="OrderDao"></property>
+		<property name="cartDao" ref="CartDao"></property>
+	</bean>
+	<bean id="DaySaleService" class="com.monkey77.service.DaySaleServiceImp">
+		<property name="daySaleDao" ref="DaySaleDao"></property>
+		<property name="orderDetailDao" ref="OrderDetailDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>

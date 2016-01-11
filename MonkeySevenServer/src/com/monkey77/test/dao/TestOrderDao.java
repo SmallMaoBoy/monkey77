@@ -42,4 +42,10 @@ public class TestOrderDao {
 		o.setTotalPrice(21f);
 		orderDao.createOrder(o);
 	}
+	
+	@Test
+	public void getOrder(){
+		System.out.println(orderDao.getOrderById(3).getId());
+		System.out.println(orderDao.getOrderByOrderNo("MK201601101613390001").getId());
+	}
 }
