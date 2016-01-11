@@ -221,7 +221,7 @@ $(document).ready(function() {
 		//加入购物车
 	var userid=$.cookie("userid");
 	$("#content-goods").on("click",".add_to_car",function(){
-		if(userid==undefined){
+		if(userid.trim()==""){
 		show();
 		return false;
 		}
@@ -229,6 +229,7 @@ $(document).ready(function() {
 				var goodid=$(this).attr('goodid');
 				addNewCart(userid,goodid,1);
 				showarea();
+				getCartInfo(userid);
 				return false;
 		}
 		
@@ -239,6 +240,28 @@ $(document).ready(function() {
 		timer=setTimeout(offarea,1000);
 		clearTimeout(timer);
 	});
+
+	
+	//右下角购物车总数显示
+	getCartInfo(userid);
+	function getCartInfo(userid){
+		//alert(userid);
+		$.ajax({
+			type:'post',
+			data:{"userId":userid},
+			url:"CartAction_getCartInfo",
+			dataType:"Json",
+			success:function(data){
+				var sum_number=0;
+				var cart=data.cart;
+				for(i=0;i<cart.length;i++){
+				$("#test_hidden").append(cart[i].num
+						);
+				sum_number=cart[i].num+sum_number;
+				}
+				$("#num").empty();
+				$("#num").append(sum_number);
+			}});}
 
 	function addNewCart(userid,goodid,num){
 		$.ajax({
