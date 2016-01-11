@@ -74,4 +74,7 @@ public interface ITGoodDao {
 	
 	//根据商品id获取商品
 	public TGood getGoodById(int id);
+	
+	//根据商品id获取商品名字
+	public String getGoodNameById(int id);
 }

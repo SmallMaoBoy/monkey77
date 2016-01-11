@@ -7,9 +7,12 @@ package com.monkey77.service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.monkey77.dao.ITDaySaleDao;
+import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.ITOrderDetailDao;
 import com.monkey77.entities.TDaySale;
 import com.monkey77.entities.TGood;
@@ -24,6 +27,16 @@ public class DaySaleServiceImp implements IDaySaleService {
 
 	private ITDaySaleDao daySaleDao;
 	private ITOrderDetailDao orderDetailDao;
+	private ITGoodDao goodDao;
+	
+	
+	public ITGoodDao getGoodDao() {
+		return goodDao;
+	}
+
+	public void setGoodDao(ITGoodDao goodDao) {
+		this.goodDao = goodDao;
+	}
 
 	public ITDaySaleDao getDaySaleDao() {
 		return daySaleDao;
@@ -77,6 +90,28 @@ public class DaySaleServiceImp implements IDaySaleService {
 				daySaleDao.createOrUpdate(t);
 			}
 		}
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-11下午10:44:01
+	 * @see com.monkey77.service.IDaySaleService#getDaySale()
+	 */
+	@Override
+	public Map<String, Object> getDaySale() {
+		// TODO Auto-generated method stub
+		Map<String, Object> result=new HashMap<String, Object>();
+		Calendar c = Calendar.getInstance();
+		// 从一个 Calendar 对象中获取 Date 对象
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MINUTE, 0);
+		Date d = c.getTime();
+		List<TDaySale> sales = daySaleDao.getDaySale(d);
+		for(TDaySale t:sales){
+			result.put(goodDao.getGoodNameById(t.getTGood().getId()), t.getNum());
+		}
+		return result;
 	}
 
 }
