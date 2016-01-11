@@ -191,3 +191,24 @@ padding:20px;
 	text-align:center;
 	font-size:18px;	
 	}
+#t_area{ 
+  width:480px; 
+  height:200px;
+  overflow:hidden; 
+  border:5px #EEEEEE solid;
+  float:left;
+  display:none; 
+  margin:0 0 200px 400px; 
+ }
+ .t_area_head{
+ height:40px;
+ background-color:#eaeaea;
+ }
+ .t_area_body{
+	 height:160px;
+	 background-color:#FFF;
+	 font-size:30px;
+     font-family: "Hiragino Sans GB","Microsoft YaHei",sans-serif;
+     color: #555555;
+     padding-left: 20px
+	 }
