@@ -22,4 +22,6 @@ public interface IUserService {
 	public Map<String, Object> loginByPasswordWithCookie(String mobile,String password,HttpServletResponse
 
  response,String sessionid);
+	//获取用户信息
+	public Map<String, Object> getUserList(int indexPage);
 }

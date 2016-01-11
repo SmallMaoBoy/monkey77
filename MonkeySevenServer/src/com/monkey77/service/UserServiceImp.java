@@ -3,6 +3,8 @@ package com.monkey77.service;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -14,6 +16,7 @@ import com.monkey77.dao.ITCookieValidateDao;
 import com.monkey77.dao.ITSmsIdentifyingCodeDao;
 import com.monkey77.dao.ITUserDao;
 import com.monkey77.entities.TCookieValidate;
+import com.monkey77.entities.TGood;
 import com.monkey77.entities.TSmsIdentifyingCode;
 import com.monkey77.entities.TUser;
 import com.monkey77.utils.MD5;
@@ -24,7 +27,7 @@ public class UserServiceImp implements IUserService{
 	private ITUserDao userDao;
 	private ITSmsIdentifyingCodeDao smsIdentifyingCodeDao;
 	private ITCookieValidateDao cookieValidateDao;
-	
+	private final int num = 12;
 	
 	
 	public ITCookieValidateDao getCookieValidateDao() {
@@ -148,6 +151,7 @@ public class UserServiceImp implements IUserService{
 			if(user.getPassword().equals(MD5.getMD5(password))){
 				json.put("statusCode", "0");
 				Map<String,String> data=new HashMap<String,String>();
+				data.put("id", String.valueOf(user.getId()));
 				data.put("name", user.getName());
 				data.put("sex", user.getSex()==0?"男":"女");
 				data.put("mobile", user.getMobile());
@@ -182,6 +186,19 @@ public class UserServiceImp implements IUserService{
 			resopnse.addCookie(cookie);
 		}
 		return json;
+	}
+
+
+	@Override
+	public Map<String, Object> getUserList(int indexPage) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		int count = userDao.count();
+		map.put("count", count);
+		int page = (indexPage - 1) * num;
+		List<TUser> list = userDao.getUserList(page,num);
+		map.put("users", list);
+		return map;
 	}
 	
 	

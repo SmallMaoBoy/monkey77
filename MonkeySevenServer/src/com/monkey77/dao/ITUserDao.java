@@ -1,5 +1,7 @@
 package com.monkey77.dao;
 
+import java.util.List;
+
 import com.monkey77.entities.TUser;
 
 public interface ITUserDao {
@@ -18,4 +20,7 @@ public interface ITUserDao {
 	
 	//根据手机号码返回用户
 	public TUser getUserByMobile(String mobile);
+	//获取用户信息列表
+	public List<TUser> getUserList(int indexPage,int num);
+	public int count();
 }

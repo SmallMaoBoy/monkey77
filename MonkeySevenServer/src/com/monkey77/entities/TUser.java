@@ -3,6 +3,8 @@ package com.monkey77.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 
 /**
  * TUser entity. @author MyEclipse Persistence Tools
@@ -91,7 +93,7 @@ public class TUser  implements java.io.Serializable {
     public void setName(String name) {
         this.name = name;
     }
-
+    @JSON(serialize=false)
     public Set getTOrders() {
         return this.TOrders;
     }
@@ -99,7 +101,7 @@ public class TUser  implements java.io.Serializable {
     public void setTOrders(Set TOrders) {
         this.TOrders = TOrders;
     }
-
+    @JSON(serialize=false)
     public Set getTCookieValidates() {
         return this.TCookieValidates;
     }
@@ -107,7 +109,7 @@ public class TUser  implements java.io.Serializable {
     public void setTCookieValidates(Set TCookieValidates) {
         this.TCookieValidates = TCookieValidates;
     }
-
+    @JSON(serialize=false)
     public Set getTCarts() {
         return this.TCarts;
     }
@@ -115,7 +117,7 @@ public class TUser  implements java.io.Serializable {
     public void setTCarts(Set TCarts) {
         this.TCarts = TCarts;
     }
-
+    @JSON(serialize=false)
     public Set getTGoods() {
         return this.TGoods;
     }

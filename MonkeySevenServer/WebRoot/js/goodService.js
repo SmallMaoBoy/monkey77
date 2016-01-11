@@ -208,11 +208,22 @@ $(document).ready(function() {
 		con.style.display = "none";
 		}
 	var timer;
+	function show(){
+		var con = document.getElementById("t_idea");
+		con.style.display = "block";
+		time_id=setTimeout(hide,3000);	
+		}
+	function hide(){      //dissappeared when mouse move out this div
+		var con = document.getElementById("t_idea");
+		con.style.display = "none";
+		}
+	var time_id;
 		//加入购物车
 	var userid=$.cookie("userid");
 	$("#content-goods").on("click",".add_to_car",function(){
 		if(userid==undefined){
-		alert("请先登录！！！");
+		show();
+		return false;
 		}
 		else{
 				var goodid=$(this).attr('goodid');

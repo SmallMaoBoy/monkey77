@@ -17,9 +17,12 @@ public class TOrder implements java.io.Serializable {
 	private String status;
 	private Float totalPrice;
 	private Timestamp generatedTime;
+	private Timestamp submissionTime;
 	private Timestamp payTime;
 	private Timestamp takeTime;
 	private String remarks;
+	private String payWay;
+	private String orderNo;
 	private Set TUsers = new HashSet(0);
 	private Set TOrderDetails = new HashSet(0);
 
@@ -66,6 +69,30 @@ public class TOrder implements java.io.Serializable {
 
 	public void setTShop(TShop TShop) {
 		this.TShop = TShop;
+	}
+
+	public String getPayWay() {
+		return payWay;
+	}
+
+	public Timestamp getSubmissionTime() {
+		return submissionTime;
+	}
+
+	public void setSubmissionTime(Timestamp submissionTime) {
+		this.submissionTime = submissionTime;
+	}
+
+	public void setPayWay(String payWay) {
+		this.payWay = payWay;
+	}
+
+	public String getOrderNo() {
+		return orderNo;
+	}
+
+	public void setOrderNo(String orderNo) {
+		this.orderNo = orderNo;
 	}
 
 	public String getStatus() {

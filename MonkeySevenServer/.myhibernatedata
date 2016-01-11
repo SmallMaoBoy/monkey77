@@ -1,9 +1,10 @@
 #MyEclipse Hibernate Properties
-#Sat Jan 09 02:24:30 CST 2016
-genBasicCompId=true
+#Sun Jan 10 23:34:57 CST 2016
 sessionFactoryName=
+genBasicCompId=true
 profile=
 daoSFId=
+version=2.1
 jndiPath=
 detectM2M=true
 reStrategyClass=
@@ -11,6 +12,8 @@ detectO2O=true
 springDaoFile=
 useJavaTypes=true
 keyGenerator=increment
+libInstallFolder=
+addLibs2Project=false
 genVersionTag=false
 sessionFactoryId=
 basePersistenceClass=
@@ -18,3 +21,4 @@ genAnnotations=false
 reSettingsFile=/MonkeySevenServer/hibernate.reveng.xml
 configFile=/MonkeySevenServer/src/hibernate.cfg.xml
 createConfigFile=false
+addLibs2Classpath=false

@@ -11,11 +11,11 @@
             <generator class="increment" />
         </id>
         <many-to-one name="TOrder" class="com.monkey77.entities.TOrder" fetch="select">
-            <column name="order_id" not-null="true">
+            <column name="order_id" >
                 <comment>订单id</comment>
             </column>
         </many-to-one>
-        <many-to-one name="TGood" class="com.monkey77.entities.TGood" fetch="select">
+        <many-to-one name="TGood" class="com.monkey77.entities.TGood" fetch="select" >
             <column name="good_id" not-null="true">
                 <comment>商品id</comment>
             </column>

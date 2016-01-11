@@ -65,6 +65,12 @@ public class TOrderDetail  implements java.io.Serializable {
     public void setGoodNumber(Integer goodNumber) {
         this.goodNumber = goodNumber;
     }
+
+
+	@Override
+	public String toString() {
+		return "TOrderDetail [id=" + id +  ", goodNumber=" + goodNumber + "]";
+	}
    
 
 
