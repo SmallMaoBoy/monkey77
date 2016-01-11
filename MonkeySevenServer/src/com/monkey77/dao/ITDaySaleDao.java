@@ -25,4 +25,5 @@ public interface ITDaySaleDao {
 	
 	//创建或更新日销售记录
 	public void createOrUpdate(TDaySale daySale);
+
 }

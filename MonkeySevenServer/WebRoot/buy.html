@@ -107,22 +107,11 @@
 		<div class="container">
 			<div class="col-lg-9 single-main">
 				<div class=" single-main-left" style="float:left">
-				<div class="col-lg-6 col-md-6 col-sm-12 sngl-top"  id="change_img">
+				<div class="col-lg-6 col-md-6 col-sm-12 sngl-top"  >
 				<div class="single-top-left" ><!--开始1-->	
 						<div class="flexslider" style="height:380px; width:380px;">
-							<ul class="slides">
-								<li data-thumb="imgs/mihoutao1.jpg">
-									<img src="imgs/mihoutao1.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao2.jpg">
-									<img src="imgs/mihoutao2.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao3.jpg">
-									<img src="imgs/mihoutao3.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao4.jpg">
-									<img src="imgs/mihoutao4.jpg" />
-								</li>
+							<ul class="slides" id="change_img">
+								
 							</ul>
 						</div>
                         
@@ -494,8 +483,8 @@ $(document).ready(function(e) {
 		
 	}
 	
-	initProvince(getElementByName("user.province"), "");
-    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
+	
+  
 </script>
 <script>
 function a1(t){

@@ -79,4 +79,26 @@ public class DaySaleServiceImp implements IDaySaleService {
 		}
 	}
 
+	@Override
+	public void calculateDaySell() {
+		// TODO Auto-generated method stub
+		//设置一个日历
+		Calendar c = Calendar.getInstance();
+		// 从一个 Calendar 对象中获取 Date 对象
+		c.set(Calendar.HOUR_OF_DAY, 0);
+		c.set(Calendar.SECOND, 0);
+		c.set(Calendar.MINUTE, 0);
+		Date d = c.getTime();
+		List<TDaySale> sales = daySaleDao.getDaySale(d);
+		sales.get(0).getTGood().getPrice();
+		int cal;
+		for(int i=0;i<=sales.size();i++){
+			
+			
+		}
+			
+		
+		
+	}
+
 }
