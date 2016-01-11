@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="css/matrix-media.css" />
 <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+
+
 </head>
 <body>
 
@@ -32,9 +35,9 @@
     <li><a href="usermessages.html"><i class="icon icon-th"></i> <span>用户信息</span></a></li>
     <li class="submenu active"> <a href="#"><i class="icon icon-list"></i> <span>管理员工</span></a>
       <ul>
-        <li><a href="check-staff.html">查看员工</a></li>
+         <li><a href="check-staff.html">查看店员</a></li>
+        <li><a href="reduce-staff.html">查看采购员</a></li>
         <li><a href="add-staff.html">增加员工</a></li>
-        <li><a href="reduce-staff.html">减少员工</a></li>
       </ul>
     </li>
     <li><a href="userword.html"><i class="icon icon-tint"></i> <span>用户留言</span></a></li>
@@ -51,43 +54,43 @@
 <div id="content">
   <div id="content-header">
     <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#">Form elements</a> <a href="#" class="current">Validation</a> </div>
-    <h1>Form validation</h1>
+    <h1>增加员工</h1>
   </div>
   <div class="container-fluid"><hr>
     <div class="row-fluid">
       <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-            <h5>Form validation</h5>
+            <h5>增加店员</h5>
           </div>
           <div class="widget-content nopadding">
-            <form class="form-horizontal" method="post" action="#" name="basic_validate" id="basic_validate" novalidate="novalidate">
+            <form class="form-horizontal">
               <div class="control-group">
-                <label class="control-label">Your Name</label>
+                <label class="control-label">账户</label>
                 <div class="controls">
-                  <input type="text" name="required" id="required">
+                  <input type="text" name="account" id="account">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Your Email</label>
+                <label class="control-label">性别</label>
                 <div class="controls">
-                  <input type="text" name="email" id="email">
+                  <input type="text" name="sex" id="sex">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Date (only Number)</label>
+                <label class="control-label">工作地点</label>
                 <div class="controls">
-                  <input type="text" name="date" id="date">
+                  <input type="text" name="worklocation" id="worklocation">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">URL (Start with http://)</label>
-                <div class="controls">
-                  <input type="text" name="url" id="url">
+                <label class="control-label">登陆密码</label>
+                <div class="controls" >
+                    <input type="text" name="pwd" id="pwd">
                 </div>
               </div>
               <div class="form-actions">
-                <input type="submit" value="Validate" class="btn btn-success">
+               <button class="btn btn-primary" id="sure">提交</button>
               </div>
             </form>
           </div>
@@ -98,72 +101,56 @@
       <div class="span12">
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-            <h5>Numeric validation</h5>
+            <h5>增加采购员</h5>
           </div>
           <div class="widget-content nopadding">
-            <form class="form-horizontal" method="post" action="#" name="number_validate" id="number_validate" novalidate="novalidate">
+             <form class="form-horizontal" >
               <div class="control-group">
-                <label class="control-label">Minimal Salary</label>
+                <label class="control-label">姓名</label>
                 <div class="controls">
-                  <input type="text" name="min" id="min" />
+                  <input type="text" name="name" id="name">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Maximum Salary</label>
+                <label class="control-label">性别</label>
                 <div class="controls">
-                  <input type="text" name="max" id="max" />
+                  <input type="text" name="sex" id="sex1">
                 </div>
               </div>
               <div class="control-group">
-                <label class="control-label">Only digit</label>
+                <label class="control-label">工作地点</label>
                 <div class="controls">
-                  <input type="text" name="number" id="number" />
+                  <input type="text" name="worklocation" id="worklocation1">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">账户</label>
+                <div class="controls">
+                  <input type="text" name="account" id="account1">
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">登陆密码</label>
+                <div class="controls" >
+                    <input type="text" name="pwd" id="pwd1">
                 </div>
               </div>
               <div class="form-actions">
-                <input type="submit" value="Validate" class="btn btn-success">
+               <button class="btn btn-primary" id="yes">提交</button>
               </div>
             </form>
           </div>
         </div>
       </div>
-      <div class="row-fluid">
-        <div class="span12">
-          <div class="widget-box">
-            <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
-              <h5>Security validation</h5>
-            </div>
-            <div class="widget-content nopadding">
-              <form class="form-horizontal" method="post" action="#" name="password_validate" id="password_validate" novalidate="novalidate">
-                <div class="control-group">
-                  <label class="control-label">Password</label>
-                  <div class="controls">
-                    <input type="password" name="pwd" id="pwd" />
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">Confirm password</label>
-                  <div class="controls">
-                    <input type="password" name="pwd2" id="pwd2" />
-                  </div>
-                </div>
-                <div class="form-actions">
-                  <input type="submit" value="Validate" class="btn btn-success">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </div>
 <!--Footer-part-->
-<div class="row-fluid">
-  <div id="footer" class="span12"> 2013 &copy; Matrix Admin. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a> </div>
-</div>
+
 <!--end-Footer-part-->
 <script src="js/jquery.min.js"></script> 
+<script src="js/addstaff.js"></script>
 <script src="js/jquery.ui.custom.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
 <script src="js/jquery.uniform.js"></script> 
@@ -171,5 +158,6 @@
 <script src="js/jquery.validate.js"></script> 
 <script src="js/matrix.js"></script> 
 <script src="js/matrix.form_validation.js"></script>
+
 </body>
 </html>

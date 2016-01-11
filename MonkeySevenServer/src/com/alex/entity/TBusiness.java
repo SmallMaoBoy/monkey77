@@ -14,11 +14,33 @@ public class TBusiness  implements java.io.Serializable {
      private Integer id;
      private String account;
      private String password;
+     private String sex;
+     private String worklocation;
 
 
     // Constructors
 
-    /** default constructor */
+    public String getSex() {
+		return sex;
+	}
+
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+
+	public String getWorklocation() {
+		return worklocation;
+	}
+
+
+	public void setWorklocation(String worklocation) {
+		this.worklocation = worklocation;
+	}
+
+
+	/** default constructor */
     public TBusiness() {
     }
 
