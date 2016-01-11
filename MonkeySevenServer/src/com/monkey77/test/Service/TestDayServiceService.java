@@ -35,4 +35,9 @@ public class TestDayServiceService {
 		daySaleService.addDaySale(12);
 	}
 	
+	@Test
+	public void getDaySale(){
+		System.out.println(daySaleService.getDaySale());
+	}
+	
 }

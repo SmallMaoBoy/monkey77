@@ -92,6 +92,7 @@
 	<bean id="DaySaleService" class="com.monkey77.service.DaySaleServiceImp">
 		<property name="daySaleDao" ref="DaySaleDao"></property>
 		<property name="orderDetailDao" ref="OrderDetailDao"></property>
+		<property name="goodDao" ref="GoodDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>
