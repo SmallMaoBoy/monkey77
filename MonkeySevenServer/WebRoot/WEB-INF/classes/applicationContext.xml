@@ -119,4 +119,7 @@
 	<bean id="BuyerAction" class="com.monkey77.action.BuyerAction">
 		<property name="buyerService" ref="BuyerService" ></property>
 	</bean>
+	<bean id="OrderAction" class="com.monkey77.action.OrderAction">
+		<property name="orderService" ref="OrderService" ></property>
+	</bean>
 </beans>
