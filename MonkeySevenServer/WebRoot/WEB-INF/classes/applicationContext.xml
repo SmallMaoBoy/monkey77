@@ -86,15 +86,18 @@
 		<property name="cartDao" ref="CartDao"></property>
 
 	</bean>
-	<bean id="OrderService" class="com.monkey77.service.OrderServiceImp">
-		<property name="userDao" ref="UserDao"></property>
-		<property name="orderDao" ref="OrderDao"></property>
-		<property name="cartDao" ref="CartDao"></property>
-	</bean>
 	<bean id="DaySaleService" class="com.monkey77.service.DaySaleServiceImp">
 		<property name="daySaleDao" ref="DaySaleDao"></property>
 		<property name="orderDetailDao" ref="OrderDetailDao"></property>
 		<property name="goodDao" ref="GoodDao"></property>
+	</bean>
+	<bean id="OrderService" class="com.monkey77.service.OrderServiceImp">
+		<property name="daySaleService" ref="DaySaleService"></property>
+		<property name="userDao" ref="UserDao"></property>
+		<property name="orderDao" ref="OrderDao"></property>
+		<property name="cartDao" ref="CartDao"></property>
+		<property name="shopDao" ref="ShopDao"></property>
+		<property name="orderDetailDao" ref="OrderDetailDao"></property>
 	</bean>
 	<bean id="RegisterAction" class="com.monkey77.action.RegisterAction">
 		<property name="userService" ref="UserService" ></property>

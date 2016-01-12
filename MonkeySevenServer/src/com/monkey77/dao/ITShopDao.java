@@ -28,4 +28,6 @@ public interface ITShopDao {
 	public Object getShopById(int id);
 	public void deleteShopById(int id);
 	
+	//获取所有商店
+	public List<TShop> getShopList();
 }

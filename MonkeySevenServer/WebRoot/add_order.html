@@ -8,6 +8,7 @@
 <link href="css/add_order.css" rel="stylesheet" type="text/css">
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
+<script language="javascript" src="js/order.js"></script>
 </head>
 
 <body>
@@ -75,33 +76,27 @@
   <h3><img src="imgs/little_car.png" />填写并核对订单信息</h3>
   <h4>收货地址</h4>
   <div class="address">
-  <input type="radio" name="address" value="0" />广州大学城广东药学院提取点<br/>
-  <input type="radio" name="address" value="1" />广州市天河区珠江新城提取点<br/>
-  <input type="radio" name="address" value="2" />广州市海珠区昌岗地铁站提取点<br/>
-  <input type="radio" name="address" value="3" />广州市火车站提取点
   </div><!--address-->
   <h4>支付方式</h4>
   <div class="order_item">
   <ul>
-  <li class="cur item_style">在线支付</li>
-  <li class="item_style">线下支付</li>
+  <li class="item_style">在线支付</li>
+  <li class="cur item_style">线下支付</li>
   <li class="item_style">余额支付</li>
   </ul>
   </div><!--order_item-->
+  <div class="remark">
+  <h4>备注</h4>
+  <input type="text" id="remark" class="form-control" placeholder="点击添加备注" aria-describedby="basic-addon1">
+  </div><!--remark-->
   <h4 style="margin-top:20px;">订单商品</h4>
   <a class="update_car">修改购物车</a>
   <div class="order_shop">
-  <ul>
-  <li>
-  <div class="order_shop_img"> <img src="imgs/apple1.jpg" class="shop_img"/></div>
-  <div class="order_shop_detail"><div class="detail_name">苹果</div><div class="detail_price">￥38.00 / 2斤 <span>x 2</span></div></div>
-  </li>
-  <li>
-  <div class="order_shop_img"> <img src="imgs/apple1.jpg" class="shop_img"/></div>
-  <div class="order_shop_detail"><div class="detail_name">苹果</div><div class="detail_price">￥38.00 / 2斤 <span>x 2</span></div></div>
-  </li>
+  <ul id="good-content">
   </ul>
   </div><!--order_shop-->
+  
+  
   <h4>使用积分/优惠券</h4>
   <div class="use_cart">
   <p>最多可抵扣￥0.00元，已抵扣10.00元</p>

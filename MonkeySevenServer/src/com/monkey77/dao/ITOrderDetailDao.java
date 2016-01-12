@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.monkey77.entities.TOrderDetail;
 import com.monkey77.jsonobj.Good;
+import com.monkey77.jsonobj.JsonCart;
 
 /**
  * @author mao
@@ -22,4 +23,5 @@ public interface ITOrderDetailDao {
 	
 	//获取订单详情
 	public List<Good> getGoodsByOrderId(int orderId);
+	
 }

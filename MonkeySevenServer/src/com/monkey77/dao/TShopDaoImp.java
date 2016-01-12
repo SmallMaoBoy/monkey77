@@ -62,4 +62,17 @@ public class TShopDaoImp extends HibernateDaoSupport implements ITShopDao {
 		
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-12下午4:49:16
+	 * @see com.monkey77.dao.ITShopDao#getShopList()
+	 */
+	@Override
+	public List<TShop> getShopList() {
+		// TODO Auto-generated method stub
+		 HibernateTemplate ht=this.getHibernateTemplate();
+		  DetachedCriteria criteria=DetachedCriteria.forClass(TShop.class);
+		  return ht.findByCriteria(criteria);
+	}
+
 }

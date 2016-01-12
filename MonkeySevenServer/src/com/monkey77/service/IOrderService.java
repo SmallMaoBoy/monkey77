@@ -18,7 +18,9 @@ public interface IOrderService {
 	public Map<String,Object> createOrder(int userId);
 	
 	//提交订单
-	public Map<String,Object> submissionOrder(int shopId,String remark,String payway,String orderNo);
+	public Map<String,Object> submissionOrder(int userId,int shopId,String remark,String payway,String orderNo);
 
+	//获取订单详情
+	public Map<String,Object> getOrderInfo(String orderNo,int userId);
 
 }
