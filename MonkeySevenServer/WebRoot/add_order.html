@@ -301,4 +301,12 @@ $('.carousel').carousel({
 	initProvince(getElementByName("user.province"), "");
     initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
 </script>
+<script>
+ $(document).ready(function(){
+  $("li.item_style").click(function(){
+    $("li.cur").removeClass("cur");
+	$(this).addClass('cur');
+  });
+});
+</script>
 

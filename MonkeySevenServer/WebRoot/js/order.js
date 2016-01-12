@@ -28,10 +28,12 @@ $(document).ready(function() {
 					$(".address").append('<input type="radio" id="address" name="address" value="'+shops[i].id+'" />'+shops[i].name+'<br/>');
 				}
 				for(var i=0;i<goods.length;i++){
-					$("#good-content").append('<li>');
-					$("#good-content").append('<div class="order_shop_img"> <img src="'+goods[i].picUrl+'" class="shop_img"/></div>');
-					$("#good-content").append('<div class="order_shop_detail"><div class="detail_name">'+goods[i].name+'</div><div class="detail_price">￥'+goods[i].price+' /'+goods[i].specification+' <span>x '+goods[i].num+'</span></div></div>');
-					$("#good-content").append('</li>');
+					$("#good-content").append(
+							'<li>'+
+							  '<div class="order_shop_img"> <img src="'+goods[i].picUrl+'" class="shop_img"/></div>'+
+							  '<div class="order_shop_detail"><div class="detail_name">'+goods[i].name+'</div><div class="detail_price">￥'+goods[i].price+'/'+goods[i].specification+'<span>x'+goods[i].num+'</span></div></div>'+
+							  '</li>'
+							);
 				}
 			}
 		});
