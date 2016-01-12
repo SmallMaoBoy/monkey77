@@ -1,22 +1,17 @@
 package com.alex.DAO;
 
-import java.util.List;
-
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.alex.entity.TBuyorder;
 import com.alex.util.Hibernateutil;
+import com.monkey77.entities.TGood;
 
-
-
-public class ShowbuyOrderDAO {
+public class ChangeGoodNumberDAO {
 	private Session session;  
     private Transaction tx;  
       
-    public ShowbuyOrderDAO() {  
+    public ChangeGoodNumberDAO() {  
         session = Hibernateutil.getSession();  
     }  
       
@@ -24,10 +19,10 @@ public class ShowbuyOrderDAO {
      * 显示数据库中order表的内容到网页中 
      * 
      */  
-    public void create(TBuyorder order) {  
+    public void create(TGood good) {  
         try {  
             tx = session.beginTransaction();  
-            session.save(order);  
+            session.save(good);  
             tx.commit();  
         } catch (HibernateException e) {  
             Hibernateutil.rollback(tx);  
@@ -36,10 +31,10 @@ public class ShowbuyOrderDAO {
         }  
     }  
       
-    public void delete(TBuyorder order) {  
+    public void delete(TGood good) {  
         try {  
             tx = session.beginTransaction();  
-            session.delete(order);  
+            session.delete(good);  
             tx.commit();  
         } catch (HibernateException e) {  
             Hibernateutil.rollback(tx);  
@@ -48,42 +43,30 @@ public class ShowbuyOrderDAO {
         }  
     }  
       
-    public TBuyorder find(int id) {  
-    	TBuyorder order = null;  
+    public TGood find(int id) {  
+    	TGood good = null;  
         tx = session.beginTransaction();  
-        order = (TBuyorder) session.get(TBuyorder.class, id);  
+        good = (TGood) session.get(TGood.class, id);  
         tx.commit();  
         Hibernateutil.closeSession();  
-        return order;      
+        return good;      
     }  
       
-    public void update(TBuyorder order) {  
+    public void update(TGood good) {  
         tx = session.beginTransaction();  
-        session.update(order);  
+        session.update(good);  
         tx.commit();  
         Hibernateutil.closeSession();  
     }  
       
-    public List show(int offset,int pageSize) {  
-        tx = session.beginTransaction();  
-        String sql = "from TBuyorder";  
-        Query query=session.createQuery(sql);
-        query.setFirstResult(offset*pageSize);
-        query.setMaxResults(pageSize);
-        
-        List list = query.list();
-        
-         
-        return list;   
-    }
-    
-    public Long resum(){
-    	String sql="select count(*) from TBuyorder";
-    	Query query=session.createQuery(sql);
-    	Long sum=(Long)query.list().get(0);
-    	
-    	Hibernateutil.closeSession();
-    	return sum;
-    }
+    public TGood show(Integer goodid,Short number) {  
+//        session.beginTransaction();
+    	TGood good=(TGood) session.get(TGood.class, goodid);
+    	good.setNumber(number);
+        session.update(good);
+        session.flush();
+        session.close();
+        return good;   
+    }  
       
 }

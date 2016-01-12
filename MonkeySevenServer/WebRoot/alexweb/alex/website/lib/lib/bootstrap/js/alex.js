@@ -55,3 +55,63 @@ $(document).ready(function(e) {
       
     
 });
+
+
+//修改采购员订单列表 买入价格 的模态框
+$(document).ready(function(e) {
+	var currentbuyinprice;
+    $('.cgbuyinprice').click(function(){
+    	currentbuyinprice=$(this).attr('buyinpriceID');
+		$('#myModal3').modal('show')
+	})
+	$(".tijiao3").click(function () {
+		var value=$("#shuju3").val();
+		
+		 $.post("/MonkeySevenServer/kung/changebuyinprice", { buyinprice:value ,id:currentbuyinprice },function(data){
+     if(data.result==0){ alert("修改失败！"); }
+	 else { window.location.reload();  }
+   } ); 
+		 });
+      
+    
+});
+
+
+//修改商品价格的模态框
+$(document).ready(function(e) {
+	var currentgoodprice;
+    $('.cggoodprice').click(function(){
+    	currentgoodprice=$(this).attr('goodpriceID');
+		$('#myModal4').modal('show')
+	})
+	$(".tijiao4").click(function () {
+		var value=$("#shuju4").val();
+		
+		 $.post("/MonkeySevenServer/kung/changegoodprice", { price:value ,id:currentgoodprice },function(data){
+     if(data.result==0){ alert("修改失败！"); }
+	 else { window.location.reload();  }
+   } ); 
+		 });
+      
+    
+});
+
+
+//修改商品数量的模态框
+$(document).ready(function(e) {
+	var currentgoodnumber;
+    $('.cggoodnumber').click(function(){
+    	currentgoodnumber=$(this).attr('goodnumberID');
+		$('#myModal5').modal('show')
+	})
+	$(".tijiao5").click(function () {
+		var value=$("#shuju5").val();
+		
+		 $.post("/MonkeySevenServer/kung/changegoodnumber", { number:value ,id:currentgoodnumber },function(data){
+     if(data.result==0){ alert("修改失败！"); }
+	 else { window.location.reload();  }
+   } ); 
+		 });
+      
+    
+});
