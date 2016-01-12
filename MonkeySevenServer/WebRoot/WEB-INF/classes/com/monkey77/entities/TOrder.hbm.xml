@@ -31,13 +31,18 @@
             </column>
         </property>
         <property name="totalPrice" type="java.lang.Float">
-            <column name="total_price" precision="7" not-null="true">
+            <column name="total_price" precision="7" >
                 <comment>订单价格</comment>
             </column>
         </property>
         <property name="generatedTime" type="java.sql.Timestamp">
             <column name="generated_time" length="19">
                 <comment>生成订单时间</comment>
+            </column>
+        </property>
+        <property name="submissionTime" type="java.sql.Timestamp">
+            <column name="submission_time" length="19">
+                <comment>提交订单时间</comment>
             </column>
         </property>
         <property name="payTime" type="java.sql.Timestamp">
@@ -53,7 +58,7 @@
         <property name="remarks" type="java.lang.String">
             <column name="remarks" />
         </property>
-        <set name="TUsers" inverse="true" table="t_user_order" catalog="monkey77">
+        <set name="TUsers" inverse="false" table="t_user_order" catalog="monkey77">
             <key>
                 <column name="order_id" not-null="true" />
             </key>
@@ -61,7 +66,7 @@
                 <column name="user_id" not-null="true" />
             </many-to-many>
         </set>
-        <set name="TOrderDetails" inverse="true">
+        <set name="TOrderDetails" inverse="false" cascade="save-update">
             <key>
                 <column name="order_id" not-null="true">
                     <comment>订单id</comment>

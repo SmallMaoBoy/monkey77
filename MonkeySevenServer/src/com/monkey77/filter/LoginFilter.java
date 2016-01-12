@@ -74,23 +74,23 @@ public class LoginFilter implements Filter {
 			return;
 		}
 		Cookie[] cookies = request.getCookies();
-		String mobile = "";
+		String id = "";
 		String cookievalidate = "";
 		if (cookies != null) {
 			for (int i = 0; i < cookies.length; i++) {
 				Cookie cookie = cookies[i];
-				if (cookie.getName().equals("mobile"))
-					mobile = cookie.getValue();
+				if (cookie.getName().equals("userid"))
+					id = cookie.getValue();
 				else if (cookie.getName().equals("cookievalidate"))
 					cookievalidate = cookie.getValue();
 			}
-			if (!(mobile.equals("") || mobile.equals("null"))) {
+			if (!(id.equals("") || id.equals("null"))) {
 				ApplicationContext ac = new ClassPathXmlApplicationContext(
 						"applicationContext.xml");
 				ITCookieValidateDao cookieValidateDao = (TCookieValidateDaoImp) ac
 						.getBean("CookieValidateDao");
 				TUser user = ((TUserDaoImp) ac.getBean("UserDao"))
-						.getUserByMobile(mobile);
+						.getUserById(Integer.parseInt(id));
 				TCookieValidate cookieValidate2 = cookieValidateDao
 						.getCookieValidate(user);
 				Timestamp createtime = cookieValidate2.getCreateTime();
@@ -117,19 +117,19 @@ public class LoginFilter implements Filter {
 					chain.doFilter(request, response);
 					return;
 				} else {
-					Cookie cookie1 = new Cookie("mobile", "");
+					Cookie cookie1 = new Cookie("userid", "");
 					Cookie cookie2 = new Cookie("cookievalidate", "");
 					response.addCookie(cookie1);
 					response.addCookie(cookie2);
 				}
 			} else {
-				Cookie cookie1 = new Cookie("mobile", "");
+				Cookie cookie1 = new Cookie("userid", "");
 				Cookie cookie2 = new Cookie("cookievalidate", "");
 				response.addCookie(cookie1);
 				response.addCookie(cookie2);
 			}
 		} else {
-			Cookie cookie1 = new Cookie("mobile", "");
+			Cookie cookie1 = new Cookie("userid", "");
 			Cookie cookie2 = new Cookie("cookievalidate", "");
 			response.addCookie(cookie1);
 			response.addCookie(cookie2);

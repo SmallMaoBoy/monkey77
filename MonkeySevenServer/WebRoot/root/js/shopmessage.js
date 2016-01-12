@@ -21,10 +21,8 @@ $(document).ready(function() {
 			dataType : "json",
 			success : function(data) {
 				var shop=data.shop;
-				var lat=shop.lat;
-				var lng=shop.lng;
 				var map = new BMap.Map("allmap");
-				var point = new BMap.Point(lat,lng);				
+				var point = new BMap.Point(shop.lat,shop.lng);				
 				var marker = new BMap.Marker(point);// 创建标注
 				map.addOverlay(marker);             // 将标注添加到地图中
 				map.centerAndZoom(point, 12);

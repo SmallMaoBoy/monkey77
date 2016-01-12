@@ -53,7 +53,7 @@ $(document).ready(function() {
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
-        '<p><a href="buy.html" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
+        '<p><a href="http://localhost:8080/MonkeySevenServer/buy.html?id='+goods[i].id+'" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
       '</div>'+
     '</div>'+
   '</div>');}
@@ -196,12 +196,72 @@ $(document).ready(function() {
 			}
 		});
 	}
-	//加入购物车
+	
+	//加入购物车成功弹出框
+	function showarea(){
+		var con = document.getElementById("t_area");
+		con.style.display = "block";
+		timer=setTimeout(offarea,1000);	
+		}
+	function offarea(){      //dissappeared when mouse move out this div
+		var con = document.getElementById("t_area");
+		con.style.display = "none";
+		}
+	var timer;
+	function show(){
+		var con = document.getElementById("t_idea");
+		con.style.display = "block";
+		time_id=setTimeout(hide,3000);	
+		}
+	function hide(){      //dissappeared when mouse move out this div
+		var con = document.getElementById("t_idea");
+		con.style.display = "none";
+		}
+	var time_id;
+		//加入购物车
 	var userid=$.cookie("userid");
 	$("#content-goods").on("click",".add_to_car",function(){
-		var goodid=$(this).attr('goodid');
-		addNewCart(userid,goodid,1);
+		if(userid.trim()==""){
+		show();
+		return false;
+		}
+		else{
+				var goodid=$(this).attr('goodid');
+				addNewCart(userid,goodid,1);
+				showarea();
+				getCartInfo(userid);
+				return false;
+		}
+		
+		
+		
 	});
+	$("#content-goods").on("onMouseOut",".add_to_car",function(){
+		timer=setTimeout(offarea,1000);
+		clearTimeout(timer);
+	});
+
+	
+	//右下角购物车总数显示
+	getCartInfo(userid);
+	function getCartInfo(userid){
+		//alert(userid);
+		$.ajax({
+			type:'post',
+			data:{"userId":userid},
+			url:"CartAction_getCartInfo",
+			dataType:"Json",
+			success:function(data){
+				var sum_number=0;
+				var cart=data.cart;
+				for(i=0;i<cart.length;i++){
+				$("#test_hidden").append(cart[i].num
+						);
+				sum_number=cart[i].num+sum_number;
+				}
+				$("#num").empty();
+				$("#num").append(sum_number);
+			}});}
 
 	function addNewCart(userid,goodid,num){
 		$.ajax({

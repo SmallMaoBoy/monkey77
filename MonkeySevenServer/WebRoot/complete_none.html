@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="save" content="history">
+<title>猴七七</title>
+<script language="javascript" src="bootstrap/js/jquery.js"></script>
+<script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/complete.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-default ">
+  <div class="container-fluid ">
+<div class="navbar-header ">
+<a href="hou77.html">
+  <img  src="imgs/logo.png" />
+  </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse" id="navbar-1" >
+        <ul class="nav navbar-nav navbar-right">
+        <li id="header_li1"><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li id="header_li2"><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+        <li id="myfruit"><a href="my.html">[我的果园]</a> 
+        
+         <ul id="menu" class="dropdown-menu">
+        <li><a href="order.html">我的订单</a></li>
+        <li><a href="coupon.html">优惠券</a></li>
+        <li><a href="document.html">个人信息</a></li>
+        <li><a href="shopping.html">我的购物车</a></li>
+        </ul>
+        
+       </li>
+        
+        <li id="phone_fruit"><a href="#"><img src="imgs/mobile_phone.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;手机果园</a>
+        <div id="menu_phone" class="dropdown-menu">
+        
+        <img src="imgs/t01c6afc001802f0b9a.png" style="height:150px; width:150px" />
+        </div>
+        </li>
+        <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
+        <li><a herf="#">
+         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
+	     <option value="gd">广东省</option>
+         <option value="hb">湖北省</option>
+         <option value="hn">湖南省</option>
+         <option value="hainan">海南省</option>
+         
+         </select>
+         <select id="city" style="border:hidden;background-color:#F8f8f8; overflow-style:marquee-line" >
+	     <option value="gz">广州市</option>
+         <option value="sz">深圳市</option>
+         <option value="jy">揭阳市</option>
+         <option value="zj">湛江市</option>
+         <option value="jm">江门市</option>
+         <option value="yf">云浮市</option>
+         <option value="yj">阳江市</option>
+         <option value="fs">佛山市</option>
+         <option value="st">汕头市</option>
+
+         </select></a>
+        </li>   
+      </ul>
+    </div>
+   </div>
+  </nav>
+  
+    <div class="order_head">  
+  <img src="imgs/hou77.png" class="order_head_img1"/>
+  <img src="imgs/complete_order.png" class="order_head_img2"/>
+  </div><!--order_head-->
+  
+  <div class="complete_body">
+   <div class="body_1">
+   <img src="imgs/gou.png" class="gou"/>
+   <span class="ready_sent">您的订单已完成，请在规定时间内到提货点提货</span><br/>
+   </div><!--body_1-->
+   
+   <div class="body_2">
+   <span class="order_num">订单号码：1234567890000</span><br/><br/>
+   <a herf="#" class="look_order">查看订单详情》</a>
+   </div><!--body_2-->
+  </div><!--complete_body-->
+  
+  
+  <div class="goods visible-lg" id="foot1">
+              <div class="container">
+                  <div class="line"><img src="imgs/foot_a1.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a2.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a3.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a4.jpg"></div>
+                  <div class="line"><img src="imgs/foot_a5.jpg"></div>
+              </div>
+         </div>
+         
+<div class="foot visible-lg" id="foot2" style="padding-top:20px; padding-bottom:200px ">
+<div class="pageFooter">
+	<div class="middle" style="padding-left:40px">
+		<ul class="title1">
+            <li><img src="imgs/11.png"/></li>
+			<li style="padding-left:110px">4009-111-111</li>
+			<li style="padding-left:80px">周一至周日8:30-22:00</li>
+		</ul>
+	</div>
+	<div class="right" >
+		<ul class="title1">
+			<li class="title">购物指南</li>
+						<li><a rel="nofollow" href="#" target="_blank">积分制度</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">会员介绍</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">购物流程</a></li>
+						<li><a rel="nofollow" href="#" target="_blank">常见问题</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">配送服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">开箱验货</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送运费</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">配送范围</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title">支付方式</li>
+			  <li><a rel="nofollow" href="#" target="_blank">货到付款</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">在线支付</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">优选卡</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">发票制度</a></li>
+					</ul>
+		<ul class="title1">
+			<li class="title" >售后服务</li>
+			  <li><a rel="nofollow" href="#" target="_blank">退款说明</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货流程</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">退换货政策</a></li>
+			  <li><a rel="nofollow" href="#" target="_blank">隐私条款</a></li>
+					</ul>
+	</div>
+	<div >
+        <ul class="title1">
+          <li style="float:left; font-weight:700">手机客户端:</a></li>
+          <li style="float:left"><img src="imgs/t01c6afc001802f0b9a.png"/></li>
+        </ul>
+      </div>
+</div>
+</div>
+</body>
+</html>

@@ -111,6 +111,7 @@ $(document).ready(function() {
 				var code=jQuery.parseJSON(respdata.statusCode);
 				if (code == "0") {
 					var user=respdata.data;
+					$.cookie('userid', user.id, { expires: 7 });
 					$.cookie('username', user.name, { expires: 7 });
 					$.cookie('mobile', user.mobile, { expires: 7 });
 					$.cookie('sex', user.sex, { expires: 7 });
@@ -129,14 +130,14 @@ $(document).ready(function() {
 });
 
 function unsign(){
-	$.cookie('mobile',null);
+	$.cookie('userid',null);
 	changeUser();
 	
 }
 	
 function changeUser(){
-	var mobile=$.cookie('mobile');
-	if(mobile==null||mobile=="null"||mobile==""){
+	var userid=$.cookie('userid');
+	if(userid==null||userid=="null"||userid==""){
 		$("#header_li1").html("<a data-toggle='modal' data-target='#myModal'>[登录] </a>");
 		$("#header_li2").html("<a data-toggle='modal' data-target='#myModa2'>[注册] </a>");
 		

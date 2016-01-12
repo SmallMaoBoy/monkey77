@@ -8,14 +8,46 @@
 <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="css/colorpicker.css" />
 <link rel="stylesheet" href="css/datepicker.css" />
-<link rel="stylesheet" href="css/uniform.css" />
-<link rel="stylesheet" href="css/select2.css" />
 <link rel="stylesheet" href="css/matrix-style.css" />
 <link rel="stylesheet" href="css/matrix-media.css" />
 <link rel="stylesheet" href="css/bootstrap-wysihtml5.css" />
 <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link href='http://fonts.useso.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.modal-header {
+	width: 298px;
+	border: none;
+	background: white;
+}
+
+.modal-body {
+	width: 300px;
+	border: none;
+}
+
+.modal-footer {
+	width: 300px;
+	border-top: none;
+}
+
+.modal-content {
+	width: 300px;
+}
+
+#myModal {
+	margin-top: 50px;
+}
+#myModal>.modal-dialog>.modal-content>.modal-footer>.a1{
+   font-size: 10px;
+   margin-left: 8px;
+}
+#myModal>.modal-dialog>.modal-content>.modal-footer>.a1:HOVER {
+	color:black;
+	cursor: pointer;
+}
+</style>
 </head>
+
 <body>
 
 <!--Header-part-->
@@ -35,9 +67,9 @@
     <li><a href="usermessages.html"><i class="icon icon-th"></i> <span>用户信息</span></a></li>
     <li class="submenu active"> <a href="#"><i class="icon icon-list"></i> <span>管理员工</span></a>
       <ul>
-        <li><a href="check-staff.html">查看员工</a></li>
+        <li><a href="check-staff.html">查看店员</a></li>
+        <li><a href="reduce-staff.html">查看采购员</a></li>
         <li><a href="add-staff.html">增加员工</a></li>
-        <li><a href="reduce-staff.html">减少员工</a></li>
       </ul>
     </li>
     <li><a href="userword.html"><i class="icon icon-tint"></i> <span>用户留言</span></a></li>
@@ -55,23 +87,77 @@
 <!--close-left-menu-stats-sidebar-->
 
 <div id="content">
- 
+ 	
+ 	<div id="content-header">
+			<div id="breadcrumb">
+				<a href="index.html" title="Go to Home" class="tip-bottom"><i
+					class="icon-home"></i> 首页</a> <a href="#" class="current">店员信息</a>
+			</div>
+			<h1>店员</h1>
+		</div>
+		<div class="widget-box">
+			<div class="widget-title">
+				<span class="icon"> <i class="icon-eye-open"></i> </span>
+				<h5>店员</h5>
+			</div>
+			<div class="widget-content nopadding">
+				<div>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>姓名</th>
+								<th>性别</th>
+								<th>工作地</th>
+								<th>删除</th>
+							</tr>
+						</thead>
+						<tbody id="staff">
+
+						</tbody>
+
+						<!--模态框  -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+									</div>
+									<div class="modal-body">确认删除</div>
+									<div class="modal-footer">
+									<button type="button" id="delete" class="btn btn-default btn-primary" data-dismiss="modal"">是 </button>
+            						
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+					<!-- /.modal -->
+					</table>
+				</div>
+
+
+			</div>
+
+
+
+		</div>
+		<div class="container">
+			<nav style="margin:0px auto;text-align:center;">
+				<ul class="pagination" id="page-switch-root">
+				</ul>
+			</nav>
+		</div>
+ 	
+ 	
+ 	
 </div>
-<!--end-Footer-part--> 
+<!--end-Footer-part-->
+
 <script src="js/jquery.min.js"></script> 
 <script src="js/jquery.ui.custom.js"></script> 
 <script src="js/bootstrap.min.js"></script> 
-<script src="js/bootstrap-colorpicker.js"></script> 
-<script src="js/bootstrap-datepicker.js"></script> 
-<script src="js/jquery.toggle.buttons.html"></script> 
-<script src="js/masked.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
 <script src="js/matrix.js"></script> 
-<script src="js/matrix.form_common.js"></script> 
-<script src="js/wysihtml5-0.3.0.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/bootstrap-wysihtml5.js"></script> 
 
+<script src="js/staffmessage.js"></script>
 </body>
 </html>

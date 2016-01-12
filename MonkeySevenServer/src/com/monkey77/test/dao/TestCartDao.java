@@ -59,4 +59,9 @@ public class TestCartDao {
 	public void testAddCartResult(){
 		System.out.println(cartDao.delCartWithResult(2, 1, 1));
 	}
+	
+	@Test
+	public void testGetOrderDetail(){
+		System.out.println(cartDao.getOrderDetil(4));
+	}
 }

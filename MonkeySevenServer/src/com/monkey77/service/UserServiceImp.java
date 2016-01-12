@@ -151,6 +151,7 @@ public class UserServiceImp implements IUserService{
 			if(user.getPassword().equals(MD5.getMD5(password))){
 				json.put("statusCode", "0");
 				Map<String,String> data=new HashMap<String,String>();
+				data.put("id", String.valueOf(user.getId()));
 				data.put("name", user.getName());
 				data.put("sex", user.getSex()==0?"男":"女");
 				data.put("mobile", user.getMobile());

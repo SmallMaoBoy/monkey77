@@ -8,9 +8,12 @@
 <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
+
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script language="javascript" src="js/buy.js"></script>
 <script defer src="js/jquery.flexslider.js"></script>
 <script src="js/jquery-1.11.0.min.js"></script>
+<script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <style>
 @media screen and (max-width:1000px){
 	#relactive_punch{display:none;}
@@ -104,38 +107,15 @@
 		<div class="container">
 			<div class="col-lg-9 single-main">
 				<div class=" single-main-left" style="float:left">
-				<div class="col-lg-6 col-md-6 col-sm-12 sngl-top">
-				<div class="single-top-left">	
+				<div class="col-lg-6 col-md-6 col-sm-12 sngl-top"  >
+				<div class="single-top-left" ><!--开始1-->	
 						<div class="flexslider" style="height:380px; width:380px;">
-							<ul class="slides">
-								<li data-thumb="imgs/mihoutao1.jpg">
-									<img src="imgs/mihoutao1.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao2.jpg">
-									<img src="imgs/mihoutao2.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao3.jpg">
-									<img src="imgs/mihoutao3.jpg" />
-								</li>
-								<li data-thumb="imgs/mihoutao4.jpg">
-									<img src="imgs/mihoutao4.jpg" />
-								</li>
+							<ul class="slides" id="change_img">
+								
 							</ul>
 						</div>
                         
-                   </div>
-                  
-                  
-                  
-	<script>
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    controlNav: "thumbnails"
-  });
-});
-</script>
+                   </div><!--结束1-->
 </div><!--sngl-top-->
                  <div class="col-lg-6 col-md-6 col-sm-12" style="float:left;">
 					<div class="details-left-info col-xs-12 col-sm-6 col-lg-4" style="width:400px">
@@ -288,36 +268,7 @@ $(window).load(function() {
    <span class="now_price">¥48.0/kg</span>&nbsp;&nbsp;
    <span class="old_price">¥58.0/kg</span>
   </div>
-               
-                   
-                  
-                   <!--</h1> <div class="thumbnail">
-                     <a href="#" style="text-decoration:none;display:block;"> 
-                     <img src="imgs/618829a034e67bc2c05baf00f50b5bc8.jpg" />
-                  <div class="caption">
-                  <h4>水蜜桃</h4><p>¥12.0/kg</p>
-                 </div></a>
-                 </div>
-  
-    <div class="thumbnail" style=" margin-top:-20px;">
-     <a href="#" style="text-decoration:none;display:block;"> 
-      <img src="imgs/a5.jpg" />
-      <div class="caption">
-        <h4>水蜜桃</h4>
-        <p>¥12.0/kg</p>
-      </div></a>
-    </div>
 
-    <div class="thumbnail" style=" margin-top:-20px;">
-     <a href="#" style="text-decoration:none;display:block;"> 
-      <img src="imgs/a7.jpg" />
-      <div class="caption">
-        <h4>猕猴桃</h4>
-        <p>¥12.0/kg</p>
-      </div></a>
-   </div> -->
-
-                   
                    </div><!--relactive_punch-->
                    </div>
                   </div>
@@ -410,13 +361,6 @@ $(window).load(function() {
 					</script>
                  </html>
                  
- <script language="javascript">
-//jquery代码
-$('.carousel').carousel({
-  interval: 2000
-})
-   
-</script>
 <script language="javascript">
 $(document).ready(function(e) {
    $("#myfruit").hover(function(){
@@ -539,8 +483,8 @@ $(document).ready(function(e) {
 		
 	}
 	
-	initProvince(getElementByName("user.province"), "");
-    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
+	
+  
 </script>
 <script>
 function a1(t){
@@ -578,3 +522,12 @@ function ad()
 
 </script> 
 
+<script>
+// Can also be used with $(document).ready()
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide",
+    controlNav: "thumbnails"
+  });
+});
+</script>

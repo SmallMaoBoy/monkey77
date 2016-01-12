@@ -16,5 +16,11 @@
         <property name="password" type="java.lang.String">
             <column name="password" length="50" not-null="true" />
         </property>
+         <property name="sex" type="java.lang.String">
+            <column name="sex"  not-null="true" />
+        </property>
+        <property name="worklocation" type="java.lang.String">
+            <column name="worklocation"  not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

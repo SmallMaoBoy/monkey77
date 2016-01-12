@@ -7,8 +7,10 @@ package com.monkey77.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -17,6 +19,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import com.monkey77.entities.TCart;
 import com.monkey77.entities.TGood;
+import com.monkey77.entities.TOrderDetail;
 import com.monkey77.entities.TUser;
 import com.monkey77.jsonobj.JsonCart;
 
@@ -206,6 +209,30 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 	public List<JsonCart> delCartWithResult(int userId, int goodId) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-10下午4:36:35
+	 * @see com.monkey77.dao.ITCartDao#getOrderDetil(int)
+	 */
+	@Override
+	public Set<TOrderDetail> getOrderDetil(int userId) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
+		cartCriteria.createAlias("TUser", "t");
+		cartCriteria.add(Restrictions.eq("t.id",userId));
+		DetachedCriteria  goodCriteria=cartCriteria.createCriteria("TGood");
+		List<TCart> list=ht.findByCriteria(goodCriteria);
+		Set<TOrderDetail> result=new HashSet<TOrderDetail>();
+		for(int i=0;i<list.size();i++){
+			TOrderDetail t=new TOrderDetail();
+			t.setTGood(list.get(i).getTGood());
+			t.setGoodNumber(list.get(i).getGoodNumber());
+			result.add(t);
+		}
+		return result;
 	}
 
 }

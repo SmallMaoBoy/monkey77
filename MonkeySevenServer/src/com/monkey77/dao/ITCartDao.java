@@ -6,11 +6,10 @@
 package com.monkey77.dao;
 
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.web.servlet.view.tiles.TilesJstlView;
+import java.util.Set;
 
 import com.monkey77.entities.TCart;
+import com.monkey77.entities.TOrderDetail;
 import com.monkey77.jsonobj.JsonCart;
 
 /**
@@ -43,4 +42,7 @@ public interface ITCartDao {
 	
 	//删除某一项物品
 	public List<JsonCart> delCartWithResult(int userId,int goodId);
+	
+	//将购物车商品复制到订单中
+	public Set<TOrderDetail> getOrderDetil(int userId);
 }

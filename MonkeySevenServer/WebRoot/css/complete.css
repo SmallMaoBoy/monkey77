@@ -1,0 +1,161 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,html{
+		/*与窗体的外边距*/
+		margin:0px;
+		padding:0px;
+		font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+		font-size: 14px;	
+	}
+	/*解决div贴紧顶部边界*/
+	*{
+	/* [disabled]margin:0px; */
+	padding: 0px;
+}
+	ul{margin:0;}
+	#header-line{
+		height:40px;
+		background:#F0F0F0;
+		margin:0px;	
+	    float:left;
+		width:100%;
+	}
+	#select-line{
+		float:left;
+		margin-left:0px;
+		}
+	#header-line>ul{
+		
+		list-style:none;
+      padding-left:800px;
+		
+	}
+	#select-line>ul{
+		list-style:none;
+      padding-left:130px;
+		}
+	#select-line>ul>li,#header-line>ul>li{
+		float:left;
+		
+		/*解决li中的文本垂直居中*/
+		line-height:40px;
+		vertical-align:middle;
+	}
+	
+	#select-line>ul>li>a{
+		color:#666;
+		/*去掉下划线*/
+		text-decoration:none;
+		display:block;
+		float:left;
+		line-height:40px;
+		vertical-align:middle;
+		padding:0px 10px;
+		}
+	#header-line>ul>li>a:hover{
+		color:#666;
+	}
+	.complete_body{
+	height:300px;
+	width: 1000px;
+    margin: 0 auto;
+    margin-top: 111px;
+    padding-bottom: 33px;
+	}
+	.go-pay{
+  float: right;
+  text-decoration: none;
+  margin-left: 15px;
+  width: 150px;
+  height: 48px;
+  background-color: #64a131;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Hiragino Sans GB W6","Microsoft YaHei",sans-serif;
+  color: #ffffff;
+  background-color: #64a131;
+  cursor: pointer;
+	
+	}
+.go-pay:hover{
+		text-decoration:none;
+		color:#CCC;
+		}
+.line_word{
+	float:right;
+	}
+.line_word_price{
+	font-size:20px;
+	color:#64a131;
+	padding:0 30px 0 20px;
+	}
+.title1{
+	float:left;
+	list-style:none;
+	padding:0 40px;
+	color:#000;
+	}
+.title{
+	font-weight:700
+	}
+	.title1>li>a{
+		color:#666;
+		/*去掉下划线*/
+		text-decoration:none;}
+.menu li:before { content: "|"; padding-right: 10px; }
+.menu li:last-child:before { content: ""; }
+.goods {
+height: 82px;
+width: 100%;
+background: #669933;
+color: #666;
+}
+.line{ 
+float:left;
+padding-right:50px;
+padding:20px;
+}
+.order_head_img2{
+	float:right;
+	margin-right:50px;
+	}
+.order_head_img1{
+ margin-left:50px;
+	}
+.complete_body{
+	height:300px;
+	width: 1000px;
+    margin: 0 auto;
+    margin-top: 111px;
+	}
+.ready_sent{
+  font: 30px "Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color: #64a131;
+  margin-top: 13px;
+	}
+.prompt{
+  font: 16px "Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  color: #999999;
+  margin-bottom: 0;
+  margin-left:60px;
+	}
+.gou{
+	height:71px;
+	width:60px;
+	}
+.body_1{
+	padding-bottom: 10px;
+    border-bottom: 1px solid #dddddd;
+	}
+.order_num{
+	color: #999999;
+	}
+.body_2{
+	 padding: 36px 0 15px 70px;
+	 font-size:16px;
+	}
+.look_order{
+	color:#C66;
+	margin-left:50px;
+	}

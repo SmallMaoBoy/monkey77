@@ -148,7 +148,8 @@
     </div>
 </div> 
 </div>
-<div class="tehui container">
+
+<div class="tehui container"><!-- 今日特惠水果栏 -->
 <hr size="1" noshade style="border:1px solid #AA208B;">
 <h3 style="color:#AA208B; font-weight:900">今日特惠</h3>
 </div>
@@ -222,7 +223,7 @@
 </div>
 
 
-  <div class="container" style="margin-top:5px" >
+  <div class="container" style="margin-top:5px" ><!-- 水果分类导航条 -->
     <div class="line2 " id="choose" >
     <ul class="se-line">
         <li id="sort0" class="active sort"><a href="javascript:;">销量从大到小</a></li>
@@ -244,29 +245,31 @@
 
   
   
-<div class="container" style="margin:10px auto">
+<div class="container" style="margin:10px auto"><!-- 商品图片栏 -->
  <div class="row" id="content-goods">
 </div> 
 </div>
-     <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;">
+
+     <nav class="navbar navbar-default navbar-fixed-bottom" style="background-color:transparent;border:hidden;left:90%;"><!-- 底部购物车，回到顶部标志 -->
 <div class="container" style="padding-bottom:10px;">
  <a href="shopping.html">
-  <div   style=" height:55px; width:55px; background-image:url(imgs/shop_bag.jpg);" > 
-  <input id="num" type="text" value="0" />
+  <div id="test_hidden"></div>
+  <div id="num" style=" height:55px; width:55px; background-image:url(imgs/shop_bag.jpg);" > 
+  <p>0<p>
   </div></a>
   </div>
   <div class="container"><a href="#"><img src="imgs/back.png" style="width:55px;height:55px;"/></a></div>
 </nav>
 
 
-<div class="container">
+<div class="container"><!-- 分页 -->
 <nav style="margin:0px auto;text-align:center;">
   <ul class="pagination" id="page-switch-root"> 	
   </ul>
 </nav>
 </div>
 
-<div class="goods visible-lg" id="foot1">
+<div class="goods visible-lg" id="foot1"><!-- 尾部 -->
               <div class="container">
                   <div class="line"><img src="imgs/foot_a1.jpg"></div>
                   <div class="line"><img src="imgs/foot_a2.jpg"></div>
@@ -371,6 +374,20 @@
     </div>
   </div>
 </div>
+
+ <nav class="navbar-fixed-bottom"><!-- 成功加入购物车弹出框 -->
+<div id="t_area">
+      <div class="t_area_head"></div>
+ <div class="t_area_body"> <img src="imgs/gou.png" /> 已经成功加入购物车！</div>
+  
+</div></nav>
+
+<nav class="navbar-fixed-center navbar-fixed-bottom"><!-- 加入购物车之前没有登录提示框 -->
+<div id="t_idea">
+   <div class="t_idea_head">猴七七欢迎您^_^</div>
+   <div class="t_idea_body"><img src="imgs/jinggao.png"/>请您先登录！！</div>
+</div>
+</nav>
 
 </body>
 </html>
