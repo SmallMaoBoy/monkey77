@@ -66,6 +66,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body class=""> 
   <!--<![endif]-->
   
+  
+  <!-- 修改买入价格的Modal 3-->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">商品买入价格为：</h4>
+      </div>
+      <div class="modal-body">
+       <input type="text" id="shuju3" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary tijiao3">保存修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
   <!-- 修改订单状态的Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -145,23 +165,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     
     <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>管理总览</a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">查看订单信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">查看商品信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            <li><a href="/MonkeySevenServer/kung/backbuyer">主页</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">商品上下架</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">制定价格</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">管理商品数量</a></li>
             
             
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>账户管理<span class="label label-info">+3</span></a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>需求订单管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">更换账户</a></li>
-            <li ><a href="#">查看个人信息</a></li>
-            <li ><a href="reset-password.html">修改密码</a></li>
-            <li ><a href="#">添加账户</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">需求订单管理</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">填入买入价格</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">买入所需商品</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            
         </ul>
+
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
+        <ul id="error-menu" class="nav nav-list collapse">
+            <li ><a href="403.html">新活动</a></li>
+            <li ><a href="404.html">已举行活动</a></li>
+            <li ><a href="500.html">活动列表</a></li>
+            <li ><a href="503.html">活动总览</a></li>
+        </ul>
+
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
+        <ul id="legal-menu" class="nav nav-list collapse">
+            <li ><a href="privacy-policy.html">商品分类</a></li>
+            <li ><a href="terms-and-conditions.html">商品信息</a></li>
+            <li ><a href="privacy-policy.html">商品一览</a></li>
+            
+        </ul>
+     
+       
+        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
         
     </div>
     
@@ -189,19 +229,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <tr>
    <td>订单ID</td>
    <td>商品类型</td>
-   <td>买入价格</td>
-   <td>当天价格</td>
+   <td>买入价格(RMB/斤)</td>
+   <td>当天价格（RMB/斤）</td>
    <td>订单状态</td>
-   <td>商品数量</td>
+   <td>商品数量（斤）</td>
 </tr>
 <c:forEach items="${sessionScope.Tbuyoder}" var="ord">
 <tr>
    <td>${ord.id}</td>
-   <td><a href="javascript:;" class="cggood" ordergoodID="${ord.id}">${ord.good}</a>
+   <!--  可以修改的商品种类<td><a href="javascript:;" class="cggood" ordergoodID="${ord.id}">${ord.good}</a>-->
+   <td>${ord.good}</td>
   
    
    </td>
-   <td>${ord.buyinprice}</td>
+   
+   <td><a href="javascript:;" class="cgbuyinprice" buyinpriceID="${ord.id}">${ord.buyinprice}</a>
    <td>${ord.dayprice}</td>
    <td>
           <a href="javascript:;" class="cgbuyorder" buyorderID="${ord.id}">${ord.status}</a>
@@ -220,11 +262,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=0">1</a></li>
+    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=1">2</a></li>
+    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=2">3</a></li>
+    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=3">4</a></li>
+    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=4">5</a></li>
     <li>
       <a href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>

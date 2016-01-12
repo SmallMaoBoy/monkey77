@@ -123,8 +123,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
             <li ><a href="/MonkeySevenServer/kung/showorderdata">查看订单信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看商品信息</a></li>
-            <li ><a href="user.html">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看顾客信息</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata">更改订单状态</a></li>
             
             
         </ul>

@@ -15,7 +15,7 @@ import java.util.Map;
 public interface IOrderService {
 
 	//创建订单
-	public String createOrder(int userId);
+	public Map<String,Object> createOrder(int userId);
 	
 	//提交订单
 	public Map<String,Object> submissionOrder(int shopId,String remark,String payway,String orderNo);

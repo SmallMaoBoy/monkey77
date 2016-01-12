@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>猴七七提取点店员管理系统</title>
+    <title>采购员管理系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,6 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/css/alex.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/font-awesome/css/font-awesome.css"/>
@@ -55,6 +56,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/fot-awsome/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/fot-awsome/assets/ico/apple-touch-icon-57-precomposed.png">
     
+    
+    
 
   </head>
   
@@ -82,7 +85,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                     
                 </ul>
-                <a class="brand" href="index.html"><span class="first">猴七七</span> <span class="second">提取点店员管理系统</span></a>
+                <a class="brand" href="index.html"><span class="first">猴七七</span> <span class="second">采购员管理系统</span></a>
         </div>
     </div>
     
@@ -90,23 +93,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     
     <div class="sidebar-nav">
-        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>管理总览</a>
+        <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
-            <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">查看订单信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看顾客信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">更改订单状态</a></li>
+            <li><a href="/MonkeySevenServer/kung/backbuyer">主页</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">商品上下架</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">制定价格</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">管理商品数量</a></li>
             
             
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>账户管理<span class="label label-info">+3</span></a>
+        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>需求订单管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">更换账户</a></li>
-            <li ><a href="#">查看个人信息</a></li>
-            <li ><a href="reset-password.html">修改密码</a></li>
-            <li ><a href="#">添加账户</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">需求订单管理</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">填入买入价格</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">买入所需商品</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            
         </ul>
+
+        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
+        <ul id="error-menu" class="nav nav-list collapse">
+            <li ><a href="403.html">新活动</a></li>
+            <li ><a href="404.html">已举行活动</a></li>
+            <li ><a href="500.html">活动列表</a></li>
+            <li ><a href="503.html">活动总览</a></li>
+        </ul>
+
+        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
+        <ul id="legal-menu" class="nav nav-list collapse">
+            <li ><a href="privacy-policy.html">商品分类</a></li>
+            <li ><a href="terms-and-conditions.html">商品信息</a></li>
+            <li ><a href="privacy-policy.html">商品一览</a></li>
+            
+        </ul>
+     
+       
+        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
         
     </div>
     
@@ -137,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="alert alert-info">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>信息:</strong> 欢迎您来到提取点店员管理系统!
+        <strong>信息:</strong> 欢迎您来到业务员管理系统!
     </div>
 
     <div class="block">
@@ -148,14 +171,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="stat-widget">
                     <div class="stat-button">
                         <p class="title">2,500</p>
-                        <p class="detail">客户人数</p>
+                        <p class="detail">用户总数</p>
                     </div>
                 </div>
 
                 <div class="stat-widget">
                     <div class="stat-button">
                         <p class="title">3,299</p>
-                        <p class="detail">订单总数</p>
+                        <p class="detail">订阅者</p>
                     </div>
                 </div>
 
@@ -192,33 +215,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </thead>
               <tbody>
                 <tr>
-                  <td>梁</td>
-                  <td>宇富</td>
+                  <td>Mark</td>
+                  <td>Tompson</td>
                   <td>the_mark7</td>
                 </tr>
                 <tr>
-                  <td>孔</td>
-                  <td>祥晟</td>
+                  <td>Ashley</td>
+                  <td>Jacobs</td>
                   <td>ash11927</td>
                 </tr>
                 <tr>
-                  <td>梁</td>
-                  <td>艺灿</td>
+                  <td>Audrey</td>
+                  <td>Ann</td>
                   <td>audann84</td>
                 </tr>
                 <tr>
-                  <td>黄</td>
-                  <td>毅麟</td>
+                  <td>John</td>
+                  <td>Robinson</td>
                   <td>jr5527</td>
                 </tr>
                 <tr>
-                  <td>王</td>
-                  <td>师傅</td>
+                  <td>Aaron</td>
+                  <td>Butler</td>
                   <td>aaron_butler</td>
                 </tr>
                 <tr>
-                  <td>赵</td>
-                  <td>日天</td>
+                  <td>Chris</td>
+                  <td>Albert</td>
                   <td>cab79</td>
                 </tr>
               </tbody>
@@ -227,26 +250,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="block span6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse">简单谈谈 </a>
+        <a href="#widget1container" class="block-heading" data-toggle="collapse">Collapsible </a>
         <div id="widget1container" class="block-body collapse in">
-            <h2>出师表</h2>
-            <p>先帝创业未半而中道崩殂(cú)，今天下三分，益州疲(pí)弊，此诚危急存亡之秋也。然侍卫之臣不懈(xiè)于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗(yí)德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞(sè)忠谏之路也。
-
-宫中府中，俱为一体，陟(zhì )罚臧(zāng)否(pǐ)，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。
-
-侍中、侍郎郭攸(yōu)之、费祎(yī)、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗(wèi)陛下。愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨(bì)补阙漏，有所广益。
-
-将军向宠，性行（xíng）淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行(háng )阵和睦，优劣得所。
-
-亲贤臣，远小人，此先汉所以兴隆也;亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓（huán）、灵也。侍中、尚书、长(zhǎng)史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。
-
-臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻(wén)达于诸侯。先帝不以臣卑（bēi）鄙（bǐ），猥(wěi)自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间,尔来二十有(yòu)一年矣! 
-
-先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙(sù)夜忧叹，恐托付不效，以伤先帝之明，故五月渡（dù）泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶(shù)竭驽(nú)钝，攘(rǎng)除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。
-
-愿陛下托臣以讨贼兴复之效，不效,则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎(jiù)。陛下亦宜自谋，以咨诹(zōu)善道，察纳雅言，深追先帝遗诏。臣不胜受恩感激!
-
-今当远离，临表涕零，不知所云。</p>
+            <h2>Here's a Tip</h2>
+            <p>This template was developed with <a href="http://middlemanapp.com/" target="_blank">Middleman</a> and includes .erb layouts and views.</p>
+            <p>All of the views you see here (sign in, sign up, users, etc) are already split up so you don't have to waste your time doing it yourself!</p>
+            <p>The layout.erb file includes the header, footer, and side navigation and all of the views are broken out into their own files.</p>
+            <p>If you aren't using Ruby, there is also a set of plain HTML files for each page, just like you would expect.</p>
         </div>
     </div>
 </div>
@@ -265,22 +275,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <tbody>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> 赵日天</p>
+                          <p><i class="icon-user"></i> Mark Otto</p>
                       </td>
                       <td>
-                          <p>订单总价: $1,247</p>
+                          <p>Amount: $1,247</p>
                       </td>
                       <td>
-                          <p>Date: 7/19/2016</p>
+                          <p>Date: 7/19/2012</p>
                           <a href="#">View Transaction</a>
                       </td>
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> 叶良辰</p>
+                          <p><i class="icon-user"></i> Audrey Ann</p>
                       </td>
                       <td>
-                          <p>订单总价: $2,793</p>
+                          <p>Amount: $2,793</p>
                       </td>
                       <td>
                           <p>Date: 7/12/2012</p>
@@ -289,10 +299,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> 龙傲天</p>
+                          <p><i class="icon-user"></i> Mark Tompson</p>
                       </td>
                       <td>
-                          <p>订单总价: $2,349</p>
+                          <p>Amount: $2,349</p>
                       </td>
                       <td>
                           <p>Date: 3/10/2012</p>
@@ -301,10 +311,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> 福尔康</p>
+                          <p><i class="icon-user"></i> Ashley Jacobs</p>
                       </td>
                       <td>
-                          <p>订单总价: $1,192</p>
+                          <p>Amount: $1,192</p>
                       </td>
                       <td>
                           <p>Date: 1/19/2012</p>
@@ -316,16 +326,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </table>
         </div>
     </div>
-    
     <div class="block span6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse">简单谈谈 </a>
-        <div id="widget1container" class="block-body collapse in">
-            <h2>简易管理系统</h2>
-            <p>目前管理系统还相对简陋，请多多包涵</p>
+        <p class="block-heading">Not Collapsible</p>
+        <div class="block-body">
+            <h2>Built with Less</h2>
+            <p>The CSS is built with Less. There is a compiled version included if you prefer plain CSS.</p>
+            <p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels.</p>
+            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
         </div>
     </div>
-    
-    
 </div>
 
 
@@ -345,7 +354,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 
 
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    
     <script type="text/javascript">
         $("[rel=tooltip]").tooltip();
         $(function() {

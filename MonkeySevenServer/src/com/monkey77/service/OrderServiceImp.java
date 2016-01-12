@@ -70,13 +70,13 @@ public class OrderServiceImp implements IOrderService{
 	}
 
 
-	/**
+	/**创建订单
 	 * @author mao
 	 * @date 创建时间：2016-1-10下午2:46:11
 	 * @see com.monkey77.service.IOrderService#createOrder(int)
 	 */
 	@Override
-	public String createOrder(int userId) {
+	public Map<String,Object> createOrder(int userId) {
 		// TODO Auto-generated method stub
 		String orderNo=OrderUtil.getOrderNo();
 		TOrder o=new TOrder();
@@ -86,7 +86,9 @@ public class OrderServiceImp implements IOrderService{
 		o.getTUsers().add(new TUser(userId));
 		o.setTOrderDetails(cartDao.getOrderDetil(userId));
 		orderDao.createOrder(o);
-		return orderNo;
+		Map<String,Object> map=new HashMap<String,Object>();
+		 map.put("orderNo",orderNo);
+		return map;
 	}
 
 
@@ -104,10 +106,10 @@ public class OrderServiceImp implements IOrderService{
 		// TODO Auto-generated method stub
 		StatusCode code=new StatusCode();
 		TOrder order=orderDao.getOrderByOrderNo(orderNo);
+		order.setTShop(new TShop(shopId));
+		order.setPayWay(payway);
+		order.setRemarks(remark);
 		if(order.getStatus().equals("待完善")){
-			order.setTShop(new TShop(shopId));
-			order.setPayWay(payway);
-			order.setRemarks(remark);
 			if(payway.equals("在线支付")){
 				order.setStatus("待购买");
 			}else{

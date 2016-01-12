@@ -1,22 +1,17 @@
 package com.alex.DAO;
 
-import java.util.List;
-
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.alex.entity.TBuyorder;
 import com.alex.util.Hibernateutil;
 
-
-
-public class ShowbuyOrderDAO {
+public class ChangeBuyinPriceDAO {
 	private Session session;  
     private Transaction tx;  
       
-    public ShowbuyOrderDAO() {  
+    public ChangeBuyinPriceDAO() {  
         session = Hibernateutil.getSession();  
     }  
       
@@ -64,26 +59,15 @@ public class ShowbuyOrderDAO {
         Hibernateutil.closeSession();  
     }  
       
-    public List show(int offset,int pageSize) {  
-        tx = session.beginTransaction();  
-        String sql = "from TBuyorder";  
-        Query query=session.createQuery(sql);
-        query.setFirstResult(offset*pageSize);
-        query.setMaxResults(pageSize);
-        
-        List list = query.list();
-        
-         
-        return list;   
-    }
-    
-    public Long resum(){
-    	String sql="select count(*) from TBuyorder";
-    	Query query=session.createQuery(sql);
-    	Long sum=(Long)query.list().get(0);
-    	
-    	Hibernateutil.closeSession();
-    	return sum;
-    }
+    public TBuyorder show(Integer orderid,Integer buyinprice) {  
+//        session.beginTransaction();
+    	TBuyorder order=(TBuyorder) session.get(TBuyorder.class, orderid);
+        order.setBuyinprice(buyinprice);
+        session.update(order);
+        session.flush();
+        session.close();
+        return order;   
+    }  
       
 }
+
