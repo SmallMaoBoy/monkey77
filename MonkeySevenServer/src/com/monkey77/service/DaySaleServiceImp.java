@@ -5,6 +5,7 @@
  */
 package com.monkey77.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -17,6 +18,7 @@ import com.monkey77.dao.ITOrderDetailDao;
 import com.monkey77.entities.TDaySale;
 import com.monkey77.entities.TGood;
 import com.monkey77.jsonobj.Good;
+import com.monkey77.jsonobj.GoodSale;
 
 /**
  * @author mao
@@ -113,9 +115,14 @@ public class DaySaleServiceImp implements IDaySaleService {
 		c.set(Calendar.MINUTE, 0);
 		Date d = c.getTime();
 		List<TDaySale> sales = daySaleDao.getDaySale(d);
+		List<GoodSale> list=new ArrayList<GoodSale>();
 		for(TDaySale t:sales){
-			result.put(goodDao.getGoodNameById(t.getTGood().getId()), t.getNum());
+			GoodSale g=new GoodSale();
+			g.setName(goodDao.getGoodNameById(t.getTGood().getId()));
+			g.setNum(t.getNum());
+			list.add(g);
 		}
+		result.put("goods", list);
 		return result;
 	}
 
