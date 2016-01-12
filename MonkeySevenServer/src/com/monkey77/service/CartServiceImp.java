@@ -96,4 +96,17 @@ public class CartServiceImp implements ICartService {
 		cartDao.insertCart(userId, goodId, num);
 	}
 
+	/**
+	 * @date 创建时间：2016-1-9下午3:38:18
+	 * @see com.monkey77.service.ICartService#getCartByMobile(int)
+	 */
+	@Override
+	public Map<String, Object> getCartByMobile(String mobile) {
+		// TODO Auto-generated method stub
+		Map<String, Object> result=new HashMap<String, Object>();
+		List<JsonCart> c=cartDao.getCartByMobile(mobile);
+		result.put("cart", c);
+		return result;
+	}
+
 }

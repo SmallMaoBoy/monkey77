@@ -28,4 +28,7 @@ public interface ICartService {
 	
 	//清空购物车
 	public void clearCart(int userId);
+	
+	//根据手机号码获取购物车信息
+	public Map<String,Object> getCartByMobile(String mobile);
 }

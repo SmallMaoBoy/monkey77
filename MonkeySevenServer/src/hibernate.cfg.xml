@@ -23,6 +23,32 @@
 		</property>
 		<property name="show_sql">true</property>
 		<property name="connection.autocommit">true</property>
+		
+		<property name="hibernate.connection.provider_class">
+
+               org.hibernate.connection.C3P0ConnectionProvider
+
+            </property>
+
+            <property name="c3p0.acquire_increment">1</property>
+
+            <property name="c3p0.idle_test_period">300</property>
+
+            <property name="c3p0.max_size">20</property>
+
+           <property name="c3p0.max_statements">100</property>
+
+            <property name="c3p0.min_size">5</property>
+
+            <property name="c3p0.timeout">90</property>
+
+            <property name="c3p0.preferredTestQuery ">select 1 from user where id=1</property>
+
+            <property name="c3p0.idleConnectionTestPeriod ">18000</property>           
+
+           <property name="c3p0.maxIdleTime">25000</property>         
+
+           <property name="c3p0.testConnectionOnCheckout">true</property>
 		<mapping resource="com/monkey77/entities/TGood.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TShop.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TOrderDetail.hbm.xml" />
