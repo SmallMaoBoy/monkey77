@@ -94,4 +94,7 @@
 	<bean id="ShopAction" class="com.monkey77.action.ShopAction">
 		<property name="shopService" ref="ShopService" ></property>
 	</bean>
+	<bean id="ShowGoodDataAction" class="com.alex.action.ShowGoodDataAction">
+		<property name="itGoodDao" ref="GoodDao" ></property>
+	</bean>
 </beans>

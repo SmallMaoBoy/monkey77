@@ -9,9 +9,11 @@ package com.alex.entity;
 public class TBusiness  implements java.io.Serializable {
 
 
-    // Fields    
-
-     private Integer id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7001723875424629651L;
+	private Integer id;
      private String account;
      private String password;
 
