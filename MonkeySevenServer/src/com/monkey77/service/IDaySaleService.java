@@ -16,7 +16,12 @@ public interface IDaySaleService {
 
 	//将订单中加入日销量表中
 	public void addDaySale(int orderId);
+
+	// 计算销售额
+	public void calculateDaySell();
+
 	
 	//获取日销售水果
 	public Map<String,Object> getDaySale();
+
 }

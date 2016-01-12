@@ -92,6 +92,11 @@ public class DaySaleServiceImp implements IDaySaleService {
 		}
 	}
 
+	@Override
+	public void calculateDaySell() {
+		// TODO Auto-generated method stub
+		//设置一个日历
+	}
 	/**
 	 * @author mao
 	 * @date 创建时间：2016-1-11下午10:44:01
