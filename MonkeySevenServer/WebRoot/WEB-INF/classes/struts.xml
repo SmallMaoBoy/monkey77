@@ -51,6 +51,11 @@
 				<param name="root">map</param>
 			</result>
 		</action>
+		<action name="DaySaleAction_*" class="DaySaleAction" method="{1}">
+			<result type="json">
+				<param name="root">map</param>
+			</result>
+		</action>
 	</package>
 	
 </struts>

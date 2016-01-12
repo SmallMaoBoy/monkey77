@@ -30,6 +30,7 @@ public class TShopDaoImp extends HibernateDaoSupport implements ITShopDao {
 	@Override
 	public void createShop(TShop shop) {
 		// TODO Auto-generated method stub
+		//获取spring提供的一个hibernate模板
 			this.getHibernateTemplate().save(shop);
 	}
 
