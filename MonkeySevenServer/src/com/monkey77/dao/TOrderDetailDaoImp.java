@@ -13,6 +13,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.monkey77.entities.TCart;
 import com.monkey77.entities.TOrderDetail;
 import com.monkey77.jsonobj.Good;
 
@@ -59,6 +60,28 @@ public class TOrderDetailDaoImp extends HibernateDaoSupport implements ITOrderDe
 			goods.add(g);
 		}
 		return goods;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-1-13上午10:36:14
+	 * @see com.monkey77.dao.ITOrderDetailDao#getTotalPrice(int)
+	 */
+	@Override
+	public float getTotalPrice(int orderId) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TOrderDetail.class);
+		criteria.createAlias("TOrder", "t");
+		criteria.add(Restrictions.eq("t.id",orderId));
+		DetachedCriteria  goodCriteria=criteria.createCriteria("TGood");
+		List<TOrderDetail> list=ht.findByCriteria(goodCriteria);
+		float result=0;
+		for(TOrderDetail t:list){
+			result+=t.getGoodNumber()*t.getTGood().getPrice();
+		}
+		result=((float)(Math.round(result*100))/100);
+		return result;
 	}
 
 }

@@ -37,6 +37,6 @@ public class TestOrderService {
 	
 	@Test
 	public void testSubmissionOrder(){
-		System.out.println(orderService.submissionOrder(1, "加饭", "在线支付", "MK201601110146050001"));
+		System.out.println(orderService.submissionOrder(1,1, "加饭", "在线支付", "MK201601110146050001"));
 	}
 }

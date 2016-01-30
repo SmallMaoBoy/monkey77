@@ -24,4 +24,7 @@ public interface ITOrderDetailDao {
 	//获取订单详情
 	public List<Good> getGoodsByOrderId(int orderId);
 	
+	//计算订单价格
+	public float getTotalPrice(int orderId);
+	
 }

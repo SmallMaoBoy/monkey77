@@ -85,8 +85,9 @@
   <li class="item_style">余额支付</li>
   </ul>
   </div><!--order_item-->
-  <div class="remark">
+ 
   <h4>备注</h4>
+   <div class="remark">
   <input type="text" id="remark" class="form-control" placeholder="点击添加备注" aria-describedby="basic-addon1">
   </div><!--remark-->
   <h4 style="margin-top:20px;">订单商品</h4>
@@ -104,7 +105,7 @@
   </div><!--use_cart-->
   <h4></h4>
   <div class="order_sum">
-  <p>商品总金额：<span>￥115.00</span></p>
+  <p>商品总金额：<span id="totalprice"></span></p>
   <p>运费：<span>￥0.00</span></p>
   <p>商品减免：<span>￥0.00</span></p>
   <p>积分抵扣：<span>￥0.00</span></p>
@@ -112,7 +113,7 @@
   </div><!--order_sum-->
   <div class="order_sum_line">
   <div class="line_word">
-  <span class="detail_name">应付金额</span><span class="line_word_price">￥115.00</span><a class="go-pay">去结算</a>
+  <span class="detail_name">应付金额</span><span class="line_word_price"></span><a class="go-pay">去结算</a>
   </div><!--line_word-->
   </div><!--order_sum_line-->
   </div><!--container-->

@@ -24,10 +24,12 @@ $(document).ready(function() {
 			success : function(data) {
 				var shops=data.shops;
 				var goods=data.carts;
+				var sum=0;
 				for(var i=0;i<shops.length;i++){
 					$(".address").append('<input type="radio" id="address" name="address" value="'+shops[i].id+'" />'+shops[i].name+'<br/>');
 				}
 				for(var i=0;i<goods.length;i++){
+					sum+=goods[i].price*goods[i].num;
 					$("#good-content").append(
 							'<li>'+
 							  '<div class="order_shop_img"> <img src="'+goods[i].picUrl+'" class="shop_img"/></div>'+
@@ -35,6 +37,10 @@ $(document).ready(function() {
 							  '</li>'
 							);
 				}
+				
+			
+				$(".line_word_price").append('￥'+sum.toFixed(2));
+				$("#totalprice").append('￥'+sum.toFixed(2));
 			}
 		});
 	}

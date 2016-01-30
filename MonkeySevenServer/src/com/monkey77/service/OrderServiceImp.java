@@ -7,7 +7,9 @@ package com.monkey77.service;
 
 import java.sql.Timestamp;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import com.monkey77.dao.ITCartDao;
 import com.monkey77.dao.ITOrderDao;
@@ -15,6 +17,7 @@ import com.monkey77.dao.ITOrderDetailDao;
 import com.monkey77.dao.ITShopDao;
 import com.monkey77.dao.ITUserDao;
 import com.monkey77.entities.TOrder;
+import com.monkey77.entities.TOrderDetail;
 import com.monkey77.entities.TShop;
 import com.monkey77.entities.TUser;
 import com.monkey77.jsonobj.StatusCode;
@@ -108,10 +111,16 @@ public class OrderServiceImp implements IOrderService{
 		o.setStatus("待完善");
 		o.setGeneratedTime(new Timestamp(System.currentTimeMillis()));
 		o.getTUsers().add(new TUser(userId));
-		o.setTOrderDetails(cartDao.getOrderDetil(userId));
+		Set<TOrderDetail> orderDetail=cartDao.getOrderDetil(userId);
+		o.setTOrderDetails(orderDetail);
+		Float price=0f;
+		for(TOrderDetail t:orderDetail){
+			price+=t.getGoodPrice();
+		}
+		o.setTotalPrice(price);
 		orderDao.createOrder(o);
 		Map<String,Object> map=new HashMap<String,Object>();
-		 map.put("orderNo",orderNo);
+		map.put("orderNo",orderNo);
 		return map;
 	}
 
@@ -171,7 +180,5 @@ public class OrderServiceImp implements IOrderService{
 		}
 		return map;
 	}
-
-
 
 }

@@ -25,5 +25,10 @@
                 <comment>商品数量</comment>
             </column>
         </property>
+        <property name="goodPrice" type="java.lang.Float">
+            <column name="good_price" precision="7" not-null="true">
+                <comment>商品价格</comment>
+            </column>
+        </property>
     </class>
 </hibernate-mapping>

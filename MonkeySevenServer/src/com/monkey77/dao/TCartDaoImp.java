@@ -253,6 +253,7 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 			TOrderDetail t=new TOrderDetail();
 			t.setTGood(list.get(i).getTGood());
 			t.setGoodNumber(list.get(i).getGoodNumber());
+			t.setGoodPrice(list.get(i).getTGood().getPrice());
 			result.add(t);
 		}
 		return result;
