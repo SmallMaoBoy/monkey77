@@ -6,6 +6,9 @@
 package com.monkey77.service;
 
 import java.util.Map;
+import java.util.Set;
+
+import com.monkey77.entities.TOrderDetail;
 
 /**
  * @author mao
@@ -31,4 +34,8 @@ public interface ICartService {
 	
 	//根据手机号码获取购物车信息
 	public Map<String,Object> getCartByMobile(String mobile);
+	
+	//将购物车中的信息组装到订单详情中，并更新商品表
+	public Set<TOrderDetail> getOrderDetailFromCart(int userId);
+	
 }

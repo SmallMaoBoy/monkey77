@@ -77,4 +77,7 @@ public interface ITGoodDao {
 	
 	//根据商品id获取商品名字
 	public String getGoodNameById(int id);
+	
+	//更改商品数量(减少)
+	public void decreaseGoodNum(int id,int num);
 }

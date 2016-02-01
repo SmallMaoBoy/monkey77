@@ -36,7 +36,19 @@ public class OrderServiceImp implements IOrderService{
 	private IDaySaleService daySaleService;
 	private ITShopDao shopDao;
 	private ITOrderDetailDao orderDetailDao;
+	private ICartService cartService;
 	
+	
+	public ICartService getCartService() {
+		return cartService;
+	}
+
+
+	public void setCartService(ICartService cartService) {
+		this.cartService = cartService;
+	}
+
+
 	public ITOrderDetailDao getOrderDetailDao() {
 		return orderDetailDao;
 	}
@@ -111,7 +123,7 @@ public class OrderServiceImp implements IOrderService{
 		o.setStatus("待完善");
 		o.setGeneratedTime(new Timestamp(System.currentTimeMillis()));
 		o.getTUsers().add(new TUser(userId));
-		Set<TOrderDetail> orderDetail=cartDao.getOrderDetil(userId);
+		Set<TOrderDetail> orderDetail=cartService.getOrderDetailFromCart(userId);
 		o.setTOrderDetails(orderDetail);
 		Float price=0f;
 		for(TOrderDetail t:orderDetail){
@@ -149,6 +161,7 @@ public class OrderServiceImp implements IOrderService{
 				daySaleService.addDaySale(order.getId());
 				//清除购物车信息
 				cartDao.clearCart(userId);
+				//更新商品标，修改商品数量
 			}else{
 				order.setStatus("待付款");
 			}

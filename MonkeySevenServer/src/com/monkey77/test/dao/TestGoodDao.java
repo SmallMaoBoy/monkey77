@@ -74,4 +74,9 @@ public class TestGoodDao {
 		System.out.println(goodDao.getGoodById(1));
 	}
 	
+	@Test
+	public void testDecreaseGoodNum(){
+		goodDao.decreaseGoodNum(5, 20);
+	}
+	
 }
