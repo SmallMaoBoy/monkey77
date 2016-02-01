@@ -30,6 +30,11 @@
                 <comment>商品剩余数量</comment>
             </column>
         </property>
+         <property name="version" type="java.lang.Integer">
+            <column name="version" >
+                <comment>商品修改次数</comment>
+            </column>
+        </property>
         <property name="status" type="java.lang.String">
             <column name="status" length="5" not-null="true">
                 <comment>商品状态</comment>
