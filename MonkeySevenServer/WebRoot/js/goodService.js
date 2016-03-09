@@ -53,7 +53,7 @@ $(document).ready(function() {
       '<div class="caption">'+
         '<h4 id="fruit_name">'+goods[i].name+'</h4>'+'<h5 class="volume">销量：'+goods[i].saleVolume+'</h5>'+
         '<p>¥<span id="fruit_price">'+goods[i].price+'   '+'</span >/<span id="specification">'+'   '+goods[i].specification+'</span></p>'+
-        '<p><a href="http://localhost:8080/MonkeySevenServer/buy.html?id='+goods[i].id+'" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
+        '<p><a href="buy.html?id='+goods[i].id+'" class="btn btn-primary" role="button">商品详情</a> <a class="btn btn-default add_to_car" role="button" goodid="'+goods[i].id+'">加入购物车</a></p>'+
       '</div>'+
     '</div>'+
   '</div>');}
@@ -221,7 +221,8 @@ $(document).ready(function() {
 		//加入购物车
 	var userid=$.cookie("userid");
 	$("#content-goods").on("click",".add_to_car",function(){
-		if(userid.trim()==""){
+		userid=$.cookie("userid");
+		if(userid==null||userid=="null"||userid==""){
 		show();
 		return false;
 		}
@@ -229,7 +230,6 @@ $(document).ready(function() {
 				var goodid=$(this).attr('goodid');
 				addNewCart(userid,goodid,1);
 				showarea();
-				getCartInfo(userid);
 				return false;
 		}
 		
@@ -246,22 +246,28 @@ $(document).ready(function() {
 	getCartInfo(userid);
 	function getCartInfo(userid){
 		//alert(userid);
-		$.ajax({
-			type:'post',
-			data:{"userId":userid},
-			url:"CartAction_getCartInfo",
-			dataType:"Json",
-			success:function(data){
-				var sum_number=0;
-				var cart=data.cart;
-				for(i=0;i<cart.length;i++){
-				$("#test_hidden").append(cart[i].num
-						);
-				sum_number=cart[i].num+sum_number;
-				}
-				$("#num").empty();
-				$("#num").append(sum_number);
-			}});}
+		if(userid==null||userid=="null"||userid==""){
+			$("#num").empty();
+			$("#num").append(0);
+		}else{
+			$.ajax({
+				type:'post',
+				data:{"userId":userid},
+				url:"CartAction_getCartInfo",
+				dataType:"Json",
+				success:function(data){
+					var sum_number=0;
+					var cart=data.cart;
+					for(i=0;i<cart.length;i++){
+					$("#test_hidden").append(cart[i].num
+							);
+					sum_number=cart[i].num+sum_number;
+					}
+					$("#num").empty();
+					$("#num").append(sum_number);
+				}});
+		}
+		}
 
 	function addNewCart(userid,goodid,num){
 		$.ajax({
@@ -272,7 +278,9 @@ $(document).ready(function() {
 				},
 			url:"CartAction_addNewCart",
 			dataType:"Json",
-			success:function(data){}
+			success:function(data){
+				getCartInfo(userid);
+			}
 			});
 	}
 	/**

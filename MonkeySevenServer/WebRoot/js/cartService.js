@@ -6,8 +6,8 @@ $(document)
 					
 					// 获取购物车信息
 					function getCartInfo(id) {
-						$
-								.ajax({
+						
+								$.ajax({
 									type : 'post',
 									data : {
 										"userId" : id
@@ -83,7 +83,13 @@ $(document)
 									}
 								});
 					}
-					getCartInfo(userid);
+					
+					if(userid==null||userid=="null"||userid==""){
+						//
+					}else{
+						getCartInfo(userid);
+					}
+					
 					$("#content-shopping").on("click", ".reduce_img",
 							function() {
 								var goodid = $(this).attr('goodid');

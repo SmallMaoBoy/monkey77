@@ -130,7 +130,7 @@ $(document).ready(function() {
 });
 
 function unsign(){
-	$.cookie('userid',null);
+	$.cookie('userid',"");
 	changeUser();
 	
 }
