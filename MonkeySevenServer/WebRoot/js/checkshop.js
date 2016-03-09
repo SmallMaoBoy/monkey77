@@ -17,6 +17,7 @@ $(document).ready(function() {
 				for(var i=0;i<shops.length;i++){
 					var count=data.shops[i].number;
 				$("#shop").append('<tr>'+
+						                '<td style="text-align: center;">'+i+'</td>'+
 										'<td style="text-align: center;">'+shops[i].name+'</td>'+
 										'<td style="text-align: center;">'+shops[i].description+'</td>'+
 										'<td style="text-align: center;" >'+'<a href="shoplocaltion.html?id='+shops[i].id+'" >详情</a>'+'</td>'+

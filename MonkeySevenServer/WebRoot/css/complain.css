@@ -1,0 +1,35 @@
+@charset "utf-8";
+/* CSS Document */
+.part1{
+	width:80%;
+	height:400px;
+	border:#669933 solid 3px;
+	margin:20px auto;
+	background-color:#f5ffed;
+	}
+.part1_tel{
+	margin:20px 0 0 30px;
+	font-size:18px;
+	color:#64a131;
+	font-family:楷体;
+	}
+.input_1{
+	width:200px;
+	height:30px;
+	border:#dddddd solid 2px;
+	}
+.part1_text{
+    margin:20px 0 0 30px;
+	font-size:18px;
+	color:#64a131;
+	font-family:楷体;
+	}
+.input_2{
+	margin:0 0 0 80px;
+	width:80%;
+	height:200px;
+	border:#dddddd solid 2px;
+	}
+.butt{
+	margin:40px 0 0 300px;
+	}

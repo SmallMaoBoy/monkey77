@@ -46,21 +46,7 @@
         </div>
         </li>
         <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
-        <li><a herf="#">
-         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
-	     <option value="gd">广东省</option>
-         <option value="hb">湖北省</option>
-         </select>
-         <select id="city" style="border:hidden;background-color:#F8f8f8" >
-	     <option value="gz">广州市</option>
-         <option value="sz">深圳市</option>
-         <option value="jy">揭阳市</option>
-         <option value="zj">湛江市</option>
-         <option value="jm">江门市</option>
-         <option value="yf">云浮市</option>
-         <option value="yj">阳江市</option>
-         </select></a>
-        </li>   
+       <li id="header_li1"><a href="shopmessage.html">[查看提取点] </a></li> 
       </ul>
     </div>
    </div>
@@ -242,61 +228,4 @@ $(document).ready(function(e) {
 	   });
 });
 
-	var city = document.getElementById("city");
-	
-	function changeCity(){
-		//清除city中的option对象
-		var options = city.getElementsByTagName("option");
-		for(var i=options.length-1;i>=0;i--){
-			city.removeChild(options[i]);
-		}
-		//得到	provice的值
-		var provice = document.getElementById("provice").value;
-		if(provice=='gd'){
-			/*var opt1 = document.createElement("option");
-			opt1.value = "gz";
-			opt1.innerHTML = "广州市";
-			
-			var opt2 = document.createElement("option");
-			opt2.value = "sz";
-			opt2.innerHTML = "深圳市";
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);*/
-			
-			var opt1 = new Option("广州市","gz");
-			var opt2 = new Option("深圳市","sz");
-			var opt3 = new Option("揭阳市","jy");
-			var opt4 = new Option("湛江市","zj");
-			var opt5 = new Option("江门市","jm");
-			var opt6 = new Option("云浮市","yf");
-			var opt7 = new Option("阳江市","yj");
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}else if(provice=="hb"){
-			var opt1 = document.createElement("option");
-			opt1.value = "wh";
-			opt1.innerHTML = "武汉市";
-			
-			var opt2 = document.createElement("option");
-			opt2.value = "xg";
-			opt2.innerHTML = "孝感市";
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			
-		}
-		
-		//向city中增加相应option对象
-		
-	}
-	
-	initProvince(getElementByName("user.province"), "");
-    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
 </script>
