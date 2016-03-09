@@ -70,7 +70,7 @@ public class LoginFilter implements Filter {
 
 		}
 		if (!isExcludedPage) {// 在过滤url之外
-			chain.doFilter(request, response);
+			chain.doFilter(req, res);
 			return;
 		}
 		Cookie[] cookies = request.getCookies();

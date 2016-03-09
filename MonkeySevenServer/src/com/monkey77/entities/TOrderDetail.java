@@ -15,7 +15,7 @@ public class TOrderDetail  implements java.io.Serializable {
      private TOrder TOrder;
      private TGood TGood;
      private Integer goodNumber;
-
+     private Float goodPrice;
 
     // Constructors
 
@@ -25,10 +25,11 @@ public class TOrderDetail  implements java.io.Serializable {
 
     
     /** full constructor */
-    public TOrderDetail(TOrder TOrder, TGood TGood, Integer goodNumber) {
+    public TOrderDetail(TOrder TOrder, TGood TGood, Integer goodNumber,Float goodPrice) {
         this.TOrder = TOrder;
         this.TGood = TGood;
         this.goodNumber = goodNumber;
+        this.goodPrice=goodPrice;
     }
 
    
@@ -67,17 +68,21 @@ public class TOrderDetail  implements java.io.Serializable {
     }
 
 
+	public Float getGoodPrice() {
+		return goodPrice;
+	}
+
+
+	public void setGoodPrice(Float goodPrice) {
+		this.goodPrice = goodPrice;
+	}
+
+
 	@Override
 	public String toString() {
-		return "TOrderDetail [id=" + id +  ", goodNumber=" + goodNumber + "]";
+		return "TOrderDetail [id=" + id + ", goodNumber=" + goodNumber
+				+ ", goodPrice=" + goodPrice + "]";
 	}
-   
-
-
-
-
-
-
 
 
 }

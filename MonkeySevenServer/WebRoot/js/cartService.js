@@ -298,12 +298,12 @@ $(document)
 							url : "OrderAction_createOrder",
 							dataType : "json",
 							success : function(data) {
-								alert(data.orderNo);
+								window.location.href="add_order.html?orderNo="+data.orderNo;
 							}
 						});
 					}
 					
-					$("#btngopay").click(createOrder());
+					$("#in_all").on("click",".go-pay",function(){createOrder()});
 					
 					
 				})

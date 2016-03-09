@@ -153,7 +153,7 @@ $(document).ready(function() {
 			dataType : "json",
 			success : function(data) {
 				//console.log(data.goods[1].name);
-				alert(goodid);
+				
 				var goods=data.goods;
 				$("#content-goods").empty();
 				if(goods.length==0){$("#content-goods").append('<div class="can_not">未找到相关商品!</div>')}

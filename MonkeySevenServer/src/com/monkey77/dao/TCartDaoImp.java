@@ -133,12 +133,12 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 
 	/**
 	 * @author mao
+<<<<<<< HEAD
 	 * @date 创建时间：2016-1-7上午10:52:44
 	 * @see com.monkey77.dao.ITCartDao#insertCartWithResult(int, int, int)
 	 */
 	@Override
 	public List<JsonCart> insertCartWithResult(int userId, int goodId, int num) {
-		// TODO Auto-generated method stub
 		HibernateTemplate ht=this.getHibernateTemplate();
 		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
 		cartCriteria.createAlias("TUser", "t");
@@ -152,6 +152,29 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 			}
 			
 		}
+		List<JsonCart> result=new ArrayList<JsonCart>();
+		for(int i=0;i<list.size();i++){
+			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
+			cart.setPicUrl(list.get(i).getTGood().getPicUrl());
+			cart.setPrice(list.get(i).getTGood().getPrice());
+			cart.setSpecification(list.get(i).getTGood().getSpecification());
+			cart.setGoodId(list.get(i).getTGood().getId());
+			cart.setTotalPrice((float)(Math.round(list.get(i).getGoodNumber()*list.get(i).getTGood().getPrice()*100))/100);
+			result.add(cart);
+		}
+		return result;
+	}
+
+	@Override
+	public List<JsonCart> getCartByMobile(String mobile) {
+
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
+		cartCriteria.createAlias("TUser", "t");
+		cartCriteria.add(Restrictions.eq("t.mobile",mobile));
+		DetachedCriteria  goodCriteria=cartCriteria.createCriteria("TGood");
+		List<TCart> list=ht.findByCriteria(goodCriteria);
 		List<JsonCart> result=new ArrayList<JsonCart>();
 		for(int i=0;i<list.size();i++){
 			JsonCart cart=new JsonCart(list.get(i).getTGood().getName(), list.get(i).getGoodNumber());
@@ -230,9 +253,11 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 			TOrderDetail t=new TOrderDetail();
 			t.setTGood(list.get(i).getTGood());
 			t.setGoodNumber(list.get(i).getGoodNumber());
+			t.setGoodPrice(list.get(i).getTGood().getPrice());
 			result.add(t);
 		}
 		return result;
 	}
+
 
 }

@@ -8,8 +8,11 @@ package com.monkey77.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.monkey77.dao.ITCartDao;
+import com.monkey77.dao.ITGoodDao;
+import com.monkey77.entities.TOrderDetail;
 import com.monkey77.jsonobj.JsonCart;
 
 /**
@@ -20,8 +23,16 @@ import com.monkey77.jsonobj.JsonCart;
 public class CartServiceImp implements ICartService {
 	
 	private ITCartDao cartDao;
-
+	private ITGoodDao goodDao;
 	
+	public ITGoodDao getGoodDao() {
+		return goodDao;
+	}
+
+	public void setGoodDao(ITGoodDao goodDao) {
+		this.goodDao = goodDao;
+	}
+
 	public ITCartDao getCartDao() {
 		return cartDao;
 	}
@@ -94,6 +105,34 @@ public class CartServiceImp implements ICartService {
 	public void addNewCart(int userId, int goodId, int num) {
 		// TODO Auto-generated method stub
 		cartDao.insertCart(userId, goodId, num);
+	}
+
+	/**
+	 * @date 创建时间：2016-1-9下午3:38:18
+	 * @see com.monkey77.service.ICartService#getCartByMobile(int)
+	 */
+	@Override
+	public Map<String, Object> getCartByMobile(String mobile) {
+		// TODO Auto-generated method stub
+		Map<String, Object> result=new HashMap<String, Object>();
+		List<JsonCart> c=cartDao.getCartByMobile(mobile);
+		result.put("cart", c);
+		return result;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-2-1下午2:44:07
+	 * @see com.monkey77.service.ICartService#getOrderDetailFromCart(int)
+	 */
+	@Override
+	public Set<TOrderDetail> getOrderDetailFromCart(int userId) {
+		// TODO Auto-generated method stub
+		Set<TOrderDetail> orderDetail=cartDao.getOrderDetil(userId);
+		for(TOrderDetail t:orderDetail){
+			goodDao.decreaseGoodNum(t.getTGood().getId(), t.getGoodNumber());
+		}
+		return orderDetail;
 	}
 
 }

@@ -62,6 +62,6 @@ public class TestCartDao {
 	
 	@Test
 	public void testGetOrderDetail(){
-		System.out.println(cartDao.getOrderDetil(4));
+		System.out.println(cartDao.getOrderDetil(2));
 	}
 }

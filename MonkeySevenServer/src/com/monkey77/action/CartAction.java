@@ -20,6 +20,7 @@ public class CartAction {
 	private int num;
 	private int userId;
 	private int goodId;
+	private String mobile;
 	private Map<String,Object> map;
 	private ICartService cartService;
 	
@@ -39,6 +40,12 @@ public class CartAction {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 	public int getUserId() {
 		return userId;
 	}
@@ -57,8 +64,16 @@ public class CartAction {
 		return Action.SUCCESS;
 	}
 	
+
 	public String addOldCart(){
 		map=cartService.addOldCart(userId, goodId, num);
+		return Action.SUCCESS;
+	}
+	
+	
+
+	public String getCartInfoByMobile(){
+		map=cartService.getCartByMobile(mobile);
 		return Action.SUCCESS;
 	}
 	

@@ -87,7 +87,7 @@
    </div><!--body_1-->
    
    <div class="body_2">
-   <span class="order_num">订单号码：1234567890000</span><br/><br/>
+   <span class="order_num"></span><br/><br/>
    <a herf="#" class="look_order">查看订单详情》</a>
    </div><!--body_2-->
   </div><!--complete_body-->
@@ -151,4 +151,18 @@
 </div>
 </div>
 </body>
+<script>
+function GetQueryString(name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		var r = window.location.search.substr(1).match(reg);
+		if (r != null)
+			return unescape(r[2]);
+		return null;
+	}
+
+	// 调用方法
+
+var orderNo = GetQueryString("orderNo");
+ $(".order_num").append('订单号码'+orderNo);
+</script>
 </html>

@@ -37,4 +37,9 @@ public class TestOrderDetailDao {
 		System.out.println(orderDetatilDao.getGoodsByOrderId(10));
 	}
 	
+	@Test
+	public void testCountTotalPrice(){
+		System.out.println(orderDetatilDao.getTotalPrice(62));
+	}
+	
 }
