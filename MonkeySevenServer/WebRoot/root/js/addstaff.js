@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	
     $("#sure").click(function(){
    	$.ajax({
    		type:'post',
@@ -9,7 +8,6 @@ $(document).ready(function(){
    	       	worklocation:$("#worklocation").val(),
    	        password:$("#pwd").val(),
    	    },
-   	  
    	 url: "BuyerAction_createBusiness",
      dataType : "json",
    	
@@ -21,11 +19,12 @@ $(document).ready(function(){
    	$.ajax({
    		type:'post',
    	    data:{
-   	    	account:$("#account1").val(),
+   	    	
    	    	name:$("#name").val(),
    	        sex:$("#sex1").val(),
    	       	worklocation:$("#worklocation1").val(),
    	        password:$("#pwd1").val(),
+   	        account:$("#account1").val(),
    	    },
    	   
    		url: "BuyerAction_createBuyer",
