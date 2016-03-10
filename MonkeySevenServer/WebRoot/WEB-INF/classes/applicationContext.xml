@@ -23,6 +23,9 @@
 	<bean id="OrderDetailDao" class="com.monkey77.dao.TOrderDetailDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
+	<bean id="MessageDao" class="com.monkey77.dao.TMessageDaoImp">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="DaySaleDao" class="com.monkey77.dao.TDaySaleDaoImp">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
@@ -66,6 +69,9 @@
 	</bean>
 	<bean id="BuyerService" class="com.monkey77.service.BuyerServiceImp">
 		<property name="buyerDao" ref="BuyerDao"></property>
+	</bean>
+	<bean id="MessageService" class="com.monkey77.service.MessageServiceImp">
+		<property name="messageDao" ref="MessageDao"></property>
 	</bean>
 	<bean id="GoodService" class="com.monkey77.service.GoodServiceImp">
 		<property name="goodDao" ref="GoodDao"></property>
@@ -134,6 +140,8 @@
 	</bean>
 	<bean id="OrderAction" class="com.monkey77.action.OrderAction">
 		<property name="orderService" ref="OrderService" ></property>
-
+	</bean>
+	<bean id="MessageAction" class="com.monkey77.action.MessageAction">
+		<property name="messageService" ref="MessageService" ></property>
 	</bean>
 </beans>

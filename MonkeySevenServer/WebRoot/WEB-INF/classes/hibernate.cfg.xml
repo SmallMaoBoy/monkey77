@@ -10,9 +10,13 @@
 		<property name="connection.username">root</property>
 
 
-		<property name="connection.url">jdbc:mysql://139.129.41.240:3306/monkey77?useUnicode=true&amp;characterEncoding=utf8</property>
+		<property name="connection.url">
+			jdbc:mysql://localhost:3306/monkey77?useUnicode=true&amp;characterEncoding=utf8
+		</property>
 
-		<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+		<property name="dialect">
+			org.hibernate.dialect.MySQLInnoDBDialect
+		</property>
 
 
 		<property name="myeclipse.connection.profile">mysql</property>
@@ -22,32 +26,34 @@
 		</property>
 		<property name="show_sql">true</property>
 		<property name="connection.autocommit">true</property>
-		
+
 		<property name="hibernate.connection.provider_class">
 
-               org.hibernate.connection.C3P0ConnectionProvider
+			org.hibernate.connection.C3P0ConnectionProvider
 
-            </property>
+		</property>
 
-            <property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.acquire_increment">1</property>
 
-            <property name="c3p0.idle_test_period">300</property>
+		<property name="c3p0.idle_test_period">300</property>
 
-            <property name="c3p0.max_size">20</property>
+		<property name="c3p0.max_size">20</property>
 
-           <property name="c3p0.max_statements">100</property>
+		<property name="c3p0.max_statements">100</property>
 
-            <property name="c3p0.min_size">5</property>
+		<property name="c3p0.min_size">5</property>
 
-            <property name="c3p0.timeout">90</property>
+		<property name="c3p0.timeout">90</property>
 
-            <property name="c3p0.preferredTestQuery ">select 1 from user where id=1</property>
+		<property name="c3p0.preferredTestQuery ">
+			select 1 from user where id=1
+		</property>
 
-            <property name="c3p0.idleConnectionTestPeriod ">18000</property>           
+		<property name="c3p0.idleConnectionTestPeriod ">18000</property>
 
-           <property name="c3p0.maxIdleTime">25000</property>         
+		<property name="c3p0.maxIdleTime">25000</property>
 
-           <property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
 		<mapping resource="com/monkey77/entities/TGood.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TShop.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TOrderDetail.hbm.xml" />
@@ -71,6 +77,7 @@
 		<mapping resource="com/alex/entity/TBuyer.hbm.xml" />
 		<mapping resource="com/alex/entity/TBuyorder.hbm.xml" />
 		<mapping resource="com/monkey77/entities/TDaySale.hbm.xml" />
+		<mapping resource="com/monkey77/entities/TMessage.hbm.xml" />
 	</session-factory>
 
 </hibernate-configuration>
