@@ -8,7 +8,7 @@
 <link href="css/flexslider.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
-
+<script language="javascript" src="js/userService.js"></script>
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <script language="javascript" src="js/buy.js"></script>
 <script defer src="js/jquery.flexslider.js"></script>
@@ -42,8 +42,8 @@
     </div>
       <div class="collapse navbar-collapse" id="navbar-1" >
         <ul class="nav navbar-nav navbar-right">
-        <li><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
-        <li><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
+         <li id="header_li1"><a  data-toggle="modal" data-target="#myModal">[登录] </a></li>
+        <li id="header_li2"><a  data-toggle="modal" data-target="#myModa2">[注册] </a></li>
         <li id="myfruit"><a href="my.html">[我的果园]</a> 
         
           <ul id="menu" class="dropdown-menu">
@@ -51,6 +51,7 @@
         <li><a href="coupon.html">优惠券</a></li>
         <li><a href="document.html">个人信息</a></li>
         <li><a href="shopping.html">我的购物车</a></li>
+        <li><a href="complain.html">我要投诉</a></li>
         </ul>
         
        </li>
@@ -62,27 +63,7 @@
         </div>
         </li>
         <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
-        <li><a herf="#">
-         <select id="provice" onchange="changeCity()" style="float:left;padding-right:3px;border:hidden; background-color:#F8f8f8">
-	     <option value="gd">广东省</option>
-         <option value="hb">湖北省</option>
-         <option value="hn">湖南省</option>
-         <option value="hainan">海南省</option>
-         
-         </select>
-         <select id="city" style="border:hidden;background-color:#F8f8f8; overflow-style:marquee-line" >
-	     <option value="gz">广州市</option>
-         <option value="sz">深圳市</option>
-         <option value="jy">揭阳市</option>
-         <option value="zj">湛江市</option>
-         <option value="jm">江门市</option>
-         <option value="yf">云浮市</option>
-         <option value="yj">阳江市</option>
-         <option value="fs">佛山市</option>
-         <option value="st">汕头市</option>
-
-         </select></a>
-        </li>   
+       <li><a href="shopmessage.html">[查看提取点] </a></li>
       </ul>
     </div>
    </div>
@@ -376,116 +357,7 @@ $(document).ready(function(e) {
 	   });
 });
 </script>
-<script language="javascript">
-	var city = document.getElementById("city");
-	
-	function changeCity(){
-		//清除city中的option对象
-		var options = city.getElementsByTagName("option");
-		for(var i=options.length-1;i>=0;i--){
-			city.removeChild(options[i]);
-		}
-		//得到	provice的值
-		var provice = document.getElementById("provice").value;
-		if(provice=='gd'){
-			/*var opt1 = document.createElement("option");
-			opt1.value = "gz";
-			opt1.innerHTML = "广州市";
-			
-			var opt2 = document.createElement("option");
-			opt2.value = "sz";
-			opt2.innerHTML = "深圳市";
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);*/
-			
-			var opt1 = new Option("广州市","gz");
-			var opt2 = new Option("深圳市","sz");
-			var opt3 = new Option("揭阳市","jy");
-			var opt4 = new Option("湛江市","zj");
-			var opt5 = new Option("江门市","jm");
-			var opt6 = new Option("云浮市","yf");
-			var opt7 = new Option("阳江市","yj");
-			var opt8 = new Option("佛山市","fs");
-			var opt9 = new Option("汕头市","st");
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			city.appendChild(opt8);
-			city.appendChild(opt9);
-			
-		}else if(provice=="hb"){
-			var opt1 = new Option("武汉市","wh");
-			var opt2 = new Option("孝感市","xg");
-			var opt3 = new Option("黄石市","hs");
-			var opt4 = new Option("沙市区","ss");
-			var opt5 = new Option("洪湖市","hh");
-			var opt6 = new Option("宜昌市","yc");
-			var opt7 = new Option("宜都市","yd");
 
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}else if(provice=="hn"){
-			var opt1 = new Option("长沙市","cs");
-			var opt2 = new Option("株洲市","sz");
-			var opt3 = new Option("湘潭市","xt");
-			var opt4 = new Option("衡阳市","hy");
-			var opt5 = new Option("邵阳市","sy");
-			var opt6 = new Option("岳阳市","yy");
-			var opt7 = new Option("常德市","cd");
-
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}
-		else if(provice=="hainan"){
-			var opt1 = new Option("海口市","hk");
-			var opt2 = new Option("文昌市","wc");
-			var opt3 = new Option("三亚市","sy");
-			var opt4 = new Option("五指山市","wzs");
-			var opt5 = new Option("琼海市","qh");
-			var opt6 = new Option("儋州市","zz");
-			var opt7 = new Option("万宁市","wn");
-
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}
-		
-		
-		//向city中增加相应option对象
-		
-	}
-	
-	
-  
-</script>
 <script>
 function a1(t){
 	if(t==0){

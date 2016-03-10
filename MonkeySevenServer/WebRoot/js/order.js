@@ -67,5 +67,12 @@ $(document).ready(function() {
 		});
 	}
 	
-	$(".line_word").on("click",".go-pay",function(){submissionOrder()});
+	$(".line_word").on("click",".go-pay",function(){go()});
+	function go(){
+		var addr = $('input[name="address"]:checked').val(); 
+		if(addr==undefined){
+			alert("地址不能为空！！！")
+		}
+		else{submissionOrder();}
+	}
 });

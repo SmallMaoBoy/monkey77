@@ -2,21 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="save" content="history">
-<title>猴七七</title>
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/myhou77.css" rel="stylesheet" type="text/css">
+<link href="css/complain.css" rel="stylesheet" type="text/css">
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<script src="js/checkshop.js"></script>
-<style type="text/css" >
-   #table1 thead tr th{
-   text-align: center;
-   }
-   .pagination>li>a:active{background:#337ab7}
-</style>
+<title>我要投诉</title>
 </head>
+
+<body>
 <nav class="navbar navbar-default ">
   <div class="container-fluid ">
 <div class="navbar-header ">
@@ -41,7 +36,6 @@
         <li><a href="coupon.html">优惠券</a></li>
         <li><a href="document.html">个人信息</a></li>
         <li><a href="shopping.html">我的购物车</a></li>
-        <li><a href="complain.html">我要投诉</a></li>
         </ul>
         
        </li>
@@ -53,34 +47,26 @@
         </div>
         </li>
         <!--<li id="touch"><a href="#"><img src="imgs/iconfont-kefu.png" style="width:12px;padding-bottom:8px;">&nbsp;&nbsp;联系商城</a>-->
-       
+        <li id="header_li1"><a href="shopmessage.html">[查看提取点] </a></li>
       </ul>
     </div>
    </div>
   </nav>
-<div class="container">
-<table class="table table-striped" id="table1" >
-  <thead>
-	<tr >
-        <th style="width:50px;">序号</th>   
-		<th>店名</th>
-	    <th>位置</th>
-		<th>详情</th>
-
-	</tr>
-  </thead>
-	<tbody id="shop" style="border:#dddddD solid 2px">
-
-   </tbody>
-						
-</table>
-<div class="container">
-			<nav style="margin:0px auto;text-align:center;">
-				<ul class="pagination" id="page-switch-root">
-				</ul>
-			</nav>
-	</div>
-	</div>
+  <h2 style="color:#669933; text-align:center;">投诉建议</h2>
+  <div class="container">
+  <div class="part1">
+  
+  <div class="part1_tel">您的联系电话：<input type="text" class="input_1"/></div>
+  <div class="part1_text">投诉内容：<br/>
+  <textarea cols="5" class="input_2"></textarea><br/></div>
+  <div class="butt">
+  <input class="btn btn-primary" onclick="re()" value="清除所有" style="width:80px;">
+  <input class="btn btn-primary" href="#" value="确认提交" style="width:80px;">
+  </div>
+  </div>
+  </div>
+  
+</body>
 </html>
 <script language="javascript">
 //jquery代码
@@ -99,4 +85,7 @@ $('.carousel').carousel({
 	  
 	   $("#menu_phone").toggle();
 	   });
+function re(){
+	$(".input_2").val(null);
+	}
 </script>
