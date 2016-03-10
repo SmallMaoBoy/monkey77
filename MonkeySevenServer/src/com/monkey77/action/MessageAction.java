@@ -5,6 +5,8 @@
  */
 package com.monkey77.action;
 
+import java.util.Map;
+
 import com.monkey77.service.IMessageService;
 import com.opensymphony.xwork2.Action;
 
@@ -19,8 +21,16 @@ public class MessageAction {
 	private int userId;
 	private String content;
 	private String contact;
-
+	private Map<String,Object> map;
 	
+	public Map<String, Object> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<String, Object> map) {
+		this.map = map;
+	}
+
 	public int getUserId() {
 		return userId;
 	}
