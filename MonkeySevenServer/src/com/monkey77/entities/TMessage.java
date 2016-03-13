@@ -8,19 +8,19 @@ import java.sql.Timestamp;
 
 public class TMessage implements java.io.Serializable {
 
-	// Fields
+	// Fields创建实体类
 
 	private Integer id;
 	private TUser TUser;
-	private Timestamp createTime;
+	private Timestamp createTime;//java中自带的类，创建时间
 	private String content;
 	private String contact;
 
-	// Constructors
+	// 默认构造器
 
 	/** default constructor */
 	public TMessage() {
-	}
+	}//数据库映射
 
 	/** minimal constructor */
 	public TMessage(TUser TUser, Timestamp createTime, String content) {

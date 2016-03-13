@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	$("#want_complain").click(
+			function(){
+		   var userid=$.cookie('userid');
+		   if(userid==null||userid==''){alert("请先登录！")}
+		   else{location.href = "complain.html";}
+			}
+			);
 	
 	//判断本地cookie是否存在用户信息
 	changeUser();
@@ -134,6 +141,7 @@ function unsign(){
 	changeUser();
 	
 }
+
 	
 function changeUser(){
 	var userid=$.cookie('userid');

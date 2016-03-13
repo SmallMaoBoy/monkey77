@@ -6,9 +6,9 @@
 -->
 <hibernate-mapping>
     <class name="com.monkey77.entities.TMessage" table="t_message" >
-        <id name="id" type="java.lang.Integer">
-            <column name="id" />
-            <generator class="increment" />
+        <id name="id" type="java.lang.Integer"><!-- id表示主键 -->
+            <column name="id" /><!-- 列的名字 -->
+            <generator class="increment" /><!-- 增长方式，此处是数据库自动增长 -->
         </id>
         <many-to-one name="TUser" class="com.monkey77.entities.TUser" >
             <column name="user_id" not-null="true" />

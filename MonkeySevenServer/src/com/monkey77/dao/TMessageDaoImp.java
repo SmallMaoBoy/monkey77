@@ -19,6 +19,7 @@ import com.monkey77.entities.TShop;
  * @time 创建时间 2016-3-10上午12:18:24
  * 
  */
+//增、查
 public class TMessageDaoImp extends HibernateDaoSupport implements ITMessageDao{
 
 	/**
@@ -30,7 +31,7 @@ public class TMessageDaoImp extends HibernateDaoSupport implements ITMessageDao{
 	public void createNewMessage(TMessage message) {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(message);
-	}
+	}//将TMessage保存进数据库
 
 	/**
 	 * @author mao
