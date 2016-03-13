@@ -7,6 +7,7 @@ package com.monkey77.dao;
 
 import java.util.List;
 
+import com.monkey77.entities.TGood;
 import com.monkey77.entities.TMessage;
 
 /**
@@ -21,4 +22,5 @@ public interface ITMessageDao {
 	public List<TMessage> getMessage(int indexPage,int num);
 	
 	public int getMessageCount();
+	
 }

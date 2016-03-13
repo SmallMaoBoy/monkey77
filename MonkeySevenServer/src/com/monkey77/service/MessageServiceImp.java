@@ -6,7 +6,11 @@
 package com.monkey77.service;
 
 import java.sql.Timestamp;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
+import com.alex.entity.TBuyer;
 import com.monkey77.dao.ITMessageDao;
 import com.monkey77.entities.TMessage;
 import com.monkey77.entities.TUser;
@@ -49,4 +53,24 @@ public class MessageServiceImp implements IMessageService {
 		messageDao.createNewMessage(m);
 	}
 
-}
+
+	
+	
+	private final int num = 12;
+	public Map<String, Object> getMessageList(int indexPage) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		int count = messageDao.getMessageCount();
+		map.put("count", count);
+		int page = (indexPage - 1) * num;
+		List<TMessage> list = messageDao.getMessage(page,num);
+		map.put("message", list);
+		return map;
+	}
+
+	
+	
+	}
+	
+
+
