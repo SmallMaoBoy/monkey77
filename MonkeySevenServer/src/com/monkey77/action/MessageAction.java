@@ -22,7 +22,18 @@ public class MessageAction {
 	private String content;
 	private String contact;
 	private Map<String,Object> map;
+	private int indexPage;
+
 	
+	public int getIndexPage() {
+		return indexPage;
+	}
+
+	public void setIndexPage(int indexPage) {
+		this.indexPage = indexPage;
+	}
+
+
 	public Map<String, Object> getMap() {
 		return map;
 	}
@@ -67,4 +78,9 @@ public class MessageAction {
 		messageService.createMessage(userId, content, contact);
 		return Action.SUCCESS;
 	}
+	public String getMessageList(){
+		map=messageService.getMessageList(indexPage);
+		return Action.SUCCESS;
+	}
+	
 }

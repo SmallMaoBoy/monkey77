@@ -35,6 +35,9 @@ public class TestMessageService {
 	public void test(){
 		messageService.createMessage(1, "不好吃", "123456");
 	}
-	
+	@Test
+	public void testgetMessageList(){
+		System.out.println(messageService.getMessageList(1));
+	}
 	
 }

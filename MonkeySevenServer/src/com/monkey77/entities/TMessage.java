@@ -2,6 +2,8 @@ package com.monkey77.entities;
 
 import java.sql.Timestamp;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * TMessage entity. @author MyEclipse Persistence Tools
  */
@@ -47,7 +49,7 @@ public class TMessage implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	@JSON(serialize=false)
 	public TUser getTUser() {
 		return this.TUser;
 	}
