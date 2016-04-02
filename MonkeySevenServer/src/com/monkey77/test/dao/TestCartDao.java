@@ -40,6 +40,11 @@ public class TestCartDao {
 	}
 	
 	@Test
+	public void testGetCartByUserMobile(){
+		System.out.println(cartDao.getCartByMobile("13631315179"));
+	}
+	
+	@Test
 	public void testAddCart(){
 		cartDao.insertCart(2,1, 100);
 	}

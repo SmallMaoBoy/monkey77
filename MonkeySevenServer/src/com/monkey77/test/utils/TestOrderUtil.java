@@ -34,7 +34,7 @@ public class TestOrderUtil {
 		public void run() {
 			// TODO Auto-generated method stub
 			super.run();
-			System.out.println(OrderUtil.getOrderNo()+"id--->"+this.getId());
+			System.out.println(OrderUtil.getOrderNo()+"       name--->"+this.getName());
 		}
 	}
 }

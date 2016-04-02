@@ -2,7 +2,7 @@ package com.monkey77.action;
 
 import java.util.Map;
 
-import com.monkey77.service.IGoodService;
+
 import com.monkey77.service.IUserService;
 import com.opensymphony.xwork2.Action;
 

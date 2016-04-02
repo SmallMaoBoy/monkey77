@@ -127,7 +127,7 @@ public class OrderServiceImp implements IOrderService{
 		o.setTOrderDetails(orderDetail);
 		Float price=0f;
 		for(TOrderDetail t:orderDetail){
-			price+=t.getGoodPrice();
+			price+=t.getGoodPrice()*t.getGoodNumber();
 		}
 		o.setTotalPrice(price);
 		orderDao.createOrder(o);
@@ -156,12 +156,12 @@ public class OrderServiceImp implements IOrderService{
 		order.setRemarks(remark);
 		if(order.getStatus().equals("待完善")){
 			if(payway.equals("线下支付")){
-				order.setStatus("待购买");
+				order.setStatus("采购中");
 				//更新日销量表
 				daySaleService.addDaySale(order.getId());
 				//清除购物车信息
 				cartDao.clearCart(userId);
-				//更新商品标，修改商品数量
+				//更新商品信息，修改商品数量和销量
 			}else{
 				order.setStatus("待付款");
 			}
@@ -192,6 +192,66 @@ public class OrderServiceImp implements IOrderService{
 			map.put("carts", cartDao.getCartByUserId(userId));
 		}
 		return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-27下午11:04:10
+	 * @see com.monkey77.service.IOrderService#createOrderByMobile(java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> createOrderByMobile(String mobile) {
+		// TODO Auto-generated method stub
+		int userId=userDao.getUserByMobile(mobile).getId();
+		return createOrder(userId);
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-28下午2:13:22
+	 * @see com.monkey77.service.IOrderService#submissionOrderBuOrder(java.lang.String, int, java.lang.String, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> submissionOrderByMobile(String mobile,
+			int shopId, String remark, String payway, String orderNo) {
+		// TODO Auto-generated method stub
+		int userId=userDao.getUserByMobile(mobile).getId();
+		return submissionOrder(userId, shopId, remark, payway, orderNo);
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-29下午5:59:08
+	 * @see com.monkey77.service.IOrderService#getOrderListByUserId(int)
+	 */
+	@Override
+	public Map<String, Object> getOrderListByUserId(int userId) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("orders", orderDao.getOrderListByUserId(userId));
+		return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-29下午5:59:08
+	 * @see com.monkey77.service.IOrderService#getOrderListByUserMobile(java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> getOrderListByUserMobile(String mobile) {
+		// TODO Auto-generated method stub
+		TUser u=userDao.getUserByMobile(mobile);
+		int userId;
+		if(u!=null){
+			userId=u.getId();
+		}else{
+			userId=-1;
+		}
+		return getOrderListByUserId(userId);
 	}
 
 }

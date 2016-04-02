@@ -5,6 +5,8 @@
  */
 package com.monkey77.dao;
 
+import java.util.List;
+
 import com.monkey77.entities.TOrder;
 
 /**
@@ -25,4 +27,7 @@ public interface ITOrderDao {
 	
 	//更新订单
 	public void updateOrder(TOrder t);
+	
+	//获取订单列表
+	public List<TOrder> getOrderListByUserId(int userId);
 }

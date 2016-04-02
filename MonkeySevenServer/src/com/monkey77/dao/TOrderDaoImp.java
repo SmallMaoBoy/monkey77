@@ -7,8 +7,12 @@ package com.monkey77.dao;
 
 import java.util.List;
 
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import com.monkey77.entities.TCart;
 import com.monkey77.entities.TOrder;
 
 /**
@@ -62,6 +66,22 @@ public class TOrderDaoImp extends HibernateDaoSupport implements ITOrderDao{
 	public void updateOrder(TOrder t) {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().update(t);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-29下午5:39:57
+	 * @see com.monkey77.dao.ITOrderDao#getOrderListByUserId(int)
+	 */
+	@Override
+	public List<TOrder> getOrderListByUserId(int userId) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TOrder.class);
+		criteria.createAlias("TUsers", "t");
+		criteria.add(Restrictions.eq("t.id",userId));
+		List<TCart> list=ht.findByCriteria(criteria);
+		return ht.findByCriteria(criteria);
 	}
 
 }

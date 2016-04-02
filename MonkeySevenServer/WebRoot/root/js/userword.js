@@ -20,7 +20,7 @@ $(document).ready(function() {
 				$("#user-word").append('<tr>'+
 						'<td style="text-align: center;">'+message[i].id+'</td>'+
 						'<td style="text-align: center;">'+message[i].content+'</td>'+
-						'<td style="text-align: center;">'+message[i].creatTime+'</td>'+
+						'<td style="text-align: center;">'+message[i].createTime+'</td>'+
 						'<td style="text-align: center;">'+message[i].contact+'</td>'+
 						'</tr>');
 				

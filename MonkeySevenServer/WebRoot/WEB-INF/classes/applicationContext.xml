@@ -91,6 +91,7 @@
 	<bean id="CartService" class="com.monkey77.service.CartServiceImp">
 		<property name="cartDao" ref="CartDao"></property>
 		<property name="goodDao" ref="GoodDao"></property>
+		<property name="userDao" ref="UserDao"></property>
 	</bean>
 	<bean id="DaySaleService" class="com.monkey77.service.DaySaleServiceImp">
 		<property name="daySaleDao" ref="DaySaleDao"></property>

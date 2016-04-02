@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 /**
  * TOrder entity. @author MyEclipse Persistence Tools
  */
@@ -62,7 +64,7 @@ public class TOrder implements java.io.Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
+	@JSON(serialize=false)
 	public TShop getTShop() {
 		return this.TShop;
 	}
@@ -74,7 +76,7 @@ public class TOrder implements java.io.Serializable {
 	public String getPayWay() {
 		return payWay;
 	}
-
+	@JSON(format="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getSubmissionTime() {
 		return submissionTime;
 	}
@@ -110,7 +112,7 @@ public class TOrder implements java.io.Serializable {
 	public void setTotalPrice(Float totalPrice) {
 		this.totalPrice = totalPrice;
 	}
-
+	@JSON(format="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getGeneratedTime() {
 		return this.generatedTime;
 	}
@@ -126,7 +128,7 @@ public class TOrder implements java.io.Serializable {
 	public void setPayTime(Timestamp payTime) {
 		this.payTime = payTime;
 	}
-
+	@JSON(format="yyyy-MM-dd HH:mm:ss")
 	public Timestamp getTakeTime() {
 		return this.takeTime;
 	}
@@ -144,7 +146,7 @@ public class TOrder implements java.io.Serializable {
 	}
 
 	
-
+	@JSON(serialize=false)
 	public Set getTUsers() {
 		return TUsers;
 	}
@@ -152,7 +154,7 @@ public class TOrder implements java.io.Serializable {
 	public void setTUsers(Set tUsers) {
 		TUsers = tUsers;
 	}
-
+	@JSON(serialize=false)
 	public Set getTOrderDetails() {
 		return this.TOrderDetails;
 	}
@@ -160,5 +162,16 @@ public class TOrder implements java.io.Serializable {
 	public void setTOrderDetails(Set TOrderDetails) {
 		this.TOrderDetails = TOrderDetails;
 	}
+
+	@Override
+	public String toString() {
+		return "TOrder [id=" + id + ", status=" + status + ", totalPrice="
+				+ totalPrice + ", generatedTime=" + generatedTime
+				+ ", submissionTime=" + submissionTime + ", payTime=" + payTime
+				+ ", takeTime=" + takeTime + ", remarks=" + remarks
+				+ ", payWay=" + payWay + ", orderNo=" + orderNo + "]";
+	}
+	
+	
 
 }

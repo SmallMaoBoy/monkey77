@@ -38,4 +38,6 @@ public interface ICartService {
 	//将购物车中的信息组装到订单详情中，并更新商品表
 	public Set<TOrderDetail> getOrderDetailFromCart(int userId);
 	
+	
+	public Map<String,Object> updateCartByMobile(String mobile,String cartData);
 }

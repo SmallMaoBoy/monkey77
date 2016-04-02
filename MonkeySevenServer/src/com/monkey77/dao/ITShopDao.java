@@ -30,4 +30,6 @@ public interface ITShopDao {
 	
 	//获取所有商店
 	public List<TShop> getShopList();
+	
+	public List<TShop> getAllShopList();
 }

@@ -9,4 +9,5 @@ public interface IShopService {
 	public Map<String, Object> getShopById(int id);
 	public void deleteShopById(int id);
 	public void createShop(String name,String description,float lat,float lng);
+	public Map<String, Object> getAllShopList();
 }

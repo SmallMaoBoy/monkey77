@@ -10,9 +10,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.gson.Gson;
 import com.monkey77.dao.ITCartDao;
 import com.monkey77.dao.ITGoodDao;
+import com.monkey77.dao.ITUserDao;
 import com.monkey77.entities.TOrderDetail;
+import com.monkey77.jsonobj.CartInfo;
 import com.monkey77.jsonobj.JsonCart;
 
 /**
@@ -24,7 +27,16 @@ public class CartServiceImp implements ICartService {
 	
 	private ITCartDao cartDao;
 	private ITGoodDao goodDao;
+	private ITUserDao userDao;
 	
+	public ITUserDao getUserDao() {
+		return userDao;
+	}
+
+	public void setUserDao(ITUserDao userDao) {
+		this.userDao = userDao;
+	}
+
 	public ITGoodDao getGoodDao() {
 		return goodDao;
 	}
@@ -133,6 +145,23 @@ public class CartServiceImp implements ICartService {
 			goodDao.decreaseGoodNum(t.getTGood().getId(), t.getGoodNumber());
 		}
 		return orderDetail;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-23下午1:56:19
+	 * @see com.monkey77.service.ICartService#updateCartByMobile(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> updateCartByMobile(String mobile, String cartData) {
+		// TODO Auto-generated method stub
+		Gson g=new Gson();
+		CartInfo ci=g.fromJson(cartData, CartInfo.class);
+		int userId=userDao.getUserByMobile(mobile).getId();
+		cartDao.updateCartByMobile(ci.getCart(), userId);
+		Map<String, Object> result=new HashMap<String, Object>();
+		result.put("statusCode", 0);
+		return result;
 	}
 
 }

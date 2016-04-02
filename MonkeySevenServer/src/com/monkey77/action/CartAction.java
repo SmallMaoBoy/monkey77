@@ -5,8 +5,10 @@
  */
 package com.monkey77.action;
 
+import java.util.List;
 import java.util.Map;
 
+import com.monkey77.jsonobj.JsonCart;
 import com.monkey77.service.ICartService;
 import com.opensymphony.xwork2.Action;
 
@@ -21,10 +23,18 @@ public class CartAction {
 	private int userId;
 	private int goodId;
 	private String mobile;
+	private String cartData;
 	private Map<String,Object> map;
 	private ICartService cartService;
+	private List<JsonCart> cart;
 	
 	
+	public List<JsonCart> getCart() {
+		return cart;
+	}
+	public void setCart(List<JsonCart> cart) {
+		this.cart = cart;
+	}
 	public ICartService getCartService() {
 		return cartService;
 	}
@@ -59,6 +69,12 @@ public class CartAction {
 		this.goodId = goodId;
 	}
 	
+	public String getCartData() {
+		return cartData;
+	}
+	public void setCartData(String cartData) {
+		this.cartData = cartData;
+	}
 	public String getCartInfo(){
 		map=cartService.getCartByUserId(userId);
 		return Action.SUCCESS;
@@ -74,6 +90,7 @@ public class CartAction {
 
 	public String getCartInfoByMobile(){
 		map=cartService.getCartByMobile(mobile);
+		System.out.println(map);
 		return Action.SUCCESS;
 	}
 	
@@ -89,6 +106,15 @@ public class CartAction {
 	
 	public String clearCart(){
 		cartService.clearCart(userId);
+		return Action.SUCCESS;
+	}
+	
+	public String updateCart(){
+		System.out.println(mobile);
+		System.out.println(cartData);
+		System.out.println(cart);
+		cartService.updateCartByMobile(mobile, cartData);
+		System.out.println(map);
 		return Action.SUCCESS;
 	}
 }

@@ -43,7 +43,5 @@ public class TestShopDao {
 	@Test
 	public void testdeleteShopById(){
 		shopDao.deleteShopById(3);
-		
-		
 	}
 }

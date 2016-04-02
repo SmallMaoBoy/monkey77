@@ -52,5 +52,18 @@ public class ShopServiceImp implements IShopService {
 		shop.setLng(lng);
 		shopDao.createShop(shop);
 	}
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-27下午8:17:08
+	 * @see com.monkey77.service.IShopService#getAllShopList()
+	 */
+	@Override
+	public Map<String, Object> getAllShopList() {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		List<TShop> list = shopDao.getAllShopList();
+		map.put("shops", list);
+		return map;
+	}
 
 }

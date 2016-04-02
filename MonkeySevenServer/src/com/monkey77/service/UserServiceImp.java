@@ -87,8 +87,6 @@ public class UserServiceImp implements IUserService{
 		}else{
 			throw new Exception("fail to send SMS...");
 		}
-		
-		
 	}
 
 

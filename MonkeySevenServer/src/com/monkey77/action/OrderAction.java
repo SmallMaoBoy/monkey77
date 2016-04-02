@@ -22,6 +22,7 @@ public class OrderAction {
 	private int shopId;
 	private String remark;
 	private String payway;
+	private String mobile;
 	private Map<String, Object> map;
 	public int getShopId() {
 		return shopId;
@@ -29,6 +30,14 @@ public class OrderAction {
 
 	public void setShopId(int shopId) {
 		this.shopId = shopId;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 	public String getRemark() {
@@ -85,6 +94,11 @@ public class OrderAction {
 		return Action.SUCCESS;
 	}
 	
+	public String createOrderByMobile(){
+		map=orderService.createOrderByMobile(mobile);
+		return Action.SUCCESS;
+	}
+	
 	public String getOrderInfo(){
 		map=orderService.getOrderInfo(orderNo,userId);
 		return Action.SUCCESS;
@@ -92,6 +106,21 @@ public class OrderAction {
 	
 	public String submissionOrder(){
 		map=orderService.submissionOrder(userId,shopId, remark, payway, orderNo);
+		return Action.SUCCESS;
+	}
+	
+	public String submisssionOrderByMobile(){
+		map=orderService.submissionOrderByMobile(mobile,shopId, remark, payway, orderNo);
+		return Action.SUCCESS;
+	}
+	
+	public String getOrderListByUserId(){
+		map=orderService.getOrderListByUserId(userId);
+		return Action.SUCCESS;
+	}
+	
+	public String getOrderListByMobile(){
+		map=orderService.getOrderListByUserMobile(mobile);
 		return Action.SUCCESS;
 	}
 }

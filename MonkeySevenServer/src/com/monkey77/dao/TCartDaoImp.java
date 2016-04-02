@@ -259,5 +259,32 @@ public class TCartDaoImp extends HibernateDaoSupport implements ITCartDao{
 		return result;
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-3-23下午2:18:48
+	 * @see com.monkey77.dao.ITCartDao#updateCartByMobile(java.util.List, int)
+	 */
+	@Override
+	public void updateCartByMobile(List<JsonCart> list, int userId) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria cartCriteria=DetachedCriteria.forClass(TCart.class);
+		cartCriteria.createAlias("TUser", "u");
+		cartCriteria.add(Restrictions.eq("u.id",userId));
+		List<TCart> oldData=(List<TCart>)ht.findByCriteria(cartCriteria);
+		ht.deleteAll(oldData);
+		List<JsonCart> newData=list;
+		List<TCart> cartList=new ArrayList<TCart>();
+		TUser user=new TUser(userId);
+		for(JsonCart jc:newData){
+			TCart t=new TCart();
+			t.setTUser(user);
+			t.setTGood(new TGood(jc.getGoodId()));
+			t.setGoodNumber(jc.getNum());
+			cartList.add(t);
+		}
+		ht.saveOrUpdateAll(cartList);
+	}
+
 
 }

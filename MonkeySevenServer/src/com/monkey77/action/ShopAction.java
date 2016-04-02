@@ -69,6 +69,11 @@ public class ShopAction {
 		map=shopService.getShopList(indexPage);
 		return Action.SUCCESS;
 	}
+	
+	public String getAllShopList(){
+		map=shopService.getAllShopList();
+		return Action.SUCCESS;
+	}
 	public String getShopById(){
 		map=shopService.getShopById(id);
 		return Action.SUCCESS;

@@ -48,4 +48,7 @@ public interface ITCartDao {
 	
 	//将购物车商品复制到订单中
 	public Set<TOrderDetail> getOrderDetil(int userId);
+	
+	//更新购物车信息
+	public void updateCartByMobile(List<JsonCart> list,int userId);
 }
