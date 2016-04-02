@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	
+	
+	
+	
 	/**
 	 * getGoodsWay
 	 * 0代表用户默认情况下查看商品的方式，
@@ -305,5 +308,43 @@ $(document).ready(function() {
 			})
 	}
 	
+	//获取首页信息
+	function getMainInfo(){
+		$.ajax({
+			type : 'post',
+			url : "GoodAction_getMainInfo",
+			dataType : "json",
+			success : function(data) {
+				
+				//创建热门搜索列表
+				var keywords=data.keywords;
+				createKeyWords(keywords);
+				
+				
+				//
+				var categorys=data.category;
+				createcategoryList(categorys);
+			}
+		});
+	}
+	
+	//创建热门搜索列表
+	function createKeyWords(keywords){
+		for(var i=0;i<keywords.length;i++){
+			$(".se-line").append('<li id="fruit_style'+i+'"><a href="javascript:void(0)">'+keywords[i].name+'</a></li>');
+			$("#fruit_style"+i).attr("keyword",keywords[i].name);
+			$("#fruit_style"+i).click(function(){getGoodsWay=1;getGoodsByKeyWord(1,$(this).attr("keyword"))});
+		}
+	}
+	
+	function createcategoryList(categorys){
+		for(var i=0;i<categorys.length;i++){
+			$("#menu1").append('<li id="place2" class="fru_place'+i+'"><a href="javascript:;">'+categorys[i].name+'</a></li>');
+			$(".fru_place"+i).attr("category",categorys[i].name);
+			$(".fru_place"+i).click(function(){getGoodsWay=1;getSortGoods(1,$(this).attr("category"))});
+		}
+	}
+	
+	getMainInfo();
 })
 

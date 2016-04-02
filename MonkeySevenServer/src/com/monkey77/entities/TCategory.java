@@ -3,6 +3,8 @@ package com.monkey77.entities;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.struts2.json.annotations.JSON;
+
 
 /**
  * TCategory entity. @author MyEclipse Persistence Tools
@@ -54,6 +56,7 @@ public class TCategory  implements java.io.Serializable {
         this.name = name;
     }
 
+    @JSON(serialize=false)
     public Set getTGoods() {
         return this.TGoods;
     }

@@ -75,13 +75,6 @@
    <div id="select-line">
     <ul class="se-line">
         <li>热门搜索</li>
-        <li id="fruit_style0"><a href="javascript:;">苹果</a></li>
-        <li id="fruit_style1"><a href="javascript:;">香蕉</a></li>
-        <li id="fruit_style2"><a href="javascript:;">梨</a></li>
-        <li id="fruit_style3"><a href="javascript:;">西瓜</a></li>
-        <li id="fruit_style4"><a href="javascript:;">樱桃</a></li>
-        <li id="fruit_style5"><a href="javascript:;">哈密瓜</a></li>
-        <li id="fruit_style6"><a href="javascript:;">火龙果</a></li>
     </ul>
     </div>
     <div style="clear:both;height:100%;"></div>
@@ -207,7 +200,7 @@
 
   <div class="container" style="margin-top:5px" ><!-- 水果分类导航条 -->
     <div class="line2 " id="choose" >
-    <ul class="se-line">
+    <ul class="se-line2">
         <li id="sort0" class="active sort"><a href="javascript:;">销量从大到小</a></li>
         <li id="sort1" class="sort"><a href="javascript:;">销量从小到大</a></li>
         <li id="sort2" class="sort"><a href="javascript:;">价格从高到底</a></li>
@@ -216,9 +209,6 @@
          <!-- <a href="#" class="navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">水果类型<span class="caret"></span></a>-->
          <a >水果类型</a>
           <ul id="menu1" class="dropdown-menu" style="margin:0px;">
-            <li id="place1" class="fru_place active"><a href="javascript:;">全部</a></li>
-            <li id="place2" class="fru_place"><a href="javascript:;">国产水果</a></li>
-            <li id="place3" class="fru_place"><a href="javascript:;">进口水果</a></li>
           </ul>
         </li>
     </ul>
@@ -390,116 +380,6 @@ $('.carousel').carousel({
 	  
 	   $("#menu_phone").toggle();
 	   });
-</script>
-<script language="javascript">
-	var city = document.getElementById("city");
-	
-	function changeCity(){
-		//清除city中的option对象
-		var options = city.getElementsByTagName("option");
-		for(var i=options.length-1;i>=0;i--){
-			city.removeChild(options[i]);
-		}
-		//得到	provice的值
-		var provice = document.getElementById("provice").value;
-		if(provice=='gd'){
-			/*var opt1 = document.createElement("option");
-			opt1.value = "gz";
-			opt1.innerHTML = "广州市";
-			
-			var opt2 = document.createElement("option");
-			opt2.value = "sz";
-			opt2.innerHTML = "深圳市";
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);*/
-			
-			var opt1 = new Option("广州市","gz");
-			var opt2 = new Option("深圳市","sz");
-			var opt3 = new Option("揭阳市","jy");
-			var opt4 = new Option("湛江市","zj");
-			var opt5 = new Option("江门市","jm");
-			var opt6 = new Option("云浮市","yf");
-			var opt7 = new Option("阳江市","yj");
-			var opt8 = new Option("佛山市","fs");
-			var opt9 = new Option("汕头市","st");
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			city.appendChild(opt8);
-			city.appendChild(opt9);
-			
-		}else if(provice=="hb"){
-			var opt1 = new Option("武汉市","wh");
-			var opt2 = new Option("孝感市","xg");
-			var opt3 = new Option("黄石市","hs");
-			var opt4 = new Option("沙市区","ss");
-			var opt5 = new Option("洪湖市","hh");
-			var opt6 = new Option("宜昌市","yc");
-			var opt7 = new Option("宜都市","yd");
-
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}else if(provice=="hn"){
-			var opt1 = new Option("长沙市","cs");
-			var opt2 = new Option("株洲市","sz");
-			var opt3 = new Option("湘潭市","xt");
-			var opt4 = new Option("衡阳市","hy");
-			var opt5 = new Option("邵阳市","sy");
-			var opt6 = new Option("岳阳市","yy");
-			var opt7 = new Option("常德市","cd");
-
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}
-		else if(provice=="hainan"){
-			var opt1 = new Option("海口市","hk");
-			var opt2 = new Option("文昌市","wc");
-			var opt3 = new Option("三亚市","sy");
-			var opt4 = new Option("五指山市","wzs");
-			var opt5 = new Option("琼海市","qh");
-			var opt6 = new Option("儋州市","zz");
-			var opt7 = new Option("万宁市","wn");
-
-			
-			
-			city.appendChild(opt1);
-			city.appendChild(opt2);
-			city.appendChild(opt3);
-			city.appendChild(opt4);
-			city.appendChild(opt5);
-			city.appendChild(opt6);
-			city.appendChild(opt7);
-			
-		}
-		
-		
-		//向city中增加相应option对象
-		
-	}
-	
-	initProvince(getElementByName("user.province"), "");
-    initCity(getElementByName("user.city"), "", getElementByName("user.province").value, "1");
 </script>
 <script>
 function a1(t){
