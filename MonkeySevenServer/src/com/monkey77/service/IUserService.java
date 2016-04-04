@@ -24,4 +24,7 @@ public interface IUserService {
  response,String sessionid);
 	//获取用户信息
 	public Map<String, Object> getUserList(int indexPage);
+	
+	//更新用户的头像
+	public void updateUserPicUrl(int userId,String picUrl);
 }

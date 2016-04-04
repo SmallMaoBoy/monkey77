@@ -155,5 +155,5 @@ function changeUser(){
 		$("#header_li2").html("<a href='#' onclick='unsign()'>"+"注销"+"</a>");
 	}
 	
-
+	
 }

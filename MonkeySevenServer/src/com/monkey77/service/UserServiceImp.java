@@ -28,7 +28,7 @@ public class UserServiceImp implements IUserService{
 	private ITSmsIdentifyingCodeDao smsIdentifyingCodeDao;
 	private ITCookieValidateDao cookieValidateDao;
 	private final int num = 12;
-	
+	private final String picUrl="imgs/19_avatar_big.jpg";//用户默认头像路径
 	
 	public ITCookieValidateDao getCookieValidateDao() {
 		return cookieValidateDao;
@@ -117,6 +117,7 @@ public class UserServiceImp implements IUserService{
 				}else{
 					result.append("0");
 					TUser user=new TUser();
+					user.setPic(picUrl);
 					user.setMobile(mobile);
 					user.setPassword(MD5.getMD5(password));
 					user.setName("用户"+mobile);
@@ -197,6 +198,18 @@ public class UserServiceImp implements IUserService{
 		List<TUser> list = userDao.getUserList(page,num);
 		map.put("users", list);
 		return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-4下午8:26:06
+	 * @see com.monkey77.service.IUserService#updateUserPicUrl(int, java.lang.String)
+	 */
+	@Override
+	public void updateUserPicUrl(int userId, String picUrl) {
+		// TODO Auto-generated method stub
+		userDao.updateUserPicUrl(userId, picUrl);
 	}
 	
 	

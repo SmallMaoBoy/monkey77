@@ -23,4 +23,7 @@ public interface ITUserDao {
 	//获取用户信息列表
 	public List<TUser> getUserList(int indexPage,int num);
 	public int count();
+	
+	//更新用户图片
+	public void updateUserPicUrl(int userId,String picUrl);
 }

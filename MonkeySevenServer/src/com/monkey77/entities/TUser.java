@@ -20,6 +20,7 @@ public class TUser  implements java.io.Serializable {
      private String mobile;
      private String password;
      private String name;
+     private String pic;
      private Set TOrders = new HashSet(0);
      private Set TCookieValidates = new HashSet(0);
      private Set TCarts = new HashSet(0);
@@ -70,7 +71,17 @@ public class TUser  implements java.io.Serializable {
         this.sex = sex;
     }
 
-    public String getMobile() {
+    public String getPic() {
+		return pic;
+	}
+
+
+	public void setPic(String pic) {
+		this.pic = pic;
+	}
+
+
+	public String getMobile() {
         return this.mobile;
     }
     

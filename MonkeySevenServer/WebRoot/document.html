@@ -6,7 +6,9 @@
 <script language="javascript" src="bootstrap/js/jquery.js"></script>
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="css/document.css" rel="stylesheet" type="text/css">
-
+<script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
+<script language="javascript" src="js/ajaxfileupload.js"></script>
+<script language="javascript" src="js/upload.js"></script>
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 </head>
@@ -74,8 +76,11 @@
         <ul>
         <li id="image">
         当前头像：
-        <img src="imgs/19_avatar_big.jpg"/>
-        <a href="image.html" >修改</a>
+        <img  id="img1" src="imgs/19_avatar_big.jpg"/>
+        <input name="file" id="file" type="file" />
+        <button  class="btn btn-default  btn-info" onclick="FileUpload();">
+                    <span class="glyphicon glyphicon-upload"></span>上传新头像
+                </button>
         </li><br/>
         <li id="name">
         昵称：<input type="text" value="10086" />

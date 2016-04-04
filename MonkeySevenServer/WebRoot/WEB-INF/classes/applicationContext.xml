@@ -145,4 +145,7 @@
 	<bean id="MessageAction" class="com.monkey77.action.MessageAction">
 		<property name="messageService" ref="MessageService" ></property>
 	</bean>
+	<bean id="UploadAction" class="com.monkey77.action.UploadAction">
+		<property name="userService" ref="UserService" ></property>
+	</bean>
 </beans>

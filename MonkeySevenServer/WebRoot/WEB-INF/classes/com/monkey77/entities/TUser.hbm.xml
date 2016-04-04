@@ -30,6 +30,11 @@
                 <comment>昵称</comment>
             </column>
         </property>
+        <property name="pic" type="java.lang.String">
+            <column name="pic" length="300">
+                <comment>头像地址</comment>
+            </column>
+        </property>
         <set name="TOrders" table="t_user_order" catalog="monkey77">
             <key>
                 <column name="user_id" not-null="true" />
