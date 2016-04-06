@@ -81,6 +81,17 @@ public class TUserDaoImp extends HibernateDaoSupport implements ITUserDao {
 		user.setPic(picUrl);
 		this.getHibernateTemplate().update(user);
 	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-4下午10:18:38
+	 * @see com.monkey77.dao.ITUserDao#updateUser(com.monkey77.entities.TUser)
+	 */
+	@Override
+	public void updateUser(TUser user) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().update(user);
+	}
 	
 
 }

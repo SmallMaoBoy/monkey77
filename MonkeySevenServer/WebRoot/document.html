@@ -9,6 +9,7 @@
 <script language="javascript" src="js/jquery.cookie-1.4.1.min.js"></script>
 <script language="javascript" src="js/ajaxfileupload.js"></script>
 <script language="javascript" src="js/upload.js"></script>
+<script language="javascript" src="js/document.js"></script>
 <script language="javascript" src="bootstrap/js/bootstrap.min.js"></script>
 
 </head>
@@ -83,26 +84,25 @@
                 </button>
         </li><br/>
         <li id="name">
-        昵称：<input type="text" value="10086" />
+        昵称：<input type="text" id="nickname" value="10086" />
         </li><br/>
         <li id="sex" >
-        性别：<label><input name="sex" type="radio" value="" checked="checked" />男 </label>&nbsp; &nbsp;
-             <label><input name="sex" type="radio" value="" />女 </label> &nbsp;&nbsp;
-             <label><input name="sex" type="radio" value="" />保密 </label>&nbsp;&nbsp;                       
+        性别：<label><input name="sex" id="sex_boy" type="radio" value="" />男 </label>&nbsp; &nbsp;
+             <label><input name="sex" id="sex_girl" type="radio" value="" />女 </label> &nbsp;&nbsp;
         </li><br/>
         <li id="birthday">
         生日:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-             <label ><input name="bir" type="number" value="2015" /> </label>年&nbsp; &nbsp;
-             <label ><input name="bir" type="number" value="3" /> </label>月&nbsp;&nbsp;
-             <label ><input name="bir" type="number" value="24" /> </label>日&nbsp;&nbsp; 
+             <label ><input name="bir" id="biry" type="number" value="2015" /> </label>年&nbsp; &nbsp;
+             <label ><input name="bir" id="birm" type="number" value="3" /> </label>月&nbsp;&nbsp;
+             <label ><input name="bir" id="bird" type="number" value="24" /> </label>日&nbsp;&nbsp; 
         </li><br/>
         <li id="tele">
-        手机号码：<input type="text" value="13800138000" />&nbsp; &nbsp;<a href="#">更换手机</a>
+        手机号码：<input type="text" id="phone" value="13800138000" />&nbsp; &nbsp;
         </li><br/>
         <li id="email">
-        邮箱号码：<input type="text" value="1234@qq.com" />&nbsp; &nbsp;<a href="#">修改邮箱</a>
+        邮箱号码：<input type="text" id="mail" value="1234@qq.com" />&nbsp; &nbsp;
         </li><br/>
-        <a href="#" class="btn btn-primary" role="button">确认提交</a>
+        <a href="#" class="btn btn-primary" id="btn-update" role="button" onclick="updateUserInfo();">确认提交</a>
         </ul>
             </div>
    </div><!--docu-->

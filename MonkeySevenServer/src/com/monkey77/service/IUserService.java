@@ -1,5 +1,6 @@
 package com.monkey77.service;
 
+import java.util.Date;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
@@ -27,4 +28,16 @@ public interface IUserService {
 	
 	//更新用户的头像
 	public void updateUserPicUrl(int userId,String picUrl);
+	
+	//获取用户信息
+	public Map<String, Object> getUserInfo(int userId);
+	
+	//更新用户信息
+	public Map<String, Object> updateUserInfo(int userId,String mobile,String mail,Date date,int sex,String name);
+	
+	//判断密码是否正确
+	public Map<String, Object> checkPasswordByUserId(int userId,String password);
+	
+	//更改用户密码
+	public Map<String, Object> updatePasswordByUserId(int userId,String password,String newPassword);
 }

@@ -29,7 +29,7 @@ public class TestUserDao {
 	
 	@Test
 	public void testGetUserById(){
-		System.out.print(userDao.getUserById(1));
+		System.out.print(userDao.getUserById(4));
 	}
 	
 	@Test

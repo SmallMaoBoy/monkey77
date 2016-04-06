@@ -26,4 +26,6 @@ public interface ITUserDao {
 	
 	//更新用户图片
 	public void updateUserPicUrl(int userId,String picUrl);
+	
+	public void updateUser(TUser user);
 }

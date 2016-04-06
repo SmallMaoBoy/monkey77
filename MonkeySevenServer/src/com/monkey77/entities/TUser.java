@@ -1,5 +1,6 @@
 package com.monkey77.entities;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +22,8 @@ public class TUser  implements java.io.Serializable {
      private String password;
      private String name;
      private String pic;
+     private Date birthday;
+     private String mail;
      private Set TOrders = new HashSet(0);
      private Set TCookieValidates = new HashSet(0);
      private Set TCarts = new HashSet(0);
@@ -63,7 +66,28 @@ public class TUser  implements java.io.Serializable {
         this.id = id;
     }
 
-    public Short getSex() {
+    @JSON(format="yyyy-MM-dd")
+    public Date getBirthday() {
+		return birthday;
+	}
+
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+
+	public String getMail() {
+		return mail;
+	}
+
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+
+	public Short getSex() {
         return this.sex;
     }
     
@@ -136,6 +160,14 @@ public class TUser  implements java.io.Serializable {
     public void setTGoods(Set TGoods) {
         this.TGoods = TGoods;
     }
+
+
+	@Override
+	public String toString() {
+		return "TUser [id=" + id + ", sex=" + sex + ", mobile=" + mobile
+				+ ", password=" + password + ", name=" + name + ", pic=" + pic
+				+ ", birthday=" + birthday + ", mail=" + mail + "]";
+	}
    
 
 

@@ -2,6 +2,7 @@ package com.monkey77.service;
 
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,7 +17,6 @@ import com.monkey77.dao.ITCookieValidateDao;
 import com.monkey77.dao.ITSmsIdentifyingCodeDao;
 import com.monkey77.dao.ITUserDao;
 import com.monkey77.entities.TCookieValidate;
-import com.monkey77.entities.TGood;
 import com.monkey77.entities.TSmsIdentifyingCode;
 import com.monkey77.entities.TUser;
 import com.monkey77.utils.MD5;
@@ -118,10 +118,12 @@ public class UserServiceImp implements IUserService{
 					result.append("0");
 					TUser user=new TUser();
 					user.setPic(picUrl);
+					Date d=new Date();
 					user.setMobile(mobile);
 					user.setPassword(MD5.getMD5(password));
 					user.setName("用户"+mobile);
 					user.setSex((short) 0);
+					user.setBirthday(d);
 					userDao.saveUser(user);
 				}
 			}
@@ -210,6 +212,88 @@ public class UserServiceImp implements IUserService{
 	public void updateUserPicUrl(int userId, String picUrl) {
 		// TODO Auto-generated method stub
 		userDao.updateUserPicUrl(userId, picUrl);
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-4下午9:14:32
+	 * @see com.monkey77.service.IUserService#getUserInfo(int)
+	 */
+	@Override
+	public Map<String, Object> getUserInfo(int userId) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = new LinkedHashMap<String, Object>();
+		map.put("user", userDao.getUserById(userId));
+		return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-4下午10:21:22
+	 * @see com.monkey77.service.IUserService#updateUserInfo(int, java.lang.String, java.lang.String, java.util.Date, int, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> updateUserInfo(int userId, String mobile,
+			String mail, Date date, int sex, String name) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=new HashMap<String, Object>();
+		try{
+			TUser user=userDao.getUserById(userId);
+			user.setBirthday(date);
+			user.setMail(mail);
+			user.setMobile(mobile);
+			user.setName(name);
+			user.setSex((short) sex);
+			userDao.updateUser(user);
+			map.put("statusCode", 0);
+		}catch (Exception e) {
+			// TODO: handle exception
+			map.put("statusCode", 1);
+		}
+		return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午1:47:12
+	 * @see com.monkey77.service.IUserService#checkPasswordByUserId(int, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> checkPasswordByUserId(int userId, String password) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=new HashMap<String, Object>();
+			TUser user=userDao.getUserById(userId);
+			if(user.getPassword().equals(MD5.getMD5(password))){
+				map.put("statusCode", 0);
+			}else{
+				map.put("statusCode", 1);
+			}
+			return map;
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午2:12:04
+	 * @see com.monkey77.service.IUserService#updatePasswordByUserId(int, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> updatePasswordByUserId(int userId,
+			String password, String newPassword) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map=new HashMap<String, Object>();
+		TUser user=userDao.getUserById(userId);
+		if(user.getPassword().equals(MD5.getMD5(password))){
+			user.setPassword(MD5.getMD5(newPassword));
+			userDao.updateUser(user);
+			map.put("statusCode", 0);
+		}else{
+			map.put("statusCode", 1);
+		}
+		return map;
 	}
 	
 	

@@ -20,6 +20,14 @@
                 <comment>手机号码</comment>
             </column>
         </property>
+        <property name="birthday" type="java.util.Date">
+            <column name="birthday" length="10" ></column>
+        </property>
+         <property name="mail" type="java.lang.String">
+            <column name="mail" length="30">
+                <comment>email</comment>
+            </column>
+        </property>
         <property name="password" type="java.lang.String">
             <column name="password" length="64">
                 <comment>密码</comment>
