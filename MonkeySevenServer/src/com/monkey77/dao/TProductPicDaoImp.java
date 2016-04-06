@@ -38,4 +38,15 @@ public class TProductPicDaoImp extends HibernateDaoSupport implements ITProductP
 		return ht.findByCriteria(criteria);
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午6:17:04
+	 * @see com.monkey77.dao.ITProductPicDao#saveOrUpdatePic(com.monkey77.entities.TProductPic)
+	 */
+	@Override
+	public void saveOrUpdatePic(TProductPic productPic) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().saveOrUpdate(productPic);
+	}
+
 }

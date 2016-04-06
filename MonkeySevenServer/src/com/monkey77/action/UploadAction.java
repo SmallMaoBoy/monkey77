@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 import org.apache.taglibs.standard.extra.spath.Path;
 
+import com.monkey77.service.IGoodService;
 import com.monkey77.service.IUserService;
+import com.monkey77.test.utils.TestImageCompress;
 import com.opensymphony.xwork2.ActionSupport;
 
 /**
@@ -36,12 +38,29 @@ public class UploadAction extends ActionSupport{
 	    private String fileFileContentType;
 	    private Map<String,Object> map ; // 0格式错误 1成功(文件路径)  2失败
 	    private String filePath;
-	    private int type;//0代表用户头像
+	    private int type;//0代表用户头像1代表商品首页图标2代表商品轮播图3代表商品详情图
 	    private int userId;
 	    private IUserService userService;
+	    private int goodId;
+	    private IGoodService goodService;
 	    
-	    
-	    public IUserService getUserService() {
+	    public IGoodService getGoodService() {
+			return goodService;
+		}
+
+		public void setGoodService(IGoodService goodService) {
+			this.goodService = goodService;
+		}
+
+		public int getGoodId() {
+			return goodId;
+		}
+
+		public void setGoodId(int goodId) {
+			this.goodId = goodId;
+		}
+
+		public IUserService getUserService() {
 			return userService;
 		}
 
@@ -114,13 +133,18 @@ public class UploadAction extends ActionSupport{
 	    	String subPath="";
 	        if(type==0){
 	        	subPath="/"+"user"+"/"+userId;
-	        }else if(type==1){
-	        	
+	        }else{
+	        	subPath="/"+"good"+"/"+goodId;
 	        }
 	        String path = ServletActionContext.getRequest().getRealPath("/upload"+subPath);
+	        String compressPath = ServletActionContext.getRequest().getRealPath("/mobile"+subPath);
 	        File file = new File(path); // 判断文件夹是否存在,如果不存在则创建文件夹
 	        if (!file.exists()) {
 	            file.mkdirs();
+	        }
+	        File compressFile=new File(compressPath);
+	        if (!compressFile.exists()) {
+	        	compressFile.mkdirs();
 	        }
 	        String[] fileSuffix = new String[] { ".exe" };// 禁止文件
 	        try {
@@ -142,7 +166,13 @@ public class UploadAction extends ActionSupport{
 	            }
 	            inputStream.close();
 	            outputStream.flush();
-	            userService.updateUserPicUrl(userId, "upload"+subPath+"/"+fileFileName);
+	            TestImageCompress.saveMinPhoto(f.getAbsolutePath(), compressPath+ "\\"+fileFileName, 139, 0.9d);
+	            switch(type){
+	            	case 0:userService.updateUserPicUrl(userId, "upload"+subPath+"/"+fileFileName);break;
+	            	case 1:goodService.updateGoodPic(goodId,"upload"+subPath+"/"+fileFileName);break;
+	            	case 2:goodService.addGoodPic(goodId, "upload"+subPath+"/"+fileFileName, 0);break;
+	            	case 3:goodService.addGoodPic(goodId, "upload"+subPath+"/"+fileFileName, 1);break;
+	            }
 	            map.put("statusCode","0");
 	            map.put("picUrl", "upload"+subPath+"/"+fileFileName);
 	        } catch (Exception e) {

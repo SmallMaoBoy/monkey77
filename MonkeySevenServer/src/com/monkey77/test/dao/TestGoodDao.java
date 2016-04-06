@@ -36,7 +36,8 @@ public class TestGoodDao {
 		good.setStorage("避光存储");
 		good.setStatus("热销");
 		good.setPicUrl("imgs/thumb.jpg");
-		goodDao.saveGood(good);
+		good.setVersion(0);
+		System.out.println(goodDao.saveGood(good));
 	}
 	
 	@Test
@@ -79,4 +80,9 @@ public class TestGoodDao {
 		goodDao.decreaseGoodNum(5, 20);
 	}
 	
+	
+//	@Test
+//	public void testGetGoodWithPic(){
+//		System.out.println(goodDao.getGoodByIdWithPic(1).getTProductPics().size());
+//	}
 }

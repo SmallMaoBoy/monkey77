@@ -7,6 +7,8 @@ package com.monkey77.service;
 
 import java.util.Map;
 
+import com.monkey77.entities.TGood;
+
 /**
  * @author mao
  * @time 创建时间 2015-12-23下午4:20:31
@@ -25,4 +27,13 @@ public interface IGoodService {
 	
 	//根据商品id获取商品详情
 	public Map<String,Object> getGoodDetailById(int id);
+	
+	//创建商品
+	public int createGood(TGood good);
+	
+	//修改商品首页图片
+	public void updateGoodPic(int goodId,String picUrl);
+	
+	//增加商品图片
+	public void addGoodPic(int goodId,String picUrl,int type);
 }

@@ -16,6 +16,7 @@ import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.ITKeywordsDao;
 import com.monkey77.dao.ITProductPicDao;
 import com.monkey77.entities.TGood;
+import com.monkey77.entities.TProductPic;
 
 /**
  * @author mao
@@ -179,6 +180,46 @@ public class GoodServiceImp implements IGoodService {
 		map.put("productPic",productPicDao.getProductPicByGoodId(id));
 		map.put("category", categoryDao.getCategoryByGoodId(id).getName());
 		return map;
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午4:26:54
+	 * @see com.monkey77.service.IGoodService#createGood(com.monkey77.entities.TGood)
+	 */
+	@Override
+	public int createGood(TGood good) {
+		// TODO Auto-generated method stub
+		return goodDao.saveGood(good);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午5:27:29
+	 * @see com.monkey77.service.IGoodService#updateGoodPic(int, java.lang.String)
+	 */
+	@Override
+	public void updateGoodPic(int goodId, String picUrl) {
+		// TODO Auto-generated method stub
+		TGood good=goodDao.getGoodById(goodId);
+		good.setPicUrl(picUrl);
+		goodDao.updateGood(good);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午5:59:34
+	 * @see com.monkey77.service.IGoodService#addGoodPic(int, java.lang.String, int)
+	 */
+	@Override
+	public void addGoodPic(int goodId, String picUrl, int type) {
+		// TODO Auto-generated method stub
+		TProductPic productPic=new TProductPic();
+		TGood g=new TGood(goodId);
+		productPic.setPicUrl(picUrl);
+		productPic.setType((short) type);
+		productPic.setTGood(g);
+		productPicDao.saveOrUpdatePic(productPic);
 	}
 
 }

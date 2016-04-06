@@ -133,6 +133,10 @@
 	<bean id="ShowGoodDataAction" class="com.alex.action.ShowGoodDataAction">
 		<property name="itGoodDao" ref="GoodDao" ></property>
 	</bean>
+	<bean id="CreateGoodAction" class="com.alex.action.CreateGoodAction">
+		<property name="categoryDao" ref="CategoryDao" ></property>
+		<property name="goodService" ref="GoodService" ></property>
+	</bean>
 	<bean id="BuyerAction" class="com.monkey77.action.BuyerAction">
 		<property name="buyerService" ref="BuyerService" ></property>
 	</bean>
@@ -147,5 +151,6 @@
 	</bean>
 	<bean id="UploadAction" class="com.monkey77.action.UploadAction">
 		<property name="userService" ref="UserService" ></property>
+		<property name="goodService" ref="GoodService" ></property>
 	</bean>
 </beans>

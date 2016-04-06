@@ -95,6 +95,12 @@
 		    <result>/WEB-INF/alex/website/showdatagood.jsp</result>
 		</action>
 		
+		<!-- Hi -->
+		<action name="createGoodAction_*" class="CreateGoodAction" method="{1}">
+		    <result name="show">/WEB-INF/alex/website/creategood.jsp</result>
+		    <result name="createsuccess">/WEB-INF/alex/website/uploadgood.jsp</result>
+		</action>
+		
 		<!-- 修改商品的价格 -->
 		<action name="changegoodprice" class="com.alex.action.ChangeGoodPriceAction">
 		    <result type="json" name="success12">

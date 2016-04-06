@@ -17,7 +17,7 @@ import com.monkey77.entities.TGood;
 public interface ITGoodDao {
 
 	// 保存商品
-	public void saveGood(TGood good);
+	public int saveGood(TGood good);
 
 	// 按照销量从小到大获取指定区间的商品列表
 	public List<TGood> getGoodsBySaleVolumeAsc(int firstIndex, int num);
@@ -75,9 +75,13 @@ public interface ITGoodDao {
 	//根据商品id获取商品
 	public TGood getGoodById(int id);
 	
+	
 	//根据商品id获取商品名字
 	public String getGoodNameById(int id);
 	
 	//更改商品数量(减少)
 	public void decreaseGoodNum(int id,int num);
+	
+	//更新商品
+	public void updateGood(TGood good);
 }

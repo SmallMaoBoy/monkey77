@@ -29,9 +29,9 @@ public class TGoodDaoImp extends HibernateDaoSupport implements ITGoodDao {
 	 * @see com.monkey77.dao.ITGoodDao#saveGood(com.monkey77.entities.TGood)
 	 */
 	@Override
-	public void saveGood(TGood good) {
+	public int saveGood(TGood good) {
 		// TODO Auto-generated method stub
-		this.getHibernateTemplate().save(good);
+		return  (Integer) this.getHibernateTemplate().save(good);
 	}
 
 	/**
@@ -313,5 +313,17 @@ public class TGoodDaoImp extends HibernateDaoSupport implements ITGoodDao {
 		this.getHibernateTemplate().update(good);
 		
 	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-6下午5:29:10
+	 * @see com.monkey77.dao.ITGoodDao#updateGood(com.monkey77.entities.TGood)
+	 */
+	@Override
+	public void updateGood(TGood good) {
+		// TODO Auto-generated method stub
+		this.getHibernateTemplate().update(good);
+	}
+
 
 }

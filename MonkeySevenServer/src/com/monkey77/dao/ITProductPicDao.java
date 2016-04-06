@@ -18,4 +18,7 @@ public interface ITProductPicDao {
 
 	//根据商品id获取商品图片
 	public List<TProductPic> getProductPicByGoodId(int id);
+	
+	//更新图片商品关系
+	public void saveOrUpdatePic(TProductPic productPic);
 }
