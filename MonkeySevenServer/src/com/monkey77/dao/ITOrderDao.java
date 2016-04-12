@@ -28,6 +28,12 @@ public interface ITOrderDao {
 	//更新订单
 	public void updateOrder(TOrder t);
 	
-	//获取订单列表
+	//根据用户id获取订单列表
 	public List<TOrder> getOrderListByUserId(int userId);
+	
+	//根据订单状态获取订单列表
+	public List<TOrder> getOrderListByOrderStatus(String orderStatus,int index,int num);
+	
+	//获取订单列表
+	public List<TOrder> getOrderList(int index,int num);
 }

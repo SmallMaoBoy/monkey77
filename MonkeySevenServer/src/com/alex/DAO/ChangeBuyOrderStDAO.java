@@ -61,11 +61,9 @@ public class ChangeBuyOrderStDAO {
         Hibernateutil.closeSession();  
     }  
       
-    public TBuyorder show(Integer orderid,String status) {  
+    public TBuyorder show(Integer orderid) {  
 //        session.beginTransaction();
     	TBuyorder order=(TBuyorder) session.get(TBuyorder.class, orderid);
-        order.setStatus(status);
-        session.update(order);
         session.flush();
         session.close();
         return order;   

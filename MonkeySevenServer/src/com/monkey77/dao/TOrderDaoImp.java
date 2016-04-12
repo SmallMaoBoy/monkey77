@@ -84,4 +84,31 @@ public class TOrderDaoImp extends HibernateDaoSupport implements ITOrderDao{
 		return ht.findByCriteria(criteria);
 	}
 
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-9下午2:10:28
+	 * @see com.monkey77.dao.ITOrderDao#getOrderListByOrderStatus(java.lang.String)
+	 */
+	@Override
+	public List<TOrder> getOrderListByOrderStatus(String orderStatus,int index,int num) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TOrder.class);
+		criteria.add(Restrictions.eq("status",orderStatus));
+		return ht.findByCriteria(criteria,index,num);
+	}
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-9下午6:12:21
+	 * @see com.monkey77.dao.ITOrderDao#getOrderList(java.lang.String, int, int)
+	 */
+	@Override
+	public List<TOrder> getOrderList(int index, int num) {
+		// TODO Auto-generated method stub
+		HibernateTemplate ht=this.getHibernateTemplate();
+		DetachedCriteria criteria=DetachedCriteria.forClass(TOrder.class);
+		return ht.findByCriteria(criteria,index,num);
+	}
+
 }

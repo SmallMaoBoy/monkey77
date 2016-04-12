@@ -30,4 +30,6 @@ public interface IOrderService {
 	public Map<String,Object> getOrderListByUserId(int userId);
 	
 	public Map<String,Object> getOrderListByUserMobile(String mobile);
+	
+	public Map<String,Object> getOrderListByOrderStatus(String orderstatus,int index,int num);
 }

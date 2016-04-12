@@ -76,9 +76,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <div class="modal-body">
         <select id="shuju">  
-  <option value ="未领取">未领取</option>  
-  <option value ="已送至提取点中">已送至提取点中</option>  
-  <option value="已领取">已领取</option>  
+  			<option value ="待购买">待购买</option>  
+ 			<option value ="已送至提取点中">已送至提取点中</option>  
+  			<option value="已取消">已取消</option>  
     
          </select> 
       </div>
@@ -161,21 +161,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- Table -->
   <table class="table">
    <tr>
-   <td>订单ID</td>
+   <td>订单号</td>
    <td>订单状态</td>
-   <td>订单备注</td>
-   <td>订单价格</td>
-   <td>付款时间</td>
-   <td>提取时间</td>
+   <td>创建订单时间</td>
+   <td>订单总价格</td>
+   <td>支付方式</td>
+   <td>备注</td>
 </tr>
 <c:forEach items="${sessionScope.Order}" var="ord">
 <tr>
-   <td>${ord.id}</td>
+   <td>${ord.orderNo}</td>
    <td>${ord.status}</td>
-   <td>${ord.remarks}</td>
+   <td>${ord.generatedTime}</td>
    <td>${ord.totalPrice}</td>
-   <td>${ord.payTime}</td>
-   <td>${ord.takeTime}</td>
+   <td>${ord.payWay}</td>
+   <td>${ord.remarks==""?"无":ord.remarks}</td>
    <td><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
   更改订单状态
 </button></td>

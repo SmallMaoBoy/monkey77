@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class ChangeBuyinPriceAction extends ActionSupport {
 	
-	private Integer buyinprice;
+	private Float buyinprice;
 	private Integer  id;
 	private Integer result=0;
 	public String execute() throws Exception {
@@ -19,14 +19,14 @@ public class ChangeBuyinPriceAction extends ActionSupport {
 	
 
 
-	public Integer getBuyinprice() {
+	public Float getBuyinprice() {
 		return buyinprice;
 	}
 
 
 
 
-	public void setBuyinprice(Integer buyinprice) {
+	public void setBuyinprice(Float buyinprice) {
 		this.buyinprice = buyinprice;
 	}
 

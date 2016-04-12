@@ -39,4 +39,9 @@ public class TestOrderService {
 	public void testSubmissionOrder(){
 		System.out.println(orderService.submissionOrder(1,1, "加饭", "在线支付", "MK201601110146050001"));
 	}
+	
+	@Test
+	public void testGetOrderList(){
+		System.out.println(orderService.getOrderListByOrderStatus("待购买",0,10));
+	}
 }

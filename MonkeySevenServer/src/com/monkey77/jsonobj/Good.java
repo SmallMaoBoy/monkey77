@@ -13,6 +13,14 @@ package com.monkey77.jsonobj;
 public class Good {
 private int id;
 	private int num;
+	private float price;
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
 
 	public int getId() {
 		return id;

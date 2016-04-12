@@ -12,7 +12,7 @@ public class ChangeBuyOrderStAciton extends ActionSupport {
 	private Integer result=0;
 	public String execute() throws Exception {
 		ChangeBuyOrderStDAO cos=new ChangeBuyOrderStDAO();
-		 cos.show(id, status);
+		 cos.show(id);
 		 result=1;
 		 return "success12";
 	}

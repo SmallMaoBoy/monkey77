@@ -37,7 +37,7 @@
 
 		</action>
         <!-- 显示采购点店员的订单数据 -->
-		<action name="showorderdata" class="com.alex.action.ShoworderAction">
+		<action name="showorderdata_*" class="com.alex.action.ShoworderAction" method="{1}">
 			<result name="success">/WEB-INF/alex/website/ordershow.jsp</result>
 
 		</action>
@@ -64,9 +64,8 @@
 		</action>
 		
 		<!-- 显示采购员订单数据 -->
-		<action name="showbuyorderdata" class="com.alex.action.ShowbuyorderAciton">
+		<action name="showbuyorderdata_*" class="com.alex.action.ShowbuyorderAciton" method="{1}">
 		    <result name="success">/WEB-INF/alex/website/buyordershow.jsp</result>
-		
 		</action>
 		<!-- 修改采购员订单状态 -->
 		<action name="changebuyorderstatus" class="com.alex.action.ChangeBuyOrderStAciton">

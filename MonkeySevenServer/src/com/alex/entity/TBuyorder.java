@@ -1,5 +1,7 @@
 package com.alex.entity;
 
+import com.monkey77.entities.TDaySale;
+
 /**
  * TBuyorder entity. @author MyEclipse Persistence Tools
  */
@@ -8,13 +10,14 @@ public class TBuyorder implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8894498133267118441L;
 	private Integer id;
-	private String good;
-	private Integer buyinprice;
-	private String status;
-	private Integer dayprice;
-	private String number;
-	private String sum;
+	private TDaySale TDaySale;
+	private Float orderprice;
+	private Float dayprice;
 
 	// Constructors
 
@@ -22,15 +25,16 @@ public class TBuyorder implements java.io.Serializable {
 	public TBuyorder() {
 	}
 
+	/** minimal constructor */
+	public TBuyorder(TDaySale TDaySale) {
+		this.TDaySale = TDaySale;
+	}
+
 	/** full constructor */
-	public TBuyorder(String good, Integer buyinprice, String status,
-			Integer dayprice, String number, String sum) {
-		this.good = good;
-		this.buyinprice = buyinprice;
-		this.status = status;
+	public TBuyorder(TDaySale TDaySale, Float orderprice, Float dayprice) {
+		this.TDaySale = TDaySale;
+		this.orderprice = orderprice;
 		this.dayprice = dayprice;
-		this.number = number;
-		this.sum = sum;
 	}
 
 	// Property accessors
@@ -43,52 +47,29 @@ public class TBuyorder implements java.io.Serializable {
 		this.id = id;
 	}
 
-	public String getGood() {
-		return this.good;
+	public TDaySale getTDaySale() {
+		return this.TDaySale;
 	}
 
-	public void setGood(String good) {
-		this.good = good;
+	public void setTDaySale(TDaySale TDaySale) {
+		this.TDaySale = TDaySale;
 	}
 
-	public Integer getBuyinprice() {
-		return this.buyinprice;
+	public Float getOrderprice() {
+		return orderprice;
 	}
 
-	public void setBuyinprice(Integer buyinprice) {
-		this.buyinprice = buyinprice;
+	public void setOrderprice(Float orderprice) {
+		this.orderprice = orderprice;
 	}
 
-	public String getStatus() {
-		return this.status;
+	public Float getDayprice() {
+		return dayprice;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public Integer getDayprice() {
-		return this.dayprice;
-	}
-
-	public void setDayprice(Integer dayprice) {
+	public void setDayprice(Float dayprice) {
 		this.dayprice = dayprice;
 	}
 
-	public String getNumber() {
-		return this.number;
-	}
-
-	public void setNumber(String number) {
-		this.number = number;
-	}
-
-	public String getSum() {
-		return this.sum;
-	}
-
-	public void setSum(String sum) {
-		this.sum = sum;
-	}
 
 }

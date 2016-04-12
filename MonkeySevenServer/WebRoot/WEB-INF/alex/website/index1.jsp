@@ -105,10 +105,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>需求订单管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">需求订单管理</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">填入买入价格</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">买入所需商品</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showToday">今日订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showAll">历史订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getBuyingData?index=0">查看未购买订单</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData?index=0">查看所有订单</a></li>
             
         </ul>
 

@@ -156,7 +156,7 @@ public class OrderServiceImp implements IOrderService{
 		order.setRemarks(remark);
 		if(order.getStatus().equals("待完善")){
 			if(payway.equals("线下支付")){
-				order.setStatus("采购中");
+				order.setStatus("待购买");
 				//更新日销量表
 				daySaleService.addDaySale(order.getId());
 				//清除购物车信息
@@ -252,6 +252,20 @@ public class OrderServiceImp implements IOrderService{
 			userId=-1;
 		}
 		return getOrderListByUserId(userId);
+	}
+
+
+	/**
+	 * @author mao
+	 * @date 创建时间：2016-4-9下午2:14:14
+	 * @see com.monkey77.service.IOrderService#getOrderListByOrderStatus(java.lang.String)
+	 */
+	@Override
+	public Map<String, Object> getOrderListByOrderStatus(String orderstatus,int index,int num) {
+		// TODO Auto-generated method stub
+		Map<String,Object> map=new HashMap<String,Object>();
+		map.put("orders", orderDao.getOrderListByOrderStatus(orderstatus,index,num));
+		return map;
 	}
 
 }

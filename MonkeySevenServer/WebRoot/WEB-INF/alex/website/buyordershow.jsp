@@ -227,53 +227,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <!-- Table -->
   <table class="table">
    <tr>
-   <td>订单ID</td>
-   <td>商品类型</td>
-   <td>买入价格(RMB/斤)</td>
-   <td>当天价格（RMB/斤）</td>
-   <td>订单状态</td>
-   <td>商品数量（斤）</td>
+   <td>商品名称</td>
+   <td>商品规格</td>
+   <td>订单价格</td>
+   <td>当天价格</td>
+   <td>时间</td>
+   <td>商品数量</td>
 </tr>
 <c:forEach items="${sessionScope.Tbuyoder}" var="ord">
 <tr>
-   <td>${ord.id}</td>
-   <!--  可以修改的商品种类<td><a href="javascript:;" class="cggood" ordergoodID="${ord.id}">${ord.good}</a>-->
-   <td>${ord.good}</td>
-  
-   
-   </td>
-   
-   <td><a href="javascript:;" class="cgbuyinprice" buyinpriceID="${ord.id}">${ord.buyinprice}</a>
-   <td>${ord.dayprice}</td>
-   <td>
-          <a href="javascript:;" class="cgbuyorder" buyorderID="${ord.id}">${ord.status}</a>
-   
-   </td>
-   <td>${ord.number}</td>
+   <td>${ord.TDaySale.TGood.name}</td>
+   <td>${ord.TDaySale.TGood.specification}</td>
+   <td>${ord.orderprice}</td>
+   <td><a href="javascript:;" class="cgbuyinprice" buyinpriceID="${ord.id}">${ord.dayprice==null?"未定价":ord.dayprice}</a></td>
+   <td>${ord.TDaySale.saleDate}</td>
+   <td>${ord.TDaySale.num}</td>
 </tr>
 </c:forEach>
   </table>
-</div>
-<div>
-<nav>
-  <ul class="pagination112">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=0">1</a></li>
-    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=1">2</a></li>
-    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=2">3</a></li>
-    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=3">4</a></li>
-    <li><a href="/MonkeySevenServer/kung/showbuyorderdata?offset=4">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
 </div>
 <div>
 <div class="col-lg-6">

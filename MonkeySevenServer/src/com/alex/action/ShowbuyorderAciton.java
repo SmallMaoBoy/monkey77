@@ -12,14 +12,27 @@ public class ShowbuyorderAciton extends ActionSupport {
 	private int pageSize=10;
 	
 	public String execute() throws Exception {
-		ShowbuyOrderDAO sdo=new ShowbuyOrderDAO();
-		 List ls  =sdo.show(offset, pageSize);
+		
+		 return "success";
+	}
+
+	public String showToday(){
+		 ShowbuyOrderDAO sdo=new ShowbuyOrderDAO();
+		 List ls  =sdo.showToday(offset, pageSize);
 		 Long sum=sdo.resum();
 		 ActionContext.getContext().getSession().put("Tbuyoder",ls);
 		 ActionContext.getContext().getSession().put("sumnumber",sum);
 		 return "success";
 	}
-
+	public String showAll(){
+		 ShowbuyOrderDAO sdo=new ShowbuyOrderDAO();
+		 List ls  =sdo.showAll(offset, pageSize);
+		 Long sum=sdo.resum();
+		 ActionContext.getContext().getSession().put("Tbuyoder",ls);
+		 ActionContext.getContext().getSession().put("sumnumber",sum);
+		 return "success";
+	}
+	
 	public int getOffset() {
 		return offset;
 	}

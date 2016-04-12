@@ -61,11 +61,9 @@ public class ChangeOrderGoodDAO {
         Hibernateutil.closeSession();  
     }  
       
-    public TBuyorder show(Integer orderid,String good) {  
+    public TBuyorder show(Integer orderid) {  
 //        session.beginTransaction();
     	TBuyorder order=(TBuyorder) session.get(TBuyorder.class, orderid);
-        order.setGood(good);
-        session.update(order);
         session.flush();
         session.close();
         return order;   

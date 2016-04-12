@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alex.DAO.ChangeBuyOrderStDAO;
+import com.alex.entity.TBuyorder;
 import com.monkey77.dao.ITDaySaleDao;
 import com.monkey77.dao.ITGoodDao;
 import com.monkey77.dao.ITOrderDetailDao;
@@ -90,6 +92,11 @@ public class DaySaleServiceImp implements IDaySaleService {
 				t.setSaleDate(new Date());
 				t.setTGood(new TGood(g.getId()));
 				daySaleDao.createOrUpdate(t);
+				ChangeBuyOrderStDAO buyerDao=new ChangeBuyOrderStDAO();
+				TBuyorder buyorder=new TBuyorder(t);
+				buyorder.setOrderprice(g.getPrice());
+				buyerDao.create(buyorder);
+				
 			}
 		}
 	}

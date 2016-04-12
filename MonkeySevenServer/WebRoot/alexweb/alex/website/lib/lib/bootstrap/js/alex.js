@@ -66,7 +66,6 @@ $(document).ready(function(e) {
 	})
 	$(".tijiao3").click(function () {
 		var value=$("#shuju3").val();
-		
 		 $.post("/MonkeySevenServer/kung/changebuyinprice", { buyinprice:value ,id:currentbuyinprice },function(data){
      if(data.result==0){ alert("修改失败！"); }
 	 else { window.location.reload();  }

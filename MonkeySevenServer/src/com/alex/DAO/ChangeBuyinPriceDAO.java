@@ -59,10 +59,10 @@ public class ChangeBuyinPriceDAO {
         Hibernateutil.closeSession();  
     }  
       
-    public TBuyorder show(Integer orderid,Integer buyinprice) {  
+    public TBuyorder show(Integer orderid,Float buyinprice) {  
 //        session.beginTransaction();
     	TBuyorder order=(TBuyorder) session.get(TBuyorder.class, orderid);
-        order.setBuyinprice(buyinprice);
+        order.setDayprice(buyinprice);
         session.update(order);
         session.flush();
         session.close();

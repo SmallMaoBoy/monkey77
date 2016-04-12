@@ -11,7 +11,7 @@ public class ChangeOrderGoodAction extends ActionSupport {
 	private Integer result=0;
 	public String execute() throws Exception {
 		ChangeOrderGoodDAO cos=new ChangeOrderGoodDAO();
-		 cos.show(id, good);
+		 cos.show(id);
 		 result=1;
 		 return "success12";
 	}

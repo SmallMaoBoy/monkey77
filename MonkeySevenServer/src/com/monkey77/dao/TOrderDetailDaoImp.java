@@ -57,6 +57,7 @@ public class TOrderDetailDaoImp extends HibernateDaoSupport implements ITOrderDe
 			Good g=new Good();
 			g.setId(t.getTGood().getId());
 			g.setNum(t.getGoodNumber());
+			g.setPrice(t.getGoodPrice());
 			goods.add(g);
 		}
 		return goods;
