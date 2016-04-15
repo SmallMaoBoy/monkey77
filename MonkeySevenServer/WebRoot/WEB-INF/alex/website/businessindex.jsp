@@ -93,20 +93,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>管理总览</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">查看订单信息</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData">查看订单信息</a></li>
             <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看顾客信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData">更改订单状态</a></li>
             
             
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>账户管理<span class="label label-info">+3</span></a>
-        <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">更换账户</a></li>
-            <li ><a href="#">查看个人信息</a></li>
-            <li ><a href="reset-password.html">修改密码</a></li>
-            <li ><a href="#">添加账户</a></li>
-        </ul>
+        
         
     </div>
     
@@ -227,26 +221,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="block span6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse">简单谈谈 </a>
+        <a href="#widget1container" class="block-heading" data-toggle="collapse">水果小知识 </a>
         <div id="widget1container" class="block-body collapse in">
-            <h2>出师表</h2>
-            <p>先帝创业未半而中道崩殂(cú)，今天下三分，益州疲(pí)弊，此诚危急存亡之秋也。然侍卫之臣不懈(xiè)于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗(yí)德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞(sè)忠谏之路也。
-
-宫中府中，俱为一体，陟(zhì )罚臧(zāng)否(pǐ)，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。
-
-侍中、侍郎郭攸(yōu)之、费祎(yī)、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗(wèi)陛下。愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨(bì)补阙漏，有所广益。
-
-将军向宠，性行（xíng）淑均，晓畅军事，试用于昔日，先帝称之曰能，是以众议举宠为督。愚以为营中之事，悉以咨之，必能使行(háng )阵和睦，优劣得所。
-
-亲贤臣，远小人，此先汉所以兴隆也;亲小人，远贤臣，此后汉所以倾颓也。先帝在时，每与臣论此事，未尝不叹息痛恨于桓（huán）、灵也。侍中、尚书、长(zhǎng)史、参军，此悉贞良死节之臣，愿陛下亲之信之，则汉室之隆，可计日而待也。
-
-臣本布衣，躬耕于南阳，苟全性命于乱世，不求闻(wén)达于诸侯。先帝不以臣卑（bēi）鄙（bǐ），猥(wěi)自枉屈，三顾臣于草庐之中，咨臣以当世之事，由是感激，遂许先帝以驱驰。后值倾覆，受任于败军之际，奉命于危难之间,尔来二十有(yòu)一年矣! 
-
-先帝知臣谨慎，故临崩寄臣以大事也。受命以来，夙(sù)夜忧叹，恐托付不效，以伤先帝之明，故五月渡（dù）泸，深入不毛。今南方已定，兵甲已足，当奖率三军，北定中原，庶(shù)竭驽(nú)钝，攘(rǎng)除奸凶，兴复汉室，还于旧都。此臣所以报先帝而忠陛下之职分也。至于斟酌损益，进尽忠言，则攸之、祎、允之任也。
-
-愿陛下托臣以讨贼兴复之效，不效,则治臣之罪，以告先帝之灵。若无兴德之言，则责攸之、祎、允等之慢，以彰其咎(jiù)。陛下亦宜自谋，以咨诹(zōu)善道，察纳雅言，深追先帝遗诏。臣不胜受恩感激!
-
-今当远离，临表涕零，不知所云。</p>
+            <h2>挑水果的小秘诀</h2>
+            <p>1草莓：别太红，红里带白点最甜。2木瓜：挑鼓肚子，斑点多，微黄偏硬为佳。3橙：要捡沉手的，表皮润滑，底部有“圈”的。4芒果：挑饱满、圆润，不软不硬。5苹果：挑黄里透红，有红丝，“肚脐”深陷的。6葡萄：饱满，梗硬挺。7香蕉：不要挑两头绿色，要圆润无棱。。</p>
         </div>
     </div>
 </div>
@@ -318,10 +296,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <div class="block span6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse">简单谈谈 </a>
+        <a href="#widget1container" class="block-heading" data-toggle="collapse">水果小知识 </a>
         <div id="widget1container" class="block-body collapse in">
-            <h2>简易管理系统</h2>
-            <p>目前管理系统还相对简陋，请多多包涵</p>
+            <h2>香蕉的好处</h2>
+            <p>1.能结束人烦恼的快乐水果。2.被美誉为“智慧之果”。3.营养价值高、热量很低。4.含有丰富的蛋白质、磷、糖、钾、维生素A和C、膳食纤维。5.可改善失眠症状，睡前吃一些香蕉，对于更好的入睡，是有着很好的辅助作用。6.体寒血糖高的朋友少吃香蕉。7.香蕉发黑是坚决不能再吃的。</p>
         </div>
     </div>
     

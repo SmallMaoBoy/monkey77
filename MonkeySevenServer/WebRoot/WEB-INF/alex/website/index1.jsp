@@ -107,29 +107,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul id="accounts-menu" class="nav nav-list collapse">
             <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showToday">今日订单需求</a></li>
             <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showAll">历史订单需求</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata_getBuyingData?index=0">查看未购买订单</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData?index=0">查看所有订单</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_getBuyingData?index=0">查看未购买订单</a></li>
+            
             
         </ul>
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">新活动</a></li>
-            <li ><a href="404.html">已举行活动</a></li>
-            <li ><a href="500.html">活动列表</a></li>
-            <li ><a href="503.html">活动总览</a></li>
-        </ul>
-
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">商品分类</a></li>
-            <li ><a href="terms-and-conditions.html">商品信息</a></li>
-            <li ><a href="privacy-policy.html">商品一览</a></li>
-            
-        </ul>
-     
-       
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
         
     </div>
     
@@ -215,33 +197,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               </thead>
               <tbody>
                 <tr>
-                  <td>Mark</td>
-                  <td>Tompson</td>
+                  <td>梁</td>
+                  <td>宇富</td>
                   <td>the_mark7</td>
                 </tr>
                 <tr>
-                  <td>Ashley</td>
-                  <td>Jacobs</td>
+                  <td>孔</td>
+                  <td>祥晟</td>
                   <td>ash11927</td>
                 </tr>
                 <tr>
-                  <td>Audrey</td>
-                  <td>Ann</td>
+                  <td>梁</td>
+                  <td>艺灿</td>
                   <td>audann84</td>
                 </tr>
                 <tr>
-                  <td>John</td>
-                  <td>Robinson</td>
+                  <td>黄</td>
+                  <td>毅麟</td>
                   <td>jr5527</td>
                 </tr>
                 <tr>
-                  <td>Aaron</td>
-                  <td>Butler</td>
+                  <td>王</td>
+                  <td>师傅</td>
                   <td>aaron_butler</td>
                 </tr>
                 <tr>
-                  <td>Chris</td>
-                  <td>Albert</td>
+                  <td>赵</td>
+                  <td>日天</td>
                   <td>cab79</td>
                 </tr>
               </tbody>
@@ -250,13 +232,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="block span6">
-        <a href="#widget1container" class="block-heading" data-toggle="collapse">Collapsible </a>
+        <a href="#widget1container" class="block-heading" data-toggle="collapse">水果小知识 </a>
         <div id="widget1container" class="block-body collapse in">
-            <h2>Here's a Tip</h2>
-            <p>This template was developed with <a href="http://middlemanapp.com/" target="_blank">Middleman</a> and includes .erb layouts and views.</p>
-            <p>All of the views you see here (sign in, sign up, users, etc) are already split up so you don't have to waste your time doing it yourself!</p>
-            <p>The layout.erb file includes the header, footer, and side navigation and all of the views are broken out into their own files.</p>
-            <p>If you aren't using Ruby, there is also a set of plain HTML files for each page, just like you would expect.</p>
+            <h2>适合初夏吃的水果</h2>
+            <p>1.梨：有生津止渴、化痰清火、润肺去燥的功能，适宜肺热咳
+
+    嗽、大便燥结、高血压以及肝炎、肝硬化患者。2.香蕉：性甘寒，具有清热止渴、清胃凉血、润肠通便、降压利尿的功效。3.苹果：性平，味甘酸，具有补心养气、生津止渴、健脾胃作
+用。
+4.
+猕猴桃：具有解热、止渴等功效</p>
         </div>
     </div>
 </div>
@@ -275,22 +259,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <tbody>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> Mark Otto</p>
+                          <p><i class="icon-user"></i> 赵日天</p>
                       </td>
                       <td>
-                          <p>Amount: $1,247</p>
+                          <p>订单总价: $1,247</p>
                       </td>
                       <td>
-                          <p>Date: 7/19/2012</p>
+                          <p>Date: 7/19/2016</p>
                           <a href="#">View Transaction</a>
                       </td>
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> Audrey Ann</p>
+                          <p><i class="icon-user"></i> 叶良辰</p>
                       </td>
                       <td>
-                          <p>Amount: $2,793</p>
+                          <p>订单总价: $2,793</p>
                       </td>
                       <td>
                           <p>Date: 7/12/2012</p>
@@ -299,10 +283,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> Mark Tompson</p>
+                          <p><i class="icon-user"></i> 龙傲天</p>
                       </td>
                       <td>
-                          <p>Amount: $2,349</p>
+                          <p>订单总价: $2,349</p>
                       </td>
                       <td>
                           <p>Date: 3/10/2012</p>
@@ -311,10 +295,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </tr>
                   <tr>
                       <td>
-                          <p><i class="icon-user"></i> Ashley Jacobs</p>
+                          <p><i class="icon-user"></i> 福尔康</p>
                       </td>
                       <td>
-                          <p>Amount: $1,192</p>
+                          <p>订单总价: $1,192</p>
                       </td>
                       <td>
                           <p>Date: 1/19/2012</p>
@@ -327,12 +311,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
     <div class="block span6">
-        <p class="block-heading">Not Collapsible</p>
+        <p class="block-heading">水果小知识</p>
         <div class="block-body">
-            <h2>Built with Less</h2>
-            <p>The CSS is built with Less. There is a compiled version included if you prefer plain CSS.</p>
-            <p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+            <h2>香瓜的营养价值</h2>
+            <p>1.含大量碳水化合物及柠檬酸等，可消暑清热、生津解渴、除烦； 2.可将不溶性蛋白质转变成可溶性蛋白质，帮助肾脏病人吸收营养；3.瓜蒂中的葫芦素B能保护肝脏，减轻慢性肝损伤，但瓜蒂有毒，生食过量会中毒；4.有驱杀蛔虫，丝虫等作用；5.
+营养丰富，可补充人体所需的能量及营养素
+.</p>
         </div>
     </div>
 </div>
@@ -343,7 +327,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <hr>
 
                         
-                        <p class="pull-right">Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                        <p class="pull-right">Collect from <a href="http://www.cssmoban.com/" title="alex" target="_blank">alex</a></p>
 
                         <p>&copy; 2012 <a href="#" target="_blank">Portnine</a></p>
                     </footer>

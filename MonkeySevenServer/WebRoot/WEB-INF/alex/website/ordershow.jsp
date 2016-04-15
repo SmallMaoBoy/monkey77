@@ -122,20 +122,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>管理总览</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbi">Home主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">查看订单信息</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData">查看订单信息</a></li>
             <li ><a href="/MonkeySevenServer/kung/showcustomerdata">查看顾客信息</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showorderdata">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showorderdata_getAllData">更改订单状态</a></li>
             
+        
             
         </ul>
 
-        <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>账户管理<span class="label label-info">+3</span></a>
-        <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="sign-in.html">更换账户</a></li>
-            <li ><a href="#">查看个人信息</a></li>
-            <li ><a href="reset-password.html">修改密码</a></li>
-            <li ><a href="#">添加账户</a></li>
-        </ul>
+       
         
     </div>
     
@@ -205,14 +200,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </nav>
 </div>
 <div>
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="搜索订单内容...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Search!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+
 </div>
 
                     

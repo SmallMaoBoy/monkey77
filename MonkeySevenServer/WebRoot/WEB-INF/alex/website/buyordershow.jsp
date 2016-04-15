@@ -157,7 +157,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </li>
                     
                 </ul>
-                <a class="brand" href="index.html"><span class="first">猴七七</span> <span class="second">提取点店员管理系统</span></a>
+                <a class="brand" href="index.html"><span class="first">猴七七</span> <span class="second">采购员管理系统</span></a>
         </div>
     </div>
     
@@ -168,7 +168,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbuyer">主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">商品上下架</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">创建新商品</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">制定价格</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">管理商品数量</a></li>
             
@@ -177,31 +177,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>需求订单管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">需求订单管理</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">填入买入价格</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">买入所需商品</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showToday">今日订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showAll">历史订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_getBuyingData?index=0">查看未购买订单</a></li>
+            
             
         </ul>
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">新活动</a></li>
-            <li ><a href="404.html">已举行活动</a></li>
-            <li ><a href="500.html">活动列表</a></li>
-            <li ><a href="503.html">活动总览</a></li>
-        </ul>
 
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">商品分类</a></li>
-            <li ><a href="terms-and-conditions.html">商品信息</a></li>
-            <li ><a href="privacy-policy.html">商品一览</a></li>
-            
-        </ul>
-     
-       
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
         
     </div>
     
@@ -247,15 +230,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </table>
 </div>
 <div>
-<div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control" placeholder="搜索订单内容...">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Search!</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
-</div>
 
                     
                     <footer>

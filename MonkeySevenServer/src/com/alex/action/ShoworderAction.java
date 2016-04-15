@@ -19,6 +19,7 @@ public class ShoworderAction extends ActionSupport {
 		orderDao=(ITOrderDao)ac.getBean("OrderDao");
 		//System.out.println("userdao is initing...");
 	}
+	
 	public String getBuyingData() throws Exception {
 		 init();
 		 List ls  =orderDao.getOrderListByOrderStatus("待购买",index,num);

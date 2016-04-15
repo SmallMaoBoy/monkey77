@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>采购员管理系统</title>
+    <title>猴七七采购员管理系统</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,7 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/css/alex.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/font-awesome/css/font-awesome.css"/>
@@ -28,8 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script src="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/js/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/alexweb/alex/website/lib/lib/bootstrap/js/alex.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/alexweb/alex/website/lib/ajaxfileupload.js" type="text/javascript"></script>
-    <script src="${pageContext.request.contextPath}/alexweb/alex/website/lib/upload.js" type="text/javascript"></script>
+    
     
     
     <style type="text/css">
@@ -59,59 +57,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     
     
-
+    
+    
+    
+       
   </head>
   
-  <body class=""> 
+<body class=""> 
   <!--<![endif]-->
   
-  <!-- 修改商品价格的Modal  4-->
-<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">商品价格为：</h4>
+        <h4 class="modal-title" id="myModalLabel">更改订单状态</h4>
       </div>
       <div class="modal-body">
-       <input type="text" id="shuju4" />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary tijiao4">保存修改</button>
-      </div>
-    </div>
-  </div>
-</div>
-  
-  
-  <!-- 修改商品数量的Modal  5-->
-<div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">商品数量为：</h4>
-      </div>
-      <div class="modal-body">
-       <input type="text" id="shuju5" />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary tijiao5">保存修改</button>
-      </div>
-    </div>
-  </div>
-</div>
-  
-  
-  
-  
-  
-  
-  
+        <select id="shuju">  
+  			<option value ="待购买">待购买</option>  
+ 			<option value ="已送至提取点中">已送至提取点中</option>  
+  			<option value="已取消">已取消</option>  
     
-    <div class="navbar">
+         </select> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary tijiao">保存修改</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
+     <div class="navbar">
         <div class="navbar-inner">
                 <ul class="nav pull-right">
                     
@@ -143,7 +122,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbuyer">主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">创建新商品</a></li>
+            <li ><a href="/MonkeySevenServer/kung/createGoodAction_show">创建新商品</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">制定价格</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">管理商品数量</a></li>
             
@@ -152,44 +131,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-briefcase"></i>需求订单管理<span class="label label-info">+3</span></a>
         <ul id="accounts-menu" class="nav nav-list collapse">
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">需求订单管理</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">填入买入价格</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">买入所需商品</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata">更改订单状态</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showToday">今日订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_showAll">历史订单需求</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showbuyorderdata_getBuyingData?index=0">查看未购买订单</a></li>
+            
             
         </ul>
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">新活动</a></li>
-            <li ><a href="404.html">已举行活动</a></li>
-            <li ><a href="500.html">活动列表</a></li>
-            <li ><a href="503.html">活动总览</a></li>
-        </ul>
-
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">商品分类</a></li>
-            <li ><a href="terms-and-conditions.html">商品信息</a></li>
-            <li ><a href="privacy-policy.html">商品一览</a></li>
-            
-        </ul>
-     
        
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
         
     </div>
     
-<div class="content">
+    <div class="content">
         
         <div class="header">
             
-            <h1 class="page-title">上传照片</h1>
+            <h1 class="page-title">查看订单信息</h1>
         </div>
         
                 <ul class="breadcrumb">
             <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-            <li class="active">上传商品图片</li>
+            <li class="active">查看订单信息</li>
         </ul>
         <div>
 
@@ -197,43 +159,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="row-fluid">
                     <div class="panel panel-default">
   <!-- Default panel contents -->
+  <div class="panel-heading">订单</div>
 
+  <!-- Table -->
+  <table class="table">
+   <tr>
+   <td>订单号</td>
+   <td>订单状态</td>
+   <td>创建订单时间</td>
+   <td>订单总价格</td>
+   <td>支付方式</td>
+   <td>备注</td>
+</tr>
+<c:forEach items="${sessionScope.Order}" var="ord">
+<tr>
+   <td>${ord.orderNo}</td>
+   <td>${ord.status}</td>
+   <td>${ord.generatedTime}</td>
+   <td>${ord.totalPrice}</td>
+   <td>${ord.payWay}</td>
+   <td>${ord.remarks==""?"无":ord.remarks}</td>
+   <td><button type="button" class="btn btn-primary btn-sm cgorder" orderID="${ord.id}">
+  更改订单状态
+</button></td>
+</tr>
+</c:forEach>
+  </table>
 </div>
-<div class="form-group">
-    <label for="exampleInputFile">选择商品首页显示的图片</label>
-    <input type="file" name="file" id="file">
-    <button class="btn btn-default" type="submit"  onclick="FileUpload(${sessionScope.goodId});">上传</button><Br/>
-    <img src="" alt="" id="img" width="50%" height="50px" class="img-rounded">
+<div>
+<nav>
+  <ul class="pagination112">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
 </div>
-<div class="form-group">
-    <label for="exampleInputFile">选择商品轮播图的图片</label>
-    <input type="file" name="file" id="file1">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},1,2);">上传</button><Br/>
-    <input type="file" name="file" id="file2">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},2,2);">上传</button><Br/>
-    <input type="file" name="file" id="file3">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},3,2);">上传</button><Br/>
-    <input type="file" name="file" id="file4">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},4,2);">上传</button><Br/>
-    <img src="" alt="" id="img1" width="20%" height="50px" class="img-rounded">
-    <img src="" alt="" id="img2" width="20%" height="50px" class="img-rounded">
-    <img src="" alt="" id="img3" width="20%" height="50px" class="img-rounded">
-    <img src="" alt="" id="img4" width="20%" height="50px" class="img-rounded">
-</div>
-<div class="form-group">
-    <label for="exampleInputFile">选择商品介绍的图片</label>
-    <input type="file" name="file" id="file5">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},5,3);">上传</button><Br/>
-    <input type="file" name="file" id="file6">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},6,3);">上传</button><Br/>
-    <input type="file" name="file" id="file7">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},7,3);">上传</button><Br/>
-    <input type="file" name="file" id="file8">
-    <button class="btn btn-default" type="submit"  onclick="FileListUpload(${sessionScope.goodId},8,3);">上传</button><Br/>
-    <img src="" alt="" id="img5" width="20%" height="50px" class="img-thumbnail">
-    <img src="" alt="" id="img6" width="20%" height="50px" class="img-thumbnail">
-    <img src="" alt="" id="img7" width="20%" height="50px" class="img-thumbnail">
-    <img src="" alt="" id="img8" width="20%" height="50px" class="img-thumbnail">
+<div>
+
 </div>
 
                     
@@ -251,8 +226,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
 
-    
-
 
     
     <script type="text/javascript">
@@ -264,4 +237,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
   </body>
 </html>
-

@@ -66,6 +66,7 @@
 		<!-- 显示采购员订单数据 -->
 		<action name="showbuyorderdata_*" class="com.alex.action.ShowbuyorderAciton" method="{1}">
 		    <result name="success">/WEB-INF/alex/website/buyordershow.jsp</result>
+		    <result name="success123">/WEB-INF/alex/website/buyorder.jsp</result>
 		</action>
 		<!-- 修改采购员订单状态 -->
 		<action name="changebuyorderstatus" class="com.alex.action.ChangeBuyOrderStAciton">

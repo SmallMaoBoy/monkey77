@@ -142,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <a href="#dashboard-menu" class="nav-header" data-toggle="collapse"><i class="icon-dashboard"></i>商品管理</a>
         <ul id="dashboard-menu" class="nav nav-list collapse in">
             <li><a href="/MonkeySevenServer/kung/backbuyer">主页</a></li>
-            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">商品上下架</a></li>
+            <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">创建新商品</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">制定价格</a></li>
             <li ><a href="/MonkeySevenServer/kung/showgooddata?firstIndex=0&num=5">管理商品数量</a></li>
             
@@ -158,24 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             
         </ul>
 
-        <a href="#error-menu" class="nav-header collapsed" data-toggle="collapse"><i class="icon-exclamation-sign"></i>制定秒杀商品活动<i class="icon-chevron-up"></i></a>
-        <ul id="error-menu" class="nav nav-list collapse">
-            <li ><a href="403.html">新活动</a></li>
-            <li ><a href="404.html">已举行活动</a></li>
-            <li ><a href="500.html">活动列表</a></li>
-            <li ><a href="503.html">活动总览</a></li>
-        </ul>
-
-        <a href="#legal-menu" class="nav-header" data-toggle="collapse"><i class="icon-legal"></i>管理商品分类信息</a>
-        <ul id="legal-menu" class="nav nav-list collapse">
-            <li ><a href="privacy-policy.html">商品分类</a></li>
-            <li ><a href="terms-and-conditions.html">商品信息</a></li>
-            <li ><a href="privacy-policy.html">商品一览</a></li>
-            
-        </ul>
-     
-       
-        <a href="help.html" class="nav-header" ><i class="icon-question-sign"></i>帮助</a>
+        
         
     </div>
     
