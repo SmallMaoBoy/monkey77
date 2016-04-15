@@ -37,6 +37,8 @@ $(document).ready(function(e) {
     
 });
 
+
+
 //修改采购员订单商品种类的模态框
 $(document).ready(function(e) {
 	var currentGood;
