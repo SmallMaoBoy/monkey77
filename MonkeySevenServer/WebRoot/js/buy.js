@@ -8,7 +8,7 @@ $(document).ready(function() {
 	}
 	
 	var id=GetQueryString("id");
-	getGoodById(1);
+	getGoodById(id);
 	function getGoodById(id){
 		$.ajax({
 			type : 'post',
@@ -21,20 +21,28 @@ $(document).ready(function() {
 				var productPic=data.productPic;
 				var good=data.good;
 				$("#change_img").empty();
-				$("#change_img").append(
-						'<li data-thumb="'+productPic[0].picUrl+'">'+
-						'<img src="'+productPic[0].picUrl+' ">'+
-						'</li>'+
-						'<li data-thumb="'+productPic[1].picUrl+'">'+
-						'<img src="'+productPic[1].picUrl+' ">'+
-						'</li>'+
-						'<li data-thumb="'+productPic[2].picUrl+'">'+
-						'<img src="'+productPic[2].picUrl+' ">'+
-						'</li>'+
-						'<li data-thumb="'+productPic[3].picUrl+'">'+
-						'<img src="'+productPic[3].picUrl+' ">'+
-						'</li>'	
-				);
+				$("#detailimg").empty();
+				for(var i=0;i<productPic.length;i++){
+					if(productPic[i].type==0){
+						$("#change_img").append(
+								'<li data-thumb="'+productPic[i].picUrl+'">'+
+								'<img src="'+productPic[i].picUrl+'">'+
+								'</li>'
+						);
+					}else{
+						$("#detailimg").append(
+								'<img width="100%" src="'+productPic[i].picUrl+'"/>'
+						);
+					}
+				}
+			    $(".flexslider").flexslider();
+			    $("#good_name").text(good.name);
+			    $("#good_place").text(good.originPlace);
+			    $("#sum_price1").text((good.price+0.99).toFixed(2));
+			    $("#sum_price2").val(good.price);
+			    $("#specification").text(good.specification);
+			    $("#status").text(good.status);
+			    $("#title").text(good.title);
 				}
 				});
 		}
