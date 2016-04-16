@@ -151,18 +151,31 @@ public class TestImageCompress {
 	}
 
 	public static void main(String args[]) throws Exception {
-	        File file = new File("WebRoot/imgs");
-	        if (file.exists()) {
-	            File[] files = file.listFiles();
-	            for (File file2 : files) {
-	                if (file2.isDirectory()) {
-	                    System.out.println("文件夹:" + file2.getAbsolutePath());
-	                } else {
-	                    System.out.println("文件:" + file2.getAbsolutePath());
-	                    TestImageCompress.saveMinPhoto(file2.getAbsolutePath(), "WebRoot/mobile/"+file2.getName(), 139, 0.9d);
-	                }
-	            }
-	        }
+	        File file = new File("WebRoot/upload");
+	        System.out.println(file);
+	        getFile(file);
 		//TestImageCompress.saveMinPhoto("WebRoot/imgs/small.jpg", "WebRoot/mobile/small.jpg", 139, 0.9d);
+	}
+	
+	public static void getFile(File old){
+		File[] list=old.listFiles();
+		for(int i=0;i<list.length;i++){
+			if(list[i].isDirectory()){
+				getFile(list[i]);
+			}else{
+				try {
+					String path="WebRoot/mobile/"+list[i].getParentFile().getParentFile().getName()+"/"+list[i].getParentFile().getName();
+					File file=new File(path);
+					if(!file.exists()){
+						file.mkdirs();
+					}
+					TestImageCompress.saveMinPhoto(list[i].getAbsolutePath(),path+"/"+list[i].getName() , 139, 0.9d);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
 	}
 }
